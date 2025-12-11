@@ -1,4 +1,4 @@
-{	
+{
   "ProductCategory": "Laptops & Notebooks",
   "productName": "HP LP3065",
   "brand": "Hewlett-Packard",
@@ -9,5 +9,14 @@
   "currency": "$",
   "exTax": 100.00,
   "priceInRewardPoints": 400,
-  "productDescription": "Stop your co-workers in their tracks with the stunning new 30-inch diagonal HP LP3065 Flat Panel Monitor. This flagship monitor features best-in-class performance and presentation features on a huge wide-aspect screen while letting you work as comfortably as possible - you might even forget you're at the office"
+  "productDescription": "Stop your co-workers in their tracks with the stunning new 30-inch diagonal HP LP3065 Flat Panel Monitor. This flagship monitor features best-in-class performance and presentation features on a huge wide-aspect screen while letting you work as comfortably as possible - you might even forget you're at the office",
+  
+  "deliveryDay": "18",
+  "deliveryMonth": "January",
+  "deliveryYear": "2026",
+  "deliveryDate": "2026-01-18",
+
+  "country": "India",
+  "region": "Tamil Nadu",
+  "zipcode": "600001"
 }

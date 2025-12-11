@@ -1,7 +1,6 @@
 package com.framework.tests;
 
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
 import com.framework.base.BaseClass;
 import com.framework.driver.DriverManager;
@@ -13,12 +12,10 @@ import com.framework.pages.ProductDetailsPage;
 import com.framework.pages.SearchPage;
 import com.framework.utils.JsonDataReader;
 
+public class TC00_PurchaseProductTest extends BaseClass {
 
-public class TC006_CartPageTest extends BaseClass{
-	
-	@Test(groups="Functional")
-	public void verifyCart() throws Exception {
-		logger.info("===== TC006 CartPage Test started =====");
+	public void searchProductAddToCartAndCheckout() throws Exception {
+		logger.info("===== TC00 Purchase Product Test started =====");
 		try {
 			HomePage homepage = new HomePage(DriverManager.getDriver());
 
@@ -86,22 +83,20 @@ public class TC006_CartPageTest extends BaseClass{
 			product.getDisplayedPrice();
 			Assert.assertEquals(product.getDisplayedPrice(), searchData.price);
 
-			logger.info("selecting delivery date {}:", searchData.deliveryMonth, searchData.deliveryYear, searchData.deliveryDay);
+			logger.info("selecting delivery date {}:", searchData.deliveryMonth, searchData.deliveryYear,
+					searchData.deliveryDay);
 
 			product.selectDeliveryDate(searchData.deliveryMonth, searchData.deliveryYear, searchData.deliveryDay);
 
 			logger.info("Clicling on add to cart button");
 			product.addProductToCart();
-			
-			
+
 			CartPage cart = new CartPage(DriverManager.getDriver());
-			
+
 			logger.info("Clicling on Cart headrer at the top");
 			cart.clickOnCartHeader();
-			
-			
-			
-			
+
+			cart.getShippingTaxEstimation(propertyfilePath, jsonPath, excelPath);
 
 		} catch (Exception e) {
 
@@ -113,6 +108,7 @@ public class TC006_CartPageTest extends BaseClass{
 		} finally {
 			logger.info("===== TC006 CartPage Test Completed Successfully =====");
 		}
-	
+
 	}
+
 }

@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 import com.framework.base.BaseClass;
 import com.framework.driver.DriverManager;
 import com.framework.model.ProductData;
-import com.framework.pages.CartPage;
 import com.framework.pages.HomePage;
 import com.framework.pages.LoginPage;
 import com.framework.pages.ProductDetailsPage;
@@ -89,16 +88,13 @@ public class TC005_ProductDetailsTest extends BaseClass {
 			product.getDisplayedPrice();
 			Assert.assertEquals(product.getDisplayedPrice(), searchData.price);
 
-			logger.info("selecting delivery date {}:", prop.getProperty("expected.month"),
-					prop.getProperty("expected.year"), prop.getProperty("expected.day"));
+			logger.info("selecting delivery date {}:", searchData.deliveryMonth, searchData.deliveryYear,
+					searchData.deliveryDay);
 
-			product.selectDeliveryDate(prop.getProperty("expected.month"), prop.getProperty("expected.year"),
-					prop.getProperty("expected.day"));
+			product.selectDeliveryDate(searchData.deliveryMonth, searchData.deliveryYear, searchData.deliveryDay);
 
 			logger.info("Clicling on add to cart button");
 			product.addProductToCart();
-			
-			
 
 		} catch (Exception e) {
 
