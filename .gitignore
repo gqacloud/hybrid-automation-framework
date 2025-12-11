@@ -1,0 +1,63 @@
+###############################
+## Eclipse Files
+###############################
+.project
+.classpath
+.settings/
+bin/
+.metadata/
+
+###############################
+## Java / Maven
+###############################
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+
+###############################
+## Logs
+###############################
+*.log
+logs/
+log/
+test-output/
+output/
+reports/
+
+###############################
+## Screenshots / Reports
+###############################
+screenshots/
+screenshots/*
+reports/*
+*.png
+*.jpg
+
+###############################
+## OS Files
+###############################
+Thumbs.db
+.DS_Store
+
+###############################
+## IDE Files (IntelliJ, VSCode if used later)
+###############################
+.idea/
+*.iml
+.vscode/
+
+###############################
+## Java Generated Files
+###############################
+*.class
+
+###############################
+## Misc
+###############################
+*.tmp
+*.swp
+*.bak
