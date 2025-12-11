@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Surefire suite]" verbose="0">
+  <test thread-count="5" name="Surefire test(failed)" verbose="0">
+    <classes>
+      <class name="com.framework.tests.TC002_LoginTest">
+        <methods>
+          <include name="verifyLogin"/>
+          <include name="teardown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.framework.tests.TC002_LoginTest -->
+      <class name="com.framework.tests.TC001_RegisterAccountTest">
+        <methods>
+          <include name="verifyAccountRegisteration"/>
+          <include name="teardown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.framework.tests.TC001_RegisterAccountTest -->
+      <class name="com.framework.tests.TC003_LoginDDTest">
+        <methods>
+          <include name="teardown"/>
+          <include name="setup"/>
+          <include name="verify_loginDDTest"/>
+        </methods>
+      </class> <!-- com.framework.tests.TC003_LoginDDTest -->
+    </classes>
+  </test> <!-- Surefire test(failed) -->
+</suite> <!-- Failed suite [Surefire suite] -->

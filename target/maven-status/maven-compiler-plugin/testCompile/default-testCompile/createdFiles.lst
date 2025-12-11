@@ -1,0 +1,3 @@
+com\framework\tests\TC001_RegisterAccountTest.class
+com\framework\tests\TC002_LoginTest.class
+com\framework\tests\TC003_LoginDDTest.class

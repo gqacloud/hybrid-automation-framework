@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<listeners>
+		<listener class-name="com.framework.utils.ExtentReportUtils" />
+	</listeners>
+	<test thread-count="5" name="Test">
+		<parameter name="os" value="WIN10"></parameter>
+		<parameter name="browser" value="edge"></parameter>
+		<classes>
+		<!--	<class name="com.framework.tests.TC001_RegisterAccountTest"/> 
+			<class name="com.framework.tests.TC002_LoginTest" /> 
+			 <class name="com.framework.tests.TC003_LoginDDTest"/>
+			<class name="com.framework.tests.TC004_SearchProductTest"/>  
+			<class name="com.framework.tests.TC005_ProductDetailsTest" /> -->
+			<class name="com.framework.tests.TC006_CartPageTest"/>
+			
+			
+		</classes>
+	</test> <!--
+	Test -->
+</suite> <!--
+Suite -->

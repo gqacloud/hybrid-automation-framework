@@ -1,0 +1,795 @@
+2025-12-10 00:36:10,837 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 00:36:11,195 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 00:36:11,492 INFO  com.framework.tests.TC001_RegisterAccountTest - Execution Environment: local
+2025-12-10 00:36:11,492 INFO  com.framework.tests.TC001_RegisterAccountTest - Browser: edge
+2025-12-10 00:36:11,492 INFO  com.framework.tests.TC001_RegisterAccountTest - OS: WIN10
+2025-12-10 00:36:11,495 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 00:36:15,589 INFO  com.framework.tests.TC001_RegisterAccountTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 00:36:15,658 INFO  com.framework.tests.TC001_RegisterAccountTest - ===== Starting Register Account Test =====
+2025-12-10 00:36:15,779 INFO  com.framework.tests.TC001_RegisterAccountTest - Navigating to My Account
+2025-12-10 00:36:16,030 INFO  com.framework.tests.TC001_RegisterAccountTest - Clicking on Register
+2025-12-10 00:36:16,600 INFO  com.framework.tests.TC001_RegisterAccountTest - Entering First Name: AJFYELP
+2025-12-10 00:36:16,600 INFO  com.framework.pages.RegisterAccount - Entering First Name: AJFYELP
+2025-12-10 00:36:16,800 INFO  com.framework.tests.TC001_RegisterAccountTest - Entering Last Name: CIQTESQ
+2025-12-10 00:36:16,800 INFO  com.framework.pages.RegisterAccount - Entering Last Name: CIQTESQ
+2025-12-10 00:36:16,997 INFO  com.framework.tests.TC001_RegisterAccountTest - Entering Email: nU6VRdPOg@gmail.com
+2025-12-10 00:36:16,998 INFO  com.framework.pages.RegisterAccount - Entering Email: nU6VRdPOg@gmail.com
+2025-12-10 00:36:17,168 INFO  com.framework.tests.TC001_RegisterAccountTest - Entering Phone: 2459028420
+2025-12-10 00:36:17,168 INFO  com.framework.pages.RegisterAccount - Entering Phone Number: 2459028420
+2025-12-10 00:36:17,306 DEBUG com.framework.tests.TC001_RegisterAccountTest - Generated Password: LXDOhQvR6
+2025-12-10 00:36:17,306 INFO  com.framework.pages.RegisterAccount - Entering Password
+2025-12-10 00:36:17,448 INFO  com.framework.pages.RegisterAccount - Entering Confirm Password
+2025-12-10 00:36:17,597 INFO  com.framework.tests.TC001_RegisterAccountTest - Accepting privacy policy
+2025-12-10 00:36:17,597 INFO  com.framework.pages.RegisterAccount - Accepting Privacy Policy
+2025-12-10 00:36:17,710 INFO  com.framework.tests.TC001_RegisterAccountTest - Clicking on Continue button
+2025-12-10 00:36:17,710 INFO  com.framework.pages.RegisterAccount - Clicking on Continue button
+2025-12-10 00:36:18,606 INFO  com.framework.pages.RegisterAccount - Continue button clicked
+2025-12-10 00:36:18,610 INFO  com.framework.pages.RegisterAccount - Fetching confirmation message
+2025-12-10 00:36:18,668 INFO  com.framework.pages.RegisterAccount - Registration success message: Your Account Has Been Created!
+2025-12-10 00:36:18,668 INFO  com.framework.tests.TC001_RegisterAccountTest - Confirmation Message Received: Your Account Has Been Created!
+2025-12-10 00:36:18,671 INFO  com.framework.tests.TC001_RegisterAccountTest - Account creation test PASSED
+2025-12-10 00:36:18,671 INFO  com.framework.tests.TC001_RegisterAccountTest - ===== Register Account Test Completed =====
+2025-12-10 00:36:18,697 INFO  com.framework.tests.TC001_RegisterAccountTest - Closing WebDriver
+2025-12-10 00:36:18,930 INFO  com.framework.tests.TC002_LoginTest - Execution Environment: local
+2025-12-10 00:36:18,930 INFO  com.framework.tests.TC002_LoginTest - Browser: edge
+2025-12-10 00:36:18,930 INFO  com.framework.tests.TC002_LoginTest - OS: WIN10
+2025-12-10 00:36:18,930 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 00:36:21,063 INFO  com.framework.tests.TC002_LoginTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 00:36:21,065 INFO  com.framework.tests.TC002_LoginTest - ===== Starting Login Test =====
+2025-12-10 00:36:21,067 INFO  com.framework.tests.TC002_LoginTest - Navigating to My Account
+2025-12-10 00:36:21,315 INFO  com.framework.tests.TC002_LoginTest - Clicking on login
+2025-12-10 00:36:21,723 INFO  com.framework.tests.TC002_LoginTest - Entering UserEmail: piwene6598@badfist.com
+2025-12-10 00:36:21,925 INFO  com.framework.tests.TC002_LoginTest - Entering UserEmail: Qaz@123
+2025-12-10 00:36:22,076 INFO  com.framework.tests.TC002_LoginTest - Clicking on login button
+2025-12-10 00:36:22,208 INFO  com.framework.tests.TC002_LoginTest - Checking if target page found!
+2025-12-10 00:36:22,208 INFO  com.framework.pages.MyAccountPage - Validating the presence of 'My Account' message.
+2025-12-10 00:36:23,019 INFO  com.framework.pages.MyAccountPage - 'My Account' message is displayed successfully.
+2025-12-10 00:36:23,019 INFO  com.framework.tests.TC002_LoginTest - ===== Login Test Completed =====
+2025-12-10 00:36:23,022 INFO  com.framework.tests.TC002_LoginTest - Closing WebDriver
+2025-12-10 00:36:23,182 INFO  com.framework.tests.TC004_SearchProductTest - Execution Environment: local
+2025-12-10 00:36:23,182 INFO  com.framework.tests.TC004_SearchProductTest - Browser: edge
+2025-12-10 00:36:23,183 INFO  com.framework.tests.TC004_SearchProductTest - OS: WIN10
+2025-12-10 00:36:23,183 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 00:36:25,312 INFO  com.framework.tests.TC004_SearchProductTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 00:36:25,315 INFO  com.framework.tests.TC004_SearchProductTest - ===== TC004 Search Product Test Started =====
+2025-12-10 00:36:25,315 INFO  com.framework.tests.TC004_SearchProductTest - Navigating to My Account
+2025-12-10 00:36:25,483 INFO  com.framework.tests.TC004_SearchProductTest - Clicking on Login
+2025-12-10 00:36:25,801 INFO  com.framework.tests.TC004_SearchProductTest - Entering email: piwene6598@badfist.com
+2025-12-10 00:36:26,023 INFO  com.framework.tests.TC004_SearchProductTest - Entering password
+2025-12-10 00:36:26,210 INFO  com.framework.tests.TC004_SearchProductTest - Clicking on Login button
+2025-12-10 00:36:27,463 INFO  com.framework.tests.TC004_SearchProductTest - Entering product to search: HP LP3065
+2025-12-10 00:36:27,660 INFO  com.framework.tests.TC004_SearchProductTest - Clicking on Search button
+2025-12-10 00:36:28,342 INFO  com.framework.tests.TC004_SearchProductTest - Selecting category:Laptops & Notebooks
+2025-12-10 00:36:28,689 INFO  com.framework.tests.TC004_SearchProductTest - Selecting 'Search in product descriptions'
+2025-12-10 00:36:28,813 INFO  com.framework.tests.TC004_SearchProductTest - Clicking inner Search button
+2025-12-10 00:36:29,120 INFO  com.framework.tests.TC004_SearchProductTest - Getting and validating the product name: HP LP3065
+2025-12-10 00:36:29,210 INFO  com.framework.tests.TC004_SearchProductTest - ===== TC004 Search Product Test Completed Successfully =====
+2025-12-10 00:36:29,212 INFO  com.framework.tests.TC004_SearchProductTest - Closing WebDriver
+2025-12-10 00:36:47,810 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 00:36:48,293 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 00:36:48,694 INFO  com.framework.tests.TC001_RegisterAccountTest - Execution Environment: local
+2025-12-10 00:36:48,694 INFO  com.framework.tests.TC001_RegisterAccountTest - Browser: edge
+2025-12-10 00:36:48,694 INFO  com.framework.tests.TC001_RegisterAccountTest - OS: WIN10
+2025-12-10 00:36:48,696 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 00:36:53,155 INFO  com.framework.tests.TC001_RegisterAccountTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 00:36:53,181 INFO  com.framework.tests.TC001_RegisterAccountTest - ===== Starting Register Account Test =====
+2025-12-10 00:36:53,209 INFO  com.framework.tests.TC001_RegisterAccountTest - Navigating to My Account
+2025-12-10 00:36:53,484 INFO  com.framework.tests.TC001_RegisterAccountTest - Clicking on Register
+2025-12-10 00:36:54,056 INFO  com.framework.tests.TC001_RegisterAccountTest - Entering First Name: RITNKBC
+2025-12-10 00:36:54,057 INFO  com.framework.pages.RegisterAccount - Entering First Name: RITNKBC
+2025-12-10 00:36:54,316 INFO  com.framework.tests.TC001_RegisterAccountTest - Entering Last Name: LJFDXXG
+2025-12-10 00:36:54,316 INFO  com.framework.pages.RegisterAccount - Entering Last Name: LJFDXXG
+2025-12-10 00:36:54,520 INFO  com.framework.tests.TC001_RegisterAccountTest - Entering Email: UoNErOL4F@gmail.com
+2025-12-10 00:36:54,520 INFO  com.framework.pages.RegisterAccount - Entering Email: UoNErOL4F@gmail.com
+2025-12-10 00:36:54,938 INFO  com.framework.tests.TC001_RegisterAccountTest - Entering Phone: 6651548560
+2025-12-10 00:36:54,938 INFO  com.framework.pages.RegisterAccount - Entering Phone Number: 6651548560
+2025-12-10 00:36:55,156 DEBUG com.framework.tests.TC001_RegisterAccountTest - Generated Password: VWsl48KLB
+2025-12-10 00:36:55,156 INFO  com.framework.pages.RegisterAccount - Entering Password
+2025-12-10 00:36:55,350 INFO  com.framework.pages.RegisterAccount - Entering Confirm Password
+2025-12-10 00:36:55,538 INFO  com.framework.tests.TC001_RegisterAccountTest - Accepting privacy policy
+2025-12-10 00:36:55,538 INFO  com.framework.pages.RegisterAccount - Accepting Privacy Policy
+2025-12-10 00:36:55,715 INFO  com.framework.tests.TC001_RegisterAccountTest - Clicking on Continue button
+2025-12-10 00:36:55,715 INFO  com.framework.pages.RegisterAccount - Clicking on Continue button
+2025-12-10 00:36:56,650 INFO  com.framework.pages.RegisterAccount - Continue button clicked
+2025-12-10 00:36:56,654 INFO  com.framework.pages.RegisterAccount - Fetching confirmation message
+2025-12-10 00:36:56,722 INFO  com.framework.pages.RegisterAccount - Registration success message: Your Account Has Been Created!
+2025-12-10 00:36:56,722 INFO  com.framework.tests.TC001_RegisterAccountTest - Confirmation Message Received: Your Account Has Been Created!
+2025-12-10 00:36:56,725 INFO  com.framework.tests.TC001_RegisterAccountTest - Account creation test PASSED
+2025-12-10 00:36:56,725 INFO  com.framework.tests.TC001_RegisterAccountTest - ===== Register Account Test Completed =====
+2025-12-10 00:36:56,751 INFO  com.framework.tests.TC001_RegisterAccountTest - Closing WebDriver
+2025-12-10 00:36:57,349 INFO  com.framework.tests.TC002_LoginTest - Execution Environment: local
+2025-12-10 00:36:57,349 INFO  com.framework.tests.TC002_LoginTest - Browser: edge
+2025-12-10 00:36:57,349 INFO  com.framework.tests.TC002_LoginTest - OS: WIN10
+2025-12-10 00:36:57,349 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 00:37:00,436 INFO  com.framework.tests.TC002_LoginTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 00:37:00,440 INFO  com.framework.tests.TC002_LoginTest - ===== Starting Login Test =====
+2025-12-10 00:37:00,442 INFO  com.framework.tests.TC002_LoginTest - Navigating to My Account
+2025-12-10 00:37:00,731 INFO  com.framework.tests.TC002_LoginTest - Clicking on login
+2025-12-10 00:37:01,097 INFO  com.framework.tests.TC002_LoginTest - Entering UserEmail: piwene6598@badfist.com
+2025-12-10 00:37:01,320 INFO  com.framework.tests.TC002_LoginTest - Entering UserEmail: Qaz@123
+2025-12-10 00:37:01,488 INFO  com.framework.tests.TC002_LoginTest - Clicking on login button
+2025-12-10 00:37:02,343 INFO  com.framework.tests.TC002_LoginTest - Checking if target page found!
+2025-12-10 00:37:02,344 INFO  com.framework.pages.MyAccountPage - Validating the presence of 'My Account' message.
+2025-12-10 00:37:02,393 INFO  com.framework.pages.MyAccountPage - 'My Account' message is displayed successfully.
+2025-12-10 00:37:02,393 INFO  com.framework.tests.TC002_LoginTest - ===== Login Test Completed =====
+2025-12-10 00:37:02,398 INFO  com.framework.tests.TC002_LoginTest - Closing WebDriver
+2025-12-10 00:37:03,015 INFO  com.framework.tests.TC004_SearchProductTest - Execution Environment: local
+2025-12-10 00:37:03,015 INFO  com.framework.tests.TC004_SearchProductTest - Browser: edge
+2025-12-10 00:37:03,015 INFO  com.framework.tests.TC004_SearchProductTest - OS: WIN10
+2025-12-10 00:37:03,015 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 00:37:06,339 INFO  com.framework.tests.TC004_SearchProductTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 00:37:06,344 INFO  com.framework.tests.TC004_SearchProductTest - ===== TC004 Search Product Test Started =====
+2025-12-10 00:37:06,345 INFO  com.framework.tests.TC004_SearchProductTest - Navigating to My Account
+2025-12-10 00:37:06,923 INFO  com.framework.tests.TC004_SearchProductTest - Clicking on Login
+2025-12-10 00:37:07,471 INFO  com.framework.tests.TC004_SearchProductTest - Entering email: piwene6598@badfist.com
+2025-12-10 00:37:08,108 INFO  com.framework.tests.TC004_SearchProductTest - Entering password
+2025-12-10 00:37:08,334 INFO  com.framework.tests.TC004_SearchProductTest - Clicking on Login button
+2025-12-10 00:37:09,331 INFO  com.framework.tests.TC004_SearchProductTest - Entering product to search: HP LP3065
+2025-12-10 00:37:09,533 INFO  com.framework.tests.TC004_SearchProductTest - Clicking on Search button
+2025-12-10 00:37:09,973 INFO  com.framework.tests.TC004_SearchProductTest - Selecting category:Laptops & Notebooks
+2025-12-10 00:37:10,481 INFO  com.framework.tests.TC004_SearchProductTest - Selecting 'Search in product descriptions'
+2025-12-10 00:37:10,673 INFO  com.framework.tests.TC004_SearchProductTest - Clicking inner Search button
+2025-12-10 00:37:11,079 INFO  com.framework.tests.TC004_SearchProductTest - Getting and validating the product name: HP LP3065
+2025-12-10 00:37:11,207 INFO  com.framework.tests.TC004_SearchProductTest - ===== TC004 Search Product Test Completed Successfully =====
+2025-12-10 00:37:11,211 INFO  com.framework.tests.TC004_SearchProductTest - Closing WebDriver
+2025-12-10 02:22:43,107 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 02:22:43,379 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 02:22:43,628 INFO  com.framework.tests.TC005_ProductDetailsTest - Execution Environment: local
+2025-12-10 02:22:43,628 INFO  com.framework.tests.TC005_ProductDetailsTest - Browser: edge
+2025-12-10 02:22:43,628 INFO  com.framework.tests.TC005_ProductDetailsTest - OS: WIN10
+2025-12-10 02:22:43,632 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 02:23:06,057 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 02:23:06,086 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test started =====
+2025-12-10 02:23:06,109 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigating to My Account
+2025-12-10 02:23:06,306 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login
+2025-12-10 02:23:07,168 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering email: piwene6598@badfist.com
+2025-12-10 02:23:07,406 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering password
+2025-12-10 02:23:07,564 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login button
+2025-12-10 02:23:07,777 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering product to search: HP LP3065
+2025-12-10 02:23:10,315 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Search button
+2025-12-10 02:23:11,510 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting category:Laptops & Notebooks
+2025-12-10 02:23:11,867 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting 'Search in product descriptions'
+2025-12-10 02:23:11,990 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking inner Search button
+2025-12-10 02:23:14,244 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Name: HP LP3065
+2025-12-10 02:23:14,331 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Brand: Hewlett-Packard
+2025-12-10 02:23:14,412 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: Product 21
+2025-12-10 02:23:14,499 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test Completed Successfully =====
+2025-12-10 02:23:14,661 INFO  com.framework.tests.TC005_ProductDetailsTest - Closing WebDriver
+2025-12-10 02:40:13,282 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 02:40:13,552 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 02:40:13,790 INFO  com.framework.tests.TC005_ProductDetailsTest - Execution Environment: local
+2025-12-10 02:40:13,790 INFO  com.framework.tests.TC005_ProductDetailsTest - Browser: edge
+2025-12-10 02:40:13,790 INFO  com.framework.tests.TC005_ProductDetailsTest - OS: WIN10
+2025-12-10 02:40:13,792 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 02:40:18,391 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 02:40:18,419 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test started =====
+2025-12-10 02:40:18,445 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigating to My Account
+2025-12-10 02:40:18,652 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login
+2025-12-10 02:40:19,022 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering email: piwene6598@badfist.com
+2025-12-10 02:40:19,239 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering password
+2025-12-10 02:40:19,396 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login button
+2025-12-10 02:40:19,634 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering product to search: HP LP3065
+2025-12-10 02:40:20,531 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Search button
+2025-12-10 02:40:20,949 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting category:Laptops & Notebooks
+2025-12-10 02:40:21,290 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting 'Search in product descriptions'
+2025-12-10 02:40:21,444 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking inner Search button
+2025-12-10 02:40:22,708 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Name: HP LP3065
+2025-12-10 02:40:22,798 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Brand: Hewlett-Packard
+2025-12-10 02:40:22,888 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: Product 21
+2025-12-10 02:40:22,978 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: In Stock
+2025-12-10 02:40:23,070 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test Completed Successfully =====
+2025-12-10 02:40:23,211 INFO  com.framework.tests.TC005_ProductDetailsTest - Closing WebDriver
+2025-12-10 02:42:28,820 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 02:42:29,083 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 02:42:29,345 INFO  com.framework.tests.TC005_ProductDetailsTest - Execution Environment: local
+2025-12-10 02:42:29,346 INFO  com.framework.tests.TC005_ProductDetailsTest - Browser: edge
+2025-12-10 02:42:29,346 INFO  com.framework.tests.TC005_ProductDetailsTest - OS: WIN10
+2025-12-10 02:42:29,347 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 02:42:34,206 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 02:42:34,235 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test started =====
+2025-12-10 02:42:34,257 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigating to My Account
+2025-12-10 02:42:34,506 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login
+2025-12-10 02:42:34,865 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering email: piwene6598@badfist.com
+2025-12-10 02:42:35,109 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering password
+2025-12-10 02:42:35,290 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login button
+2025-12-10 02:42:35,544 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering product to search: HP LP3065
+2025-12-10 02:42:36,348 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Search button
+2025-12-10 02:42:36,719 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting category:Laptops & Notebooks
+2025-12-10 02:42:37,066 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting 'Search in product descriptions'
+2025-12-10 02:42:37,203 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking inner Search button
+2025-12-10 02:42:38,443 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Name: HP LP3065
+2025-12-10 02:42:38,556 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Brand: Hewlett-Packard
+2025-12-10 02:42:38,646 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: Product 21
+2025-12-10 02:42:38,739 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: In Stock
+2025-12-10 02:42:38,832 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test Completed Successfully =====
+2025-12-10 02:42:38,996 INFO  com.framework.tests.TC005_ProductDetailsTest - Closing WebDriver
+2025-12-10 02:44:07,867 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 02:44:08,356 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 02:44:08,784 INFO  com.framework.tests.TC005_ProductDetailsTest - Execution Environment: local
+2025-12-10 02:44:08,784 INFO  com.framework.tests.TC005_ProductDetailsTest - Browser: edge
+2025-12-10 02:44:08,784 INFO  com.framework.tests.TC005_ProductDetailsTest - OS: WIN10
+2025-12-10 02:44:08,787 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 02:44:13,404 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 02:44:13,461 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test started =====
+2025-12-10 02:44:13,493 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigating to My Account
+2025-12-10 02:44:18,744 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login
+2025-12-10 02:44:19,209 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering email: piwene6598@badfist.com
+2025-12-10 02:44:19,507 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering password
+2025-12-10 02:44:19,744 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login button
+2025-12-10 02:44:20,060 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering product to search: HP LP3065
+2025-12-10 02:44:20,919 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Search button
+2025-12-10 02:44:21,527 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting category:Laptops & Notebooks
+2025-12-10 02:44:21,956 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting 'Search in product descriptions'
+2025-12-10 02:44:22,138 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking inner Search button
+2025-12-10 02:44:23,852 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Name: HP LP3065
+2025-12-10 02:44:23,942 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Brand: Hewlett-Packard
+2025-12-10 02:44:24,031 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: Product 21
+2025-12-10 02:44:24,122 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: In Stock
+2025-12-10 02:44:24,209 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Price: 100.0
+2025-12-10 02:44:24,260 ERROR com.framework.tests.TC005_ProductDetailsTest - Unexpected Exception Occurred During Test Execution
+java.lang.NumberFormatException: For input string: "$100.00"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Integer.parseInt(Integer.java:565)
+	at java.base/java.lang.Integer.parseInt(Integer.java:662)
+	at com.framework.pages.ProductDetailsPage.getProductPrice(ProductDetailsPage.java:50)
+	at com.framework.tests.TC005_ProductDetailsTest.verifyProductDetails(TC005_ProductDetailsTest.java:85)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+2025-12-10 02:44:24,261 ERROR com.framework.tests.TC005_ProductDetailsTest - Test FAILED due to an unhandled exception.
+2025-12-10 02:44:24,261 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test Completed Successfully =====
+2025-12-10 02:44:24,414 INFO  com.framework.tests.TC005_ProductDetailsTest - Closing WebDriver
+2025-12-10 03:13:57,978 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 03:13:58,251 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 03:13:58,494 INFO  com.framework.tests.TC005_ProductDetailsTest - Execution Environment: local
+2025-12-10 03:13:58,494 INFO  com.framework.tests.TC005_ProductDetailsTest - Browser: edge
+2025-12-10 03:13:58,494 INFO  com.framework.tests.TC005_ProductDetailsTest - OS: WIN10
+2025-12-10 03:13:58,496 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 03:14:03,049 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 03:14:03,079 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test started =====
+2025-12-10 03:14:03,103 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigating to My Account
+2025-12-10 03:14:03,324 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login
+2025-12-10 03:14:03,654 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering email: piwene6598@badfist.com
+2025-12-10 03:14:04,204 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering password
+2025-12-10 03:14:04,355 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login button
+2025-12-10 03:14:05,224 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering product to search: HP LP3065
+2025-12-10 03:14:05,391 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Search button
+2025-12-10 03:14:05,752 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting category:Laptops & Notebooks
+2025-12-10 03:14:06,052 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting 'Search in product descriptions'
+2025-12-10 03:14:06,186 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking inner Search button
+2025-12-10 03:14:07,064 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Name: HP LP3065
+2025-12-10 03:14:07,143 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Brand: Hewlett-Packard
+2025-12-10 03:14:07,225 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: Product 21
+2025-12-10 03:14:07,306 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: null
+2025-12-10 03:14:07,388 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test Completed Successfully =====
+2025-12-10 03:14:07,549 INFO  com.framework.tests.TC005_ProductDetailsTest - Closing WebDriver
+2025-12-10 03:17:03,064 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 03:17:03,323 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 03:17:03,583 INFO  com.framework.tests.TC005_ProductDetailsTest - Execution Environment: local
+2025-12-10 03:17:03,583 INFO  com.framework.tests.TC005_ProductDetailsTest - Browser: edge
+2025-12-10 03:17:03,583 INFO  com.framework.tests.TC005_ProductDetailsTest - OS: WIN10
+2025-12-10 03:17:03,585 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 03:17:06,895 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 03:17:06,925 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test started =====
+2025-12-10 03:17:06,959 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigating to My Account
+2025-12-10 03:17:07,229 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login
+2025-12-10 03:17:07,617 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering email: piwene6598@badfist.com
+2025-12-10 03:17:07,863 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering password
+2025-12-10 03:17:08,042 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login button
+2025-12-10 03:17:08,991 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering product to search: HP LP3065
+2025-12-10 03:17:09,355 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Search button
+2025-12-10 03:17:09,900 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting category:Laptops & Notebooks
+2025-12-10 03:17:10,557 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting 'Search in product descriptions'
+2025-12-10 03:17:10,742 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking inner Search button
+2025-12-10 03:17:11,776 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Name: HP LP3065
+2025-12-10 03:17:11,873 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Brand: Hewlett-Packard
+2025-12-10 03:17:11,963 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: Product 21
+2025-12-10 03:17:12,051 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: null
+2025-12-10 03:17:12,142 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test Completed Successfully =====
+2025-12-10 03:17:12,281 INFO  com.framework.tests.TC005_ProductDetailsTest - Closing WebDriver
+2025-12-10 03:17:51,386 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 03:17:51,866 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 03:17:52,243 INFO  com.framework.tests.TC005_ProductDetailsTest - Execution Environment: local
+2025-12-10 03:17:52,243 INFO  com.framework.tests.TC005_ProductDetailsTest - Browser: edge
+2025-12-10 03:17:52,243 INFO  com.framework.tests.TC005_ProductDetailsTest - OS: WIN10
+2025-12-10 03:17:52,246 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 03:17:56,751 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 03:17:56,779 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test started =====
+2025-12-10 03:17:56,809 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigating to My Account
+2025-12-10 03:17:57,156 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login
+2025-12-10 03:17:57,550 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering email: piwene6598@badfist.com
+2025-12-10 03:17:57,906 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering password
+2025-12-10 03:17:58,137 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login button
+2025-12-10 03:17:59,046 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering product to search: HP LP3065
+2025-12-10 03:17:59,323 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Search button
+2025-12-10 03:17:59,770 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting category:Laptops & Notebooks
+2025-12-10 03:18:00,270 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting 'Search in product descriptions'
+2025-12-10 03:18:00,441 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking inner Search button
+2025-12-10 03:18:01,542 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Name: HP LP3065
+2025-12-10 03:18:01,726 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Brand: Hewlett-Packard
+2025-12-10 03:18:01,881 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: Product 21
+2025-12-10 03:18:01,991 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: null
+2025-12-10 03:18:02,112 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test Completed Successfully =====
+2025-12-10 03:18:02,377 INFO  com.framework.tests.TC005_ProductDetailsTest - Closing WebDriver
+2025-12-10 03:20:20,086 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 03:20:20,518 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 03:20:20,931 INFO  com.framework.tests.TC005_ProductDetailsTest - Execution Environment: local
+2025-12-10 03:20:20,931 INFO  com.framework.tests.TC005_ProductDetailsTest - Browser: edge
+2025-12-10 03:20:20,931 INFO  com.framework.tests.TC005_ProductDetailsTest - OS: WIN10
+2025-12-10 03:20:20,934 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 03:20:26,821 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 03:20:26,851 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test started =====
+2025-12-10 03:20:26,888 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigating to My Account
+2025-12-10 03:20:27,186 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login
+2025-12-10 03:20:27,946 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering email: piwene6598@badfist.com
+2025-12-10 03:20:28,240 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering password
+2025-12-10 03:20:28,450 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login button
+2025-12-10 03:20:28,732 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering product to search: HP LP3065
+2025-12-10 03:20:29,794 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Search button
+2025-12-10 03:20:30,328 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting category:Laptops & Notebooks
+2025-12-10 03:20:30,841 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting 'Search in product descriptions'
+2025-12-10 03:20:31,113 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking inner Search button
+2025-12-10 03:20:32,207 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Name: HP LP3065
+2025-12-10 03:20:32,378 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Brand: Hewlett-Packard
+2025-12-10 03:20:32,512 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: Product 21
+2025-12-10 03:20:32,686 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: null
+2025-12-10 03:20:32,842 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test Completed Successfully =====
+2025-12-10 03:20:33,179 INFO  com.framework.tests.TC005_ProductDetailsTest - Closing WebDriver
+2025-12-10 03:25:12,005 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 03:25:12,457 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 03:25:12,932 INFO  com.framework.tests.TC005_ProductDetailsTest - Execution Environment: local
+2025-12-10 03:25:12,932 INFO  com.framework.tests.TC005_ProductDetailsTest - Browser: edge
+2025-12-10 03:25:12,933 INFO  com.framework.tests.TC005_ProductDetailsTest - OS: WIN10
+2025-12-10 03:25:12,935 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 03:25:28,479 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 03:25:28,509 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test started =====
+2025-12-10 03:25:28,545 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigating to My Account
+2025-12-10 03:25:28,930 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login
+2025-12-10 03:25:29,562 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering email: piwene6598@badfist.com
+2025-12-10 03:25:29,948 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering password
+2025-12-10 03:25:30,244 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login button
+2025-12-10 03:25:31,231 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering product to search: HP LP3065
+2025-12-10 03:25:31,523 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Search button
+2025-12-10 03:25:32,019 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting category:Laptops & Notebooks
+2025-12-10 03:25:32,466 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting 'Search in product descriptions'
+2025-12-10 03:25:32,655 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking inner Search button
+2025-12-10 03:25:33,738 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Name: HP LP3065
+2025-12-10 03:25:33,868 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Brand: Hewlett-Packard
+2025-12-10 03:25:34,008 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: Product 21
+2025-12-10 03:25:34,121 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: 300
+2025-12-10 03:25:34,235 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: In Stock
+2025-12-10 03:25:34,363 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Price: 100.0
+2025-12-10 03:25:34,476 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicling on add to cart button
+2025-12-10 03:25:34,665 INFO  com.framework.pages.ProductDetailsPage - Clicked Add to Cart
+2025-12-10 03:25:34,665 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test Completed Successfully =====
+2025-12-10 03:25:34,704 INFO  com.framework.tests.TC005_ProductDetailsTest - Closing WebDriver
+2025-12-10 06:35:30,027 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 06:35:30,575 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 06:35:30,963 INFO  com.framework.tests.TC005_ProductDetailsTest - Execution Environment: local
+2025-12-10 06:35:30,964 INFO  com.framework.tests.TC005_ProductDetailsTest - Browser: edge
+2025-12-10 06:35:30,964 INFO  com.framework.tests.TC005_ProductDetailsTest - OS: WIN10
+2025-12-10 06:35:30,971 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 06:35:36,941 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 06:35:37,009 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test started =====
+2025-12-10 06:35:37,038 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigating to My Account
+2025-12-10 06:35:37,259 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login
+2025-12-10 06:35:37,952 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering email: piwene6598@badfist.com
+2025-12-10 06:35:38,198 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering password
+2025-12-10 06:35:38,400 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login button
+2025-12-10 06:35:38,663 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering product to search: HP LP3065
+2025-12-10 06:35:39,360 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Search button
+2025-12-10 06:35:39,962 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting category:Laptops & Notebooks
+2025-12-10 06:35:40,430 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting 'Search in product descriptions'
+2025-12-10 06:35:40,554 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking inner Search button
+2025-12-10 06:35:42,968 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Name: HP LP3065
+2025-12-10 06:35:43,141 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Brand: Hewlett-Packard
+2025-12-10 06:35:53,388 ERROR com.framework.tests.TC005_ProductDetailsTest - Unexpected Exception Occurred During Test Execution
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[EdgeDriver: MicrosoftEdge on windows (b8b2d279bf46422ff2c1b8a1b04577c9)] -> xpath: //ul[@class='list-unstyled'][2]/li[1]] (tried for 10 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '25'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 143.0.3650.66, fedcm:accounts: true, goog:processID: 1548, ms:edgeOptions: {debuggerAddress: localhost:52322}, msedge: {msedgedriverVersion: 143.0.3650.75 (4d325bd07b04..., userDataDir: C:\Users\Gowtham\AppData\Lo...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52322/devtoo..., se:cdpVersion: 143.0.3650.66, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: b8b2d279bf46422ff2c1b8a1b04577c9
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.framework.pages.ProductDetailsPage.getBrand(ProductDetailsPage.java:76)
+	at com.framework.tests.TC005_ProductDetailsTest.verifyProductDetails(TC005_ProductDetailsTest.java:73)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+2025-12-10 06:35:53,391 ERROR com.framework.tests.TC005_ProductDetailsTest - Test FAILED due to an unhandled exception.
+2025-12-10 06:35:53,391 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test Completed Successfully =====
+2025-12-10 06:35:53,636 INFO  com.framework.tests.TC005_ProductDetailsTest - Closing WebDriver
+2025-12-10 06:50:44,941 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 06:50:45,283 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 06:50:45,536 INFO  com.framework.tests.TC005_ProductDetailsTest - Execution Environment: local
+2025-12-10 06:50:45,536 INFO  com.framework.tests.TC005_ProductDetailsTest - Browser: edge
+2025-12-10 06:50:45,537 INFO  com.framework.tests.TC005_ProductDetailsTest - OS: WIN10
+2025-12-10 06:50:45,538 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 06:50:53,829 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 06:50:53,855 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test started =====
+2025-12-10 06:50:53,877 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigating to My Account
+2025-12-10 06:50:54,071 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login
+2025-12-10 06:50:54,396 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering email: piwene6598@badfist.com
+2025-12-10 06:50:54,673 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering password
+2025-12-10 06:50:54,838 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login button
+2025-12-10 06:50:55,035 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering product to search: HP LP3065
+2025-12-10 06:50:55,867 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Search button
+2025-12-10 06:50:56,604 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting category:Laptops & Notebooks
+2025-12-10 06:50:56,970 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting 'Search in product descriptions'
+2025-12-10 06:50:57,110 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking inner Search button
+2025-12-10 06:50:59,964 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Name: HP LP3065
+2025-12-10 06:51:00,083 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Brand: Hewlett-Packard
+2025-12-10 06:51:00,114 ERROR com.framework.tests.TC005_ProductDetailsTest - Unexpected Exception Occurred During Test Execution
+org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression //div[@class='col-sm-4']//ul[1]//li[1]] because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//div[@class='col-sm-4']//ul[1]//li[1]]' is not a valid XPath expression.
+  (Session info: MicrosoftEdge=143.0.3650.66)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidselectorexception
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '25'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [013a442b602b83c34cc0206b6b888bb7, findElement {value=//div[@class='col-sm-4']//ul[1]//li[1]], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 143.0.3650.66, fedcm:accounts: true, goog:processID: 16880, ms:edgeOptions: {debuggerAddress: localhost:53017}, msedge: {msedgedriverVersion: 143.0.3650.75 (4d325bd07b04..., userDataDir: C:\Users\Gowtham\AppData\Lo...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53017/devtoo..., se:cdpVersion: 143.0.3650.66, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 013a442b602b83c34cc0206b6b888bb7
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy31.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:308)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:294)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:291)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	at com.framework.pages.ProductDetailsPage.getBrand(ProductDetailsPage.java:75)
+	at com.framework.tests.TC005_ProductDetailsTest.verifyProductDetails(TC005_ProductDetailsTest.java:73)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+2025-12-10 06:51:00,118 ERROR com.framework.tests.TC005_ProductDetailsTest - Test FAILED due to an unhandled exception.
+2025-12-10 06:51:00,119 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test Completed Successfully =====
+2025-12-10 06:51:00,289 INFO  com.framework.tests.TC005_ProductDetailsTest - Closing WebDriver
+2025-12-10 06:53:31,545 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 06:53:31,998 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 06:53:32,402 INFO  com.framework.tests.TC005_ProductDetailsTest - Execution Environment: local
+2025-12-10 06:53:32,402 INFO  com.framework.tests.TC005_ProductDetailsTest - Browser: edge
+2025-12-10 06:53:32,402 INFO  com.framework.tests.TC005_ProductDetailsTest - OS: WIN10
+2025-12-10 06:53:32,406 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 06:53:40,701 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 06:53:40,731 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test started =====
+2025-12-10 06:53:40,763 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigating to My Account
+2025-12-10 06:53:41,025 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login
+2025-12-10 06:53:41,449 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering email: piwene6598@badfist.com
+2025-12-10 06:53:41,780 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering password
+2025-12-10 06:53:42,035 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login button
+2025-12-10 06:53:43,094 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering product to search: HP LP3065
+2025-12-10 06:53:43,367 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Search button
+2025-12-10 06:53:43,861 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting category:Laptops & Notebooks
+2025-12-10 06:53:44,324 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting 'Search in product descriptions'
+2025-12-10 06:53:44,505 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking inner Search button
+2025-12-10 06:53:46,830 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Name: HP LP3065
+2025-12-10 06:53:46,940 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Brand: Hewlett-Packard
+2025-12-10 06:53:46,976 ERROR com.framework.tests.TC005_ProductDetailsTest - Unexpected Exception Occurred During Test Execution
+org.openqa.selenium.InvalidSelectorException: invalid selector: Unable to locate an element with the xpath expression body > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(3) > li:nth-child(1) because of the following error:
+SyntaxError: Failed to execute 'evaluate' on 'Document': The string 'body > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(3) > li:nth-child(1)' is not a valid XPath expression.
+  (Session info: MicrosoftEdge=143.0.3650.66)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalidselectorexception
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '25'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [97022a27c609c0b2b1010fcfb56890f8, findElement {using=xpath, value=body > div:nth-child(4) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(2) > ul:nth-child(3) > li:nth-child(1)}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 143.0.3650.66, fedcm:accounts: true, goog:processID: 16736, ms:edgeOptions: {debuggerAddress: localhost:53168}, msedge: {msedgedriverVersion: 143.0.3650.75 (4d325bd07b04..., userDataDir: C:\Users\Gowtham\AppData\Lo...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53168/devtoo..., se:cdpVersion: 143.0.3650.66, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 97022a27c609c0b2b1010fcfb56890f8
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy31.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:308)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:294)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:291)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	at com.framework.pages.ProductDetailsPage.getBrand(ProductDetailsPage.java:75)
+	at com.framework.tests.TC005_ProductDetailsTest.verifyProductDetails(TC005_ProductDetailsTest.java:73)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+2025-12-10 06:53:46,980 ERROR com.framework.tests.TC005_ProductDetailsTest - Test FAILED due to an unhandled exception.
+2025-12-10 06:53:46,981 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test Completed Successfully =====
+2025-12-10 06:53:47,196 INFO  com.framework.tests.TC005_ProductDetailsTest - Closing WebDriver
+2025-12-10 07:03:40,212 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 07:03:40,741 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 07:03:41,192 INFO  com.framework.tests.TC005_ProductDetailsTest - Execution Environment: local
+2025-12-10 07:03:41,192 INFO  com.framework.tests.TC005_ProductDetailsTest - Browser: edge
+2025-12-10 07:03:41,192 INFO  com.framework.tests.TC005_ProductDetailsTest - OS: WIN10
+2025-12-10 07:03:41,194 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 07:03:45,095 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 07:03:45,141 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test started =====
+2025-12-10 07:03:45,175 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigating to My Account
+2025-12-10 07:03:50,027 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login
+2025-12-10 07:03:50,353 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering email: piwene6598@badfist.com
+2025-12-10 07:03:50,621 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering password
+2025-12-10 07:03:50,829 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login button
+2025-12-10 07:03:52,220 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering product to search: HP LP3065
+2025-12-10 07:03:52,401 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Search button
+2025-12-10 07:03:53,487 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting category:Laptops & Notebooks
+2025-12-10 07:03:53,849 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting 'Search in product descriptions'
+2025-12-10 07:03:53,968 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking inner Search button
+2025-12-10 07:03:56,268 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Name: HP LP3065
+2025-12-10 07:03:56,362 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Brand: Hewlett-Packard
+2025-12-10 07:03:56,445 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: Product 21
+2025-12-10 07:03:56,526 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: 300
+2025-12-10 07:03:56,611 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: In Stock
+2025-12-10 07:03:56,695 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Price: 100.0
+2025-12-10 07:03:56,772 INFO  com.framework.tests.TC005_ProductDetailsTest - selecting delivery date:
+2025-12-10 07:04:14,355 INFO  com.framework.pages.ProductDetailsPage - Calendar shows CURRENT month/year: Selecting future date
+2025-12-10 07:04:14,614 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicling on add to cart button
+2025-12-10 07:04:14,749 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test Completed Successfully =====
+2025-12-10 07:04:14,778 INFO  com.framework.tests.TC005_ProductDetailsTest - Closing WebDriver
+2025-12-10 07:08:45,534 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 07:08:46,038 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 07:08:46,500 INFO  com.framework.tests.TC005_ProductDetailsTest - Execution Environment: local
+2025-12-10 07:08:46,500 INFO  com.framework.tests.TC005_ProductDetailsTest - Browser: edge
+2025-12-10 07:08:46,500 INFO  com.framework.tests.TC005_ProductDetailsTest - OS: WIN10
+2025-12-10 07:08:46,503 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 07:08:50,938 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 07:08:50,983 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test started =====
+2025-12-10 07:08:51,022 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigating to My Account
+2025-12-10 07:08:52,347 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login
+2025-12-10 07:08:52,821 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering email: piwene6598@badfist.com
+2025-12-10 07:08:53,159 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering password
+2025-12-10 07:08:53,393 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login button
+2025-12-10 07:08:54,430 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering product to search: HP LP3065
+2025-12-10 07:08:54,758 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Search button
+2025-12-10 07:08:55,339 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting category:Laptops & Notebooks
+2025-12-10 07:08:55,909 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting 'Search in product descriptions'
+2025-12-10 07:08:56,097 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking inner Search button
+2025-12-10 07:08:58,957 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Name: HP LP3065
+2025-12-10 07:08:59,074 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Brand: Hewlett-Packard
+2025-12-10 07:08:59,207 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: Product 21
+2025-12-10 07:08:59,333 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: 300
+2025-12-10 07:08:59,451 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: In Stock
+2025-12-10 07:08:59,589 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Price: 100.0
+2025-12-10 07:08:59,710 INFO  com.framework.tests.TC005_ProductDetailsTest - selecting delivery date:
+2025-12-10 07:09:27,836 INFO  com.framework.pages.ProductDetailsPage - Calendar shows CURRENT month/year: Selecting future date
+2025-12-10 07:09:28,176 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicling on add to cart button
+2025-12-10 07:09:28,353 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test Completed Successfully =====
+2025-12-10 07:09:28,390 INFO  com.framework.tests.TC005_ProductDetailsTest - Closing WebDriver
+2025-12-10 07:11:45,553 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 07:11:46,081 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 07:11:46,621 INFO  com.framework.tests.TC005_ProductDetailsTest - Execution Environment: local
+2025-12-10 07:11:46,621 INFO  com.framework.tests.TC005_ProductDetailsTest - Browser: edge
+2025-12-10 07:11:46,621 INFO  com.framework.tests.TC005_ProductDetailsTest - OS: WIN10
+2025-12-10 07:11:46,624 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 07:11:55,664 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 07:11:55,697 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test started =====
+2025-12-10 07:11:55,728 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigating to My Account
+2025-12-10 07:11:56,033 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login
+2025-12-10 07:11:56,705 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering email: piwene6598@badfist.com
+2025-12-10 07:11:57,059 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering password
+2025-12-10 07:11:57,315 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login button
+2025-12-10 07:11:58,664 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering product to search: HP LP3065
+2025-12-10 07:11:59,049 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Search button
+2025-12-10 07:11:59,968 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting category:Laptops & Notebooks
+2025-12-10 07:12:00,458 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting 'Search in product descriptions'
+2025-12-10 07:12:00,645 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking inner Search button
+2025-12-10 07:12:03,664 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Name: HP LP3065
+2025-12-10 07:12:03,791 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Brand: Hewlett-Packard
+2025-12-10 07:12:03,926 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: Product 21
+2025-12-10 07:12:04,057 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: 300
+2025-12-10 07:12:04,190 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: In Stock
+2025-12-10 07:12:04,386 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Price: 100.0
+2025-12-10 07:12:04,531 INFO  com.framework.tests.TC005_ProductDetailsTest - selecting delivery date January:
+2025-12-10 07:12:30,579 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicling on add to cart button
+2025-12-10 07:12:30,729 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test Completed Successfully =====
+2025-12-10 07:12:30,762 INFO  com.framework.tests.TC005_ProductDetailsTest - Closing WebDriver
+2025-12-10 09:06:09,234 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 09:06:09,566 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 09:06:09,879 INFO  com.framework.tests.TC005_ProductDetailsTest - Execution Environment: local
+2025-12-10 09:06:09,879 INFO  com.framework.tests.TC005_ProductDetailsTest - Browser: edge
+2025-12-10 09:06:09,879 INFO  com.framework.tests.TC005_ProductDetailsTest - OS: WIN10
+2025-12-10 09:06:09,881 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 09:06:15,494 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 09:06:15,626 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test started =====
+2025-12-10 09:06:15,690 INFO  com.framework.tests.TC005_ProductDetailsTest - Navigating to My Account
+2025-12-10 09:06:15,910 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login
+2025-12-10 09:06:16,320 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering email: piwene6598@badfist.com
+2025-12-10 09:06:16,560 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering password
+2025-12-10 09:06:16,732 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Login button
+2025-12-10 09:06:17,857 INFO  com.framework.tests.TC005_ProductDetailsTest - Entering product to search: HP LP3065
+2025-12-10 09:06:18,042 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking on Search button
+2025-12-10 09:06:18,487 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting category:Laptops & Notebooks
+2025-12-10 09:06:18,835 INFO  com.framework.tests.TC005_ProductDetailsTest - Selecting 'Search in product descriptions'
+2025-12-10 09:06:18,981 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicking inner Search button
+2025-12-10 09:06:20,201 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Name: HP LP3065
+2025-12-10 09:06:20,304 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Brand: Hewlett-Packard
+2025-12-10 09:06:20,406 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: Product 21
+2025-12-10 09:06:20,507 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: 300
+2025-12-10 09:06:20,593 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Code: In Stock
+2025-12-10 09:06:20,689 INFO  com.framework.tests.TC005_ProductDetailsTest - Validating Product Price: 100.0
+2025-12-10 09:06:20,778 INFO  com.framework.tests.TC005_ProductDetailsTest - selecting delivery date January:
+2025-12-10 09:06:42,874 INFO  com.framework.tests.TC005_ProductDetailsTest - Clicling on add to cart button
+2025-12-10 09:06:43,005 INFO  com.framework.tests.TC005_ProductDetailsTest - ===== TC005 Product Details Test Completed Successfully =====
+2025-12-10 09:06:43,038 INFO  com.framework.tests.TC005_ProductDetailsTest - Closing WebDriver
+2025-12-10 09:27:27,023 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-10 09:27:27,286 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-10 09:27:27,565 INFO  com.framework.tests.TC006_CartPageTest - Execution Environment: local
+2025-12-10 09:27:27,565 INFO  com.framework.tests.TC006_CartPageTest - Browser: edge
+2025-12-10 09:27:27,565 INFO  com.framework.tests.TC006_CartPageTest - OS: WIN10
+2025-12-10 09:27:27,567 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-10 09:27:31,192 INFO  com.framework.tests.TC006_CartPageTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-10 09:27:31,228 INFO  com.framework.tests.TC006_CartPageTest - ===== TC006 CartPage Test started =====
+2025-12-10 09:27:31,260 INFO  com.framework.tests.TC006_CartPageTest - Navigating to My Account
+2025-12-10 09:27:31,494 INFO  com.framework.tests.TC006_CartPageTest - Clicking on Login
+2025-12-10 09:27:31,859 INFO  com.framework.tests.TC006_CartPageTest - Entering email: piwene6598@badfist.com
+2025-12-10 09:27:32,092 INFO  com.framework.tests.TC006_CartPageTest - Entering password
+2025-12-10 09:27:32,246 INFO  com.framework.tests.TC006_CartPageTest - Clicking on Login button
+2025-12-10 09:27:32,455 INFO  com.framework.tests.TC006_CartPageTest - Entering product to search: HP LP3065
+2025-12-10 09:27:33,427 INFO  com.framework.tests.TC006_CartPageTest - Clicking on Search button
+2025-12-10 09:27:33,798 INFO  com.framework.tests.TC006_CartPageTest - Selecting category:Laptops & Notebooks
+2025-12-10 09:27:34,104 INFO  com.framework.tests.TC006_CartPageTest - Selecting 'Search in product descriptions'
+2025-12-10 09:27:34,217 INFO  com.framework.tests.TC006_CartPageTest - Clicking inner Search button
+2025-12-10 09:27:35,230 INFO  com.framework.tests.TC006_CartPageTest - Validating Product Name: HP LP3065
+2025-12-10 09:27:35,317 INFO  com.framework.tests.TC006_CartPageTest - Validating Product Brand: Hewlett-Packard
+2025-12-10 09:27:35,401 INFO  com.framework.tests.TC006_CartPageTest - Validating Product Code: Product 21
+2025-12-10 09:27:35,487 INFO  com.framework.tests.TC006_CartPageTest - Validating Product Code: 300
+2025-12-10 09:27:35,567 INFO  com.framework.tests.TC006_CartPageTest - Validating Product Code: In Stock
+2025-12-10 09:27:35,668 INFO  com.framework.tests.TC006_CartPageTest - Validating Product Price: 100.0
+2025-12-10 09:27:35,756 INFO  com.framework.tests.TC006_CartPageTest - selecting delivery date January:
+2025-12-10 09:27:50,896 INFO  com.framework.tests.TC006_CartPageTest - Clicling on add to cart button
+2025-12-10 09:27:51,011 INFO  com.framework.tests.TC006_CartPageTest - Clicling on Cart headrer at the top
+2025-12-10 09:27:51,662 INFO  com.framework.tests.TC006_CartPageTest - ===== TC006 CartPage Test Completed Successfully =====
+2025-12-10 09:27:51,699 INFO  com.framework.tests.TC006_CartPageTest - Closing WebDriver

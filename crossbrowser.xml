@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" thread-count="5" parallel="tests">
+
+	<listeners>
+		<listener class-name="com.framework.utils.ExtentReportUtils" />
+	</listeners>
+
+	<!-- Chrome Test Execution -->
+	<test name="ChromeTest">
+		<parameter name="os" value="WIN10" />
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="com.framework.tests.TC001_RegisterAccountTest" />
+			<class name="com.framework.tests.TC002_LoginTest" />
+		</classes>
+	</test>
+
+	<!-- Edge Test-->
+	<test name="Edgetest">
+		<parameter name="os" value="WIN10" />
+		<parameter name="browser" value="edge" />
+		<classes>
+			<class name="com.framework.tests.TC001_RegisterAccountTest" />
+			<class name="com.framework.tests.TC002_LoginTest" />
+		</classes>
+	</test> 
+ 	
+ 	
+	<!-- Firefox 
+    <test name="FirefoxTest">
+        <parameter name="os" value="Linux" />
+        <parameter name="browser" value="firefox" />
+        <classes>
+            <class name="com.framework.tests.TC001_RegisterAccountTest" />
+            <class name="com.framework.tests.TC002_LoginTest" />
+        </classes>
+    </test>
+    Test Execution -->
+    
+
+</suite>

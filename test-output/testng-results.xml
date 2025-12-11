@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-12-10T09:27:27 EST" name="Suite" finished-at="2025-12-10T09:27:52 EST" duration-ms="24770">
+    <groups>
+      <group name="Functional">
+        <method signature="TC006_CartPageTest.verifyCart()[pri:0, instance:com.framework.tests.TC006_CartPageTest@74589991]" name="verifyCart" class="com.framework.tests.TC006_CartPageTest"/>
+      </group> <!-- Functional -->
+    </groups>
+    <test started-at="2025-12-10T09:27:27 EST" name="Test" finished-at="2025-12-10T09:27:52 EST" duration-ms="24770">
+      <class name="com.framework.tests.TC006_CartPageTest">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC006_CartPageTest@74589991]" started-at="2025-12-10T09:27:27 EST" name="setup" finished-at="2025-12-10T09:27:31 EST" duration-ms="3646" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[WIN10]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[edge]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyCart()[pri:0, instance:com.framework.tests.TC006_CartPageTest@74589991]" started-at="2025-12-10T09:27:31 EST" name="verifyCart" finished-at="2025-12-10T09:27:51 EST" duration-ms="20452" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCart -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC006_CartPageTest@74589991]" started-at="2025-12-10T09:27:51 EST" name="teardown" finished-at="2025-12-10T09:27:52 EST" duration-ms="368" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.framework.tests.TC006_CartPageTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
