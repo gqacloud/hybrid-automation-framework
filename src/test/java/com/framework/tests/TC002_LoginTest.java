@@ -10,37 +10,26 @@ import com.framework.pages.LoginPage;
 import com.framework.pages.MyAccountPage;
 
 public class TC002_LoginTest extends BaseClass {
-	@Test(groups={"Sanity","Master", "Regression"})
-	public void verifyLogin() {
-		logger.info("===== Starting Login Test =====");
 
-		try {
-			HomePage homepage = new HomePage(DriverManager.getDriver());
-			logger.info("Navigating to My Account");
-			homepage.clickOnMyAccount();
+    @Test(groups = { "Sanity", "Master", "Regression" })
+    public void verifyLogin() throws InterruptedException {
 
-			logger.info("Clicking on login");
-			homepage.clickOnLogin();
+        // Navigate to Login Page
+        HomePage homePage = new HomePage(DriverManager.getDriver());
+        homePage.clickOnMyAccount();
+        homePage.clickOnLogin();
 
-			LoginPage loginpage = new LoginPage(DriverManager.getDriver());
-			logger.info("Entering UserEmail: {}", prop.getProperty("email"));
-			loginpage.setUserEmail(prop.getProperty("email"));
+        // Enter Login Credentials
+        LoginPage loginPage = new LoginPage(DriverManager.getDriver());
+        loginPage.setUserEmail(prop.getProperty("email"));
+        loginPage.setUserPassword(prop.getProperty("password"));
+        loginPage.clickOnLogin();
 
-			logger.info("Entering UserEmail: {}", prop.getProperty("password"));
-			loginpage.setUserPassword(prop.getProperty("password"));
-
-			logger.info("Clicking on login button");
-			loginpage.clickOnLogin();
-
-			MyAccountPage accountpage = new MyAccountPage(DriverManager.getDriver());
-			logger.info("Checking if target page found!");
-			boolean targetPage = accountpage.isMyAccountMsg();
-			Assert.assertEquals(targetPage, true);
-		} catch (Exception e) {
-			logger.error("Unexpected Exception Occurred During Test Execution", e);
-			Assert.fail("Test failed due to unexpected exception: " + e.getMessage());
-		} finally {
-			logger.info("===== Login Test Completed =====");
-		}
-	}
+        // Verification
+        MyAccountPage accountPage = new MyAccountPage(DriverManager.getDriver());
+        Assert.assertTrue(
+                accountPage.isMyAccountMsg(),
+                "Login failed: My Account page is not displayed."
+        );
+    }
 }

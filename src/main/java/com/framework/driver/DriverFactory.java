@@ -18,113 +18,135 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class DriverFactory {
 
-	private static final Logger logger = LogManager.getLogger(DriverFactory.class);
+    private static final Logger logger = LogManager.getLogger(DriverFactory.class);
 
-	/**
-	 * Initialize LOCAL WebDriver instance.
-	 */
-	public static void initLocalDriver(String browser, boolean headless, boolean incognito) {
-		logger.info("Initializing LOCAL driver for browser: {}", browser);
+    // ===============================================================
+    // LOCAL DRIVER INITIALIZATION
+    // ===============================================================
+    public static void initLocalDriver(String browser, boolean headless, boolean incognito) {
 
-		WebDriver driver;
+        logger.info("Initializing LOCAL WebDriver: {}", browser);
 
-		switch (browser.toLowerCase()) {
+        WebDriver driver;
 
-		case "chrome":
-			ChromeOptions chromeOptions = new ChromeOptions();
-			if (headless)
-				chromeOptions.addArguments("--headless=new");
-				chromeOptions.addArguments("--window-size=1920,1080");
-				chromeOptions.addArguments("--disable-gpu");
-				chromeOptions.addArguments("--no-sandbox");
-				chromeOptions.addArguments("--disable-dev-shm-usage");
-			
-			if (incognito)
-				chromeOptions.addArguments("--incognito");
-				chromeOptions.addArguments("--disable-gpu");
-				driver = new ChromeDriver(chromeOptions);
-			break;
+        switch (browser.toLowerCase()) {
 
-		case "edge":
-			EdgeOptions edgeOptions = new EdgeOptions();
-			if (headless)
-				edgeOptions.addArguments("--headless=new");
+            case "chrome":
+                ChromeOptions chromeOptions = new ChromeOptions();
 
-			edgeOptions.addArguments("--window-size=1920,1080");
-			edgeOptions.addArguments("--disable-gpu");
-			edgeOptions.addArguments("--no-sandbox");
-			edgeOptions.addArguments("--disable-dev-shm-usage");
-			if (incognito)
-				edgeOptions.addArguments("--inprivate");
-			driver = new EdgeDriver(edgeOptions);
-			break;
+                if (headless) {
+                    logger.info("Chrome: Headless Enabled");
+                    chromeOptions.addArguments("--headless=new");
+                    chromeOptions.addArguments("--window-size=1920,1080");
+                }
+                if (incognito) {
+                    logger.info("Chrome: Incognito Enabled");
+                    chromeOptions.addArguments("--incognito");
+                }
 
-		case "firefox":
-			FirefoxOptions firefoxOptions = new FirefoxOptions();
-			if (headless)
-				firefoxOptions.addArguments("--headless");
+                chromeOptions.addArguments("--disable-gpu");
+                chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.addArguments("--disable-dev-shm-usage");
 
-			firefoxOptions.addArguments("--window-size=1920,1080");
-			firefoxOptions.addArguments("--disable-gpu");
-			firefoxOptions.addArguments("--no-sandbox");
-			firefoxOptions.addArguments("--disable-dev-shm-usage");
+                driver = new ChromeDriver(chromeOptions);
+                break;
 
-			driver = new FirefoxDriver(firefoxOptions);
-			break;
+            case "edge":
+                EdgeOptions edgeOptions = new EdgeOptions();
 
-		default:
-			throw new IllegalArgumentException("Unsupported local browser: " + browser);
-		}
+                if (headless) {
+                    logger.info("Edge: Headless Enabled");
+                    edgeOptions.addArguments("--headless=new");
+                    edgeOptions.addArguments("--window-size=1920,1080");
+                }
+                if (incognito) {
+                    logger.info("Edge: InPrivate Enabled");
+                    edgeOptions.addArguments("--inprivate");
+                }
 
-		configureDriver(driver);
-		DriverManager.setDriver(driver);
-	}
+                edgeOptions.addArguments("--disable-gpu");
+                edgeOptions.addArguments("--no-sandbox");
+                edgeOptions.addArguments("--disable-dev-shm-usage");
 
-	/**
-	 * Initialize REMOTE WebDriver (Selenium Grid). Headless/incognito are NOT
-	 * applied unless needed by environment.
-	 */
-	public static void initRemoteDriver(String os, String browser, String gridUrl) throws MalformedURLException {
-		logger.info("Initializing REMOTE WebDriver for {} on OS {}", browser, os);
+                driver = new EdgeDriver(edgeOptions);
+                break;
 
-		WebDriver driver;
+            case "firefox":
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
 
-		switch (browser.toLowerCase()) {
+                if (headless) {
+                    logger.info("Firefox: Headless Enabled");
+                    firefoxOptions.addArguments("--headless");
+                }
 
-		case "chrome":
-			ChromeOptions chromeOptions = new ChromeOptions();
-			chromeOptions.setPlatformName(os.toUpperCase());
-			driver = new RemoteWebDriver(new URL(gridUrl), chromeOptions);
-			break;
+                firefoxOptions.addArguments("--width=1920");
+                firefoxOptions.addArguments("--height=1080");
 
-		case "firefox":
-			FirefoxOptions firefoxOptions = new FirefoxOptions();
-			firefoxOptions.setPlatformName(os.toUpperCase());
-			driver = new RemoteWebDriver(new URL(gridUrl), firefoxOptions);
-			break;
+                driver = new FirefoxDriver(firefoxOptions);
+                break;
 
-		case "microsoftedge":
-		case "edge":
-			EdgeOptions edgeOptions = new EdgeOptions();
-			edgeOptions.setCapability("browserName", "MicrosoftEdge");
-			edgeOptions.setPlatformName(os.toUpperCase());
-			driver = new RemoteWebDriver(new URL(gridUrl), edgeOptions);
-			break;
+            default:
+                throw new IllegalArgumentException("Unsupported local browser: " + browser);
+        }
 
-		default:
-			throw new IllegalArgumentException("Unsupported remote browser: " + browser);
-		}
+        configureDriver(driver);
+        DriverManager.setDriver(driver);
+    }
 
-		configureDriver(driver);
-		DriverManager.setDriver(driver);
-	}
+    // ===============================================================
+    // REMOTE DRIVER INITIALIZATION (SELENIUM GRID)
+    // ===============================================================
+    public static void initRemoteDriver(String os, String browser, String gridUrl)
+            throws MalformedURLException {
 
-	/**
-	 * Common driver configuration: maximize, delete cookies, implicit wait.
-	 */
-	private static void configureDriver(WebDriver driver) {
-		driver.manage().deleteAllCookies();
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	}
+        logger.info("Initializing REMOTE WebDriver: {} on OS: {}", browser, os);
+
+        if (gridUrl == null || gridUrl.isBlank()) {
+            throw new IllegalArgumentException("Grid URL is missing or empty.");
+        }
+
+        WebDriver driver;
+
+        URL remoteURL = new URL(gridUrl);
+
+        switch (browser.toLowerCase()) {
+
+            case "chrome":
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.setPlatformName(os.toUpperCase());
+                driver = new RemoteWebDriver(remoteURL, chromeOptions);
+                break;
+
+            case "firefox":
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.setPlatformName(os.toUpperCase());
+                driver = new RemoteWebDriver(remoteURL, firefoxOptions);
+                break;
+
+            case "edge":
+            case "microsoftedge":
+                EdgeOptions edgeOptions = new EdgeOptions();
+                edgeOptions.setPlatformName(os.toUpperCase());
+                edgeOptions.setCapability("browserName", "MicrosoftEdge");
+                driver = new RemoteWebDriver(remoteURL, edgeOptions);
+                break;
+
+            default:
+                throw new IllegalArgumentException("Unsupported remote browser: " + browser);
+        }
+
+        configureDriver(driver);
+        DriverManager.setDriver(driver);
+    }
+
+    // ===============================================================
+    // COMMON DRIVER CONFIGURATION
+    // ===============================================================
+    private static void configureDriver(WebDriver driver) {
+        logger.info("Configuring WebDriver defaults");
+
+        driver.manage().deleteAllCookies();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    }
 }

@@ -12,73 +12,36 @@ import com.framework.utils.DataProviders;
 
 public class TC003_LoginDDTest extends BaseClass {
 
-	// to mention data provider created in different package we should mention 2
-	// parameters data provider name and the class
-	@Test(dataProvider = "LoginData", dataProviderClass = DataProviders.class, groups={"DataDriven","Master",})
-	public void verify_loginDDTest(String email, String pwd, String expResult) {
-		logger.info("===== Starting Data Driven Login Test =====");
+    @Test(dataProvider = "LoginData", dataProviderClass = DataProviders.class,
+          groups = {"DataDriven", "Master"})
+    public void verify_loginDDTest(String email, String pwd, String expResult) {
 
-		try {
-			HomePage homepage = new HomePage(DriverManager.getDriver());
-			logger.info("Navigating to My Account...");
-			homepage.clickOnMyAccount();
+        logger.info("Data Set → email: {} | expected: {}", email, expResult);
 
-			logger.info("Clicking on Login...");
-			homepage.clickOnLogin();
+        // Navigate to Login Page
+        HomePage homePage = new HomePage(DriverManager.getDriver());
+        homePage.clickOnMyAccount();
+        homePage.clickOnLogin();
 
-			LoginPage loginpage = new LoginPage(DriverManager.getDriver());
+        // Login attempt
+        LoginPage loginPage = new LoginPage(DriverManager.getDriver());
+        loginPage.setUserEmail(email);
+        loginPage.setUserPassword(pwd);
+        loginPage.clickOnLogin();
 
-			logger.info("Entering User Email: {}", email);
-			loginpage.setUserEmail(email);
+        // Check login success
+        MyAccountPage accountPage = new MyAccountPage(DriverManager.getDriver());
+        boolean loginSuccess = accountPage.isMyAccountMsg();
 
-			logger.info("Entering User Password: {}", pwd);
-			loginpage.setUserPassword(pwd);
+        boolean expectedValid = expResult.equalsIgnoreCase("Valid");
 
-			logger.info("Clicking on Login button...");
-			loginpage.clickOnLogin();
-
-			MyAccountPage accountpage = new MyAccountPage(DriverManager.getDriver());
-			logger.info("Validating if MyAccount page is displayed...");
-			boolean targetPage = accountpage.isMyAccountMsg();
-
-			logger.info("Target page status: {}", targetPage);
-
-			if (expResult.equalsIgnoreCase("Valid")) {
-				logger.info("Expected result: VALID login");
-
-				if (targetPage) {
-					logger.info("Login successful with valid credentials.");
-					accountpage.clickOnLogout();
-					Assert.assertTrue(true);
-					
-				} else {
-					logger.warn("Login failed even though credentials are valid.");
-					Assert.assertTrue(false);
-				}
-			}
-
-			if (expResult.equalsIgnoreCase("Invalid")) {
-				logger.info("Expected result: INVALID login");
-
-				if (targetPage) {
-					logger.warn("Login succeeded even though credentials are invalid.");
-					accountpage.clickOnLogout();
-					Assert.assertTrue(false);
-				} else {
-					logger.info("Login failed as expected with invalid credentials.");
-					logger.info(loginpage.warnMessage());
-					Assert.assertTrue(true);
-				}
-			}
-
-		} catch (Exception e) {
-			logger.error("Unexpected Exception Occurred During Test Execution", e);
-			Assert.fail("Test failed due to unexpected exception: " + e.getMessage());
-
-		} finally {
-			logger.info("===== Data Driven Login Test Completed =====");
-		}
-
-	}
-
+        if (expectedValid) {
+            // Expecting successful login
+            Assert.assertTrue(loginSuccess, "Valid login failed for dataset: " + email);
+            accountPage.clickOnLogout();
+        } else {
+            // Expecting login failure
+            Assert.assertFalse(loginSuccess, "Invalid login succeeded for dataset: " + email);
+        }
+    }
 }

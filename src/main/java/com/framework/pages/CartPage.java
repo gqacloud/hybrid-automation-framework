@@ -17,99 +17,113 @@ public class CartPage extends BasePage {
     public CartPage(WebDriver driver) {
         super(driver);
     }
-    
-    @FindBy(xpath="//span[contains(text(),'Shopping Cart')]")
-    WebElement CartTopLnk;
 
-    // Cart items table
+    // ---------------- ELEMENTS ---------------- //
+
+    @FindBy(xpath = "//span[contains(text(),'Shopping Cart')]")
+    private WebElement cartHeader;
+
     @FindBy(xpath = "(.//table[contains(@class,'table')])[3]")
-    WebElement cartTable;
+    private WebElement cartTable;
 
-    // Price summary table
     @FindBy(xpath = "(.//table[contains(@class,'table')])[4]")
-    WebElement priceInfoTable;
+    private WebElement priceInfoTable;
 
-    // Coupon Elements
     @FindBy(xpath = "//a[normalize-space()='Use Coupon Code']")
-    WebElement couponPanel;
+    private WebElement couponPanel;
 
     @FindBy(id = "input-coupon")
-    WebElement couponTxtBox;
+    private WebElement couponTextBox;
 
     @FindBy(id = "button-coupon")
-    WebElement couponBtn;
+    private WebElement applyCouponButton;
 
-    // Shipping estimation
     @FindBy(xpath = "//a[normalize-space()='Estimate Shipping & Taxes']")
-    WebElement taxCalPanel;
+    private WebElement taxPanel;
 
     @FindBy(id = "input-country")
-    WebElement countryDropDown;
+    private WebElement countryDropdown;
 
     @FindBy(id = "input-zone")
-    WebElement regionDropdown;
+    private WebElement regionDropdown;
 
     @FindBy(id = "input-postcode")
-    WebElement postCodeTxtBox;
+    private WebElement zipCodeTextBox;
 
     @FindBy(id = "button-quote")
-    WebElement getQuoteBtn;
+    private WebElement getQuoteButton;
 
     @FindBy(id = "button-shipping")
-    WebElement shippingAlertBtn;
+    private WebElement confirmShippingButton;
 
-    // Checkout button
     @FindBy(xpath = "//a[@class='btn btn-primary']")
-    WebElement checkoutBtn;
+    private WebElement checkoutButton;
 
 
     // ---------------- TABLE ACCESSORS ---------------- //
 
     public TableComponent getCartTable() {
+        logger.info("Accessing cart items table");
         return new TableComponent(driver, cartTable);
     }
 
     public TableComponent getCartTotalTable() {
+        logger.info("Accessing cart total summary table");
         return new TableComponent(driver, priceInfoTable);
     }
 
 
     // ---------------- ACTION METHODS ---------------- //
-    
+
     public void clickOnCartHeader() {
-    	wait.until(ExpectedConditions.elementToBeClickable(CartTopLnk)).click();
-    	CartTopLnk.click();
+        try {
+            logger.info("Clicking Cart header at the top navigation");
+            wait.until(ExpectedConditions.elementToBeClickable(cartHeader)).click();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to click Cart header", e);
+        }
     }
 
     public void applyOffer(String offerCode) {
-        wait.until(ExpectedConditions.elementToBeClickable(couponPanel)).click();
-        couponTxtBox.clear();
-        couponTxtBox.sendKeys(offerCode);
-        couponBtn.click();
+        try {
+            logger.info("Applying coupon code: {}", offerCode);
+
+            wait.until(ExpectedConditions.elementToBeClickable(couponPanel)).click();
+            wait.until(ExpectedConditions.visibilityOf(couponTextBox)).clear();
+            couponTextBox.sendKeys(offerCode);
+
+            applyCouponButton.click();
+
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to apply coupon code: " + offerCode, e);
+        }
     }
 
     public void getShippingTaxEstimation(String country, String region, String zipcode) {
-        wait.until(ExpectedConditions.elementToBeClickable(taxCalPanel)).click();
+        try {
+            logger.info("Estimating shipping: Country={}, Region={}, Zip={}", country, region, zipcode);
 
-        Select countryOptions = new Select(countryDropDown);
-        countryOptions.selectByVisibleText(country);
+            wait.until(ExpectedConditions.elementToBeClickable(taxPanel)).click();
 
-        Select regionOptions = new Select(regionDropdown);
-        regionOptions.selectByVisibleText(region);
+            new Select(countryDropdown).selectByVisibleText(country);
+            new Select(regionDropdown).selectByVisibleText(region);
 
-        postCodeTxtBox.clear();
-        postCodeTxtBox.sendKeys(zipcode);
+            zipCodeTextBox.clear();
+            zipCodeTextBox.sendKeys(zipcode);
 
-        getQuoteBtn.click();
+            getQuoteButton.click();
+
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to estimate shipping for: " + zipcode, e);
+        }
     }
-
 
     public void clickOnCheckout() {
         try {
-            wait.until(ExpectedConditions.elementToBeClickable(checkoutBtn)).click();
-            logger.info("Clicked checkout button.");
+            logger.info("Clicking on Checkout button");
+            wait.until(ExpectedConditions.elementToBeClickable(checkoutButton)).click();
         } catch (Exception e) {
-            logger.error("Failed to click checkout button: {}", e.getMessage());
+            throw new RuntimeException("Failed to click Checkout button", e);
         }
     }
 }

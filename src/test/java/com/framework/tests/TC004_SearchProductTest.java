@@ -13,64 +13,32 @@ import com.framework.utils.JsonDataReader;
 
 public class TC004_SearchProductTest extends BaseClass {
 
-	@Test(groups = "Functional")
-	public void searchProduct() throws InterruptedException {
+    @Test(groups = "Functional")
+    public void searchProduct() {
 
-		logger.info("===== TC004 Search Product Test Started =====");
+        // Load product data from JSON
+        ProductData searchData = JsonDataReader.loadJson(jsonPath, ProductData.class);
 
-		try {
-			HomePage homepage = new HomePage(DriverManager.getDriver());
+        // Navigate and login
+        HomePage homePage = new HomePage(DriverManager.getDriver());
+        homePage.clickOnMyAccount();
+        homePage.clickOnLogin();
 
-			logger.info("Navigating to My Account");
-			homepage.clickOnMyAccount();
+        LoginPage loginPage = new LoginPage(DriverManager.getDriver());
+        loginPage.setUserEmail(prop.getProperty("email"));
+        loginPage.setUserPassword(prop.getProperty("password"));
+        loginPage.clickOnLogin();
 
-			logger.info("Clicking on Login");
-			homepage.clickOnLogin();
+        // Perform product search
+        SearchPage searchPage = new SearchPage(DriverManager.getDriver());
+        searchPage.enterProductToSearch(searchData.getProductName());
+        searchPage.clickOnSearch();
+        searchPage.selectProductCategory(searchData.getProductCategory());
+        searchPage.clickOnProductDescriptionCheckbox();
+        searchPage.clickOnInnerSearch();
 
-			LoginPage loginpage = new LoginPage(DriverManager.getDriver());
-
-			logger.info("Entering email: {}", prop.getProperty("email"));
-			loginpage.setUserEmail(prop.getProperty("email"));
-
-			logger.info("Entering password");
-			loginpage.setUserPassword(prop.getProperty("password"));
-
-			logger.info("Clicking on Login button");
-			loginpage.clickOnLogin();
-
-			SearchPage searchpage = new SearchPage(DriverManager.getDriver());
-
-			ProductData searchData = JsonDataReader.loadJson(jsonPath,ProductData.class);
-					
-
-			logger.info("Entering product to search: {}", searchData.productName);
-			searchpage.enterProductToSearch(searchData.productName);
-
-			logger.info("Clicking on Search button");
-			searchpage.clickOnSearch();
-
-			logger.info("Selecting category:{}", searchData.ProductCategory);
-			searchpage.selectProductCategory(searchData.ProductCategory);
-
-			logger.info("Selecting 'Search in product descriptions'");
-			searchpage.clickOnProductDescriptionCheckbox();
-
-			logger.info("Clicking inner Search button");
-			searchpage.clickOnInnerSearch();
-
-			logger.info("Getting and validating the product name: {}",searchData.productName);
-			searchpage.confirmProdName();
-			Assert.assertEquals(searchpage.confirmProdName(), searchData.productName);
-
-		} catch (Exception e) {
-
-			logger.error("Unexpected Exception Occurred During Test Execution", e);
-			logger.error("Test FAILED due to an unhandled exception.");
-
-			Assert.fail("Test failed due to unexpected exception: " + e.getMessage());
-			throw e;
-		} finally {
-			logger.info("===== TC004 Search Product Test Completed Successfully =====");
-		}
-	}
+        // Validate product name
+        String actualName = searchPage.confirmProdName();
+        Assert.assertEquals(actualName, searchData.getProductName(), "Product name mismatch.");
+    }
 }

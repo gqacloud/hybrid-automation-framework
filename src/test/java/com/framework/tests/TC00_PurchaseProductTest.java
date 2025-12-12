@@ -40,14 +40,14 @@ public class TC00_PurchaseProductTest extends BaseClass {
 
 			ProductData searchData = JsonDataReader.loadJson(jsonPath, ProductData.class);
 
-			logger.info("Entering product to search: {}", searchData.productName);
-			searchpage.enterProductToSearch(searchData.productName);
+			logger.info("Entering product to search: {}", searchData.getProductName());
+			searchpage.enterProductToSearch(searchData.getProductName());
 
 			logger.info("Clicking on Search button");
 			searchpage.clickOnSearch();
 
-			logger.info("Selecting category:{}", searchData.ProductCategory);
-			searchpage.selectProductCategory(searchData.ProductCategory);
+			logger.info("Selecting category:{}", searchData.getProductCategory());
+			searchpage.selectProductCategory(searchData.getProductCategory());
 
 			logger.info("Selecting 'Search in product descriptions'");
 			searchpage.clickOnProductDescriptionCheckbox();
@@ -59,34 +59,35 @@ public class TC00_PurchaseProductTest extends BaseClass {
 
 			ProductDetailsPage product = new ProductDetailsPage(DriverManager.getDriver());
 
-			logger.info("Validating Product Name: {}", searchData.productName);
+			logger.info("Validating Product Name: {}", searchData.getProductName());
 			product.getProductName();
-			Assert.assertEquals(product.getProductName(), searchData.productName);
+			Assert.assertEquals(product.getProductName(), searchData.getProductName());
 
-			logger.info("Validating Product Brand: {}", searchData.brand);
+			logger.info("Validating Product Brand: {}", searchData.getBrand());
 			product.getBrand();
-			Assert.assertEquals(product.getBrand(), searchData.brand);
+			Assert.assertEquals(product.getBrand(), searchData.getBrand());
 
-			logger.info("Validating Product Code: {}", searchData.productCode);
+			logger.info("Validating Product Code: {}", searchData.getProductCode());
 			product.getProductCode();
-			Assert.assertEquals(product.getProductCode(), searchData.productCode);
+			Assert.assertEquals(product.getProductCode(), searchData.getProductCode());
 
-			logger.info("Validating Product Code: {}", searchData.rewardPoints);
+			logger.info("Validating Product Code: {}", searchData.getRewardPoints());
 			product.getRewardpoints();
-			Assert.assertEquals(product.getRewardpoints(), searchData.rewardPoints);
+			Assert.assertEquals(product.getRewardpoints(), searchData.getRewardPoints());
 
-			logger.info("Validating Product Code: {}", searchData.availability);
+			logger.info("Validating Product Code: {}", searchData.getAvailability());
 			product.getAvailability();
-			Assert.assertEquals(product.getAvailability(), searchData.availability);
+			Assert.assertEquals(product.getAvailability(), searchData.getAvailability());
 
-			logger.info("Validating Product Price: {}", searchData.price);
+			logger.info("Validating Product Price: {}", searchData.getPrice());
 			product.getDisplayedPrice();
-			Assert.assertEquals(product.getDisplayedPrice(), searchData.price);
+			Assert.assertEquals(product.getDisplayedPrice(), searchData.getPrice());
 
-			logger.info("selecting delivery date {}:", searchData.deliveryMonth, searchData.deliveryYear,
-					searchData.deliveryDay);
+			logger.info("selecting delivery date {}:", searchData.getDeliveryMonth(), searchData.getDeliveryYear(),
+					searchData.getDeliveryDay());
 
-			product.selectDeliveryDate(searchData.deliveryMonth, searchData.deliveryYear, searchData.deliveryDay);
+			product.selectDeliveryDate(searchData.getDeliveryMonth(), searchData.getDeliveryYear(),
+					searchData.getDeliveryDay());
 
 			logger.info("Clicling on add to cart button");
 			product.addProductToCart();
@@ -97,7 +98,7 @@ public class TC00_PurchaseProductTest extends BaseClass {
 			cart.clickOnCartHeader();
 			
 			logger.info("Getting shipping tax estimation");
-			cart.getShippingTaxEstimation(searchData.country, searchData.region, searchData.zipcode);
+			cart.getShippingTaxEstimation(searchData.getCountry(), searchData.getRegion(), searchData.getZipcode());
 			
 
 		} catch (Exception e) {

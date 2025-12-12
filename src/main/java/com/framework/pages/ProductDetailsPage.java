@@ -1,10 +1,7 @@
 package com.framework.pages;
 
-import java.time.LocalDate;
 import java.time.Month;
-import java.time.format.TextStyle;
 import java.util.List;
-import java.util.Locale;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,160 +18,186 @@ public class ProductDetailsPage extends BasePage {
         super(driver);
     }
 
+    // ---------------- ELEMENTS ---------------- //
+
     @FindBy(xpath = "//ul[@class='list-unstyled']//h2")
-    WebElement ProdPriceTxt;
+    private WebElement productPriceText;
 
     @FindBy(css = "div[id='content'] h1")
-    WebElement ProdNameTxt;
+    private WebElement productNameText;
 
     @FindBy(xpath = "//p[@class='intro']")
-    WebElement ProdDescrptionTxt;
+    private WebElement productDescriptionText;
 
-    @FindBy(xpath="//li[contains(text(),'Brand')]")
-    WebElement BrandTxt;
+    @FindBy(xpath = "//li[contains(text(),'Brand')]")
+    private WebElement brandText;
 
-    @FindBy(xpath="//li[contains(text(),'Product Code')]")
-    WebElement ProdCodeTxt;
+    @FindBy(xpath = "//li[contains(text(),'Product Code')]")
+    private WebElement productCodeText;
 
-    @FindBy(xpath="//li[contains(text(),'Reward Points')]")
-    WebElement rewardTxt;
+    @FindBy(xpath = "//li[contains(text(),'Reward Points')]")
+    private WebElement rewardPointsText;
 
-    @FindBy(xpath="//li[contains(text(),'Availability')]")
-    WebElement AvailabilityTxt;
+    @FindBy(xpath = "//li[contains(text(),'Availability')]")
+    private WebElement availabilityText;
 
     @FindBy(id = "button-cart")
-    WebElement cartBtn;
+    private WebElement addToCartButton;
 
     @FindBy(xpath = "//i[@class='fa fa-calendar']")
-    WebElement datapickerIcon;
+    private WebElement datePickerIcon;
 
-    @FindBy(css = "div[class='datepicker-days'] th[class='picker-switch']")
-    WebElement DateSwtich;
+    @FindBy(css = "div.datepicker-days th.picker-switch")
+    private WebElement dateSwitch;
 
-    @FindBy(css = "div[class='datepicker-days'] th[class='next']")
-    WebElement nextBtn;
+    @FindBy(css = "div.datepicker-days th.next")
+    private WebElement nextButton;
 
-    @FindBy(css = "div[class='datepicker-days'] th[class='prev']")
-    WebElement prevBtn;
+    @FindBy(css = "div.datepicker-days th.prev")
+    private WebElement prevButton;
 
     @FindBy(xpath = "//div[@class='datepicker-days']//td[@class='day']")
-    List<WebElement> dates;
+    private List<WebElement> dayCells;
 
-    // ---------------- Getters ---------------- //
+    // ---------------- GETTERS WITH LOGGING ---------------- //
 
     public String getProductName() {
-        wait.until(ExpectedConditions.visibilityOf(ProdNameTxt));
-        return ProdNameTxt.getText().trim();
-    }
-
-    public String getBrand() {
-        wait.until(ExpectedConditions.visibilityOf(BrandTxt));
-        return BrandTxt.getText().replace("Brand: ", "").trim();
-    }
-
-    public String getProductCode() {
-        wait.until(ExpectedConditions.visibilityOf(ProdCodeTxt));
-        String[] ProdCode = ProdCodeTxt.getText().split(":");
-        return ProdCode[1].trim();
-    }
-
-    public String getRewardpoints() {
-        wait.until(ExpectedConditions.visibilityOf(rewardTxt));
-        String[] rewardpoint = rewardTxt.getText().split(":");
-        return rewardpoint[1].trim();
-    }
-
-    public String getAvailability() {
-        wait.until(ExpectedConditions.visibilityOf(AvailabilityTxt));
-        String[] availablity = AvailabilityTxt.getText().split(":");
-        return availablity[1].trim();
-    }
-
-    public double getDisplayedPrice() {
-        wait.until(ExpectedConditions.visibilityOf(ProdPriceTxt));
-        String PrdPrice = ProdPriceTxt.getText();
-        double prodPrice = Double.parseDouble(PrdPrice.replace("$", "").trim());
-        return prodPrice;
-    }
-
-    public String getProductDescription() {
-        wait.until(ExpectedConditions.visibilityOf(ProdDescrptionTxt));
-        return ProdDescrptionTxt.getText().trim();
-    }
-
-    // ---------------- Action Methods ---------------- //
-
-    public void addProductToCart() {
         try {
-            wait.until(ExpectedConditions.elementToBeClickable(cartBtn));
-            cartBtn.click();
+            logger.info("Fetching product name");
+            wait.until(ExpectedConditions.visibilityOf(productNameText));
+            return productNameText.getText().trim();
         } catch (Exception e) {
-            logger.error("Failed to click cart button '{}': {}", cartBtn, e.getMessage());
+            throw new RuntimeException("Failed to get product name", e);
         }
     }
 
-    public void selectDeliveryDate(String month, String year, String date) {
-        selectDateFromCalendar(month, year, date);
+    public String getBrand() {
+        try {
+            logger.info("Fetching brand name");
+            wait.until(ExpectedConditions.visibilityOf(brandText));
+            return brandText.getText().replace("Brand: ", "").trim();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to get brand", e);
+        }
     }
 
-    private void selectDateFromCalendar(String givenMonth, String givenYear, String givenDate) {
-        wait.until(ExpectedConditions.elementToBeClickable(datapickerIcon)).click();
+    public String getProductCode() {
+        try {
+            logger.info("Fetching product code");
+            wait.until(ExpectedConditions.visibilityOf(productCodeText));
+            return productCodeText.getText().split(":")[1].trim();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to get product code", e);
+        }
+    }
 
-        LocalDate today = LocalDate.now();
-        String currentMonth = today.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
-        int currentYear = today.getYear();
+    public String getRewardpoints() {
+        try {
+            logger.info("Fetching reward points");
+            wait.until(ExpectedConditions.visibilityOf(rewardPointsText));
+            return rewardPointsText.getText().split(":")[1].trim();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to get reward points", e);
+        }
+    }
+
+    public String getAvailability() {
+        try {
+            logger.info("Fetching availability");
+            wait.until(ExpectedConditions.visibilityOf(availabilityText));
+            return availabilityText.getText().split(":")[1].trim();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to get availability", e);
+        }
+    }
+
+    public double getDisplayedPrice() {
+        try {
+            logger.info("Fetching product price");
+            wait.until(ExpectedConditions.visibilityOf(productPriceText));
+            String priceText = productPriceText.getText().replace("$", "").trim();
+            return Double.parseDouble(priceText);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to get product price", e);
+        }
+    }
+
+    public String getProductDescription() {
+        try {
+            logger.info("Fetching product description");
+            wait.until(ExpectedConditions.visibilityOf(productDescriptionText));
+            return productDescriptionText.getText().trim();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to get product description", e);
+        }
+    }
+
+    // ---------------- ACTION METHODS ---------------- //
+
+    public void addProductToCart() {
+        try {
+            logger.info("Clicking Add to Cart");
+            wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to click Add to Cart button", e);
+        }
+    }
+
+    public void selectDeliveryDate(String month, String year, String day) {
+        try {
+            logger.info("Selecting delivery date: {} {} {}", month, year, day);
+            selectDateFromCalendar(month, year, day);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to select delivery date", e);
+        }
+    }
+
+    private void selectDateFromCalendar(String givenMonth, String givenYear, String givenDay) {
+
+        wait.until(ExpectedConditions.elementToBeClickable(datePickerIcon)).click();
 
         while (true) {
 
-            String displayed = DateSwtich.getText(); // Example: "December 2025"
+            String displayed = dateSwitch.getText().trim();  // Example: "December 2025"
             String[] parts = displayed.split(" ");
 
-            String appMonth = parts[0].trim();
-            int appYear = Integer.parseInt(parts[1].trim());
+            String appMonth = parts[0];
+            int appYear = Integer.parseInt(parts[1]);
+
             int targetYear = Integer.parseInt(givenYear);
 
-            // RULE 1: If calendar shows current month & current year
-            if (appMonth.equalsIgnoreCase(currentMonth) && appYear == currentYear) {
-               
-                for (WebElement date : dates) {
-                    if (date.getText().equals(givenDate)) {
-                        date.click();
-                        return;
-                    }
-                }
-                throw new RuntimeException("Date not found in current month: " + givenDate);
-            }
-
-            // RULE 2: If calendar year < target year → click NEXT
+            // YEAR navigation
             if (appYear < targetYear) {
-                nextBtn.click();
+                nextButton.click();
                 continue;
             }
-
-            // RULE 3: If calendar year > target year → click PREV
             if (appYear > targetYear) {
-                prevBtn.click();
+                prevButton.click();
                 continue;
             }
 
-            // ---- Now the YEAR matches, navigate MONTH----
+            // MONTH navigation
             int appMonthNum = Month.valueOf(appMonth.toUpperCase()).getValue();
-            int givenMonthNum = Month.valueOf(givenMonth.toUpperCase()).getValue();
+            int targetMonthNum = Month.valueOf(givenMonth.toUpperCase()).getValue();
 
-            if (appMonthNum < givenMonthNum) {
-                nextBtn.click();
-            } else if (appMonthNum > givenMonthNum) {
-                prevBtn.click();
-            } else {
-                // Month & Year match → Select date
-                for (WebElement date : dates) {
-                    if (date.getText().equals(givenDate)) {
-                        date.click();
-                        return;
-                    }
-                }
-                throw new RuntimeException("Date not found: " + givenDate);
+            if (appMonthNum < targetMonthNum) {
+                nextButton.click();
+                continue;
             }
+            if (appMonthNum > targetMonthNum) {
+                prevButton.click();
+                continue;
+            }
+
+            // Month & Year match → Select day
+            for (WebElement d : dayCells) {
+                if (d.getText().equals(givenDay)) {
+                    d.click();
+                    return;
+                }
+            }
+
+            throw new RuntimeException("Day not found in calendar: " + givenDay);
         }
     }
 }

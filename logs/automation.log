@@ -1,233 +1,326 @@
-2025-12-12 01:33:35,048 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
-2025-12-12 01:33:35,648 INFO  org.testng.internal.Utils - [TestNG] Running:
+2025-12-12 10:48:38,623 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-12 10:48:39,028 INFO  org.testng.internal.Utils - [TestNG] Running:
   E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
 
-2025-12-12 01:33:35,982 INFO  com.framework.tests.TC006_CartPageTest - Execution Environment: local
-2025-12-12 01:33:35,982 INFO  com.framework.tests.TC006_CartPageTest - Browser: edge
-2025-12-12 01:33:35,982 INFO  com.framework.tests.TC006_CartPageTest - OS: WIN10
-2025-12-12 01:33:36,007 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
-2025-12-12 01:34:26,750 INFO  com.framework.tests.TC006_CartPageTest - Navigated to URL: https://tutorialsninja.com/demo/
-2025-12-12 01:34:26,800 INFO  com.framework.tests.TC006_CartPageTest - ===== TC006 CartPage Test started =====
-2025-12-12 01:34:26,996 INFO  com.framework.tests.TC006_CartPageTest - Navigating to My Account
-2025-12-12 01:34:47,246 ERROR com.framework.tests.TC006_CartPageTest - Unexpected Exception Occurred During Test Execution
-org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //ul[@class='list-inline']//li[@class='dropdown']' (tried for 10 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at com.framework.pages.HomePage.clickOnMyAccount(HomePage.java:28)
-	at com.framework.tests.TC006_CartPageTest.verifyCart(TC006_CartPageTest.java:26)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at org.testng.TestRunner.privateRun(TestRunner.java:741)
-	at org.testng.TestRunner.run(TestRunner.java:616)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//ul[@class='list-inline']//li[@class='dropdown']"}
-  (Session info: MicrosoftEdge=143.0.3650.75)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
-Build info: version: '4.38.0', revision: '6b412e825c*'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '25'
-Driver info: org.openqa.selenium.edge.EdgeDriver
-Command: [9a361782e7ff1fda03820a8fb76cb68e, findElement {value=//ul[@class='list-inline']//li[@class='dropdown'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 143.0.3650.75, fedcm:accounts: true, goog:processID: 13552, ms:edgeOptions: {debuggerAddress: localhost:53976}, msedge: {msedgedriverVersion: 143.0.3650.80 (788579717f68..., userDataDir: C:\Users\Gowtham\AppData\Lo...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53976/devtoo..., se:cdpVersion: 143.0.3650.75, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 9a361782e7ff1fda03820a8fb76cb68e
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at jdk.proxy2/jdk.proxy2.$Proxy31.isDisplayed(Unknown Source)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:308)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:294)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:291)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:662)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:658)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-	... 28 more
-2025-12-12 01:34:47,250 ERROR com.framework.tests.TC006_CartPageTest - Test FAILED due to an unhandled exception.
-2025-12-12 01:34:47,252 INFO  com.framework.tests.TC006_CartPageTest - ===== TC006 CartPage Test Completed Successfully =====
-2025-12-12 01:34:47,438 INFO  com.framework.tests.TC006_CartPageTest - Closing WebDriver
-2025-12-12 01:44:37,583 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
-2025-12-12 01:44:37,848 INFO  org.testng.internal.Utils - [TestNG] Running:
-  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
-
-2025-12-12 01:44:38,094 INFO  com.framework.tests.TC006_CartPageTest - ========== Test Setup Started ==========
-2025-12-12 01:44:38,094 INFO  com.framework.tests.TC006_CartPageTest - Execution Environment: local
-2025-12-12 01:44:38,094 INFO  com.framework.tests.TC006_CartPageTest - Browser: edge
-2025-12-12 01:44:38,094 INFO  com.framework.tests.TC006_CartPageTest - OS: WIN10
-2025-12-12 01:44:38,096 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
-2025-12-12 01:44:40,292 INFO  com.framework.tests.TC006_CartPageTest - Navigating to URL: https://tutorialsninja.com/demo/
-2025-12-12 01:56:23,092 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
-2025-12-12 01:56:23,354 INFO  org.testng.internal.Utils - [TestNG] Running:
-  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
-
-2025-12-12 01:56:23,608 INFO  com.framework.base.BaseClass - ========== Test Setup Started ==========
-2025-12-12 01:56:23,608 INFO  com.framework.base.BaseClass - Execution Environment: local
-2025-12-12 01:56:23,608 INFO  com.framework.base.BaseClass - Browser: edge
-2025-12-12 01:56:23,608 INFO  com.framework.base.BaseClass - OS: WIN10
-2025-12-12 01:56:23,609 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
-2025-12-12 01:56:25,847 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
-2025-12-12 02:00:32,530 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
-2025-12-12 02:00:32,790 INFO  org.testng.internal.Utils - [TestNG] Running:
-  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
-
-2025-12-12 02:00:33,041 INFO  com.framework.base.BaseClass - ========== Test Setup Started ==========
-2025-12-12 02:00:33,041 INFO  com.framework.base.BaseClass - Execution Environment: local
-2025-12-12 02:00:33,041 INFO  com.framework.base.BaseClass - Browser: edge
-2025-12-12 02:00:33,041 INFO  com.framework.base.BaseClass - OS: WIN10
-2025-12-12 02:00:33,042 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
-2025-12-12 02:00:35,320 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
-2025-12-12 02:45:58,300 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
-2025-12-12 02:45:58,557 INFO  org.testng.internal.Utils - [TestNG] Running:
-  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
-
-2025-12-12 02:45:58,821 INFO  com.framework.base.BaseClass - ========== Test Setup Started ==========
-2025-12-12 02:45:58,821 INFO  com.framework.base.BaseClass - Execution Environment: local
-2025-12-12 02:45:58,821 INFO  com.framework.base.BaseClass - Browser: edge
-2025-12-12 02:45:58,821 INFO  com.framework.base.BaseClass - OS: WIN10
-2025-12-12 02:45:58,822 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
-2025-12-12 02:46:02,716 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
-2025-12-12 02:49:17,934 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
-2025-12-12 02:49:18,304 INFO  org.testng.internal.Utils - [TestNG] Running:
-  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
-
-2025-12-12 02:49:18,666 INFO  com.framework.base.BaseClass - ========== Test Setup Started ==========
-2025-12-12 02:49:18,667 INFO  com.framework.base.BaseClass - Execution Environment: local
-2025-12-12 02:49:18,667 INFO  com.framework.base.BaseClass - Browser: edge
-2025-12-12 02:49:18,667 INFO  com.framework.base.BaseClass - OS: WIN10
-2025-12-12 02:49:18,669 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
-2025-12-12 02:49:22,096 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
-2025-12-12 02:49:31,351 INFO  com.framework.base.BaseClass - Waiting for page DOM to reach 'complete' state...
-2025-12-12 02:49:31,416 INFO  com.framework.base.BaseClass - Page loaded successfully → https://tutorialsninja.com/demo/
-2025-12-12 02:49:31,416 INFO  com.framework.base.BaseClass - ========== Test Setup Completed ==========
-2025-12-12 02:49:31,453 INFO  com.framework.base.BaseClass - ===== TC006 CartPage Test started =====
-2025-12-12 02:49:31,484 INFO  com.framework.base.BaseClass - Navigating to My Account
-2025-12-12 02:49:51,591 ERROR com.framework.base.BaseClass - Unexpected Exception Occurred During Test Execution
-org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //ul[@class='list-inline']//li[@class='dropdown']' (tried for 10 second(s) with 500 milliseconds interval)
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
-	at com.framework.pages.HomePage.clickOnMyAccount(HomePage.java:28)
-	at com.framework.tests.TC006_CartPageTest.verifyCart(TC006_CartPageTest.java:26)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at org.testng.TestRunner.privateRun(TestRunner.java:741)
-	at org.testng.TestRunner.run(TestRunner.java:616)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//ul[@class='list-inline']//li[@class='dropdown']"}
-  (Session info: MicrosoftEdge=143.0.3650.75)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
-Build info: version: '4.38.0', revision: '6b412e825c*'
-System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '25'
-Driver info: org.openqa.selenium.edge.EdgeDriver
-Command: [7deb989633412b134c95b10d89a516db, findElement {value=//ul[@class='list-inline']//li[@class='dropdown'], using=xpath}]
-Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 143.0.3650.75, fedcm:accounts: true, goog:processID: 8068, ms:edgeOptions: {debuggerAddress: localhost:55181}, msedge: {msedgedriverVersion: 143.0.3650.80 (788579717f68..., userDataDir: C:\Users\Gowtham\AppData\Lo...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55181/devtoo..., se:cdpVersion: 143.0.3650.75, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: 7deb989633412b134c95b10d89a516db
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at jdk.proxy2/jdk.proxy2.$Proxy31.isDisplayed(Unknown Source)
-	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:308)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:294)
-	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:291)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:662)
-	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:658)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
-	... 28 more
-2025-12-12 02:49:51,597 ERROR com.framework.base.BaseClass - Test FAILED due to an unhandled exception.
-2025-12-12 02:49:51,704 INFO  com.framework.base.BaseClass - ===== TC006 CartPage Test Completed Successfully =====
-2025-12-12 02:49:51,917 INFO  com.framework.base.BaseClass - Closing WebDriver
-2025-12-12 02:52:30,228 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
-2025-12-12 02:52:30,750 INFO  org.testng.internal.Utils - [TestNG] Running:
-  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
-
-2025-12-12 02:52:31,135 INFO  com.framework.base.BaseClass - ========== Test Setup Started ==========
-2025-12-12 02:52:31,136 INFO  com.framework.base.BaseClass - Execution Environment : local
-2025-12-12 02:52:31,136 INFO  com.framework.base.BaseClass - Browser              : edge
-2025-12-12 02:52:31,136 INFO  com.framework.base.BaseClass - OS                   : WIN10
-2025-12-12 02:52:31,138 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
-2025-12-12 02:52:34,236 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
-2025-12-12 02:57:58,884 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
-2025-12-12 02:57:59,355 INFO  org.testng.internal.Utils - [TestNG] Running:
-  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
-
-2025-12-12 02:57:59,852 INFO  com.framework.base.BaseClass - ========== Test Setup Started ==========
-2025-12-12 02:57:59,853 INFO  com.framework.base.BaseClass - Execution Environment : local
-2025-12-12 02:57:59,853 INFO  com.framework.base.BaseClass - Browser              : edge
-2025-12-12 02:57:59,854 INFO  com.framework.base.BaseClass - OS                   : WIN10
-2025-12-12 02:57:59,855 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
-2025-12-12 02:58:03,604 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
-2025-12-12 03:15:29,791 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
-2025-12-12 03:15:30,461 INFO  org.testng.internal.Utils - [TestNG] Running:
-  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
-
-2025-12-12 03:15:31,059 INFO  com.framework.base.BaseClass - ========== Test Setup Started ==========
-2025-12-12 03:15:31,060 INFO  com.framework.base.BaseClass - Execution Environment : local
-2025-12-12 03:15:31,060 INFO  com.framework.base.BaseClass - Browser              : edge
-2025-12-12 03:15:31,061 INFO  com.framework.base.BaseClass - OS                   : WIN10
-2025-12-12 03:15:31,063 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
-2025-12-12 03:15:36,504 INFO  com.framework.base.BaseClass - Navigating to: https://tutorialsninja.com/demo/
-2025-12-12 03:15:51,510 ERROR com.framework.base.BaseClass - ❌ Navigation timed out after 15 seconds → https://tutorialsninja.com/demo/
+2025-12-12 10:48:39,286 INFO  com.framework.base.BaseClass - === Test Setup Started ===
+2025-12-12 10:48:39,287 INFO  com.framework.base.BaseClass - Execution Environment : local
+2025-12-12 10:48:39,287 INFO  com.framework.base.BaseClass - Browser              : edge
+2025-12-12 10:48:39,287 INFO  com.framework.base.BaseClass - OS                   : WIN10
+2025-12-12 10:48:39,289 INFO  com.framework.driver.DriverFactory - Initializing LOCAL WebDriver: edge
+2025-12-12 10:48:40,134 INFO  com.framework.driver.DriverFactory - Edge: InPrivate Enabled
+2025-12-12 10:48:42,483 INFO  com.framework.driver.DriverFactory - Configuring WebDriver defaults
+2025-12-12 10:48:42,559 INFO  com.framework.driver.DriverManager - Setting WebDriver for thread: 3
+2025-12-12 10:48:42,559 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
+2025-12-12 10:48:42,559 INFO  com.framework.base.BaseClass - Starting safe navigation...
+2025-12-12 10:48:43,808 INFO  com.framework.base.BaseClass - Navigation successful.
+2025-12-12 10:48:43,809 INFO  com.framework.base.BaseClass - Waiting for page DOM state to be 'complete'...
+2025-12-12 10:48:43,828 INFO  com.framework.base.BaseClass - DOM Ready.
+2025-12-12 10:48:43,840 INFO  com.framework.base.BaseClass - Page Loaded Successfully. Title: Your Store
+2025-12-12 10:48:43,840 INFO  com.framework.base.BaseClass - === Test Setup Completed ===
+2025-12-12 10:48:43,859 INFO  com.framework.utils.ExtentReportUtils - Starting test: verifyAccountRegistration
+2025-12-12 10:48:43,860 INFO  com.framework.utils.ExtentReportUtils - Groups: [Master, Regression]
+2025-12-12 10:48:43,897 INFO  com.framework.pages.HomePage - Clicking My Account
+2025-12-12 10:48:44,087 INFO  com.framework.pages.HomePage - Clicking Register
+2025-12-12 10:48:45,065 INFO  com.framework.pages.RegisterAccount - Entering First Name: IOLCGBE
+2025-12-12 10:48:45,264 INFO  com.framework.pages.RegisterAccount - Entering Last Name: HMYWLCD
+2025-12-12 10:48:45,443 INFO  com.framework.pages.RegisterAccount - Entering Email: FZhlqtutC@gmail.com
+2025-12-12 10:48:45,631 INFO  com.framework.pages.RegisterAccount - Entering Phone Number: 7603900224
+2025-12-12 10:48:45,812 INFO  com.framework.pages.RegisterAccount - Entering Password
+2025-12-12 10:48:45,987 INFO  com.framework.pages.RegisterAccount - Entering Confirm Password
+2025-12-12 10:48:46,161 INFO  com.framework.pages.RegisterAccount - Accepting Privacy Policy
+2025-12-12 10:48:46,318 INFO  com.framework.pages.RegisterAccount - Clicking Continue button
+2025-12-12 10:48:47,176 INFO  com.framework.pages.RegisterAccount - Fetching confirmation message
+2025-12-12 10:48:47,239 INFO  com.framework.pages.RegisterAccount - Confirmation message received: Your Account Has Been Created!
+2025-12-12 10:48:47,275 INFO  com.framework.utils.ExtentReportUtils - PASS: verifyAccountRegistration (3.38s)
+2025-12-12 10:48:47,291 INFO  com.framework.base.BaseClass - Closing WebDriver...
+2025-12-12 10:48:47,291 INFO  com.framework.driver.DriverManager - Quitting WebDriver for thread: 3
+2025-12-12 10:48:47,727 INFO  com.framework.base.BaseClass - === Test Setup Started ===
+2025-12-12 10:48:47,728 INFO  com.framework.base.BaseClass - Execution Environment : local
+2025-12-12 10:48:47,728 INFO  com.framework.base.BaseClass - Browser              : edge
+2025-12-12 10:48:47,728 INFO  com.framework.base.BaseClass - OS                   : WIN10
+2025-12-12 10:48:47,728 INFO  com.framework.driver.DriverFactory - Initializing LOCAL WebDriver: edge
+2025-12-12 10:48:47,728 INFO  com.framework.driver.DriverFactory - Edge: InPrivate Enabled
+2025-12-12 10:48:49,128 INFO  com.framework.driver.DriverFactory - Configuring WebDriver defaults
+2025-12-12 10:48:49,245 INFO  com.framework.driver.DriverManager - Setting WebDriver for thread: 3
+2025-12-12 10:48:49,245 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
+2025-12-12 10:48:49,245 INFO  com.framework.base.BaseClass - Starting safe navigation...
+2025-12-12 10:48:50,186 INFO  com.framework.base.BaseClass - Navigation successful.
+2025-12-12 10:48:50,187 INFO  com.framework.base.BaseClass - Waiting for page DOM state to be 'complete'...
+2025-12-12 10:48:50,203 INFO  com.framework.base.BaseClass - DOM Ready.
+2025-12-12 10:48:50,217 INFO  com.framework.base.BaseClass - Page Loaded Successfully. Title: Your Store
+2025-12-12 10:48:50,217 INFO  com.framework.base.BaseClass - === Test Setup Completed ===
+2025-12-12 10:48:50,220 INFO  com.framework.utils.ExtentReportUtils - Starting test: verifyLogin
+2025-12-12 10:48:50,222 INFO  com.framework.utils.ExtentReportUtils - Groups: [Master, Sanity, Regression]
+2025-12-12 10:48:50,226 INFO  com.framework.pages.HomePage - Clicking My Account
+2025-12-12 10:48:50,496 INFO  com.framework.pages.HomePage - Clicking Login
+2025-12-12 10:48:50,860 INFO  com.framework.pages.LoginPage - Entering email
+2025-12-12 10:48:51,085 INFO  com.framework.pages.LoginPage - Entering password
+2025-12-12 10:48:51,258 INFO  com.framework.pages.LoginPage - Clicking Login button
+2025-12-12 10:48:51,402 INFO  com.framework.pages.MyAccountPage - Validating the presence of 'My Account' message.
+2025-12-12 10:48:52,256 INFO  com.framework.pages.MyAccountPage - 'My Account' message is displayed successfully.
+2025-12-12 10:48:52,256 INFO  com.framework.utils.ExtentReportUtils - PASS: verifyLogin (2.04s)
+2025-12-12 10:48:52,259 INFO  com.framework.base.BaseClass - Closing WebDriver...
+2025-12-12 10:48:52,259 INFO  com.framework.driver.DriverManager - Quitting WebDriver for thread: 3
+2025-12-12 10:48:52,692 INFO  com.framework.base.BaseClass - === Test Setup Started ===
+2025-12-12 10:48:52,693 INFO  com.framework.base.BaseClass - Execution Environment : local
+2025-12-12 10:48:52,693 INFO  com.framework.base.BaseClass - Browser              : edge
+2025-12-12 10:48:52,694 INFO  com.framework.base.BaseClass - OS                   : WIN10
+2025-12-12 10:48:52,694 INFO  com.framework.driver.DriverFactory - Initializing LOCAL WebDriver: edge
+2025-12-12 10:48:52,695 INFO  com.framework.driver.DriverFactory - Edge: InPrivate Enabled
+2025-12-12 10:48:54,388 INFO  com.framework.driver.DriverFactory - Configuring WebDriver defaults
+2025-12-12 10:48:54,471 INFO  com.framework.driver.DriverManager - Setting WebDriver for thread: 3
+2025-12-12 10:48:54,471 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
+2025-12-12 10:48:54,471 INFO  com.framework.base.BaseClass - Starting safe navigation...
+2025-12-12 10:48:55,468 INFO  com.framework.base.BaseClass - Navigation successful.
+2025-12-12 10:48:55,468 INFO  com.framework.base.BaseClass - Waiting for page DOM state to be 'complete'...
+2025-12-12 10:48:55,526 INFO  com.framework.base.BaseClass - DOM Ready.
+2025-12-12 10:48:55,543 INFO  com.framework.base.BaseClass - Page Loaded Successfully. Title: Your Store
+2025-12-12 10:48:55,543 INFO  com.framework.base.BaseClass - === Test Setup Completed ===
+2025-12-12 10:48:55,917 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:55,923 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:55,934 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:56,580 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:56,741 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:56,742 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:56,744 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:56,776 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:56,831 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:56,832 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:56,833 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:56,865 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:56,922 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:56,925 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:56,928 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:56,967 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:56,997 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:56,998 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:56,999 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:57,015 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:57,043 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:57,045 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:57,045 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:57,060 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:57,087 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:57,089 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:57,090 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:57,106 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:57,132 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:57,133 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:57,134 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:57,150 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:57,179 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:57,180 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:57,181 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:57,196 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:57,220 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:57,222 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:57,223 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:57,236 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:57,264 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:57,265 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:57,266 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:57,279 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:57,299 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:57,300 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:57,301 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:57,314 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:57,335 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:57,336 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:57,336 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:57,349 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:57,372 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:57,373 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:57,374 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:57,387 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:57,407 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:57,408 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:57,410 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:57,421 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:57,440 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:57,442 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:57,442 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:57,455 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:57,528 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:57,530 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:57,531 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:57,571 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:57,634 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:57,635 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:57,636 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:57,684 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:57,738 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:57,741 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:57,742 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:57,781 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:57,815 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+2025-12-12 10:48:57,816 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/worksheets/_rels/sheet3.xml.rels
+2025-12-12 10:48:57,817 DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+2025-12-12 10:48:57,838 DEBUG org.apache.poi.ooxml.POIXMLFactory - using default POIXMLDocumentPart for http://schemas.openxmlformats.org/officeDocument/2006/relationships/printerSettings
+2025-12-12 10:48:57,871 INFO  com.framework.utils.ExtentReportUtils - Starting test: verify_loginDDTest
+2025-12-12 10:48:57,871 INFO  com.framework.utils.ExtentReportUtils - Groups: [Master, DataDriven]
+2025-12-12 10:48:57,878 INFO  com.framework.base.BaseClass - Data Set → email: piwene6598@badfist.com | expected: Valid
+2025-12-12 10:48:57,878 INFO  com.framework.pages.HomePage - Clicking My Account
+2025-12-12 10:48:58,134 INFO  com.framework.pages.HomePage - Clicking Login
+2025-12-12 10:48:58,491 INFO  com.framework.pages.LoginPage - Entering email
+2025-12-12 10:48:58,747 INFO  com.framework.pages.LoginPage - Entering password
+2025-12-12 10:48:58,914 INFO  com.framework.pages.LoginPage - Clicking Login button
+2025-12-12 10:48:59,767 INFO  com.framework.pages.MyAccountPage - Validating the presence of 'My Account' message.
+2025-12-12 10:48:59,827 INFO  com.framework.pages.MyAccountPage - 'My Account' message is displayed successfully.
+2025-12-12 10:48:59,828 INFO  com.framework.pages.MyAccountPage - Attempting to click on Logout button.
+2025-12-12 10:49:00,337 INFO  com.framework.pages.MyAccountPage - Logout button clicked successfully.
+2025-12-12 10:49:00,339 INFO  com.framework.utils.ExtentReportUtils - PASS: verify_loginDDTest (2.47s)
+2025-12-12 10:49:00,346 INFO  com.framework.utils.ExtentReportUtils - Starting test: verify_loginDDTest
+2025-12-12 10:49:00,346 INFO  com.framework.utils.ExtentReportUtils - Groups: [Master, DataDriven]
+2025-12-12 10:49:00,349 INFO  com.framework.base.BaseClass - Data Set → email: piwene6598@badfist.com | expected: Invalid
+2025-12-12 10:49:00,350 INFO  com.framework.pages.HomePage - Clicking My Account
+2025-12-12 10:49:00,568 INFO  com.framework.pages.HomePage - Clicking Login
+2025-12-12 10:49:00,935 INFO  com.framework.pages.LoginPage - Entering email
+2025-12-12 10:49:01,172 INFO  com.framework.pages.LoginPage - Entering password
+2025-12-12 10:49:01,443 INFO  com.framework.pages.LoginPage - Clicking Login button
+2025-12-12 10:49:01,606 INFO  com.framework.pages.MyAccountPage - Validating the presence of 'My Account' message.
+2025-12-12 10:49:22,294 ERROR com.framework.pages.MyAccountPage - Exception occurred while checking 'My Account' message: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h2[normalize-space()='My Account']' (tried for 10 second(s) with 500 milliseconds interval)
+2025-12-12 10:49:22,294 INFO  com.framework.utils.ExtentReportUtils - PASS: verify_loginDDTest (21.95s)
+2025-12-12 10:49:22,303 INFO  com.framework.utils.ExtentReportUtils - Starting test: verify_loginDDTest
+2025-12-12 10:49:22,307 INFO  com.framework.utils.ExtentReportUtils - Groups: [Master, DataDriven]
+2025-12-12 10:49:22,308 INFO  com.framework.base.BaseClass - Data Set → email: wrongemail@badfist.com | expected: Invalid
+2025-12-12 10:49:22,308 INFO  com.framework.pages.HomePage - Clicking My Account
+2025-12-12 10:49:22,437 INFO  com.framework.pages.HomePage - Clicking Login
+2025-12-12 10:49:22,728 INFO  com.framework.pages.LoginPage - Entering email
+2025-12-12 10:49:22,913 INFO  com.framework.pages.LoginPage - Entering password
+2025-12-12 10:49:23,098 INFO  com.framework.pages.LoginPage - Clicking Login button
+2025-12-12 10:49:23,846 INFO  com.framework.pages.MyAccountPage - Validating the presence of 'My Account' message.
+2025-12-12 10:49:43,955 ERROR com.framework.pages.MyAccountPage - Exception occurred while checking 'My Account' message: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h2[normalize-space()='My Account']' (tried for 10 second(s) with 500 milliseconds interval)
+2025-12-12 10:49:43,955 INFO  com.framework.utils.ExtentReportUtils - PASS: verify_loginDDTest (21.65s)
+2025-12-12 10:49:43,965 INFO  com.framework.utils.ExtentReportUtils - Starting test: verify_loginDDTest
+2025-12-12 10:49:43,965 INFO  com.framework.utils.ExtentReportUtils - Groups: [Master, DataDriven]
+2025-12-12 10:49:43,966 INFO  com.framework.base.BaseClass - Data Set → email: piwene6598@badfist.com | expected: Invalid
+2025-12-12 10:49:43,966 INFO  com.framework.pages.HomePage - Clicking My Account
+2025-12-12 10:49:44,096 INFO  com.framework.pages.HomePage - Clicking Login
+2025-12-12 10:49:44,382 INFO  com.framework.pages.LoginPage - Entering email
+2025-12-12 10:49:44,565 INFO  com.framework.pages.LoginPage - Entering password
+2025-12-12 10:49:44,705 INFO  com.framework.pages.LoginPage - Clicking Login button
+2025-12-12 10:49:45,787 INFO  com.framework.pages.MyAccountPage - Validating the presence of 'My Account' message.
+2025-12-12 10:50:05,854 ERROR com.framework.pages.MyAccountPage - Exception occurred while checking 'My Account' message: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h2[normalize-space()='My Account']' (tried for 10 second(s) with 500 milliseconds interval)
+2025-12-12 10:50:05,855 INFO  com.framework.utils.ExtentReportUtils - PASS: verify_loginDDTest (21.89s)
+2025-12-12 10:50:05,860 INFO  com.framework.utils.ExtentReportUtils - Starting test: verify_loginDDTest
+2025-12-12 10:50:05,861 INFO  com.framework.utils.ExtentReportUtils - Groups: [Master, DataDriven]
+2025-12-12 10:50:05,861 INFO  com.framework.base.BaseClass - Data Set → email:  | expected: Invalid
+2025-12-12 10:50:05,862 INFO  com.framework.pages.HomePage - Clicking My Account
+2025-12-12 10:50:05,987 INFO  com.framework.pages.HomePage - Clicking Login
+2025-12-12 10:50:06,304 INFO  com.framework.pages.LoginPage - Entering email
+2025-12-12 10:50:06,438 INFO  com.framework.pages.LoginPage - Entering password
+2025-12-12 10:50:06,599 INFO  com.framework.pages.LoginPage - Clicking Login button
+2025-12-12 10:50:06,720 INFO  com.framework.pages.MyAccountPage - Validating the presence of 'My Account' message.
+2025-12-12 10:50:26,799 ERROR com.framework.pages.MyAccountPage - Exception occurred while checking 'My Account' message: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h2[normalize-space()='My Account']' (tried for 10 second(s) with 500 milliseconds interval)
+2025-12-12 10:50:26,799 INFO  com.framework.utils.ExtentReportUtils - PASS: verify_loginDDTest (20.94s)
+2025-12-12 10:50:26,805 INFO  com.framework.utils.ExtentReportUtils - Starting test: verify_loginDDTest
+2025-12-12 10:50:26,805 INFO  com.framework.utils.ExtentReportUtils - Groups: [Master, DataDriven]
+2025-12-12 10:50:26,807 INFO  com.framework.base.BaseClass - Data Set → email: piwene6598@badfist.com | expected: Valid
+2025-12-12 10:50:26,807 INFO  com.framework.pages.HomePage - Clicking My Account
+2025-12-12 10:50:26,927 INFO  com.framework.pages.HomePage - Clicking Login
+2025-12-12 10:50:27,200 INFO  com.framework.pages.LoginPage - Entering email
+2025-12-12 10:50:27,374 INFO  com.framework.pages.LoginPage - Entering password
+2025-12-12 10:50:27,506 INFO  com.framework.pages.LoginPage - Clicking Login button
+2025-12-12 10:50:27,619 INFO  com.framework.pages.MyAccountPage - Validating the presence of 'My Account' message.
+2025-12-12 10:50:47,656 ERROR com.framework.pages.MyAccountPage - Exception occurred while checking 'My Account' message: Expected condition failed: waiting for visibility of Proxy element for: DefaultElementLocator 'By.xpath: //h2[normalize-space()='My Account']' (tried for 10 second(s) with 500 milliseconds interval)
+2025-12-12 10:50:47,662 ERROR com.framework.utils.ExtentReportUtils - FAIL: verify_loginDDTest (20.86s)
+2025-12-12 10:50:47,663 INFO  com.framework.base.BaseClass - Capturing screenshot for test: verify_loginDDTest
+2025-12-12 10:50:47,778 INFO  com.framework.base.BaseClass - Screenshot captured at: E:\Automation\eclipse-workspace\hybrid-automation-framework/screenshots/verify_loginDDTest_20251212_105047.png
+2025-12-12 10:50:47,783 INFO  com.framework.base.BaseClass - Closing WebDriver...
+2025-12-12 10:50:47,784 INFO  com.framework.driver.DriverManager - Quitting WebDriver for thread: 3
+2025-12-12 10:50:48,215 INFO  com.framework.base.BaseClass - === Test Setup Started ===
+2025-12-12 10:50:48,215 INFO  com.framework.base.BaseClass - Execution Environment : local
+2025-12-12 10:50:48,215 INFO  com.framework.base.BaseClass - Browser              : edge
+2025-12-12 10:50:48,215 INFO  com.framework.base.BaseClass - OS                   : WIN10
+2025-12-12 10:50:48,215 INFO  com.framework.driver.DriverFactory - Initializing LOCAL WebDriver: edge
+2025-12-12 10:50:48,215 INFO  com.framework.driver.DriverFactory - Edge: InPrivate Enabled
+2025-12-12 10:50:49,914 INFO  com.framework.driver.DriverFactory - Configuring WebDriver defaults
+2025-12-12 10:50:50,030 INFO  com.framework.driver.DriverManager - Setting WebDriver for thread: 3
+2025-12-12 10:50:50,030 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
+2025-12-12 10:50:50,030 INFO  com.framework.base.BaseClass - Starting safe navigation...
+2025-12-12 10:50:51,381 INFO  com.framework.base.BaseClass - Navigation successful.
+2025-12-12 10:50:51,381 INFO  com.framework.base.BaseClass - Waiting for page DOM state to be 'complete'...
+2025-12-12 10:50:51,397 INFO  com.framework.base.BaseClass - DOM Ready.
+2025-12-12 10:50:51,409 INFO  com.framework.base.BaseClass - Page Loaded Successfully. Title: Your Store
+2025-12-12 10:50:51,409 INFO  com.framework.base.BaseClass - === Test Setup Completed ===
+2025-12-12 10:50:51,412 INFO  com.framework.utils.ExtentReportUtils - Starting test: searchProduct
+2025-12-12 10:50:51,412 INFO  com.framework.utils.ExtentReportUtils - Groups: [Functional]
+2025-12-12 10:50:51,448 INFO  com.framework.utils.JsonDataReader - Reading JSON file: E:\Automation\eclipse-workspace\hybrid-automation-framework/src/test/resources/ProductData.json
+2025-12-12 10:50:51,460 INFO  com.framework.utils.JsonDataReader - JSON successfully parsed into class: ProductData
+2025-12-12 10:50:51,460 INFO  com.framework.pages.HomePage - Clicking My Account
+2025-12-12 10:50:51,663 INFO  com.framework.pages.HomePage - Clicking Login
+2025-12-12 10:50:52,089 INFO  com.framework.pages.LoginPage - Entering email
+2025-12-12 10:50:52,288 INFO  com.framework.pages.LoginPage - Entering password
+2025-12-12 10:50:52,463 INFO  com.framework.pages.LoginPage - Clicking Login button
+2025-12-12 10:50:52,640 INFO  com.framework.pages.SearchPage - Entering product name: HP LP3065
+2025-12-12 10:50:53,580 INFO  com.framework.pages.SearchPage - Clicking main Search button
+2025-12-12 10:50:54,444 INFO  com.framework.pages.SearchPage - Selecting product category: null
+2025-12-12 10:50:54,629 ERROR com.framework.utils.ExtentReportUtils - FAIL: searchProduct (3.22s)
+2025-12-12 10:50:54,630 INFO  com.framework.base.BaseClass - Capturing screenshot for test: searchProduct
+2025-12-12 10:50:54,724 INFO  com.framework.base.BaseClass - Screenshot captured at: E:\Automation\eclipse-workspace\hybrid-automation-framework/screenshots/searchProduct_20251212_105054.png
+2025-12-12 10:50:54,736 INFO  com.framework.base.BaseClass - Closing WebDriver...
+2025-12-12 10:50:54,736 INFO  com.framework.driver.DriverManager - Quitting WebDriver for thread: 3
+2025-12-12 10:50:54,984 INFO  com.framework.base.BaseClass - === Test Setup Started ===
+2025-12-12 10:50:54,984 INFO  com.framework.base.BaseClass - Execution Environment : local
+2025-12-12 10:50:54,984 INFO  com.framework.base.BaseClass - Browser              : edge
+2025-12-12 10:50:54,984 INFO  com.framework.base.BaseClass - OS                   : WIN10
+2025-12-12 10:50:54,984 INFO  com.framework.driver.DriverFactory - Initializing LOCAL WebDriver: edge
+2025-12-12 10:50:54,984 INFO  com.framework.driver.DriverFactory - Edge: InPrivate Enabled
+2025-12-12 10:50:56,291 INFO  com.framework.driver.DriverFactory - Configuring WebDriver defaults
+2025-12-12 10:50:56,395 INFO  com.framework.driver.DriverManager - Setting WebDriver for thread: 3
+2025-12-12 10:50:56,396 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
+2025-12-12 10:50:56,396 INFO  com.framework.base.BaseClass - Starting safe navigation...
+2025-12-12 10:50:57,315 INFO  com.framework.base.BaseClass - Navigation successful.
+2025-12-12 10:50:57,316 INFO  com.framework.base.BaseClass - Waiting for page DOM state to be 'complete'...
+2025-12-12 10:50:57,332 INFO  com.framework.base.BaseClass - DOM Ready.
+2025-12-12 10:50:57,344 INFO  com.framework.base.BaseClass - Page Loaded Successfully. Title: Your Store
+2025-12-12 10:50:57,344 INFO  com.framework.base.BaseClass - === Test Setup Completed ===
+2025-12-12 10:50:57,345 INFO  com.framework.utils.ExtentReportUtils - Starting test: verifyProductDetails
+2025-12-12 10:50:57,345 INFO  com.framework.utils.ExtentReportUtils - Groups: [Functional]
+2025-12-12 10:50:57,346 INFO  com.framework.utils.JsonDataReader - Reading JSON file: E:\Automation\eclipse-workspace\hybrid-automation-framework/src/test/resources/ProductData.json
+2025-12-12 10:50:57,346 INFO  com.framework.utils.JsonDataReader - JSON successfully parsed into class: ProductData
+2025-12-12 10:50:57,346 INFO  com.framework.pages.HomePage - Clicking My Account
+2025-12-12 10:50:57,517 INFO  com.framework.pages.HomePage - Clicking Login
+2025-12-12 10:50:57,854 INFO  com.framework.pages.LoginPage - Entering email
+2025-12-12 10:50:58,040 INFO  com.framework.pages.LoginPage - Entering password
+2025-12-12 10:50:58,242 INFO  com.framework.pages.LoginPage - Clicking Login button
+2025-12-12 10:50:58,361 INFO  com.framework.pages.SearchPage - Entering product name: HP LP3065
+2025-12-12 10:50:59,153 INFO  com.framework.pages.SearchPage - Clicking main Search button
+2025-12-12 10:50:59,479 INFO  com.framework.pages.SearchPage - Selecting product category: null
+2025-12-12 10:50:59,627 ERROR com.framework.utils.ExtentReportUtils - FAIL: verifyProductDetails (2.28s)
+2025-12-12 10:50:59,627 INFO  com.framework.base.BaseClass - Capturing screenshot for test: verifyProductDetails
+2025-12-12 10:50:59,748 INFO  com.framework.base.BaseClass - Screenshot captured at: E:\Automation\eclipse-workspace\hybrid-automation-framework/screenshots/verifyProductDetails_20251212_105059.png
+2025-12-12 10:50:59,753 INFO  com.framework.base.BaseClass - Closing WebDriver...
+2025-12-12 10:50:59,753 INFO  com.framework.driver.DriverManager - Quitting WebDriver for thread: 3
+2025-12-12 10:51:00,024 INFO  com.framework.base.BaseClass - === Test Setup Started ===
+2025-12-12 10:51:00,026 INFO  com.framework.base.BaseClass - Execution Environment : local
+2025-12-12 10:51:00,026 INFO  com.framework.base.BaseClass - Browser              : edge
+2025-12-12 10:51:00,026 INFO  com.framework.base.BaseClass - OS                   : WIN10
+2025-12-12 10:51:00,026 INFO  com.framework.driver.DriverFactory - Initializing LOCAL WebDriver: edge
+2025-12-12 10:51:00,026 INFO  com.framework.driver.DriverFactory - Edge: InPrivate Enabled
+2025-12-12 10:51:01,414 INFO  com.framework.driver.DriverFactory - Configuring WebDriver defaults
+2025-12-12 10:51:01,523 INFO  com.framework.driver.DriverManager - Setting WebDriver for thread: 3
+2025-12-12 10:51:01,523 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
+2025-12-12 10:51:01,524 INFO  com.framework.base.BaseClass - Starting safe navigation...
+2025-12-12 10:51:02,434 INFO  com.framework.base.BaseClass - Navigation successful.
+2025-12-12 10:51:02,434 INFO  com.framework.base.BaseClass - Waiting for page DOM state to be 'complete'...
+2025-12-12 10:51:02,450 INFO  com.framework.base.BaseClass - DOM Ready.
+2025-12-12 10:51:02,465 INFO  com.framework.base.BaseClass - Page Loaded Successfully. Title: Your Store
+2025-12-12 10:51:02,465 INFO  com.framework.base.BaseClass - === Test Setup Completed ===
+2025-12-12 10:51:02,466 INFO  com.framework.utils.ExtentReportUtils - Starting test: verifyCartFunctionality
+2025-12-12 10:51:02,467 INFO  com.framework.utils.ExtentReportUtils - Groups: [Functional]
+2025-12-12 10:51:02,467 INFO  com.framework.utils.JsonDataReader - Reading JSON file: E:\Automation\eclipse-workspace\hybrid-automation-framework/src/test/resources/ProductData.json
+2025-12-12 10:51:02,467 INFO  com.framework.utils.JsonDataReader - JSON successfully parsed into class: ProductData
+2025-12-12 10:51:02,468 INFO  com.framework.pages.HomePage - Clicking My Account
+2025-12-12 10:51:02,696 INFO  com.framework.pages.HomePage - Clicking Login
+2025-12-12 10:51:03,089 INFO  com.framework.pages.LoginPage - Entering email
+2025-12-12 10:51:03,289 INFO  com.framework.pages.LoginPage - Entering password
+2025-12-12 10:51:03,432 INFO  com.framework.pages.LoginPage - Clicking Login button
+2025-12-12 10:51:03,574 INFO  com.framework.pages.SearchPage - Entering product name: HP LP3065
+2025-12-12 10:51:04,455 INFO  com.framework.pages.SearchPage - Clicking main Search button
+2025-12-12 10:51:04,803 INFO  com.framework.pages.SearchPage - Selecting product category: null
+2025-12-12 10:51:04,933 ERROR com.framework.utils.ExtentReportUtils - FAIL: verifyCartFunctionality (2.47s)
+2025-12-12 10:51:04,933 INFO  com.framework.base.BaseClass - Capturing screenshot for test: verifyCartFunctionality
+2025-12-12 10:51:05,032 INFO  com.framework.base.BaseClass - Screenshot captured at: E:\Automation\eclipse-workspace\hybrid-automation-framework/screenshots/verifyCartFunctionality_20251212_105104.png
+2025-12-12 10:51:05,034 INFO  com.framework.base.BaseClass - Closing WebDriver...
+2025-12-12 10:51:05,034 INFO  com.framework.driver.DriverManager - Quitting WebDriver for thread: 3

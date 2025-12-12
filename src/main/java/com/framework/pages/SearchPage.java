@@ -1,7 +1,5 @@
 package com.framework.pages;
 
-import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -19,101 +17,100 @@ public class SearchPage extends BasePage {
     }
 
     @FindBy(xpath = "//div[@id='search']//input")
-    WebElement homeSearchBox;
+    private WebElement homeSearchBox;
 
     @FindBy(xpath = "//div[@id='search']//span")
-    WebElement searchBtn;
+    private WebElement searchButton;
 
     @FindBy(xpath = "//select[@name='category_id']")
-    WebElement categoryDropdown;
+    private WebElement categoryDropdown;
 
     @FindBy(xpath = "//label[normalize-space()='Search in product descriptions']")
-    WebElement searchInProdDescCheckbox;
+    private WebElement searchInProductDescriptionCheckbox;
 
     @FindBy(id = "button-search")
-    WebElement innerSearchBtn;
+    private WebElement innerSearchButton;
 
     @FindBy(xpath = "//div[@class='caption']//a")
-    WebElement productName;
-    
-    @FindBy(xpath="//div[@class='image']//a")
-    WebElement ProdLinkImage;
+    private WebElement productName;
 
+    @FindBy(xpath = "//div[@class='image']//a")
+    private WebElement productLinkImage;
 
-    // ---------------- ACTION METHODS ---------------- //
+    // ===================================
+    // SEARCH ACTIONS
+    // ===================================
 
     public void enterProductToSearch(String product) {
         try {
+            logger.info("Entering product name: {}", product);
             wait.until(ExpectedConditions.visibilityOf(homeSearchBox));
             homeSearchBox.clear();
             homeSearchBox.sendKeys(product);
         } catch (Exception e) {
-            logger.error("Failed to enter product name '{}': {}", product, e.getMessage());
+            throw new RuntimeException("Failed to enter product name: " + product, e);
         }
     }
 
     public void clickOnSearch() {
         try {
-            wait.until(ExpectedConditions.elementToBeClickable(searchBtn)).click();
+            logger.info("Clicking main Search button");
+            wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
         } catch (Exception e) {
-            logger.error("Failed to click Search button: {}", e.getMessage());
+            throw new RuntimeException("Failed to click main Search button", e);
         }
     }
 
     public void selectProductCategory(String categoryName) {
         try {
-            Select prodCategory = new Select(categoryDropdown);
-            List<WebElement> options = prodCategory.getOptions();
-
-            for (WebElement option : options) {
-                if (option.getText().equalsIgnoreCase(categoryName)) {
-                    prodCategory.selectByVisibleText(categoryName);
-                    return;
-                }
-            }
-
-            logger.error("Category '{}' not found in dropdown.", categoryName);
-            throw new RuntimeException("Category not found: " + categoryName);
-
+            logger.info("Selecting product category: {}", categoryName);
+            wait.until(ExpectedConditions.visibilityOf(categoryDropdown));
+            Select categorySelect = new Select(categoryDropdown);
+            categorySelect.selectByVisibleText(categoryName);
         } catch (Exception e) {
-            logger.error("Failed to select product category '{}': {}", categoryName, e.getMessage());
-            throw e;
+            throw new RuntimeException("Failed to select category: " + categoryName, e);
         }
     }
 
     public void clickOnProductDescriptionCheckbox() {
         try {
-            wait.until(ExpectedConditions.elementToBeClickable(searchInProdDescCheckbox)).click();
+            logger.info("Checking 'Search in product descriptions'");
+            wait.until(ExpectedConditions.elementToBeClickable(searchInProductDescriptionCheckbox)).click();
         } catch (Exception e) {
-            logger.error("Failed to click product description checkbox: {}", e.getMessage());
+            throw new RuntimeException("Failed to click 'Search in product descriptions' checkbox", e);
         }
     }
 
     public void clickOnInnerSearch() {
         try {
-            wait.until(ExpectedConditions.elementToBeClickable(innerSearchBtn)).click();
+            logger.info("Clicking Inner Search button");
+            wait.until(ExpectedConditions.elementToBeClickable(innerSearchButton)).click();
         } catch (Exception e) {
-            logger.error("Failed to click inner Search button: {}", e.getMessage());
+            throw new RuntimeException("Failed to click Inner Search button", e);
         }
     }
+
+    // ===================================
+    // VALIDATION
+    // ===================================
 
     public String confirmProdName() {
         try {
             wait.until(ExpectedConditions.visibilityOf(productName));
-           
+            String name = productName.getText().trim();
+            logger.info("Product found: {}", name);
+            return name;
         } catch (Exception e) {
-            logger.error("Unable to locate the product: {}", e.getMessage());
+            throw new RuntimeException("Unable to locate product name", e);
         }
-		return  productName.getText();
     }
-    
+
     public void clickOnProduct() {
-    	try {
-            wait.until(ExpectedConditions.elementToBeClickable(ProdLinkImage)).click();
+        try {
+            logger.info("Clicking on product image/link");
+            wait.until(ExpectedConditions.elementToBeClickable(productLinkImage)).click();
         } catch (Exception e) {
-            logger.error("Failed to click inner Search button: {}", e.getMessage());
+            throw new RuntimeException("Failed to click product link", e);
         }
     }
-    
-    
 }

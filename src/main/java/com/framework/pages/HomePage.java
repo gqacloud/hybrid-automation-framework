@@ -1,5 +1,7 @@
 package com.framework.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,35 +9,45 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends BasePage {
 
-	public HomePage(WebDriver driver) {
-		super(driver);
-	}
+    private static final Logger logger = LogManager.getLogger(HomePage.class);
 
-	// MyAccount link to go the My Account Page
-	@FindBy(xpath = "//ul[@class='list-inline']//li[@class='dropdown']")
-	WebElement MyAccountLnk;
+    public HomePage(WebDriver driver) {
+        super(driver);
+    }
 
-	// Register link for registration of the new user
-	@FindBy(xpath = "//ul[@class='dropdown-menu dropdown-menu-right']//a[normalize-space()='Register']")
-	WebElement registerlnk;
+    @FindBy(xpath = "//ul[@class='list-inline']//li[@class='dropdown']")
+    private WebElement myAccountLink;
 
-	@FindBy(xpath = "//ul[@class='dropdown-menu dropdown-menu-right']//a[text()='Login']")
-	WebElement LogInLnk;
+    @FindBy(xpath = "//ul[@class='dropdown-menu dropdown-menu-right']//a[normalize-space()='Register']")
+    private WebElement registerLink;
 
-	// Click on the MyAccount link to open
-	public void clickOnMyAccount() {
+    @FindBy(xpath = "//ul[@class='dropdown-menu dropdown-menu-right']//a[text()='Login']")
+    private WebElement loginLink;
 
-		wait.until(ExpectedConditions.elementToBeClickable(MyAccountLnk)).click();
-	}
+    public void clickOnMyAccount() {
+        try {
+            logger.info("Clicking My Account");
+            wait.until(ExpectedConditions.elementToBeClickable(myAccountLink)).click();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to click My Account", e);
+        }
+    }
 
-	// click on the register link to open form
-	public void clickOnRegister() {
-		wait.until(ExpectedConditions.elementToBeClickable(registerlnk)).click();
-	}
+    public void clickOnRegister() {
+        try {
+            logger.info("Clicking Register");
+            wait.until(ExpectedConditions.elementToBeClickable(registerLink)).click();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to click Register link", e);
+        }
+    }
 
-	public void clickOnLogin() throws InterruptedException {
-		
-		wait.until(ExpectedConditions.elementToBeClickable(LogInLnk)).click();
-	}
-
+    public void clickOnLogin() {
+        try {
+            logger.info("Clicking Login");
+            wait.until(ExpectedConditions.elementToBeClickable(loginLink)).click();
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to click Login link", e);
+        }
+    }
 }

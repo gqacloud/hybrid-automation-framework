@@ -25,142 +25,124 @@ import com.framework.driver.DriverManager;
 
 public class BaseClass {
 
-	protected static final Logger logger = LogManager.getLogger(BaseClass.class);
-	public Properties prop;
+    protected static final Logger logger = LogManager.getLogger(BaseClass.class);
 
-	public static final String userDir = System.getProperty("user.dir");
-	public static final String excelPath = userDir + "/testData/Users.xlsx";
-	public static final String jsonPath = userDir + "/src/test/resources/ProductData.json";
-	public static final String propertyfilePath = userDir + "/src/main/resources/config.properties";
+    public Properties prop;
 
-	// ========================================================================
-	// BEFORE CLASS — CORE SETUP
-	// ========================================================================
+    public static final String userDir = System.getProperty("user.dir");
+    public static final String excelPath = userDir + "/testData/Users.xlsx";
+    public static final String jsonPath = userDir + "/src/test/resources/ProductData.json";
+    public static final String propertyfilePath = userDir + "/src/main/resources/config.properties";
 
-	@BeforeClass(groups = { "Sanity", "Regression", "Master", "Functional" })
-	@Parameters({ "os", "browser" })
-	public void setup(String os, String browserName) throws IOException {
+    @BeforeClass(groups = { "Sanity", "Regression", "Master", "Functional" })
+    @Parameters({ "os", "browser" })
+    public void setup(String os, String browserName) throws IOException {
 
-		logger.info("========== Test Setup Started ==========");
+        logger.info("=== Test Setup Started ===");
 
-		// Load config.properties
-		prop = new Properties();
-		prop.load(new FileReader(propertyfilePath));
+        prop = new Properties();
+        prop.load(new FileReader(propertyfilePath));
 
-		String exeEnv = prop.getProperty("exe_env").trim();
-		String appUrl = prop.getProperty("url").trim();
-		String gridUrl = prop.getProperty("grid_url").trim();
+        String exeEnv  = prop.getProperty("exe_env").trim();
+        String appUrl  = prop.getProperty("url").trim();
+        String gridUrl = prop.getProperty("grid_url").trim();
 
-		boolean headless = Boolean.parseBoolean(prop.getProperty("headless").trim());
-		boolean incognito = Boolean.parseBoolean(prop.getProperty("incognito").trim());
+        boolean headless  = Boolean.parseBoolean(prop.getProperty("headless").trim());
+        boolean incognito = Boolean.parseBoolean(prop.getProperty("incognito").trim());
 
-		logger.info("Execution Environment : {}", exeEnv);
-		logger.info("Browser              : {}", browserName);
-		logger.info("OS                   : {}", os);
+        logger.info("Execution Environment : {}", exeEnv);
+        logger.info("Browser              : {}", browserName);
+        logger.info("OS                   : {}", os);
 
-		// ----------------------------- DRIVER INIT -----------------------------
+        // Initialize WebDriver
+        if (exeEnv.equalsIgnoreCase("local")) {
+            DriverFactory.initLocalDriver(browserName, headless, incognito);
+        } else if (exeEnv.equalsIgnoreCase("remote")) {
+            DriverFactory.initRemoteDriver(os, browserName, gridUrl);
+        } else {
+            throw new IllegalArgumentException("Invalid exe_env value (Use: local / remote)");
+        }
 
-		if (exeEnv.equalsIgnoreCase("local")) {
-			DriverFactory.initLocalDriver(browserName, headless, incognito);
-		} else if (exeEnv.equalsIgnoreCase("remote")) {
-			DriverFactory.initRemoteDriver(os, browserName, gridUrl);
-		} else {
-			throw new IllegalArgumentException("Invalid exe_env value (Use: local / remote)");
-		}
+        WebDriver driver = DriverManager.getDriver();
 
-		WebDriver driver = DriverManager.getDriver();
+        logger.info("Navigating to URL: {}", appUrl);
+        safeNavigate(driver, appUrl, 15);
 
-		// ----------------------------- URL NAVIGATION -----------------------------
+        waitForPageLoad(driver);
 
-		logger.info("Navigating to: {}", appUrl);
-		safeNavigate(driver, appUrl, 15);
+        String title = driver.getTitle();
+        if (title == null || title.isBlank()) {
+            logger.error("Page title is empty — application may not have loaded correctly.");
+            throw new RuntimeException("Page did not load correctly.");
+        }
 
-		// ----------------------------- BASIC VALIDATION -----------------------------
+        logger.info("Page Loaded Successfully. Title: {}", title);
+        logger.info("=== Test Setup Completed ===");
+    }
 
-		waitForPageLoad(driver);
+    @AfterClass(groups = { "Sanity", "Regression", "Master", "Functional" })
+    public void teardown() {
+        logger.info("Closing WebDriver...");
+        try {
+            DriverManager.cleanUp();
+        } catch (Exception e) {
+            logger.error("Error while closing WebDriver: {}", e.getMessage());
+        }
+    }
 
-		// Title check (generic)
-		String title = driver.getTitle();
-		if (title == null || title.isBlank()) {
-			logger.error("❌ Page title is empty — Page may not have loaded correctly.");
-			throw new RuntimeException("Invalid or blank page title.");
-		}
+    private void safeNavigate(WebDriver driver, String url, int timeoutSec) {
 
-		logger.info("Page loaded → Title: {}", title);
-		logger.info("========== Test Setup Completed ==========");
-	}
+        logger.info("Starting safe navigation...");
 
-	// ========================================================================
-	// AFTER CLASS — CLEANUP
-	// ========================================================================
-	@AfterClass(groups = { "Sanity", "Regression", "Master", "Functional" })
-	public void teardown() {
-		logger.info("Closing WebDriver");
-		DriverManager.cleanUp();
-	}
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Future<?> future = executor.submit(() -> driver.get(url));
 
-	// ========================================================================
-	// SAFELY NAVIGATE TO A URL WITH HARD TIMEOUT PROTECTION (Industry Standard)
-	// Prevents browser freeze on unreachable sites
-	// ========================================================================
-	private void safeNavigate(WebDriver driver, String url, int timeoutSec) {
+        try {
+            future.get(timeoutSec, TimeUnit.SECONDS);
+            logger.info("Navigation successful.");
+        } catch (TimeoutException e) {
+            logger.error("Navigation timed out after {} seconds: {}", timeoutSec, url);
+            future.cancel(true);
+            throw new RuntimeException("Navigation timeout.");
+        } catch (Exception e) {
+            logger.error("Navigation failed: {}", e.getMessage());
+            throw new RuntimeException("Failed to navigate to URL.", e);
+        } finally {
+            executor.shutdownNow();
+        }
+    }
 
-		ExecutorService executor = Executors.newSingleThreadExecutor();
+    private void waitForPageLoad(WebDriver driver) {
+        logger.info("Waiting for page DOM state to be 'complete'...");
 
-		Future<?> future = executor.submit(() -> driver.get(url));
+        new WebDriverWait(driver, java.time.Duration.ofSeconds(15))
+            .until(webDriver -> ((JavascriptExecutor) webDriver)
+            .executeScript("return document.readyState").equals("complete"));
 
-		try {
-			future.get(timeoutSec, TimeUnit.SECONDS);
-		} catch (TimeoutException e) {
-			logger.error("❌ Navigation timed out after {} seconds → {}", timeoutSec, url);
-			future.cancel(true);
-			throw new RuntimeException("Page navigation timeout.");
-		} catch (Exception e) {
-			logger.error("❌ Error during navigation: {}", e.getMessage());
-			throw new RuntimeException("Failed to navigate to URL.", e);
-		} finally {
-			executor.shutdownNow();
-		}
-	}
+        logger.info("DOM Ready.");
+    }
 
-	// ========================================================================
-	// VALIDATE DOM READY STATE ONLY (Generic — No Domain Logic)
-	// ========================================================================
-	private void waitForPageLoad(WebDriver driver) {
-		try {
-			Thread.sleep(300);
-		} catch (InterruptedException e) {
-		}
+    public static String captureScreen(String testName) {
 
-		logger.info("Waiting for page DOM to reach 'complete' state...");
+        logger.info("Capturing screenshot for test: {}", testName);
 
-		new WebDriverWait(driver, java.time.Duration.ofSeconds(15)).until(webDriver -> ((JavascriptExecutor) webDriver)
-				.executeScript("return document.readyState").equals("complete"));
+        WebDriver driver = DriverManager.getDriver();
 
-		logger.info("DOM Ready");
-	}
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
-	// ========================================================================
-	// SCREENSHOT UTILITY
-	// ========================================================================
-	public String captureScreen(String tname) {
+        String dir = userDir + "/screenshots/";
+        new File(dir).mkdirs();
 
-		WebDriver driver = DriverManager.getDriver();
+        String destPath = dir + testName + "_" + timeStamp + ".png";
 
-		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        try {
+            FileUtils.copyFile(srcFile, new File(destPath));
+            logger.info("Screenshot captured at: {}", destPath);
+        } catch (Exception e) {
+            logger.error("Screenshot failed: {}", e.getMessage());
+        }
 
-		String dir = userDir + "/screenshots/";
-		new File(dir).mkdirs();
-
-		String destPath = dir + tname + "_" + timeStamp + ".png";
-
-		try {
-			FileUtils.copyFile(srcFile, new File(destPath));
-		} catch (Exception e) {
-			logger.error("❌ Screenshot failed: {}", e.getMessage());
-		}
-
-		return destPath;
-	}
+        return destPath;
+    }
 }

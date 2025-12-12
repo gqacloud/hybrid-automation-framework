@@ -1,44 +1,61 @@
 package com.framework.driver;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 /**
- * DriverManager is responsible for maintaining a ThreadLocal WebDriver instance.
- * This ensures thread safety during parallel execution.
+ * DriverManager manages a ThreadLocal WebDriver instance for thread safety.
  */
-public class DriverManager {
+public final class DriverManager {
 
-    private static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+    private static final Logger logger = LogManager.getLogger(DriverManager.class);
+
+    // Thread-safe WebDriver holder for parallel execution
+    private static final ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+
+    // Prevent object creation
+    private DriverManager() {}
 
     /**
-     * Returns WebDriver for the current thread.
+     * Returns the WebDriver associated with the current thread.
      */
     public static WebDriver getDriver() {
-        return tlDriver.get();
+        WebDriver driver = tlDriver.get();
+        if (driver == null) {
+            logger.error("Attempted to access WebDriver before initialization in this thread!");
+            throw new IllegalStateException("WebDriver is not initialized for this thread.");
+        }
+        return driver;
     }
 
     /**
-     * Sets WebDriver instance for the current thread.
+     * Sets the WebDriver instance for the current thread.
      */
     public static void setDriver(WebDriver driver) {
+        logger.info("Setting WebDriver for thread: {}", Thread.currentThread().getId());
         tlDriver.set(driver);
     }
 
     /**
-     * Removes WebDriver from ThreadLocal after quitting the browser.
+     * Removes WebDriver instance from ThreadLocal storage.
      */
     public static void removeDriver() {
+        logger.info("Removing WebDriver for thread: {}", Thread.currentThread().getId());
         tlDriver.remove();
     }
 
     /**
-     * Quits and cleans up the WebDriver properly.
+     * Quits and cleans up the WebDriver instance for the current thread.
      */
     public static void cleanUp() {
         WebDriver driver = tlDriver.get();
         if (driver != null) {
+            logger.info("Quitting WebDriver for thread: {}", Thread.currentThread().getId());
             driver.quit();
             tlDriver.remove();
+        } else {
+            logger.warn("cleanUp() called but no WebDriver found for thread: {}", Thread.currentThread().getId());
         }
     }
 }

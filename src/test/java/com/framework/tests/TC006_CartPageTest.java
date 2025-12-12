@@ -13,106 +13,51 @@ import com.framework.pages.ProductDetailsPage;
 import com.framework.pages.SearchPage;
 import com.framework.utils.JsonDataReader;
 
+public class TC006_CartPageTest extends BaseClass {
 
-public class TC006_CartPageTest extends BaseClass{
-	
-	@Test(groups="Functional")
-	public void verifyCart() throws Exception {
-		logger.info("===== TC006 CartPage Test started =====");
-		try {
-			HomePage homepage = new HomePage(DriverManager.getDriver());
+    @Test(groups = "Functional")
+    public void verifyCartFunctionality() {
 
-			logger.info("Navigating to My Account");
-			homepage.clickOnMyAccount();
+        // Load product data
+        ProductData searchData = JsonDataReader.loadJson(jsonPath, ProductData.class);
 
-			logger.info("Clicking on Login");
-			homepage.clickOnLogin();
+        // Login
+        HomePage homePage = new HomePage(DriverManager.getDriver());
+        homePage.clickOnMyAccount();
+        homePage.clickOnLogin();
 
-			LoginPage loginpage = new LoginPage(DriverManager.getDriver());
+        LoginPage loginPage = new LoginPage(DriverManager.getDriver());
+        loginPage.setUserEmail(prop.getProperty("email"));
+        loginPage.setUserPassword(prop.getProperty("password"));
+        loginPage.clickOnLogin();
 
-			logger.info("Entering email: {}", prop.getProperty("email"));
-			loginpage.setUserEmail(prop.getProperty("email"));
+        // Search product
+        SearchPage searchPage = new SearchPage(DriverManager.getDriver());
+        searchPage.enterProductToSearch(searchData.getProductName());
+        searchPage.clickOnSearch();
+        searchPage.selectProductCategory(searchData.getProductCategory());
+        searchPage.clickOnProductDescriptionCheckbox();
+        searchPage.clickOnInnerSearch();
+        searchPage.clickOnProduct();
 
-			logger.info("Entering password");
-			loginpage.setUserPassword(prop.getProperty("password"));
+        // Verify product details
+        ProductDetailsPage product = new ProductDetailsPage(DriverManager.getDriver());
 
-			logger.info("Clicking on Login button");
-			loginpage.clickOnLogin();
+        Assert.assertEquals(product.getProductName(), searchData.getProductName(), "Product name mismatch.");
+        Assert.assertEquals(product.getBrand(), searchData.getBrand(), "Brand mismatch.");
+        Assert.assertEquals(product.getProductCode(), searchData.getProductCode(), "Product code mismatch.");
+        Assert.assertEquals(product.getRewardpoints(), searchData.getRewardPoints(), "Reward points mismatch.");
+        Assert.assertEquals(product.getAvailability(), searchData.getAvailability(), "Availability mismatch.");
+        Assert.assertEquals(product.getDisplayedPrice(), searchData.getPrice(), "Price mismatch.");
 
-			SearchPage searchpage = new SearchPage(DriverManager.getDriver());
+        // Select delivery date & add to cart
+        product.selectDeliveryDate(searchData.getDeliveryMonth(), searchData.getDeliveryYear(), searchData.getDeliveryDay());
+        product.addProductToCart();
 
-			ProductData searchData = JsonDataReader.loadJson(jsonPath, ProductData.class);
+        // Navigate to Cart
+        CartPage cart = new CartPage(DriverManager.getDriver());
+        cart.clickOnCartHeader();
 
-			logger.info("Entering product to search: {}", searchData.productName);
-			searchpage.enterProductToSearch(searchData.productName);
-
-			logger.info("Clicking on Search button");
-			searchpage.clickOnSearch();
-
-			logger.info("Selecting category:{}", searchData.ProductCategory);
-			searchpage.selectProductCategory(searchData.ProductCategory);
-
-			logger.info("Selecting 'Search in product descriptions'");
-			searchpage.clickOnProductDescriptionCheckbox();
-
-			logger.info("Clicking inner Search button");
-			searchpage.clickOnInnerSearch();
-
-			searchpage.clickOnProduct();
-
-			ProductDetailsPage product = new ProductDetailsPage(DriverManager.getDriver());
-
-			logger.info("Validating Product Name: {}", searchData.productName);
-			product.getProductName();
-			Assert.assertEquals(product.getProductName(), searchData.productName);
-
-			logger.info("Validating Product Brand: {}", searchData.brand);
-			product.getBrand();
-			Assert.assertEquals(product.getBrand(), searchData.brand);
-
-			logger.info("Validating Product Code: {}", searchData.productCode);
-			product.getProductCode();
-			Assert.assertEquals(product.getProductCode(), searchData.productCode);
-
-			logger.info("Validating Product Code: {}", searchData.rewardPoints);
-			product.getRewardpoints();
-			Assert.assertEquals(product.getRewardpoints(), searchData.rewardPoints);
-
-			logger.info("Validating Product Code: {}", searchData.availability);
-			product.getAvailability();
-			Assert.assertEquals(product.getAvailability(), searchData.availability);
-
-			logger.info("Validating Product Price: {}", searchData.price);
-			product.getDisplayedPrice();
-			Assert.assertEquals(product.getDisplayedPrice(), searchData.price);
-
-			logger.info("selecting delivery date {}:", searchData.deliveryMonth, searchData.deliveryYear, searchData.deliveryDay);
-
-			product.selectDeliveryDate(searchData.deliveryMonth, searchData.deliveryYear, searchData.deliveryDay);
-
-			logger.info("Clicling on add to cart button");
-			product.addProductToCart();
-			
-			
-			CartPage cart = new CartPage(DriverManager.getDriver());
-			
-			logger.info("Clicling on Cart headrer at the top");
-			cart.clickOnCartHeader();
-			
-			
-			
-			
-
-		} catch (Exception e) {
-
-			logger.error("Unexpected Exception Occurred During Test Execution", e);
-			logger.error("Test FAILED due to an unhandled exception.");
-
-			Assert.fail("Test failed due to unexpected exception: " + e.getMessage());
-			throw e;
-		} finally {
-			logger.info("===== TC006 CartPage Test Completed Successfully =====");
-		}
-	
-	}
+        // (Optional future assertions: product exists in cart, price matches, etc.)
+    }
 }

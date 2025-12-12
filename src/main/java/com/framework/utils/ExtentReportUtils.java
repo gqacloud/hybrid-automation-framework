@@ -1,13 +1,12 @@
 package com.framework.utils;
 
-import java.awt.Desktop;
 import java.io.File;
-import java.io.IOException;
-// Extent report 5.x... version
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -21,121 +20,107 @@ import com.framework.base.BaseClass;
 
 public class ExtentReportUtils implements ITestListener {
 
-	// Declare ExtentReport objects
-	public ExtentSparkReporter sparkReporter; // Spark reporter that writes the report
-	public ExtentReports extent; // ExtentReports object for managing the report
-	public ExtentTest test; // Represents the test in the Extent report
+    private static final Logger logger = LogManager.getLogger(ExtentReportUtils.class);
 
-	String repName; // Name of the report file
+    private ExtentSparkReporter sparkReporter;
+    private ExtentReports extent;
+    private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
+    private String repName;
 
-	// onStart method is invoked when the test suite starts
-	public void onStart(ITestContext testContext) {
+    private static ExtentTest getTest() {
+        return test.get();
+    }
 
-		// Step 1: Create report directory if it doesn't exist
-		File reportDir = new File(".\\reports\\");
-		if (!reportDir.exists()) {
-			reportDir.mkdir(); // Create the "reports" directory if it doesn't exist
-		}
+    @Override
+    public void onStart(ITestContext context) {
 
-		// Step 2: Generate a unique report name with a timestamp
-		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date()); // Get the current timestamp
-		repName = "Test-Report-" + timeStamp + ".html"; // Construct the report name with timestamp
+        File reportDir = new File("./reports/");
+        if (!reportDir.exists()) {
+            reportDir.mkdirs();
+        }
 
-		// Step 3: Initialize ExtentSparkReporter to generate the report at a specified
-		// location
-		sparkReporter = new ExtentSparkReporter(".\\reports\\" + repName); // Set the path for the report file
-		sparkReporter.config().setDocumentTitle("opencart Automation Report"); // Set the document title of the report
-		sparkReporter.config().setReportName("opencart Functional Testing"); // Set the name of the report
-		sparkReporter.config().setTheme(Theme.STANDARD); // Set the theme of the report (Standard theme)
+        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+        repName = "Test-Report-" + timeStamp + ".html";
 
-		// Step 4: Initialize ExtentReports and attach the spark reporter to it
-		extent = new ExtentReports();
-		extent.attachReporter(sparkReporter); // Attach the spark reporter to the ExtentReports object
+        sparkReporter = new ExtentSparkReporter("./reports/" + repName);
+        sparkReporter.config().setDocumentTitle("Automation Report");
+        sparkReporter.config().setReportName("Functional Test Execution");
+        sparkReporter.config().setTheme(Theme.STANDARD);
 
-		extent.setSystemInfo("Application", "opencart"); // Set the application name
-		extent.setSystemInfo("Module", "Admin"); // Set the module name
-		extent.setSystemInfo("Sub Module", "Customers"); // Set the sub-module name
-		extent.setSystemInfo("User Name", System.getProperty("user.name")); // Set the username of the system executing the test
-		extent.setSystemInfo("Environment", "QA"); // Set the environment (here it’s set to QA)
-		String os = testContext.getCurrentXmlTest().getParameter("os"); // Get OS from test XML parameters
-		extent.setSystemInfo("Operating System", os); // Set the OS info in the report
-		
-		String browser = testContext.getCurrentXmlTest().getParameter("browser"); // Get browser from test XML parameters
-		extent.setSystemInfo("Browser", browser); // Set the browser info in the report
+        extent = new ExtentReports();
+        extent.attachReporter(sparkReporter);
 
-		
-		List<String> includedGroups = testContext.getCurrentXmlTest().getIncludedGroups(); // Get the groups of tests
-		if (!includedGroups.isEmpty()) {
-			extent.setSystemInfo("Groups", includedGroups.toString()); // Add groups to system info in report
-		}
-	}
+        extent.setSystemInfo("User", System.getProperty("user.name"));
+        extent.setSystemInfo("OS", context.getCurrentXmlTest().getParameter("os"));
+        extent.setSystemInfo("Browser", context.getCurrentXmlTest().getParameter("browser"));
+    }
 
-	// onTestSuccess method is invoked when a test passes
-	public void onTestSuccess(ITestResult result) {
-		
-		test = extent.createTest(result.getTestClass().getName()); // Create a test with the test class name
-		test.assignCategory(result.getMethod().getGroups()); // Assign test groups to the report
-		test.log(Status.PASS, result.getName() + " got successfully executed"); // Log success message
-	}
+    @Override
+    public void onTestStart(ITestResult result) {
 
-	// onTestFailure method is invoked when a test fails
-	public void onTestFailure(ITestResult result) {
+        long startTime = System.currentTimeMillis();
+        result.setAttribute("startTime", startTime);
 
-		test = extent.createTest(result.getTestClass().getName());
-		test.assignCategory(result.getMethod().getGroups());
-		test.log(Status.FAIL, result.getName() + " got failed"); // Log failure message
-		test.log(Status.INFO, result.getThrowable().getMessage()); // Log the exception message
+        logger.info("Starting test: {}", result.getName());
+        logger.info("Groups: {}", Arrays.toString(result.getMethod().getGroups()));
 
-		
-		String imgPath = new BaseClass().captureScreen(result.getName()); // Capture screenshot for the failed test
-		test.addScreenCaptureFromPath(imgPath); // Add the screenshot to the report
+        ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName());
+        extentTest.assignCategory(result.getMethod().getGroups());
+        test.set(extentTest);
+    }
 
-	}
+    @Override
+    public void onTestSuccess(ITestResult result) {
+        long duration = System.currentTimeMillis() - (long) result.getAttribute("startTime");
+        double seconds = duration / 1000.0;
 
-	// onTestSkipped method is invoked when a test is skipped
-	public void onTestSkipped(ITestResult result) {
+        logger.info("PASS: {} ({}s)", result.getName(), String.format("%.2f", seconds));
 
-		test = extent.createTest(result.getTestClass().getName());
-		test.assignCategory(result.getMethod().getGroups());
-		test.log(Status.SKIP, result.getName() + " got skipped");
-		test.log(Status.INFO, result.getThrowable().getMessage());
-	}
+        getTest().log(Status.PASS, result.getName() + " passed");
+    }
 
-	// onFinish method is invoked when the test suite finishes
-	public void onFinish(ITestContext testContext) {
+    @Override
+    public void onTestFailure(ITestResult result) {
+        long duration = System.currentTimeMillis() - (long) result.getAttribute("startTime");
+        double seconds = duration / 1000.0;
 
-		extent.flush(); // Write all logs and test results to the report file
-		
-		String pathOfExtentReport = System.getProperty("user.dir") + "\\reports\\" + repName; // Generate the file path for the report
-		File extentReport = new File(pathOfExtentReport); // Create a File object for the report
-		try {
-			Desktop.getDesktop().browse(extentReport.toURI()); // Open the report in the default browser
-		} catch (IOException e) {
-			e.printStackTrace(); // Handle IOException if there is an issue opening the report
-		}
+        logger.error("FAIL: {} ({}s)", result.getName(), String.format("%.2f", seconds));
 
-		/*
-		 * Uncomment and modify the email functionality if needed. Ensure that email
-		 * credentials are securely handled through environment variables.
-		 */
-		/*
-		 * 
-		 * try { String emailPassword = System.getenv("EMAIL_PASSWORD"); // Get email
-		 * password from environment variable
-		 * 
-		 * URL url = new URL("file:///" + System.getProperty("user.dir") + "\\reports\\"
-		 * + repName); ImageHtmlEmail email = new ImageHtmlEmail();
-		 * email.setDataSourceResolver(new DataSourceUrlResolver(url));
-		 * email.setHostName("smtp.googlemail.com"); email.setSmtpPort(465);
-		 * email.setAuthenticator(new DefaultAuthenticator("your-email@gmail.com",
-		 * emailPassword)); // Use environment variable for password
-		 * email.setSSLOnConnect(true); email.setFrom("your-email@gmail.com"); // Sender
-		 * email.setSubject("Test Results");
-		 * email.setMsg("Please find the attached report...");
-		 * email.addTo("recipient-email@example.com"); // Receiver email.attach(url,
-		 * "Extent Report", "Please check the attached report..."); email.send(); //
-		 * Send the email } catch (Exception e) { e.printStackTrace(); // Handle any
-		 * exception that occurs while sending the email }
-		 */
-	}
+        getTest().log(Status.FAIL, result.getName() + " failed");
+        getTest().log(Status.INFO, result.getThrowable().getMessage());
+
+        try {
+            String imgPath = BaseClass.captureScreen(result.getName());
+            getTest().addScreenCaptureFromPath(imgPath);
+        } catch (Exception e) {
+            logger.error("Failed to attach screenshot: {}", e.getMessage());
+        }
+    }
+
+    @Override
+    public void onTestSkipped(ITestResult result) {
+        long duration = System.currentTimeMillis() - (long) result.getAttribute("startTime");
+        double seconds = duration / 1000.0;
+
+        logger.warn("SKIP: {} ({}s)", result.getName(), String.format("%.2f", seconds));
+
+        getTest().log(Status.SKIP, result.getName() + " skipped");
+
+        if (result.getThrowable() != null) {
+            getTest().log(Status.INFO, result.getThrowable().getMessage());
+        }
+    }
+
+    @Override
+    public void onFinish(ITestContext context) {
+
+        extent.flush();
+
+        File reportFile = new File("./reports/" + repName);
+
+        // Auto-open disabled by your request:
+        // if (Desktop.isDesktopSupported()) {
+        //     Desktop.getDesktop().browse(reportFile.toURI());
+        // }
+    }
 }
