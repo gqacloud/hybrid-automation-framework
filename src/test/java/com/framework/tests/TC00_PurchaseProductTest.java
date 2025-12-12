@@ -95,8 +95,10 @@ public class TC00_PurchaseProductTest extends BaseClass {
 
 			logger.info("Clicling on Cart headrer at the top");
 			cart.clickOnCartHeader();
-
-			cart.getShippingTaxEstimation(propertyfilePath, jsonPath, excelPath);
+			
+			logger.info("Getting shipping tax estimation");
+			cart.getShippingTaxEstimation(searchData.country, searchData.region, searchData.zipcode);
+			
 
 		} catch (Exception e) {
 
@@ -106,7 +108,7 @@ public class TC00_PurchaseProductTest extends BaseClass {
 			Assert.fail("Test failed due to unexpected exception: " + e.getMessage());
 			throw e;
 		} finally {
-			logger.info("===== TC006 CartPage Test Completed Successfully =====");
+			logger.info("===== TC00 Purchase Product Test Completed Successfully =====");
 		}
 
 	}

@@ -1,31 +1,233 @@
-2025-12-11 06:09:57,566 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
-2025-12-11 06:09:58,005 INFO  org.testng.internal.Utils - [TestNG] Running:
+2025-12-12 01:33:35,048 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-12 01:33:35,648 INFO  org.testng.internal.Utils - [TestNG] Running:
   E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
 
-2025-12-11 06:09:58,627 INFO  com.framework.tests.TC006_CartPageTest - Execution Environment: local
-2025-12-11 06:09:58,628 INFO  com.framework.tests.TC006_CartPageTest - Browser: edge
-2025-12-11 06:09:58,628 INFO  com.framework.tests.TC006_CartPageTest - OS: WIN10
-2025-12-11 06:09:58,631 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
-2025-12-11 06:10:05,111 INFO  com.framework.tests.TC006_CartPageTest - Navigated to URL: https://tutorialsninja.com/demo/
-2025-12-11 06:10:05,143 INFO  com.framework.tests.TC006_CartPageTest - ===== TC006 CartPage Test started =====
-2025-12-11 06:10:05,172 INFO  com.framework.tests.TC006_CartPageTest - Navigating to My Account
-2025-12-11 06:10:05,437 INFO  com.framework.tests.TC006_CartPageTest - Clicking on Login
-2025-12-11 06:10:05,826 INFO  com.framework.tests.TC006_CartPageTest - Entering email: piwene6598@badfist.com
-2025-12-11 06:10:06,057 INFO  com.framework.tests.TC006_CartPageTest - Entering password
-2025-12-11 06:10:06,211 INFO  com.framework.tests.TC006_CartPageTest - Clicking on Login button
-2025-12-11 06:10:06,509 INFO  com.framework.tests.TC006_CartPageTest - Entering product to search: HP LP3065
-2025-12-11 06:10:07,194 INFO  com.framework.tests.TC006_CartPageTest - Clicking on Search button
-2025-12-11 06:10:07,534 INFO  com.framework.tests.TC006_CartPageTest - Selecting category:Laptops & Notebooks
-2025-12-11 06:10:07,884 INFO  com.framework.tests.TC006_CartPageTest - Selecting 'Search in product descriptions'
-2025-12-11 06:10:08,003 INFO  com.framework.tests.TC006_CartPageTest - Clicking inner Search button
-2025-12-11 06:10:08,881 INFO  com.framework.tests.TC006_CartPageTest - Validating Product Name: HP LP3065
-2025-12-11 06:10:08,997 INFO  com.framework.tests.TC006_CartPageTest - Validating Product Brand: Hewlett-Packard
-2025-12-11 06:10:09,086 INFO  com.framework.tests.TC006_CartPageTest - Validating Product Code: Product 21
-2025-12-11 06:10:09,167 INFO  com.framework.tests.TC006_CartPageTest - Validating Product Code: 300
-2025-12-11 06:10:09,247 INFO  com.framework.tests.TC006_CartPageTest - Validating Product Code: In Stock
-2025-12-11 06:10:09,331 INFO  com.framework.tests.TC006_CartPageTest - Validating Product Price: 100.0
-2025-12-11 06:10:09,410 INFO  com.framework.tests.TC006_CartPageTest - selecting delivery date January:
-2025-12-11 06:10:26,800 INFO  com.framework.tests.TC006_CartPageTest - Clicling on add to cart button
-2025-12-11 06:10:26,936 INFO  com.framework.tests.TC006_CartPageTest - Clicling on Cart headrer at the top
-2025-12-11 06:10:27,686 INFO  com.framework.tests.TC006_CartPageTest - ===== TC006 CartPage Test Completed Successfully =====
-2025-12-11 06:10:27,741 INFO  com.framework.tests.TC006_CartPageTest - Closing WebDriver
+2025-12-12 01:33:35,982 INFO  com.framework.tests.TC006_CartPageTest - Execution Environment: local
+2025-12-12 01:33:35,982 INFO  com.framework.tests.TC006_CartPageTest - Browser: edge
+2025-12-12 01:33:35,982 INFO  com.framework.tests.TC006_CartPageTest - OS: WIN10
+2025-12-12 01:33:36,007 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-12 01:34:26,750 INFO  com.framework.tests.TC006_CartPageTest - Navigated to URL: https://tutorialsninja.com/demo/
+2025-12-12 01:34:26,800 INFO  com.framework.tests.TC006_CartPageTest - ===== TC006 CartPage Test started =====
+2025-12-12 01:34:26,996 INFO  com.framework.tests.TC006_CartPageTest - Navigating to My Account
+2025-12-12 01:34:47,246 ERROR com.framework.tests.TC006_CartPageTest - Unexpected Exception Occurred During Test Execution
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //ul[@class='list-inline']//li[@class='dropdown']' (tried for 10 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.framework.pages.HomePage.clickOnMyAccount(HomePage.java:28)
+	at com.framework.tests.TC006_CartPageTest.verifyCart(TC006_CartPageTest.java:26)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//ul[@class='list-inline']//li[@class='dropdown']"}
+  (Session info: MicrosoftEdge=143.0.3650.75)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '25'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [9a361782e7ff1fda03820a8fb76cb68e, findElement {value=//ul[@class='list-inline']//li[@class='dropdown'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 143.0.3650.75, fedcm:accounts: true, goog:processID: 13552, ms:edgeOptions: {debuggerAddress: localhost:53976}, msedge: {msedgedriverVersion: 143.0.3650.80 (788579717f68..., userDataDir: C:\Users\Gowtham\AppData\Lo...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:53976/devtoo..., se:cdpVersion: 143.0.3650.75, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 9a361782e7ff1fda03820a8fb76cb68e
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy31.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:308)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:294)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:291)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:662)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:658)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	... 28 more
+2025-12-12 01:34:47,250 ERROR com.framework.tests.TC006_CartPageTest - Test FAILED due to an unhandled exception.
+2025-12-12 01:34:47,252 INFO  com.framework.tests.TC006_CartPageTest - ===== TC006 CartPage Test Completed Successfully =====
+2025-12-12 01:34:47,438 INFO  com.framework.tests.TC006_CartPageTest - Closing WebDriver
+2025-12-12 01:44:37,583 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-12 01:44:37,848 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-12 01:44:38,094 INFO  com.framework.tests.TC006_CartPageTest - ========== Test Setup Started ==========
+2025-12-12 01:44:38,094 INFO  com.framework.tests.TC006_CartPageTest - Execution Environment: local
+2025-12-12 01:44:38,094 INFO  com.framework.tests.TC006_CartPageTest - Browser: edge
+2025-12-12 01:44:38,094 INFO  com.framework.tests.TC006_CartPageTest - OS: WIN10
+2025-12-12 01:44:38,096 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-12 01:44:40,292 INFO  com.framework.tests.TC006_CartPageTest - Navigating to URL: https://tutorialsninja.com/demo/
+2025-12-12 01:56:23,092 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-12 01:56:23,354 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-12 01:56:23,608 INFO  com.framework.base.BaseClass - ========== Test Setup Started ==========
+2025-12-12 01:56:23,608 INFO  com.framework.base.BaseClass - Execution Environment: local
+2025-12-12 01:56:23,608 INFO  com.framework.base.BaseClass - Browser: edge
+2025-12-12 01:56:23,608 INFO  com.framework.base.BaseClass - OS: WIN10
+2025-12-12 01:56:23,609 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-12 01:56:25,847 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
+2025-12-12 02:00:32,530 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-12 02:00:32,790 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-12 02:00:33,041 INFO  com.framework.base.BaseClass - ========== Test Setup Started ==========
+2025-12-12 02:00:33,041 INFO  com.framework.base.BaseClass - Execution Environment: local
+2025-12-12 02:00:33,041 INFO  com.framework.base.BaseClass - Browser: edge
+2025-12-12 02:00:33,041 INFO  com.framework.base.BaseClass - OS: WIN10
+2025-12-12 02:00:33,042 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-12 02:00:35,320 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
+2025-12-12 02:45:58,300 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-12 02:45:58,557 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-12 02:45:58,821 INFO  com.framework.base.BaseClass - ========== Test Setup Started ==========
+2025-12-12 02:45:58,821 INFO  com.framework.base.BaseClass - Execution Environment: local
+2025-12-12 02:45:58,821 INFO  com.framework.base.BaseClass - Browser: edge
+2025-12-12 02:45:58,821 INFO  com.framework.base.BaseClass - OS: WIN10
+2025-12-12 02:45:58,822 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-12 02:46:02,716 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
+2025-12-12 02:49:17,934 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-12 02:49:18,304 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-12 02:49:18,666 INFO  com.framework.base.BaseClass - ========== Test Setup Started ==========
+2025-12-12 02:49:18,667 INFO  com.framework.base.BaseClass - Execution Environment: local
+2025-12-12 02:49:18,667 INFO  com.framework.base.BaseClass - Browser: edge
+2025-12-12 02:49:18,667 INFO  com.framework.base.BaseClass - OS: WIN10
+2025-12-12 02:49:18,669 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-12 02:49:22,096 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
+2025-12-12 02:49:31,351 INFO  com.framework.base.BaseClass - Waiting for page DOM to reach 'complete' state...
+2025-12-12 02:49:31,416 INFO  com.framework.base.BaseClass - Page loaded successfully → https://tutorialsninja.com/demo/
+2025-12-12 02:49:31,416 INFO  com.framework.base.BaseClass - ========== Test Setup Completed ==========
+2025-12-12 02:49:31,453 INFO  com.framework.base.BaseClass - ===== TC006 CartPage Test started =====
+2025-12-12 02:49:31,484 INFO  com.framework.base.BaseClass - Navigating to My Account
+2025-12-12 02:49:51,591 ERROR com.framework.base.BaseClass - Unexpected Exception Occurred During Test Execution
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: Proxy element for: DefaultElementLocator 'By.xpath: //ul[@class='list-inline']//li[@class='dropdown']' (tried for 10 second(s) with 500 milliseconds interval)
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.framework.pages.HomePage.clickOnMyAccount(HomePage.java:28)
+	at com.framework.tests.TC006_CartPageTest.verifyCart(TC006_CartPageTest.java:26)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+Caused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//ul[@class='list-inline']//li[@class='dropdown']"}
+  (Session info: MicrosoftEdge=143.0.3650.75)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '25'
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [7deb989633412b134c95b10d89a516db, findElement {value=//ul[@class='list-inline']//li[@class='dropdown'], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 143.0.3650.75, fedcm:accounts: true, goog:processID: 8068, ms:edgeOptions: {debuggerAddress: localhost:55181}, msedge: {msedgedriverVersion: 143.0.3650.80 (788579717f68..., userDataDir: C:\Users\Gowtham\AppData\Lo...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:55181/devtoo..., se:cdpVersion: 143.0.3650.75, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7deb989633412b134c95b10d89a516db
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:483)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy31.isDisplayed(Unknown Source)
+	at org.openqa.selenium.support.ui.ExpectedConditions.elementIfVisible(ExpectedConditions.java:308)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:294)
+	at org.openqa.selenium.support.ui.ExpectedConditions$10.apply(ExpectedConditions.java:291)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:662)
+	at org.openqa.selenium.support.ui.ExpectedConditions$23.apply(ExpectedConditions.java:658)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:203)
+	... 28 more
+2025-12-12 02:49:51,597 ERROR com.framework.base.BaseClass - Test FAILED due to an unhandled exception.
+2025-12-12 02:49:51,704 INFO  com.framework.base.BaseClass - ===== TC006 CartPage Test Completed Successfully =====
+2025-12-12 02:49:51,917 INFO  com.framework.base.BaseClass - Closing WebDriver
+2025-12-12 02:52:30,228 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-12 02:52:30,750 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-12 02:52:31,135 INFO  com.framework.base.BaseClass - ========== Test Setup Started ==========
+2025-12-12 02:52:31,136 INFO  com.framework.base.BaseClass - Execution Environment : local
+2025-12-12 02:52:31,136 INFO  com.framework.base.BaseClass - Browser              : edge
+2025-12-12 02:52:31,136 INFO  com.framework.base.BaseClass - OS                   : WIN10
+2025-12-12 02:52:31,138 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-12 02:52:34,236 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
+2025-12-12 02:57:58,884 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-12 02:57:59,355 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-12 02:57:59,852 INFO  com.framework.base.BaseClass - ========== Test Setup Started ==========
+2025-12-12 02:57:59,853 INFO  com.framework.base.BaseClass - Execution Environment : local
+2025-12-12 02:57:59,853 INFO  com.framework.base.BaseClass - Browser              : edge
+2025-12-12 02:57:59,854 INFO  com.framework.base.BaseClass - OS                   : WIN10
+2025-12-12 02:57:59,855 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-12 02:58:03,604 INFO  com.framework.base.BaseClass - Navigating to URL: https://tutorialsninja.com/demo/
+2025-12-12 03:15:29,791 DEBUG org.testng.TestNG - suiteXmlPath: "E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml"
+2025-12-12 03:15:30,461 INFO  org.testng.internal.Utils - [TestNG] Running:
+  E:\Automation\eclipse-workspace\hybrid-automation-framework\master.xml
+
+2025-12-12 03:15:31,059 INFO  com.framework.base.BaseClass - ========== Test Setup Started ==========
+2025-12-12 03:15:31,060 INFO  com.framework.base.BaseClass - Execution Environment : local
+2025-12-12 03:15:31,060 INFO  com.framework.base.BaseClass - Browser              : edge
+2025-12-12 03:15:31,061 INFO  com.framework.base.BaseClass - OS                   : WIN10
+2025-12-12 03:15:31,063 INFO  com.framework.driver.DriverFactory - Initializing LOCAL driver for browser: edge
+2025-12-12 03:15:36,504 INFO  com.framework.base.BaseClass - Navigating to: https://tutorialsninja.com/demo/
+2025-12-12 03:15:51,510 ERROR com.framework.base.BaseClass - ❌ Navigation timed out after 15 seconds → https://tutorialsninja.com/demo/
