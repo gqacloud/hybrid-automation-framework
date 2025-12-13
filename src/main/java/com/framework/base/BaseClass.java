@@ -18,6 +18,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import com.framework.driver.DriverFactory;
@@ -36,7 +37,7 @@ public class BaseClass {
 
     @BeforeClass(groups = { "Sanity", "Regression", "Master", "Functional" })
     @Parameters({ "os", "browser" })
-    public void setup(String os, String browserName) throws IOException {
+    public void setup(@Optional("mac") String os, @Optional("chrome") String browserName) throws IOException {
 
         logger.info("=== Test Setup Started ===");
 
@@ -131,18 +132,22 @@ public class BaseClass {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
-        String dir = userDir + "/screenshots/";
-        new File(dir).mkdirs();
+        // 🔥 Save inside reports folder
+        String screenshotDir = userDir + "/reports/screenshots/";
+        new File(screenshotDir).mkdirs();
 
-        String destPath = dir + testName + "_" + timeStamp + ".png";
+        String fileName = testName + "_" + timeStamp + ".png";
+        String fullPath = screenshotDir + fileName;
 
         try {
-            FileUtils.copyFile(srcFile, new File(destPath));
-            logger.info("Screenshot captured at: {}", destPath);
+            FileUtils.copyFile(srcFile, new File(fullPath));
+            logger.info("Screenshot captured at: {}", fullPath);
         } catch (Exception e) {
             logger.error("Screenshot failed: {}", e.getMessage());
         }
 
-        return destPath;
+        // 🔥 RETURN RELATIVE PATH ONLY
+        return "screenshots/" + fileName;
     }
+
 }

@@ -1,3 +1,7 @@
-com\framework\tests\TC001_RegisterAccountTest.class
-com\framework\tests\TC002_LoginTest.class
-com\framework\tests\TC003_LoginDDTest.class
+com/framework/tests/TC005_ProductDetailsTest.class
+com/framework/tests/TC003_LoginDDTest.class
+com/framework/tests/TC002_LoginTest.class
+com/framework/tests/TC00_PurchaseProductTest.class
+com/framework/tests/TC006_CartPageTest.class
+com/framework/tests/TC004_SearchProductTest.class
+com/framework/tests/TC001_RegisterAccountTest.class

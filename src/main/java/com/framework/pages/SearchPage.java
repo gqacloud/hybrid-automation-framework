@@ -65,6 +65,7 @@ public class SearchPage extends BasePage {
         try {
             logger.info("Selecting product category: {}", categoryName);
             wait.until(ExpectedConditions.visibilityOf(categoryDropdown));
+            categoryDropdown.click();
             Select categorySelect = new Select(categoryDropdown);
             categorySelect.selectByVisibleText(categoryName);
         } catch (Exception e) {

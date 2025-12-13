@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>7/4/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Fri Dec 12 10:48:39 EST 2025</td>
+<td>Started on:</td><td>Sat Dec 13 15:57:25 IST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>146 seconds (146241 ms)</td>
+<tr><td>Total time:</td><td>14 seconds (14692 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,208 +67,6 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td><b>Attribute(s)</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='com.framework.tests.TC005_ProductDetailsTest.verifyProductDetails()'><b>verifyProductDetails</b><br>Test class: com.framework.tests.TC005_ProductDetailsTest</td>
-<td><div><pre>java.lang.RuntimeException: Failed to select category: null
-	at com.framework.pages.SearchPage.selectProductCategory(SearchPage.java:71)
-	at com.framework.tests.TC005_ProductDetailsTest.verifyProductDetails(TC005_ProductDetailsTest.java:37)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-Caused by: java.lang.NullPointerException: Cannot invoke &quot;String.contains(java.lang.CharSequence)&quot; because &quot;toEscape&quot; is null
-	at org.openqa.selenium.support.ui.Quotes.escape(Quotes.java:38)
-	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:349)
-	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:125)
-	at com.framework.pages.SearchPage.selectProductCategory(SearchPage.java:69)
-	... 27 more
-... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace834093538", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace834093538'><pre>java.lang.RuntimeException: Failed to select category: null
-	at com.framework.pages.SearchPage.selectProductCategory(SearchPage.java:71)
-	at com.framework.tests.TC005_ProductDetailsTest.verifyProductDetails(TC005_ProductDetailsTest.java:37)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at org.testng.TestRunner.privateRun(TestRunner.java:741)
-	at org.testng.TestRunner.run(TestRunner.java:616)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: java.lang.NullPointerException: Cannot invoke &quot;String.contains(java.lang.CharSequence)&quot; because &quot;toEscape&quot; is null
-	at org.openqa.selenium.support.ui.Quotes.escape(Quotes.java:38)
-	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:349)
-	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:125)
-	at com.framework.pages.SearchPage.selectProductCategory(SearchPage.java:69)
-	... 27 more
-</pre></div></td>
-<td>2</td>
-<td>com.framework.tests.TC005_ProductDetailsTest@632ceb35</td></tr>
-<tr>
-<td title='com.framework.tests.TC006_CartPageTest.verifyCartFunctionality()'><b>verifyCartFunctionality</b><br>Test class: com.framework.tests.TC006_CartPageTest</td>
-<td><div><pre>java.lang.RuntimeException: Failed to select category: null
-	at com.framework.pages.SearchPage.selectProductCategory(SearchPage.java:71)
-	at com.framework.tests.TC006_CartPageTest.verifyCartFunctionality(TC006_CartPageTest.java:38)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-Caused by: java.lang.NullPointerException: Cannot invoke &quot;String.contains(java.lang.CharSequence)&quot; because &quot;toEscape&quot; is null
-	at org.openqa.selenium.support.ui.Quotes.escape(Quotes.java:38)
-	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:349)
-	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:125)
-	at com.framework.pages.SearchPage.selectProductCategory(SearchPage.java:69)
-	... 27 more
-... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2059830767", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2059830767'><pre>java.lang.RuntimeException: Failed to select category: null
-	at com.framework.pages.SearchPage.selectProductCategory(SearchPage.java:71)
-	at com.framework.tests.TC006_CartPageTest.verifyCartFunctionality(TC006_CartPageTest.java:38)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at org.testng.TestRunner.privateRun(TestRunner.java:741)
-	at org.testng.TestRunner.run(TestRunner.java:616)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: java.lang.NullPointerException: Cannot invoke &quot;String.contains(java.lang.CharSequence)&quot; because &quot;toEscape&quot; is null
-	at org.openqa.selenium.support.ui.Quotes.escape(Quotes.java:38)
-	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:349)
-	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:125)
-	at com.framework.pages.SearchPage.selectProductCategory(SearchPage.java:69)
-	... 27 more
-</pre></div></td>
-<td>2</td>
-<td>com.framework.tests.TC006_CartPageTest@1c93f6e1</td></tr>
-<tr>
-<td title='com.framework.tests.TC003_LoginDDTest.verify_loginDDTest()'><b>verify_loginDDTest</b><br>Test class: com.framework.tests.TC003_LoginDDTest<br>Parameters: piwene6598@badfist.com, ' OR 1=1 --, Valid</td>
-<td><div><pre>java.lang.AssertionError: Valid login failed for dataset: piwene6598@badfist.com expected [true] but found [false]
-	at com.framework.tests.TC003_LoginDDTest.verify_loginDDTest(TC003_LoginDDTest.java:40)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-... Removed 28 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2090593105", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2090593105'><pre>java.lang.AssertionError: Valid login failed for dataset: piwene6598@badfist.com expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1590)
-	at org.testng.Assert.assertTrue(Assert.java:57)
-	at com.framework.tests.TC003_LoginDDTest.verify_loginDDTest(TC003_LoginDDTest.java:40)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at org.testng.TestRunner.privateRun(TestRunner.java:741)
-	at org.testng.TestRunner.run(TestRunner.java:616)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div></td>
-<td>20</td>
-<td>com.framework.tests.TC003_LoginDDTest@4ae9cfc1</td></tr>
-<tr>
-<td title='com.framework.tests.TC004_SearchProductTest.searchProduct()'><b>searchProduct</b><br>Test class: com.framework.tests.TC004_SearchProductTest</td>
-<td><div><pre>java.lang.RuntimeException: Failed to select category: null
-	at com.framework.pages.SearchPage.selectProductCategory(SearchPage.java:71)
-	at com.framework.tests.TC004_SearchProductTest.searchProduct(TC004_SearchProductTest.java:36)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-Caused by: java.lang.NullPointerException: Cannot invoke &quot;String.contains(java.lang.CharSequence)&quot; because &quot;toEscape&quot; is null
-	at org.openqa.selenium.support.ui.Quotes.escape(Quotes.java:38)
-	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:349)
-	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:125)
-	at com.framework.pages.SearchPage.selectProductCategory(SearchPage.java:69)
-	... 27 more
-... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace974559308", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace974559308'><pre>java.lang.RuntimeException: Failed to select category: null
-	at com.framework.pages.SearchPage.selectProductCategory(SearchPage.java:71)
-	at com.framework.tests.TC004_SearchProductTest.searchProduct(TC004_SearchProductTest.java:36)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at org.testng.TestRunner.privateRun(TestRunner.java:741)
-	at org.testng.TestRunner.run(TestRunner.java:616)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-Caused by: java.lang.NullPointerException: Cannot invoke &quot;String.contains(java.lang.CharSequence)&quot; because &quot;toEscape&quot; is null
-	at org.openqa.selenium.support.ui.Quotes.escape(Quotes.java:38)
-	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:349)
-	at org.openqa.selenium.support.ui.Select.selectByVisibleText(Select.java:125)
-	at com.framework.pages.SearchPage.selectProductCategory(SearchPage.java:69)
-	... 27 more
-</pre></div></td>
-<td>3</td>
-<td>com.framework.tests.TC004_SearchProductTest@512baff6</td></tr>
-</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -278,40 +76,10 @@ Caused by: java.lang.NullPointerException: Cannot invoke &quot;String.contains(j
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='com.framework.tests.TC003_LoginDDTest.verify_loginDDTest()'><b>verify_loginDDTest</b><br>Test class: com.framework.tests.TC003_LoginDDTest<br>Parameters: piwene6598@badfist.com, WrongPass123, Invalid</td>
+<td title='com.framework.tests.TC006_CartPageTest.verifyCartFunctionality()'><b>verifyCartFunctionality</b><br>Test class: com.framework.tests.TC006_CartPageTest</td>
 <td></td>
-<td>21</td>
-<td>com.framework.tests.TC003_LoginDDTest@4ae9cfc1</td></tr>
-<tr>
-<td title='com.framework.tests.TC003_LoginDDTest.verify_loginDDTest()'><b>verify_loginDDTest</b><br>Test class: com.framework.tests.TC003_LoginDDTest<br>Parameters: piwene6598@badfist.com, , Invalid</td>
-<td></td>
-<td>21</td>
-<td>com.framework.tests.TC003_LoginDDTest@4ae9cfc1</td></tr>
-<tr>
-<td title='com.framework.tests.TC003_LoginDDTest.verify_loginDDTest()'><b>verify_loginDDTest</b><br>Test class: com.framework.tests.TC003_LoginDDTest<br>Parameters: , Qaz@123, Invalid</td>
-<td></td>
-<td>20</td>
-<td>com.framework.tests.TC003_LoginDDTest@4ae9cfc1</td></tr>
-<tr>
-<td title='com.framework.tests.TC001_RegisterAccountTest.verifyAccountRegistration()'><b>verifyAccountRegistration</b><br>Test class: com.framework.tests.TC001_RegisterAccountTest</td>
-<td></td>
-<td>3</td>
-<td>com.framework.tests.TC001_RegisterAccountTest@21337f7b</td></tr>
-<tr>
-<td title='com.framework.tests.TC003_LoginDDTest.verify_loginDDTest()'><b>verify_loginDDTest</b><br>Test class: com.framework.tests.TC003_LoginDDTest<br>Parameters: piwene6598@badfist.com, Qaz@123, Valid</td>
-<td></td>
-<td>2</td>
-<td>com.framework.tests.TC003_LoginDDTest@4ae9cfc1</td></tr>
-<tr>
-<td title='com.framework.tests.TC002_LoginTest.verifyLogin()'><b>verifyLogin</b><br>Test class: com.framework.tests.TC002_LoginTest</td>
-<td></td>
-<td>2</td>
-<td>com.framework.tests.TC002_LoginTest@14fc1f0</td></tr>
-<tr>
-<td title='com.framework.tests.TC003_LoginDDTest.verify_loginDDTest()'><b>verify_loginDDTest</b><br>Test class: com.framework.tests.TC003_LoginDDTest<br>Parameters: wrongemail@badfist.com, Qaz@123, Invalid</td>
-<td></td>
-<td>21</td>
-<td>com.framework.tests.TC003_LoginDDTest@4ae9cfc1</td></tr>
+<td>12</td>
+<td>com.framework.tests.TC006_CartPageTest@62ef27a8</td></tr>
 </table><p>
 </body>
 </html>
