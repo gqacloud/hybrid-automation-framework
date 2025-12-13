@@ -17,6 +17,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.framework.base.BaseClass;
+import com.framework.driver.DriverManager;
 
 public class ExtentReportUtils implements ITestListener {
 
@@ -31,6 +32,9 @@ public class ExtentReportUtils implements ITestListener {
         return test.get();
     }
 
+    // ===============================================================
+    // SUITE START
+    // ===============================================================
     @Override
     public void onStart(ITestContext context) {
 
@@ -50,11 +54,17 @@ public class ExtentReportUtils implements ITestListener {
         extent = new ExtentReports();
         extent.attachReporter(sparkReporter);
 
+        // 🔥 DYNAMIC SYSTEM INFO (NO XML)
         extent.setSystemInfo("User", System.getProperty("user.name"));
-        extent.setSystemInfo("OS", context.getCurrentXmlTest().getParameter("os"));
-        extent.setSystemInfo("Browser", context.getCurrentXmlTest().getParameter("browser"));
+        extent.setSystemInfo("OS", System.getProperty("os.name"));
+        extent.setSystemInfo("OS Version", System.getProperty("os.version"));
+        extent.setSystemInfo("Architecture", System.getProperty("os.arch"));
+        extent.setSystemInfo("Java Version", System.getProperty("java.version"));
     }
 
+    // ===============================================================
+    // TEST START
+    // ===============================================================
     @Override
     public void onTestStart(ITestResult result) {
 
@@ -67,24 +77,39 @@ public class ExtentReportUtils implements ITestListener {
         ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName());
         extentTest.assignCategory(result.getMethod().getGroups());
         test.set(extentTest);
+
+        // 🔥 Browser available AFTER driver init
+        extent.setSystemInfo("Browser", DriverManager.getBrowserName());
+        extent.setSystemInfo("Browser Version", DriverManager.getBrowserVersion());
     }
 
+    // ===============================================================
+    // TEST PASS
+    // ===============================================================
     @Override
     public void onTestSuccess(ITestResult result) {
+
         long duration = System.currentTimeMillis() - (long) result.getAttribute("startTime");
         double seconds = duration / 1000.0;
 
         logger.info("PASS: {} ({}s)", result.getName(), String.format("%.2f", seconds));
-
         getTest().log(Status.PASS, result.getName() + " passed");
     }
 
+    // ===============================================================
+    // TEST FAIL
+    // ===============================================================
     @Override
     public void onTestFailure(ITestResult result) {
+
         long duration = System.currentTimeMillis() - (long) result.getAttribute("startTime");
         double seconds = duration / 1000.0;
 
         logger.error("FAIL: {} ({}s)", result.getName(), String.format("%.2f", seconds));
+     // 🔥 LOG THE REAL ROOT CAUSE
+        if (result.getThrowable() != null) {
+            logger.error("Failure Reason:", result.getThrowable());
+        }
 
         getTest().log(Status.FAIL, result.getName() + " failed");
         getTest().log(Status.INFO, result.getThrowable().getMessage());
@@ -97,13 +122,16 @@ public class ExtentReportUtils implements ITestListener {
         }
     }
 
+    // ===============================================================
+    // TEST SKIP
+    // ===============================================================
     @Override
     public void onTestSkipped(ITestResult result) {
+
         long duration = System.currentTimeMillis() - (long) result.getAttribute("startTime");
         double seconds = duration / 1000.0;
 
         logger.warn("SKIP: {} ({}s)", result.getName(), String.format("%.2f", seconds));
-
         getTest().log(Status.SKIP, result.getName() + " skipped");
 
         if (result.getThrowable() != null) {
@@ -111,16 +139,11 @@ public class ExtentReportUtils implements ITestListener {
         }
     }
 
+    // ===============================================================
+    // SUITE FINISH
+    // ===============================================================
     @Override
     public void onFinish(ITestContext context) {
-
         extent.flush();
-
-        File reportFile = new File("./reports/" + repName);
-
-        // Auto-open disabled by your request:
-        // if (Desktop.isDesktopSupported()) {
-        //     Desktop.getDesktop().browse(reportFile.toURI());
-        // }
     }
 }

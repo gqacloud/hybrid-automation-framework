@@ -6,33 +6,12 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <parameter name="os" value="WIN10"/>
-    <parameter name="browser" value="edge"/>
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="com.framework.tests.TC003_LoginDDTest">
-        <methods>
-          <include name="teardown"/>
-          <include name="setup"/>
-          <include name="verify_loginDDTest" invocation-numbers="5"/>
-        </methods>
-      </class> <!-- com.framework.tests.TC003_LoginDDTest -->
-      <class name="com.framework.tests.TC004_SearchProductTest">
-        <methods>
-          <include name="searchProduct"/>
-          <include name="teardown"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- com.framework.tests.TC004_SearchProductTest -->
-      <class name="com.framework.tests.TC005_ProductDetailsTest">
-        <methods>
-          <include name="verifyProductDetails"/>
-          <include name="teardown"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- com.framework.tests.TC005_ProductDetailsTest -->
       <class name="com.framework.tests.TC006_CartPageTest">
         <methods>
-          <include name="teardown"/>
           <include name="verifyCartFunctionality"/>
+          <include name="teardown"/>
           <include name="setup"/>
         </methods>
       </class> <!-- com.framework.tests.TC006_CartPageTest -->

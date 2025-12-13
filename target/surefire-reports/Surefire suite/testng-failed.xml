@@ -3,27 +3,34 @@
 <suite name="Failed suite [Surefire suite]" verbose="0">
   <test thread-count="5" name="Surefire test(failed)" verbose="0">
     <classes>
-      <class name="com.framework.tests.TC002_LoginTest">
-        <methods>
-          <include name="verifyLogin"/>
-          <include name="teardown"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- com.framework.tests.TC002_LoginTest -->
-      <class name="com.framework.tests.TC001_RegisterAccountTest">
-        <methods>
-          <include name="verifyAccountRegisteration"/>
-          <include name="teardown"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- com.framework.tests.TC001_RegisterAccountTest -->
       <class name="com.framework.tests.TC003_LoginDDTest">
         <methods>
           <include name="teardown"/>
           <include name="setup"/>
-          <include name="verify_loginDDTest"/>
+          <include name="verify_loginDDTest" invocation-numbers="5"/>
         </methods>
       </class> <!-- com.framework.tests.TC003_LoginDDTest -->
+      <class name="com.framework.tests.TC005_ProductDetailsTest">
+        <methods>
+          <include name="verifyProductDetails"/>
+          <include name="teardown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.framework.tests.TC005_ProductDetailsTest -->
+      <class name="com.framework.tests.TC004_SearchProductTest">
+        <methods>
+          <include name="searchProduct"/>
+          <include name="teardown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.framework.tests.TC004_SearchProductTest -->
+      <class name="com.framework.tests.TC006_CartPageTest">
+        <methods>
+          <include name="verifyCartFunctionality"/>
+          <include name="teardown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.framework.tests.TC006_CartPageTest -->
     </classes>
   </test> <!-- Surefire test(failed) -->
 </suite> <!-- Failed suite [Surefire suite] -->
