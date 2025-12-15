@@ -30,5 +30,3 @@ hybrid-automation-framework
 │── testng.xml
 │── pom.xml
 │── config.properties
-
-This is my first update from a feature branch.

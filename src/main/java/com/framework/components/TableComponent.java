@@ -19,14 +19,15 @@ public class TableComponent extends BasePage {
     private final WebElement table;
 
     public TableComponent(WebDriver driver, WebElement table) {
-        super(driver);
+        super();
         this.table = table;
     }
 
     private void ensureTableVisible() {
-        wait.until(ExpectedConditions.visibilityOf(table));
+    	isDisplayed(table);
     }
-
+    
+    
     public int getRowCount() {
         try {
             logger.info("Fetching row count from table");

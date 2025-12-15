@@ -1,31 +1,101 @@
 package com.framework.pages;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
-public class CheckoutPage extends BasePage{
+/**
+ * CheckoutPage
+ * ------------
+ * Page Object representing Checkout page.
+ * Uses centralized actions from BasePage.
+ */
+public class CheckoutPage extends BasePage {
 
-	public CheckoutPage(WebDriver driver) {
-		super(driver);
-		// TODO Auto-generated constructor stub
-	}
-	
-	@FindBy(xpath="//input[@id='input-payment-lastname']") WebElement lnameTxtBox;
-	@FindBy(xpath="//input[@id='input-payment-firstname']") WebElement FnameTxtBox;
-	@FindBy(xpath="//input[@id='input-payment-address-1']") WebElement Add1TxtBox;
-	@FindBy(xpath="//input[@id='input-payment-address-2']") WebElement Add2TxtBox;
-	@FindBy(xpath="//input[@id='input-payment-city']") WebElement cityTxtBox;
-	@FindBy(xpath="//input[@id='input-payment-postcode']") WebElement zipcodeTxtBox;
-	@FindBy(xpath="//select[@id='input-payment-country']") WebElement countryDrop;
-	@FindBy(xpath="//select[@id='input-payment-zone']") WebElement zoneDrop;
-	 
-	
+    // ❌ No WebDriver constructor
+    // ❌ No waits / ExpectedConditions
+    // ❌ No direct click/sendKeys
+    // ✅ BasePage constructor is used automatically
 
-	
-	
-	
-	
-	
-	
+    // -------------------- Web Elements --------------------
+
+    @FindBy(id = "input-payment-firstname")
+    private WebElement firstNameTxtBox;
+
+    @FindBy(id = "input-payment-lastname")
+    private WebElement lastNameTxtBox;
+
+    @FindBy(id = "input-payment-address-1")
+    private WebElement address1TxtBox;
+
+    @FindBy(id = "input-payment-address-2")
+    private WebElement address2TxtBox;
+
+    @FindBy(id = "input-payment-city")
+    private WebElement cityTxtBox;
+
+    @FindBy(id = "input-payment-postcode")
+    private WebElement zipCodeTxtBox;
+
+    @FindBy(id = "input-payment-country")
+    private WebElement countryDrop;
+
+    @FindBy(id = "input-payment-zone")
+    private WebElement zoneDrop;
+
+    // -------------------- Action Methods --------------------
+
+    public void enterFirstName(String fname) {
+        type(firstNameTxtBox, fname);
+    }
+
+    public void enterLastName(String lname) {
+        type(lastNameTxtBox, lname);
+    }
+
+    public void enterAddressLine1(String address1) {
+        type(address1TxtBox, address1);
+    }
+
+    public void enterAddressLine2(String address2) {
+        type(address2TxtBox, address2);
+    }
+
+    public void enterCity(String city) {
+        type(cityTxtBox, city);
+    }
+
+    public void enterZipCode(String zip) {
+        type(zipCodeTxtBox, zip);
+    }
+
+    public void selectCountry(String country) {
+        new Select(countryDrop).selectByVisibleText(country);
+    }
+
+    public void selectZone(String zone) {
+        new Select(zoneDrop).selectByVisibleText(zone);
+    }
+
+    // -------------------- Business Flow (Recommended) --------------------
+
+    public void fillBillingDetails(
+            String firstName,
+            String lastName,
+            String address1,
+            String address2,
+            String city,
+            String zip,
+            String country,
+            String zone) {
+
+        enterFirstName(firstName);
+        enterLastName(lastName);
+        enterAddressLine1(address1);
+        enterAddressLine2(address2);
+        enterCity(city);
+        enterZipCode(zip);
+        selectCountry(country);
+        selectZone(zone);
+    }
 }

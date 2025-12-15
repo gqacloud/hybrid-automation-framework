@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="5" passed="4" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-13T15:57:25 IST" name="Suite" finished-at="2025-12-13T15:57:39 IST" duration-ms="14692">
+  <suite started-at="2025-12-15T05:48:47 EST" name="Suite" finished-at="2025-12-15T05:49:56 EST" duration-ms="68973">
     <groups>
       <group name="Functional">
-        <method signature="TC006_CartPageTest.verifyCartFunctionality()[pri:0, instance:com.framework.tests.TC006_CartPageTest@62ef27a8]" name="verifyCartFunctionality" class="com.framework.tests.TC006_CartPageTest"/>
+        <method signature="TC004_SearchProductTest.searchProduct()[pri:0, instance:com.framework.tests.TC004_SearchProductTest@46944ca9]" name="searchProduct" class="com.framework.tests.TC004_SearchProductTest"/>
+        <method signature="TC005_ProductDetailsTest.verifyProductDetails()[pri:0, instance:com.framework.tests.TC005_ProductDetailsTest@22bac7bc]" name="verifyProductDetails" class="com.framework.tests.TC005_ProductDetailsTest"/>
+        <method signature="TC006_CartPageTest.verifyCartFunctionality()[pri:0, instance:com.framework.tests.TC006_CartPageTest@63798ca7]" name="verifyCartFunctionality" class="com.framework.tests.TC006_CartPageTest"/>
       </group> <!-- Functional -->
+      <group name="Master">
+        <method signature="TC001_RegisterAccountTest.verifyAccountRegistration()[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@2e2ff723]" name="verifyAccountRegistration" class="com.framework.tests.TC001_RegisterAccountTest"/>
+        <method signature="TC002_LoginTest.verifyLogin()[pri:0, instance:com.framework.tests.TC002_LoginTest@487db668]" name="verifyLogin" class="com.framework.tests.TC002_LoginTest"/>
+      </group> <!-- Master -->
+      <group name="Sanity">
+        <method signature="TC002_LoginTest.verifyLogin()[pri:0, instance:com.framework.tests.TC002_LoginTest@487db668]" name="verifyLogin" class="com.framework.tests.TC002_LoginTest"/>
+      </group> <!-- Sanity -->
+      <group name="Regression">
+        <method signature="TC001_RegisterAccountTest.verifyAccountRegistration()[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@2e2ff723]" name="verifyAccountRegistration" class="com.framework.tests.TC001_RegisterAccountTest"/>
+        <method signature="TC002_LoginTest.verifyLogin()[pri:0, instance:com.framework.tests.TC002_LoginTest@487db668]" name="verifyLogin" class="com.framework.tests.TC002_LoginTest"/>
+      </group> <!-- Regression -->
     </groups>
-    <test started-at="2025-12-13T15:57:25 IST" name="Test" finished-at="2025-12-13T15:57:39 IST" duration-ms="14692">
-      <class name="com.framework.tests.TC006_CartPageTest">
-        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC006_CartPageTest@62ef27a8]" started-at="2025-12-13T15:57:25 IST" name="setup" finished-at="2025-12-13T15:57:27 IST" duration-ms="2040" status="PASS">
+    <test started-at="2025-12-15T05:48:47 EST" name="Test" finished-at="2025-12-15T05:49:56 EST" duration-ms="68973">
+      <class name="com.framework.tests.TC005_ProductDetailsTest">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC005_ProductDetailsTest@22bac7bc]" started-at="2025-12-15T05:49:32 EST" name="setup" finished-at="2025-12-15T05:49:41 EST" duration-ms="8630" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -26,15 +39,191 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyCartFunctionality()[pri:0, instance:com.framework.tests.TC006_CartPageTest@62ef27a8]" started-at="2025-12-13T15:57:27 IST" name="verifyCartFunctionality" finished-at="2025-12-13T15:57:39 IST" duration-ms="12468" status="PASS">
+        <test-method signature="verifyProductDetails()[pri:0, instance:com.framework.tests.TC005_ProductDetailsTest@22bac7bc]" started-at="2025-12-15T05:49:41 EST" name="verifyProductDetails" finished-at="2025-12-15T05:49:47 EST" duration-ms="6065" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyProductDetails -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC005_ProductDetailsTest@22bac7bc]" started-at="2025-12-15T05:49:47 EST" name="teardown" finished-at="2025-12-15T05:49:47 EST" duration-ms="333" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.framework.tests.TC005_ProductDetailsTest -->
+      <class name="com.framework.tests.TC004_SearchProductTest">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC004_SearchProductTest@46944ca9]" started-at="2025-12-15T05:49:23 EST" name="setup" finished-at="2025-12-15T05:49:27 EST" duration-ms="4874" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[WIN10]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="searchProduct()[pri:0, instance:com.framework.tests.TC004_SearchProductTest@46944ca9]" started-at="2025-12-15T05:49:27 EST" name="searchProduct" finished-at="2025-12-15T05:49:32 EST" duration-ms="4189" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- searchProduct -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC004_SearchProductTest@46944ca9]" started-at="2025-12-15T05:49:32 EST" name="teardown" finished-at="2025-12-15T05:49:32 EST" duration-ms="449" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.framework.tests.TC004_SearchProductTest -->
+      <class name="com.framework.tests.TC001_RegisterAccountTest">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@2e2ff723]" started-at="2025-12-15T05:48:47 EST" name="setup" finished-at="2025-12-15T05:49:09 EST" duration-ms="22060" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[WIN10]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyAccountRegistration()[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@2e2ff723]" started-at="2025-12-15T05:49:09 EST" name="verifyAccountRegistration" finished-at="2025-12-15T05:49:15 EST" duration-ms="5989" status="FAIL">
+          <exception class="org.openqa.selenium.StaleElementReferenceException">
+            <message>
+              <![CDATA[stale element reference: stale element not found
+  (Session info: chrome=143.0.7499.41)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [7955575ccb327c774ff94aae197854f7, getElementText {id=f.0A7BA2D748D2065ECBF4F9D32BD1DFD6.d.FE5D74B7BA84F3004F10864B51EF9B47.e.88}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.41, chrome: {chromedriverVersion: 143.0.7499.42 (24bdc8c48a0c..., userDataDir: C:\Users\Gowtham\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49170}, goog:processID: 7812, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49170/devtoo..., se:cdpVersion: 143.0.7499.41, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (7955575ccb327c774ff94aae197854f7)] -> xpath: //div[@id='content']/h1]
+Session ID: 7955575ccb327c774ff94aae197854f7]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
+  (Session info: chrome=143.0.7499.41)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [7955575ccb327c774ff94aae197854f7, getElementText {id=f.0A7BA2D748D2065ECBF4F9D32BD1DFD6.d.FE5D74B7BA84F3004F10864B51EF9B47.e.88}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.41, chrome: {chromedriverVersion: 143.0.7499.42 (24bdc8c48a0c..., userDataDir: C:\Users\Gowtham\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49170}, goog:processID: 7812, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49170/devtoo..., se:cdpVersion: 143.0.7499.41, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (7955575ccb327c774ff94aae197854f7)] -> xpath: //div[@id='content']/h1]
+Session ID: 7955575ccb327c774ff94aae197854f7
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:191)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+at jdk.proxy2/jdk.proxy2.$Proxy32.getText(Unknown Source)
+at com.framework.pages.BasePage.getText(BasePage.java:57)
+at com.framework.pages.RegisterAccount.getConfirmationMsg(RegisterAccount.java:113)
+at com.framework.tests.TC001_RegisterAccountTest.verifyAccountRegistration(TC001_RegisterAccountTest.java:42)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAccountRegistration -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@2e2ff723]" started-at="2025-12-15T05:49:16 EST" name="teardown" finished-at="2025-12-15T05:49:16 EST" duration-ms="414" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.framework.tests.TC001_RegisterAccountTest -->
+      <class name="com.framework.tests.TC006_CartPageTest">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC006_CartPageTest@63798ca7]" started-at="2025-12-15T05:49:47 EST" name="setup" finished-at="2025-12-15T05:49:49 EST" duration-ms="2331" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[WIN10]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyCartFunctionality()[pri:0, instance:com.framework.tests.TC006_CartPageTest@63798ca7]" started-at="2025-12-15T05:49:49 EST" name="verifyCartFunctionality" finished-at="2025-12-15T05:49:56 EST" duration-ms="6049" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyCartFunctionality -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC006_CartPageTest@62ef27a8]" started-at="2025-12-13T15:57:39 IST" name="teardown" finished-at="2025-12-13T15:57:39 IST" duration-ms="96" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC006_CartPageTest@63798ca7]" started-at="2025-12-15T05:49:56 EST" name="teardown" finished-at="2025-12-15T05:49:56 EST" duration-ms="381" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
       </class> <!-- com.framework.tests.TC006_CartPageTest -->
+      <class name="com.framework.tests.TC002_LoginTest">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC002_LoginTest@487db668]" started-at="2025-12-15T05:49:16 EST" name="setup" finished-at="2025-12-15T05:49:20 EST" duration-ms="4279" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[WIN10]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="verifyLogin()[pri:0, instance:com.framework.tests.TC002_LoginTest@487db668]" started-at="2025-12-15T05:49:20 EST" name="verifyLogin" finished-at="2025-12-15T05:49:22 EST" duration-ms="2038" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLogin -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC002_LoginTest@487db668]" started-at="2025-12-15T05:49:22 EST" name="teardown" finished-at="2025-12-15T05:49:23 EST" duration-ms="303" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- com.framework.tests.TC002_LoginTest -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

@@ -2,18 +2,22 @@ package com.framework.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
+/**
+ * LoginPage
+ * ---------
+ * Page Object representing Login page.
+ * Uses BasePage centralized actions.
+ */
 public class LoginPage extends BasePage {
 
     private static final Logger logger = LogManager.getLogger(LoginPage.class);
 
-    public LoginPage(WebDriver driver) {
-        super(driver);
-    }
+    // ❌ No WebDriver constructor
+    // ❌ No super(driver)
+    // ✅ BasePage constructor is used automatically
 
     @FindBy(id = "input-email")
     private WebElement emailTextbox;
@@ -28,26 +32,28 @@ public class LoginPage extends BasePage {
     private WebElement warningMessage;
 
     // ===============================
-    // ACTION METHODS (with logging)
+    // ACTION METHODS
     // ===============================
 
     public void setUserEmail(String email) {
         logger.info("Entering email");
-        wait.until(ExpectedConditions.visibilityOf(emailTextbox));
-        emailTextbox.clear();
-        emailTextbox.sendKeys(email);
+        type(emailTextbox, email);
     }
 
     public void setUserPassword(String pwd) {
         logger.info("Entering password");
-        wait.until(ExpectedConditions.visibilityOf(passwordTextbox));
-        passwordTextbox.clear();
-        passwordTextbox.sendKeys(pwd);
+        type(passwordTextbox, pwd);
     }
 
     public void clickOnLogin() {
         logger.info("Clicking Login button");
-        wait.until(ExpectedConditions.elementToBeClickable(loginButton)).click();
+        click(loginButton);
+    }
+
+    public void login(String email, String pwd) {
+        setUserEmail(email);
+        setUserPassword(pwd);
+        clickOnLogin();
     }
 
     // ===============================
@@ -56,8 +62,7 @@ public class LoginPage extends BasePage {
 
     public String getWarningMessage() {
         try {
-            wait.until(ExpectedConditions.visibilityOf(warningMessage));
-            return warningMessage.getText().trim();
+            return getText(warningMessage);
         } catch (Exception e) {
             logger.warn("Warning message not displayed");
             return "";

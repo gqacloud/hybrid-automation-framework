@@ -17,16 +17,18 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.framework.base.BaseClass;
-import com.framework.driver.DriverManager;
 
 public class ExtentReportUtils implements ITestListener {
 
-    private static final Logger logger = LogManager.getLogger(ExtentReportUtils.class);
+    // 🔥 Dedicated lifecycle logger (matches log4j2.xml)
+    private static final Logger logger =
+            LogManager.getLogger("TEST-LIFECYCLE");
 
-    private ExtentSparkReporter sparkReporter;
     private ExtentReports extent;
+    private ExtentSparkReporter sparkReporter;
     private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
-    private String repName;
+
+    private String reportName;
 
     private static ExtentTest getTest() {
         return test.get();
@@ -39,27 +41,32 @@ public class ExtentReportUtils implements ITestListener {
     public void onStart(ITestContext context) {
 
         File reportDir = new File("./reports/");
-        if (!reportDir.exists()) {
-            reportDir.mkdirs();
-        }
+        reportDir.mkdirs();
 
-        String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-        repName = "Test-Report-" + timeStamp + ".html";
+        String timeStamp =
+                new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
+        reportName = "Test-Report-" + timeStamp + ".html";
 
-        sparkReporter = new ExtentSparkReporter("./reports/" + repName);
+        sparkReporter = new ExtentSparkReporter("./reports/" + reportName);
         sparkReporter.config().setDocumentTitle("Automation Report");
-        sparkReporter.config().setReportName("Functional Test Execution");
         sparkReporter.config().setTheme(Theme.STANDARD);
+
+        String env = System.getProperty("env", "QA");
+        sparkReporter.config().setReportName(
+                "Functional Test Execution <span style='padding:3px 8px;"
+              + "font-size:12px; border-radius:12px; background:#27ae60;"
+              + "color:white; margin-left:8px;'>" + env + "</span>"
+        );
 
         extent = new ExtentReports();
         extent.attachReporter(sparkReporter);
 
-        // 🔥 DYNAMIC SYSTEM INFO (NO XML)
+        // System info (ONCE)
         extent.setSystemInfo("User", System.getProperty("user.name"));
         extent.setSystemInfo("OS", System.getProperty("os.name"));
-        extent.setSystemInfo("OS Version", System.getProperty("os.version"));
-        extent.setSystemInfo("Architecture", System.getProperty("os.arch"));
-        extent.setSystemInfo("Java Version", System.getProperty("java.version"));
+        extent.setSystemInfo("Java", System.getProperty("java.version"));
+
+        logger.info("===== TEST SUITE STARTED =====");
     }
 
     // ===============================================================
@@ -68,19 +75,17 @@ public class ExtentReportUtils implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
 
-        long startTime = System.currentTimeMillis();
-        result.setAttribute("startTime", startTime);
+        result.setAttribute("startTime", System.currentTimeMillis());
 
-        logger.info("Starting test: {}", result.getName());
+        String testName =
+                result.getTestClass().getRealClass().getSimpleName();
+
+        logger.info("===== TEST STARTED: {} =====", testName);
         logger.info("Groups: {}", Arrays.toString(result.getMethod().getGroups()));
 
-        ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName());
+        ExtentTest extentTest = extent.createTest(testName);
         extentTest.assignCategory(result.getMethod().getGroups());
         test.set(extentTest);
-
-        // 🔥 Browser available AFTER driver init
-        extent.setSystemInfo("Browser", DriverManager.getBrowserName());
-        extent.setSystemInfo("Browser Version", DriverManager.getBrowserVersion());
     }
 
     // ===============================================================
@@ -89,11 +94,7 @@ public class ExtentReportUtils implements ITestListener {
     @Override
     public void onTestSuccess(ITestResult result) {
 
-        long duration = System.currentTimeMillis() - (long) result.getAttribute("startTime");
-        double seconds = duration / 1000.0;
-
-        logger.info("PASS: {} ({}s)", result.getName(), String.format("%.2f", seconds));
-        getTest().log(Status.PASS, result.getName() + " passed");
+        logCompletion(result, Status.PASS, null);
     }
 
     // ===============================================================
@@ -102,23 +103,14 @@ public class ExtentReportUtils implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
 
-        long duration = System.currentTimeMillis() - (long) result.getAttribute("startTime");
-        double seconds = duration / 1000.0;
-
-        logger.error("FAIL: {} ({}s)", result.getName(), String.format("%.2f", seconds));
-     // 🔥 LOG THE REAL ROOT CAUSE
-        if (result.getThrowable() != null) {
-            logger.error("Failure Reason:", result.getThrowable());
-        }
-
-        getTest().log(Status.FAIL, result.getName() + " failed");
-        getTest().log(Status.INFO, result.getThrowable().getMessage());
+        logCompletion(result, Status.FAIL, result.getThrowable());
 
         try {
-            String imgPath = BaseClass.captureScreen(result.getName());
+            String imgPath = BaseClass.captureScreen(
+                    result.getTestClass().getRealClass().getSimpleName());
             getTest().addScreenCaptureFromPath(imgPath);
         } catch (Exception e) {
-            logger.error("Failed to attach screenshot: {}", e.getMessage());
+            logger.error("Screenshot attach failed", e);
         }
     }
 
@@ -128,15 +120,7 @@ public class ExtentReportUtils implements ITestListener {
     @Override
     public void onTestSkipped(ITestResult result) {
 
-        long duration = System.currentTimeMillis() - (long) result.getAttribute("startTime");
-        double seconds = duration / 1000.0;
-
-        logger.warn("SKIP: {} ({}s)", result.getName(), String.format("%.2f", seconds));
-        getTest().log(Status.SKIP, result.getName() + " skipped");
-
-        if (result.getThrowable() != null) {
-            getTest().log(Status.INFO, result.getThrowable().getMessage());
-        }
+        logCompletion(result, Status.SKIP, result.getThrowable());
     }
 
     // ===============================================================
@@ -144,6 +128,39 @@ public class ExtentReportUtils implements ITestListener {
     // ===============================================================
     @Override
     public void onFinish(ITestContext context) {
+
         extent.flush();
+        logger.info("===== TEST SUITE FINISHED =====");
+    }
+
+    // ===============================================================
+    // COMMON COMPLETION HANDLER
+    // ===============================================================
+    private void logCompletion(ITestResult result,
+                               Status status,
+                               Throwable error) {
+
+        long duration =
+                System.currentTimeMillis()
+                        - (long) result.getAttribute("startTime");
+
+        String testName =
+                result.getTestClass().getRealClass().getSimpleName();
+
+        double seconds = duration / 1000.0;
+
+        if (status == Status.PASS) {
+            logger.info("===== TEST PASSED: {} ({} sec) =====",
+                    testName, String.format("%.2f", seconds));
+        } else if (status == Status.SKIP) {
+            logger.warn("===== TEST SKIPPED: {} ({} sec) =====",
+                    testName, String.format("%.2f", seconds));
+        } else {
+            logger.error("===== TEST FAILED: {} ({} sec) =====",
+                    testName, String.format("%.2f", seconds), error);
+        }
+
+        getTest().log(status,
+                testName + " " + status.toString().toLowerCase());
     }
 }

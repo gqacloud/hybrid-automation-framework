@@ -8,13 +8,12 @@
 		<parameter name="os" value="WIN10"></parameter>
 		<parameter name="browser" value="chrome"></parameter>
 		<classes>
-		<!--	<class name="com.framework.tests.TC001_RegisterAccountTest"/> -->
-		<!--	<class name="com.framework.tests.TC002_LoginTest" /> -->
-		<!--	<class name="com.framework.tests.TC003_LoginDDTest"/> -->
-		<!--	<class name="com.framework.tests.TC004_SearchProductTest"/>   -->
-
-		<!--	<class name="com.framework.tests.TC005_ProductDetailsTest" />	-->	
-				<class name="com.framework.tests.TC006_CartPageTest" />  
+			<!--	<class name="com.framework.tests.TC001_RegisterAccountTest" /> -->
+			<class name="com.framework.tests.TC002_LoginTest" />
+			<!--	<class name="com.framework.tests.TC003_LoginDDTest"/> -->
+			<!--	<class name="com.framework.tests.TC004_SearchProductTest" /> -->
+			<!--	<class name="com.framework.tests.TC005_ProductDetailsTest" /> -->
+			<!--	<class name="com.framework.tests.TC006_CartPageTest" /> -->
 
 
 		</classes>

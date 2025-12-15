@@ -5,18 +5,23 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
+/**
+ * ProductDetailsPage
+ * ------------------
+ * Page Object representing Product Details page.
+ * Uses centralized actions from BasePage.
+ */
 public class ProductDetailsPage extends BasePage {
 
     private static final Logger logger = LogManager.getLogger(ProductDetailsPage.class);
 
-    public ProductDetailsPage(WebDriver driver) {
-        super(driver);
-    }
+    // ❌ No WebDriver constructor
+    // ❌ No waits / ExpectedConditions
+    // ❌ No direct click/sendKeys
+    // ✅ BasePage constructor is used automatically
 
     // ---------------- ELEMENTS ---------------- //
 
@@ -44,6 +49,7 @@ public class ProductDetailsPage extends BasePage {
     @FindBy(id = "button-cart")
     private WebElement addToCartButton;
 
+    // Calendar elements
     @FindBy(xpath = "//i[@class='fa fa-calendar']")
     private WebElement datePickerIcon;
 
@@ -59,145 +65,103 @@ public class ProductDetailsPage extends BasePage {
     @FindBy(xpath = "//div[@class='datepicker-days']//td[@class='day']")
     private List<WebElement> dayCells;
 
-    // ---------------- GETTERS WITH LOGGING ---------------- //
+    // ---------------- GETTERS ---------------- //
 
     public String getProductName() {
-        try {
-            logger.info("Fetching product name");
-            wait.until(ExpectedConditions.visibilityOf(productNameText));
-            return productNameText.getText().trim();
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to get product name", e);
-        }
+        logger.info("Fetching product name");
+        return getText(productNameText);
     }
 
     public String getBrand() {
-        try {
-            logger.info("Fetching brand name");
-            wait.until(ExpectedConditions.visibilityOf(brandText));
-            return brandText.getText().replace("Brand: ", "").trim();
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to get brand", e);
-        }
+        logger.info("Fetching brand name");
+        return getText(brandText).replace("Brand:", "").trim();
     }
 
     public String getProductCode() {
-        try {
-            logger.info("Fetching product code");
-            wait.until(ExpectedConditions.visibilityOf(productCodeText));
-            return productCodeText.getText().split(":")[1].trim();
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to get product code", e);
-        }
+        logger.info("Fetching product code");
+        return getText(productCodeText).split(":")[1].trim();
     }
 
-    public String getRewardpoints() {
-        try {
-            logger.info("Fetching reward points");
-            wait.until(ExpectedConditions.visibilityOf(rewardPointsText));
-            return rewardPointsText.getText().split(":")[1].trim();
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to get reward points", e);
-        }
+    public String getRewardPoints() {
+        logger.info("Fetching reward points");
+        return getText(rewardPointsText).split(":")[1].trim();
     }
 
     public String getAvailability() {
-        try {
-            logger.info("Fetching availability");
-            wait.until(ExpectedConditions.visibilityOf(availabilityText));
-            return availabilityText.getText().split(":")[1].trim();
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to get availability", e);
-        }
+        logger.info("Fetching availability");
+        return getText(availabilityText).split(":")[1].trim();
     }
 
     public double getDisplayedPrice() {
-        try {
-            logger.info("Fetching product price");
-            wait.until(ExpectedConditions.visibilityOf(productPriceText));
-            String priceText = productPriceText.getText().replace("$", "").trim();
-            return Double.parseDouble(priceText);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to get product price", e);
-        }
+        logger.info("Fetching product price");
+        String price = getText(productPriceText).replace("$", "").trim();
+        return Double.parseDouble(price);
     }
 
     public String getProductDescription() {
-        try {
-            logger.info("Fetching product description");
-            wait.until(ExpectedConditions.visibilityOf(productDescriptionText));
-            return productDescriptionText.getText().trim();
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to get product description", e);
-        }
+        logger.info("Fetching product description");
+        return getText(productDescriptionText);
     }
 
     // ---------------- ACTION METHODS ---------------- //
 
     public void addProductToCart() {
-        try {
-            logger.info("Clicking Add to Cart");
-            wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to click Add to Cart button", e);
-        }
+        logger.info("Clicking Add to Cart");
+        click(addToCartButton);
     }
 
     public void selectDeliveryDate(String month, String year, String day) {
-        try {
-            logger.info("Selecting delivery date: {} {} {}", month, year, day);
-            selectDateFromCalendar(month, year, day);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to select delivery date", e);
-        }
+        logger.info("Selecting delivery date: {} {} {}", month, year, day);
+        openDatePicker();
+        navigateToMonthYear(month, year);
+        selectDay(day);
     }
 
-    private void selectDateFromCalendar(String givenMonth, String givenYear, String givenDay) {
+    // ---------------- PRIVATE HELPERS ---------------- //
 
-        wait.until(ExpectedConditions.elementToBeClickable(datePickerIcon)).click();
+    private void openDatePicker() {
+        click(datePickerIcon);
+    }
+
+    private void navigateToMonthYear(String targetMonth, String targetYear) {
+
+        int targetMonthNum = Month.valueOf(targetMonth.toUpperCase()).getValue();
+        int targetYearNum = Integer.parseInt(targetYear);
 
         while (true) {
-
-            String displayed = dateSwitch.getText().trim();  // Example: "December 2025"
+            String displayed = getText(dateSwitch); // e.g. "December 2025"
             String[] parts = displayed.split(" ");
 
-            String appMonth = parts[0];
-            int appYear = Integer.parseInt(parts[1]);
+            int appMonthNum = Month.valueOf(parts[0].toUpperCase()).getValue();
+            int appYearNum = Integer.parseInt(parts[1]);
 
-            int targetYear = Integer.parseInt(givenYear);
-
-            // YEAR navigation
-            if (appYear < targetYear) {
-                nextButton.click();
+            if (appYearNum < targetYearNum) {
+                click(nextButton);
                 continue;
             }
-            if (appYear > targetYear) {
-                prevButton.click();
+            if (appYearNum > targetYearNum) {
+                click(prevButton);
                 continue;
             }
-
-            // MONTH navigation
-            int appMonthNum = Month.valueOf(appMonth.toUpperCase()).getValue();
-            int targetMonthNum = Month.valueOf(givenMonth.toUpperCase()).getValue();
-
             if (appMonthNum < targetMonthNum) {
-                nextButton.click();
+                click(nextButton);
                 continue;
             }
             if (appMonthNum > targetMonthNum) {
-                prevButton.click();
+                click(prevButton);
                 continue;
             }
-
-            // Month & Year match → Select day
-            for (WebElement d : dayCells) {
-                if (d.getText().equals(givenDay)) {
-                    d.click();
-                    return;
-                }
-            }
-
-            throw new RuntimeException("Day not found in calendar: " + givenDay);
+            break;
         }
+    }
+
+    private void selectDay(String day) {
+        for (WebElement d : dayCells) {
+            if (d.getText().equals(day)) {
+                click(d);
+                return;
+            }
+        }
+        throw new RuntimeException("Day not found in calendar: " + day);
     }
 }
