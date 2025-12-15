@@ -61,3 +61,6 @@ Thumbs.db
 *.tmp
 *.swp
 *.bak
+
+# Windows null device artifact
+nul
