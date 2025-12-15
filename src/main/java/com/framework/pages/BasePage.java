@@ -1,92 +1,77 @@
 package com.framework.pages;
 
-import java.time.Duration;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.*;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.framework.driver.DriverManager;
+import com.framework.utils.InteractionHelper;
 
+/**
+ * BasePage
+ * --------
+ * Centralized page-level actions.
+ * All Page Objects should extend this class.
+ */
 public class BasePage {
 
     protected WebDriver driver;
-    protected WebDriverWait wait;
+    protected InteractionHelper action;
     protected final Logger logger = LogManager.getLogger(getClass());
 
-    public BasePage(WebDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    /**
+     * BasePage constructor
+     * - Gets driver from DriverManager
+     * - Initializes PageFactory
+     * - Initializes InteractionHelper
+     */
+    public BasePage() {
+        this.driver = DriverManager.getDriver();
         PageFactory.initElements(driver, this);
+        this.action = new InteractionHelper(driver);
     }
 
-    // --------------------- WAIT HELPERS --------------------- //
+    // =========================
+    // CENTRALIZED ACTIONS (OPTION 1)
+    // =========================
 
-    protected WebElement waitForVisibility(WebElement element) {
-        return wait.until(ExpectedConditions.visibilityOf(element));
+    protected void click(WebElement element) {
+        
+        action.safeClick(element);
     }
 
-    protected WebElement waitForClickability(WebElement element) {
-        return wait.until(ExpectedConditions.elementToBeClickable(element));
+    protected void type(WebElement element, String text) {
+        
+        action.safeSendKeys(element, text);
     }
 
+    protected void clear(WebElement element) {
+       
+        action.safeClear(element);
+    }
 
-    // --------------------- ACTION HELPERS --------------------- //
+    protected String getText(WebElement element) {
+        
+        return element.getText().trim();
+    }
 
-    protected void safeClick(WebElement element) {
+    // =========================
+    // VALIDATION HELPERS
+    // =========================
+
+    protected boolean isDisplayed(WebElement element) {
         try {
-            logger.info("Clicking element: {}", element);
-            waitForClickability(element).click();
+            return element.isDisplayed();
         } catch (Exception e) {
-            throw new RuntimeException("Failed to click element: " + element, e);
+            return false;
         }
     }
-
-    protected void safeType(WebElement element, String text) {
-        try {
-            logger.info("Typing '{}' into element: {}", text, element);
-            WebElement el = waitForVisibility(element);
-            el.clear();
-            el.sendKeys(text);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to type into element: " + element, e);
-        }
-    }
-
-    protected String safeGetText(WebElement element) {
-        try {
-            logger.info("Getting text from element: {}", element);
-            return waitForVisibility(element).getText().trim();
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to get text from element: " + element, e);
-        }
-    }
-
-
-    // --------------------- JAVASCRIPT HELPERS --------------------- //
-
-    protected void scrollIntoView(WebElement element) {
-        try {
-            logger.info("Scrolling element into view: {}", element);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to scroll element into view: " + element, e);
-        }
-    }
-
-    protected void clickByJS(WebElement element) {
-        try {
-            logger.info("Clicking element using JavaScript: {}", element);
-            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to click element using JavaScript: " + element, e);
-        }
-    }
-
-
-    // --------------------- UTILITY METHODS --------------------- //
+    
+    // =========================
+    // PAGE INFO
+    // =========================
 
     public String getPageTitle() {
         return driver.getTitle();
@@ -94,13 +79,5 @@ public class BasePage {
 
     public String getCurrentUrl() {
         return driver.getCurrentUrl();
-    }
-
-    public boolean isDisplayed(WebElement element) {
-        try {
-            return waitForVisibility(element).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
     }
 }

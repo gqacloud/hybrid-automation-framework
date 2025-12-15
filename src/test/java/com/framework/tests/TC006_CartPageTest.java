@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.framework.base.BaseClass;
-import com.framework.driver.DriverManager;
 import com.framework.model.ProductData;
 import com.framework.pages.CartPage;
 import com.framework.pages.HomePage;
@@ -22,17 +21,17 @@ public class TC006_CartPageTest extends BaseClass {
         ProductData searchData = JsonDataReader.loadJson(jsonPath, ProductData.class);
 
         // Login
-        HomePage homePage = new HomePage(DriverManager.getDriver());
+        HomePage homePage = new HomePage();
         homePage.clickOnMyAccount();
         homePage.clickOnLogin();
 
-        LoginPage loginPage = new LoginPage(DriverManager.getDriver());
+        LoginPage loginPage = new LoginPage();
         loginPage.setUserEmail(prop.getProperty("email"));
         loginPage.setUserPassword(prop.getProperty("password"));
         loginPage.clickOnLogin();
 
         // Search product
-        SearchPage searchPage = new SearchPage(DriverManager.getDriver());
+        SearchPage searchPage = new SearchPage();
         searchPage.enterProductToSearch(searchData.getProductName());
         searchPage.clickOnSearch();
         searchPage.selectProductCategory(searchData.getProductCategory());
@@ -41,12 +40,12 @@ public class TC006_CartPageTest extends BaseClass {
         searchPage.clickOnProduct();
 
         // Verify product details
-        ProductDetailsPage product = new ProductDetailsPage(DriverManager.getDriver());
+        ProductDetailsPage product = new ProductDetailsPage();
 
         Assert.assertEquals(product.getProductName(), searchData.getProductName(), "Product name mismatch.");
         Assert.assertEquals(product.getBrand(), searchData.getBrand(), "Brand mismatch.");
         Assert.assertEquals(product.getProductCode(), searchData.getProductCode(), "Product code mismatch.");
-        Assert.assertEquals(product.getRewardpoints(), searchData.getRewardPoints(), "Reward points mismatch.");
+        Assert.assertEquals(product.getRewardPoints(), searchData.getRewardPoints(), "Reward points mismatch.");
         Assert.assertEquals(product.getAvailability(), searchData.getAvailability(), "Availability mismatch.");
         Assert.assertEquals(product.getDisplayedPrice(), searchData.getPrice(), "Price mismatch.");
 
@@ -55,7 +54,7 @@ public class TC006_CartPageTest extends BaseClass {
         product.addProductToCart();
 
         // Navigate to Cart
-        CartPage cart = new CartPage(DriverManager.getDriver());
+        CartPage cart = new CartPage();
         cart.clickOnCartHeader();
 
         // (Optional future assertions: product exists in cart, price matches, etc.)

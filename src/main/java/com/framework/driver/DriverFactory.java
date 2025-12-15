@@ -41,6 +41,7 @@ public class DriverFactory {
                 EdgeOptions edgeOptions = new EdgeOptions();
                 if (headless) edgeOptions.addArguments("--headless=new");
                 if (incognito) edgeOptions.addArguments("--inprivate");
+                edgeOptions.addArguments("--window-size=1920,1080");
 
                 driver = new EdgeDriver(edgeOptions);
                 configureDriver(driver);
@@ -50,6 +51,7 @@ public class DriverFactory {
             case "firefox":
                 FirefoxOptions firefoxOptions = new FirefoxOptions();
                 if (headless) firefoxOptions.addArguments("--headless");
+                firefoxOptions.addArguments("--window-size=1920,1080");
 
                 driver = new FirefoxDriver(firefoxOptions);
                 configureDriver(driver);

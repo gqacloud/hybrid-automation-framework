@@ -2,21 +2,26 @@ package com.framework.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.framework.components.TableComponent;
 
+/**
+ * CartPage
+ * --------
+ * Page Object representing Shopping Cart page.
+ * Uses centralized actions from BasePage.
+ */
 public class CartPage extends BasePage {
 
     private static final Logger logger = LogManager.getLogger(CartPage.class);
 
-    public CartPage(WebDriver driver) {
-        super(driver);
-    }
+    // ❌ No WebDriver constructor
+    // ❌ No waits / ExpectedConditions
+    // ❌ No direct click/sendKeys
+    // ✅ BasePage constructor is used automatically
 
     // ---------------- ELEMENTS ---------------- //
 
@@ -59,7 +64,6 @@ public class CartPage extends BasePage {
     @FindBy(xpath = "//a[@class='btn btn-primary']")
     private WebElement checkoutButton;
 
-
     // ---------------- TABLE ACCESSORS ---------------- //
 
     public TableComponent getCartTable() {
@@ -72,58 +76,38 @@ public class CartPage extends BasePage {
         return new TableComponent(driver, priceInfoTable);
     }
 
-
     // ---------------- ACTION METHODS ---------------- //
 
     public void clickOnCartHeader() {
-        try {
-            logger.info("Clicking Cart header at the top navigation");
-            wait.until(ExpectedConditions.elementToBeClickable(cartHeader)).click();
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to click Cart header", e);
-        }
+        logger.info("Clicking Cart header");
+        click(cartHeader);
     }
 
     public void applyOffer(String offerCode) {
-        try {
-            logger.info("Applying coupon code: {}", offerCode);
+        logger.info("Applying coupon code: {}", offerCode);
 
-            wait.until(ExpectedConditions.elementToBeClickable(couponPanel)).click();
-            wait.until(ExpectedConditions.visibilityOf(couponTextBox)).clear();
-            couponTextBox.sendKeys(offerCode);
-
-            applyCouponButton.click();
-
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to apply coupon code: " + offerCode, e);
-        }
+        click(couponPanel);
+        type(couponTextBox, offerCode);
+        click(applyCouponButton);
     }
 
     public void getShippingTaxEstimation(String country, String region, String zipcode) {
-        try {
-            logger.info("Estimating shipping: Country={}, Region={}, Zip={}", country, region, zipcode);
+        logger.info(
+            "Estimating shipping: Country={}, Region={}, Zip={}",
+            country, region, zipcode
+        );
 
-            wait.until(ExpectedConditions.elementToBeClickable(taxPanel)).click();
+        click(taxPanel);
 
-            new Select(countryDropdown).selectByVisibleText(country);
-            new Select(regionDropdown).selectByVisibleText(region);
+        new Select(countryDropdown).selectByVisibleText(country);
+        new Select(regionDropdown).selectByVisibleText(region);
 
-            zipCodeTextBox.clear();
-            zipCodeTextBox.sendKeys(zipcode);
-
-            getQuoteButton.click();
-
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to estimate shipping for: " + zipcode, e);
-        }
+        type(zipCodeTextBox, zipcode);
+        click(getQuoteButton);
     }
 
     public void clickOnCheckout() {
-        try {
-            logger.info("Clicking on Checkout button");
-            wait.until(ExpectedConditions.elementToBeClickable(checkoutButton)).click();
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to click Checkout button", e);
-        }
+        logger.info("Clicking Checkout button");
+        click(checkoutButton);
     }
 }

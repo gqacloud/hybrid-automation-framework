@@ -4,19 +4,22 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
+/**
+ * RegisterAccount
+ * ---------------
+ * Page Object representing Register Account page.
+ * Uses centralized actions from BasePage.
+ */
 public class RegisterAccount extends BasePage {
 
     private static final Logger logger = LogManager.getLogger(RegisterAccount.class);
 
-    public RegisterAccount(WebDriver driver) {
-        super(driver);
-    }
+    // ❌ No WebDriver constructor
+    // ❌ No waits / JS / ExpectedConditions
+    // ✅ BasePage constructor is used automatically
 
     // -------------------- Web Elements --------------------
 
@@ -52,125 +55,82 @@ public class RegisterAccount extends BasePage {
 
     // -------------------- Action Methods --------------------
 
-    public void setFistName(String fname) {
-        try {
-            logger.info("Entering First Name: {}", fname);
-            wait.until(ExpectedConditions.visibilityOf(firstNameTextbox));
-            firstNameTextbox.clear();
-            firstNameTextbox.sendKeys(fname);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to enter First Name", e);
-        }
+    public void setFirstName(String fname) {
+        logger.info("Entering First Name: {}", fname);
+        type(firstNameTextbox, fname);
     }
 
     public void setLastName(String lname) {
-        try {
-            logger.info("Entering Last Name: {}", lname);
-            wait.until(ExpectedConditions.visibilityOf(lastNameTextbox));
-            lastNameTextbox.clear();
-            lastNameTextbox.sendKeys(lname);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to enter Last Name", e);
-        }
+        logger.info("Entering Last Name: {}", lname);
+        type(lastNameTextbox, lname);
     }
 
     public void setEmail(String email) {
-        try {
-            logger.info("Entering Email: {}", email);
-            wait.until(ExpectedConditions.visibilityOf(emailTextbox));
-            emailTextbox.clear();
-            emailTextbox.sendKeys(email);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to enter Email", e);
-        }
+        logger.info("Entering Email: {}", email);
+        type(emailTextbox, email);
     }
 
     public void setPhoneNumber(String phone) {
-        try {
-            logger.info("Entering Phone Number: {}", phone);
-            wait.until(ExpectedConditions.visibilityOf(phoneTextbox));
-            phoneTextbox.clear();
-            phoneTextbox.sendKeys(phone);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to enter Phone Number", e);
-        }
+        logger.info("Entering Phone Number: {}", phone);
+        type(phoneTextbox, phone);
     }
 
     public void setPassword(String password) {
-        try {
-            logger.info("Entering Password");
-            wait.until(ExpectedConditions.visibilityOf(passwordTextbox));
-            passwordTextbox.clear();
-            passwordTextbox.sendKeys(password);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to enter Password", e);
-        }
+        logger.info("Entering Password");
+        type(passwordTextbox, password);
     }
 
     public void confirmPassword(String password) {
-        try {
-            logger.info("Entering Confirm Password");
-            wait.until(ExpectedConditions.visibilityOf(confirmPasswordTextbox));
-            confirmPasswordTextbox.clear();
-            confirmPasswordTextbox.sendKeys(password);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to confirm Password", e);
-        }
+        logger.info("Entering Confirm Password");
+        type(confirmPasswordTextbox, password);
     }
 
     public void selectNewsletterOption(String value) {
-        try {
-            logger.info("Selecting Newsletter Option: {}", value.equals("1") ? "Yes" : "No");
+        logger.info("Selecting Newsletter Option: {}", value.equals("1") ? "Yes" : "No");
 
-            for (WebElement option : newsletterOptions) {
-                if (option.getAttribute("value").equals(value)) {
-                    wait.until(ExpectedConditions.elementToBeClickable(option));
-                    option.click();
-                    return;
-                }
+        for (WebElement option : newsletterOptions) {
+            if (value.equals(option.getAttribute("value"))) {
+                click(option);
+                return;
             }
-
-            throw new RuntimeException("Newsletter option not found: " + value);
-
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to select Newsletter option", e);
         }
+
+        throw new RuntimeException("Newsletter option not found: " + value);
     }
 
     public void acceptPolicy() {
-        try {
-            logger.info("Accepting Privacy Policy");
-            wait.until(ExpectedConditions.elementToBeClickable(policyCheckbox)).click();
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to accept Privacy Policy", e);
-        }
+        logger.info("Accepting Privacy Policy");
+        click(policyCheckbox);
     }
 
     public void clickOnContinue() {
-        try {
-            logger.info("Clicking Continue button");
-
-            wait.until(ExpectedConditions.elementToBeClickable(continueButton));
-            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", continueButton);
-
-            continueButton.click();
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to click Continue button", e);
-        }
+        logger.info("Clicking Continue button");
+        click(continueButton);
     }
 
     public String getConfirmationMsg() {
-        try {
-            logger.info("Fetching confirmation message");
-            wait.until(ExpectedConditions.visibilityOf(confirmationText));
+        logger.info("Fetching confirmation message");
+        return getText(confirmationText);
+    }
 
-            String msg = confirmationText.getText().trim();
-            logger.info("Confirmation message received: {}", msg);
+    // -------------------- Business Flow (Optional but Recommended) --------------------
 
-            return msg;
+    public void registerAccount(
+            String fname,
+            String lname,
+            String email,
+            String phone,
+            String password,
+            String newsletterValue) {
 
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to fetch confirmation message", e);
-        }
+        setFirstName(fname);
+        setLastName(lname);
+        setEmail(email);
+        setPhoneNumber(phone);
+        setPassword(password);
+        confirmPassword(password);
+        selectNewsletterOption(newsletterValue);
+        acceptPolicy();
+        clickOnContinue();
     }
 }

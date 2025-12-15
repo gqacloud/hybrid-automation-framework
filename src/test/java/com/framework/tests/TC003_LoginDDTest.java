@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.framework.base.BaseClass;
-import com.framework.driver.DriverManager;
 import com.framework.pages.HomePage;
 import com.framework.pages.LoginPage;
 import com.framework.pages.MyAccountPage;
@@ -19,19 +18,19 @@ public class TC003_LoginDDTest extends BaseClass {
         logger.info("Data Set → email: {} | expected: {}", email, expResult);
 
         // Navigate to Login Page
-        HomePage homePage = new HomePage(DriverManager.getDriver());
+        HomePage homePage = new HomePage();
         homePage.clickOnMyAccount();
         homePage.clickOnLogin();
 
         // Login attempt
-        LoginPage loginPage = new LoginPage(DriverManager.getDriver());
+        LoginPage loginPage = new LoginPage();
         loginPage.setUserEmail(email);
         loginPage.setUserPassword(pwd);
         loginPage.clickOnLogin();
 
         // Check login success
-        MyAccountPage accountPage = new MyAccountPage(DriverManager.getDriver());
-        boolean loginSuccess = accountPage.isMyAccountMsg();
+        MyAccountPage accountPage = new MyAccountPage();
+        boolean loginSuccess = accountPage.isMyAccountMsgDisplayed();
 
         boolean expectedValid = expResult.equalsIgnoreCase("Valid");
 
