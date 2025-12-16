@@ -3,12 +3,12 @@ package com.framework.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.framework.base.BaseClass;
+import com.framework.base.BaseTest;
 import com.framework.pages.HomePage;
 import com.framework.pages.LoginPage;
 import com.framework.pages.MyAccountPage;
 
-public class TC002_LoginTest extends BaseClass {
+public class TC002_LoginTest extends BaseTest {
 
     @Test(groups = { "Sanity", "Master", "Regression" })
     public void verifyLogin() throws InterruptedException {

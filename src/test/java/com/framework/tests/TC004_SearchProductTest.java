@@ -3,14 +3,14 @@ package com.framework.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.framework.base.BaseClass;
+import com.framework.base.BaseTest;
 import com.framework.model.ProductData;
 import com.framework.pages.HomePage;
 import com.framework.pages.LoginPage;
 import com.framework.pages.SearchPage;
-import com.framework.utils.JsonDataReader;
+import com.framework.utils.data.JsonDataReader;
 
-public class TC004_SearchProductTest extends BaseClass {
+public class TC004_SearchProductTest extends BaseTest {
 
     @Test(groups = "Functional")
     public void searchProduct() {

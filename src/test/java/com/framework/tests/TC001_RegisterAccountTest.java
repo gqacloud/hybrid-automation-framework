@@ -3,12 +3,12 @@ package com.framework.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.framework.base.BaseClass;
+import com.framework.base.BaseTest;
 import com.framework.pages.HomePage;
 import com.framework.pages.RegisterAccount;
-import com.framework.utils.RandomDataUtils;
+import com.framework.utils.helpers.RandomDataUtils;
 
-public class TC001_RegisterAccountTest extends BaseClass {
+public class TC001_RegisterAccountTest extends BaseTest {
 
     @Test(groups = {"Regression", "Master"})
     public void verifyAccountRegistration() {

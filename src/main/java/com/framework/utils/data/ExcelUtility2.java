@@ -1,4 +1,4 @@
-package com.framework.utils;
+package com.framework.utils.data;
 
 import java.io.File;
 import java.io.FileInputStream;

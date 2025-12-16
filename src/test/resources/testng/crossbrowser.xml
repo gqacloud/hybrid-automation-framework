@@ -3,7 +3,7 @@
 <suite name="Suite" thread-count="5" parallel="tests">
 
 	<listeners>
-		<listener class-name="com.framework.utils.ExtentReportUtils" />
+		<listener class-name="com.framework.utils.reports.ExtentReportListener" />
 	</listeners>
 
 	<!-- Chrome Test Execution -->

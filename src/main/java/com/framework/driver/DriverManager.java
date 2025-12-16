@@ -7,51 +7,73 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public final class DriverManager {
 
-	private static final Logger logger = LogManager.getLogger(DriverManager.class);
+    private static final Logger logger = LogManager.getLogger(DriverManager.class);
 
-	private static final ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
-	private static final ThreadLocal<String> tlBrowser = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
+    private static final ThreadLocal<String> tlBrowser = new ThreadLocal<>();
 
-	private DriverManager() {
-	}
+    // ===== ADDED FOR BADGES =====
+    private static final ThreadLocal<Boolean> tlHeadless = new ThreadLocal<>();
+    private static final ThreadLocal<Boolean> tlIncognito = new ThreadLocal<>();
+    // ============================
 
-	public static WebDriver getDriver() {
-		WebDriver driver = tlDriver.get();
-		if (driver == null) {
-			throw new IllegalStateException("WebDriver is not initialized for this thread.");
-		}
-		return driver;
-	}
+    private DriverManager() {
+    }
 
-	public static void setDriver(WebDriver driver, String browserName) {
-		logger.info("Thread: {} | Browser: {}",
-		        Thread.currentThread().getId(),
-		        browserName);
+    public static WebDriver getDriver() {
+        WebDriver driver = tlDriver.get();
+        if (driver == null) {
+            throw new IllegalStateException("WebDriver is not initialized for this thread.");
+        }
+        return driver;
+    }
 
-		tlDriver.set(driver);
-		tlBrowser.set(browserName);
-	}
+    public static void setDriver(WebDriver driver, String browserName) {
+        logger.info("Thread: {} | Browser: {}",
+                Thread.currentThread().getId(),
+                browserName);
 
-	public static String getBrowserName() {
-		return tlBrowser.get();
-	}
+        tlDriver.set(driver);
+        tlBrowser.set(browserName);
+    }
 
-	public static String getBrowserVersion() {
-		try {
-			return ((RemoteWebDriver) getDriver()).getCapabilities().getBrowserVersion();
-		} catch (Exception e) {
-			return "Unknown";
-		}
-	}
+    public static String getBrowserName() {
+        return tlBrowser.get();
+    }
 
-	public static void cleanUp() {
-		WebDriver driver = tlDriver.get();
-		if (driver != null) {
-			// logger.info("Quitting WebDriver for thread {}",
-			// Thread.currentThread().getId());
-			driver.quit();
-		}
-		tlDriver.remove();
-		tlBrowser.remove();
-	}
+    public static String getBrowserVersion() {
+        try {
+            return ((RemoteWebDriver) getDriver())
+                    .getCapabilities()
+                    .getBrowserVersion();
+        } catch (Exception e) {
+            return "Unknown";
+        }
+    }
+
+    // ===== BADGE SUPPORT =====
+    public static void setRunMode(boolean headless, boolean incognito) {
+        tlHeadless.set(headless);
+        tlIncognito.set(incognito);
+    }
+
+    public static boolean isHeadless() {
+        return Boolean.TRUE.equals(tlHeadless.get());
+    }
+
+    public static boolean isIncognito() {
+        return Boolean.TRUE.equals(tlIncognito.get());
+    }
+    // =========================
+
+    public static void cleanUp() {
+        WebDriver driver = tlDriver.get();
+        if (driver != null) {
+            driver.quit();
+        }
+        tlDriver.remove();
+        tlBrowser.remove();
+        tlHeadless.remove();
+        tlIncognito.remove();
+    }
 }

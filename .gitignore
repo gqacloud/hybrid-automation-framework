@@ -1,14 +1,14 @@
 ###############################
-## Eclipse Files
+## Eclipse
 ###############################
 .project
 .classpath
 .settings/
-bin/
 .metadata/
+bin/
 
 ###############################
-## Java / Maven
+## Maven
 ###############################
 target/
 pom.xml.tag
@@ -19,48 +19,51 @@ release.properties
 dependency-reduced-pom.xml
 
 ###############################
-## Logs
+## TestNG / Automation Reports
 ###############################
-*.log
+test-output/
+reports/
+output/
 logs/
 log/
-test-output/
-output/
-reports/
+*.log
 
 ###############################
-## Screenshots / Reports
+## Screenshots (Failure Evidence)
 ###############################
 screenshots/
 screenshots/*
-reports/*
 *.png
 *.jpg
 
 ###############################
-## OS Files
-###############################
-Thumbs.db
-.DS_Store
-
-###############################
-## IDE Files (IntelliJ, VSCode if used later)
-###############################
-.idea/
-*.iml
-.vscode/
-
-###############################
-## Java Generated Files
+## Java Compiled Files
 ###############################
 *.class
 
 ###############################
-## Misc
+## IDEs (Future-proof)
+###############################
+.idea/
+*.iml
+.vscode/
+pom.xsd
+
+###############################
+## OS Files
+###############################
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+###############################
+## Temporary / Backup Files
 ###############################
 *.tmp
 *.swp
 *.bak
 
-# Windows null device artifact
+###############################
+## Windows null device artifact
+###############################
 nul

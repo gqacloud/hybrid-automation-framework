@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import com.framework.driver.DriverManager;
-import com.framework.utils.InteractionHelper;
+import com.framework.utils.helpers.InteractionHelper;
 
 /**
  * BasePage

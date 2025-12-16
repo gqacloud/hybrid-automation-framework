@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>4/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>5/0/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Dec 15 05:48:47 EST 2025</td>
+<td>Started on:</td><td>Tue Dec 16 04:09:03 EST 2025</td>
 </tr>
-<tr><td>Total time:</td><td>68 seconds (68973 ms)</td>
+<tr><td>Total time:</td><td>125 seconds (125771 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,101 +67,6 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
-<table width='100%' border='1' class='invocation-failed'>
-<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
-<tr><td><b>Test method</b></td>
-<td><b>Attribute(s)</b></td>
-<td width="30%"><b>Exception</b></td>
-<td width="10%"><b>Time (seconds)</b></td>
-<td><b>Instance</b></td>
-</tr>
-<tr>
-<td title='com.framework.tests.TC001_RegisterAccountTest.verifyAccountRegistration()'><b>verifyAccountRegistration</b><br>Test class: com.framework.tests.TC001_RegisterAccountTest</td>
-<td><div><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
-  (Session info: chrome=143.0.7499.41)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
-Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.9&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [7955575ccb327c774ff94aae197854f7, getElementText {id=f.0A7BA2D748D2065ECBF4F9D32BD1DFD6.d.FE5D74B7BA84F3004F10864B51EF9B47.e.88}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.41, chrome: {chromedriverVersion: 143.0.7499.42 (24bdc8c48a0c..., userDataDir: C:\Users\Gowtham\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49170}, goog:processID: 7812, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49170/devtoo..., se:cdpVersion: 143.0.7499.41, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (7955575ccb327c774ff94aae197854f7)] -&gt; xpath: //div[@id=&apos;content&apos;]/h1]
-Session ID: 7955575ccb327c774ff94aae197854f7
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:191)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at jdk.proxy2/jdk.proxy2.$Proxy32.getText(Unknown Source)
-	at com.framework.pages.BasePage.getText(BasePage.java:57)
-	at com.framework.pages.RegisterAccount.getConfirmationMsg(RegisterAccount.java:113)
-	at com.framework.tests.TC001_RegisterAccountTest.verifyAccountRegistration(TC001_RegisterAccountTest.java:42)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-... Removed 30 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1080561710", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1080561710'><pre>org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
-  (Session info: chrome=143.0.7499.41)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
-Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
-System info: os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;21.0.9&apos;
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [7955575ccb327c774ff94aae197854f7, getElementText {id=f.0A7BA2D748D2065ECBF4F9D32BD1DFD6.d.FE5D74B7BA84F3004F10864B51EF9B47.e.88}]
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.41, chrome: {chromedriverVersion: 143.0.7499.42 (24bdc8c48a0c..., userDataDir: C:\Users\Gowtham\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:49170}, goog:processID: 7812, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:49170/devtoo..., se:cdpVersion: 143.0.7499.41, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Element: [[ChromeDriver: chrome on windows (7955575ccb327c774ff94aae197854f7)] -&gt; xpath: //div[@id=&apos;content&apos;]/h1]
-Session ID: 7955575ccb327c774ff94aae197854f7
-	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
-	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
-	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
-	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
-	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
-	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:191)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
-	at jdk.proxy2/jdk.proxy2.$Proxy32.getText(Unknown Source)
-	at com.framework.pages.BasePage.getText(BasePage.java:57)
-	at com.framework.pages.RegisterAccount.getConfirmationMsg(RegisterAccount.java:113)
-	at com.framework.tests.TC001_RegisterAccountTest.verifyAccountRegistration(TC001_RegisterAccountTest.java:42)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
-	at org.testng.TestRunner.privateRun(TestRunner.java:741)
-	at org.testng.TestRunner.run(TestRunner.java:616)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
-	at org.testng.TestNG.runSuites(TestNG.java:1112)
-	at org.testng.TestNG.run(TestNG.java:1079)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
-</pre></div></td>
-<td>5</td>
-<td>com.framework.tests.TC001_RegisterAccountTest@2e2ff723</td></tr>
-</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -173,23 +78,28 @@ Session ID: 7955575ccb327c774ff94aae197854f7
 <tr>
 <td title='com.framework.tests.TC005_ProductDetailsTest.verifyProductDetails()'><b>verifyProductDetails</b><br>Test class: com.framework.tests.TC005_ProductDetailsTest</td>
 <td></td>
-<td>6</td>
-<td>com.framework.tests.TC005_ProductDetailsTest@22bac7bc</td></tr>
+<td>8</td>
+<td>com.framework.tests.TC005_ProductDetailsTest@4748a0f9</td></tr>
 <tr>
-<td title='com.framework.tests.TC006_CartPageTest.verifyCartFunctionality()'><b>verifyCartFunctionality</b><br>Test class: com.framework.tests.TC006_CartPageTest</td>
+<td title='com.framework.tests.TC001_RegisterAccountTest.verifyAccountRegistration()'><b>verifyAccountRegistration</b><br>Test class: com.framework.tests.TC001_RegisterAccountTest</td>
 <td></td>
-<td>6</td>
-<td>com.framework.tests.TC006_CartPageTest@63798ca7</td></tr>
-<tr>
-<td title='com.framework.tests.TC002_LoginTest.verifyLogin()'><b>verifyLogin</b><br>Test class: com.framework.tests.TC002_LoginTest</td>
-<td></td>
-<td>2</td>
-<td>com.framework.tests.TC002_LoginTest@487db668</td></tr>
+<td>7</td>
+<td>com.framework.tests.TC001_RegisterAccountTest@525575</td></tr>
 <tr>
 <td title='com.framework.tests.TC004_SearchProductTest.searchProduct()'><b>searchProduct</b><br>Test class: com.framework.tests.TC004_SearchProductTest</td>
 <td></td>
+<td>5</td>
+<td>com.framework.tests.TC004_SearchProductTest@34a875b3</td></tr>
+<tr>
+<td title='com.framework.tests.TC006_CartPageTest.verifyCartFunctionality()'><b>verifyCartFunctionality</b><br>Test class: com.framework.tests.TC006_CartPageTest</td>
+<td></td>
+<td>36</td>
+<td>com.framework.tests.TC006_CartPageTest@4b14918a</td></tr>
+<tr>
+<td title='com.framework.tests.TC002_LoginTest.verifyLogin()'><b>verifyLogin</b><br>Test class: com.framework.tests.TC002_LoginTest</td>
+<td></td>
 <td>4</td>
-<td>com.framework.tests.TC004_SearchProductTest@46944ca9</td></tr>
+<td>com.framework.tests.TC002_LoginTest@db57326</td></tr>
 </table><p>
 </body>
 </html>

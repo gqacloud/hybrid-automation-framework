@@ -1,4 +1,4 @@
-package com.framework.utils;
+package com.framework.utils.data;
 
 import java.io.IOException;
 import org.testng.annotations.DataProvider;

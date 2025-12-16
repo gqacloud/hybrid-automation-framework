@@ -3,13 +3,13 @@ package com.framework.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.framework.base.BaseClass;
+import com.framework.base.BaseTest;
 import com.framework.pages.HomePage;
 import com.framework.pages.LoginPage;
 import com.framework.pages.MyAccountPage;
-import com.framework.utils.DataProviders;
+import com.framework.utils.data.DataProviders;
 
-public class TC003_LoginDDTest extends BaseClass {
+public class TC003_LoginDDTest extends BaseTest {
 
     @Test(dataProvider = "LoginData", dataProviderClass = DataProviders.class,
           groups = {"DataDriven", "Master"})

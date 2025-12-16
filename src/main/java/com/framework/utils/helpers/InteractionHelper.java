@@ -1,4 +1,4 @@
-package com.framework.utils;
+package com.framework.utils.helpers;
 
 import java.time.Duration;
 
