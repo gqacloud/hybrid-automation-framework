@@ -946,3 +946,256 @@ Session ID: 7c1df8dec366a3c62560cffd93f69ab0
 2025-12-16 04:16:27,451 INFO  TEST-LIFECYCLE - ===== TEST PASSED: TC006_CartPageTest (23.78 sec) =====
 2025-12-16 04:16:27,453 INFO  com.framework.base.BaseTest - Closing WebDriver...
 2025-12-16 04:16:28,216 INFO  TEST-LIFECYCLE - ===== TEST SUITE FINISHED =====
+2026-01-02 03:12:01,847 INFO  TEST-LIFECYCLE - ===== TEST SUITE STARTED =====
+2026-01-02 03:12:01,915 INFO  com.framework.base.BaseTest - === Test Setup Started ===
+2026-01-02 03:12:01,919 INFO  com.framework.base.BaseTest - Execution Environment : local
+2026-01-02 03:12:01,919 INFO  com.framework.base.BaseTest - Browser              : chrome
+2026-01-02 03:12:01,919 INFO  com.framework.base.BaseTest - OS                   : WIN10
+2026-01-02 03:12:08,469 INFO  com.framework.driver.DriverFactory - Registering WebDriver | Browser: chrome | Thread: 1
+2026-01-02 03:12:08,469 INFO  com.framework.driver.DriverManager - Thread: 1 | Browser: chrome
+2026-01-02 03:12:08,469 INFO  com.framework.base.BaseTest - Navigating to URL: https://tutorialsninja.com/demo/
+2026-01-02 03:12:08,469 INFO  com.framework.base.BaseTest - Navigating to URL with pageLoadTimeout 30 seconds
+2026-01-02 03:12:08,474 INFO  com.framework.base.BaseTest - Navigation attempt 1 to https://tutorialsninja.com/demo/
+2026-01-02 03:12:09,569 INFO  com.framework.base.BaseTest - Navigation successful on attempt 1
+2026-01-02 03:12:09,570 INFO  com.framework.base.BaseTest - Waiting for page readiness...
+2026-01-02 03:12:09,596 INFO  com.framework.base.BaseTest - Page ready.
+2026-01-02 03:12:09,609 INFO  com.framework.base.BaseTest - Page Loaded Successfully. Title: Your Store
+2026-01-02 03:12:09,610 INFO  com.framework.base.BaseTest - === Test Setup Completed ===
+2026-01-02 03:12:09,709 INFO  com.framework.pages.HomePage - Clicking My Account
+2026-01-02 03:12:10,105 INFO  com.framework.pages.HomePage - Clicking Register
+2026-01-02 03:12:10,696 INFO  com.framework.pages.RegisterAccount - Entering First Name: LAUVWPE
+2026-01-02 03:12:10,998 INFO  com.framework.pages.RegisterAccount - Entering Last Name: JOZKJMA
+2026-01-02 03:12:11,190 INFO  com.framework.pages.RegisterAccount - Entering Email: L93jEYUnj@gmail.com
+2026-01-02 03:12:11,371 INFO  com.framework.pages.RegisterAccount - Entering Phone Number: 6594168174
+2026-01-02 03:12:11,535 INFO  com.framework.pages.RegisterAccount - Entering Password
+2026-01-02 03:12:11,707 INFO  com.framework.pages.RegisterAccount - Entering Confirm Password
+2026-01-02 03:12:11,879 INFO  com.framework.pages.RegisterAccount - Accepting Privacy Policy
+2026-01-02 03:12:12,035 INFO  com.framework.pages.RegisterAccount - Clicking Continue button
+2026-01-02 03:12:12,183 INFO  com.framework.pages.RegisterAccount - Fetching confirmation message
+2026-01-02 03:12:12,919 ERROR TEST-LIFECYCLE - ===== TEST FAILED: TC001_RegisterAccountTest (3.27 sec) =====
+org.openqa.selenium.StaleElementReferenceException: stale element reference: stale element not found
+  (Session info: chrome=143.0.7499.170)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#staleelementreferenceexception
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e78cf0c614210d94b6491593f95460c9, getElementText {id=f.D886FBED3D0E974C3CC769BB355B6E03.d.F9A3DB842A41C1B11A2B4A071EFF5AD2.e.67}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\Gowtham\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61347}, goog:processID: 27004, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61347/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Element: [[ChromeDriver: chrome on windows (e78cf0c614210d94b6491593f95460c9)] -> xpath: //div[@id='content']/h1]
+Session ID: e78cf0c614210d94b6491593f95460c9
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:502)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:486)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:223)
+	at org.openqa.selenium.remote.RemoteWebElement.getText(RemoteWebElement.java:191)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:51)
+	at jdk.proxy2/jdk.proxy2.$Proxy29.getText(Unknown Source)
+	at com.framework.pages.BasePage.getText(BasePage.java:57)
+	at com.framework.pages.RegisterAccount.getConfirmationMsg(RegisterAccount.java:113)
+	at com.framework.tests.TC001_RegisterAccountTest.verifyAccountRegistration(TC001_RegisterAccountTest.java:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-01-02 03:12:12,923 INFO  com.framework.base.BaseTest - Capturing screenshot for test: TC001_RegisterAccountTest
+2026-01-02 03:12:13,038 INFO  com.framework.base.BaseTest - Screenshot captured at: E:\Automation\eclipse-workspace\hybrid-automation-framework/reports/screenshots/TC001_RegisterAccountTest_20260102_031212.png
+2026-01-02 03:12:13,052 INFO  com.framework.base.BaseTest - Closing WebDriver...
+2026-01-02 03:12:13,267 INFO  com.framework.base.BaseTest - === Test Setup Started ===
+2026-01-02 03:12:13,268 INFO  com.framework.base.BaseTest - Execution Environment : local
+2026-01-02 03:12:13,268 INFO  com.framework.base.BaseTest - Browser              : chrome
+2026-01-02 03:12:13,268 INFO  com.framework.base.BaseTest - OS                   : WIN10
+2026-01-02 03:12:14,626 INFO  com.framework.driver.DriverFactory - Registering WebDriver | Browser: chrome | Thread: 1
+2026-01-02 03:12:14,626 INFO  com.framework.driver.DriverManager - Thread: 1 | Browser: chrome
+2026-01-02 03:12:14,627 INFO  com.framework.base.BaseTest - Navigating to URL: https://tutorialsninja.com/demo/
+2026-01-02 03:12:14,627 INFO  com.framework.base.BaseTest - Navigating to URL with pageLoadTimeout 30 seconds
+2026-01-02 03:12:14,633 INFO  com.framework.base.BaseTest - Navigation attempt 1 to https://tutorialsninja.com/demo/
+2026-01-02 03:12:15,982 INFO  com.framework.base.BaseTest - Navigation successful on attempt 1
+2026-01-02 03:12:15,983 INFO  com.framework.base.BaseTest - Waiting for page readiness...
+2026-01-02 03:12:16,201 INFO  com.framework.base.BaseTest - Page ready.
+2026-01-02 03:12:16,237 INFO  com.framework.base.BaseTest - Page Loaded Successfully. Title: Your Store
+2026-01-02 03:12:16,237 INFO  com.framework.base.BaseTest - === Test Setup Completed ===
+2026-01-02 03:12:16,243 INFO  com.framework.pages.HomePage - Clicking My Account
+2026-01-02 03:12:16,851 INFO  com.framework.pages.HomePage - Clicking Login
+2026-01-02 03:12:17,424 INFO  com.framework.pages.LoginPage - Entering email
+2026-01-02 03:12:17,940 INFO  com.framework.pages.LoginPage - Entering password
+2026-01-02 03:12:18,287 INFO  com.framework.pages.LoginPage - Clicking Login button
+2026-01-02 03:12:18,475 INFO  com.framework.pages.MyAccountPage - Validating the presence of 'My Account' message.
+2026-01-02 03:12:19,192 INFO  TEST-LIFECYCLE - ===== TEST PASSED: TC002_LoginTest (2.95 sec) =====
+2026-01-02 03:12:19,195 INFO  com.framework.base.BaseTest - Closing WebDriver...
+2026-01-02 03:12:19,399 INFO  com.framework.base.BaseTest - === Test Setup Started ===
+2026-01-02 03:12:19,399 INFO  com.framework.base.BaseTest - Execution Environment : local
+2026-01-02 03:12:19,399 INFO  com.framework.base.BaseTest - Browser              : chrome
+2026-01-02 03:12:19,400 INFO  com.framework.base.BaseTest - OS                   : WIN10
+2026-01-02 03:12:20,820 INFO  com.framework.driver.DriverFactory - Registering WebDriver | Browser: chrome | Thread: 1
+2026-01-02 03:12:20,820 INFO  com.framework.driver.DriverManager - Thread: 1 | Browser: chrome
+2026-01-02 03:12:20,820 INFO  com.framework.base.BaseTest - Navigating to URL: https://tutorialsninja.com/demo/
+2026-01-02 03:12:20,821 INFO  com.framework.base.BaseTest - Navigating to URL with pageLoadTimeout 30 seconds
+2026-01-02 03:12:20,826 INFO  com.framework.base.BaseTest - Navigation attempt 1 to https://tutorialsninja.com/demo/
+2026-01-02 03:12:21,726 INFO  com.framework.base.BaseTest - Navigation successful on attempt 1
+2026-01-02 03:12:21,727 INFO  com.framework.base.BaseTest - Waiting for page readiness...
+2026-01-02 03:12:21,741 INFO  com.framework.base.BaseTest - Page ready.
+2026-01-02 03:12:21,755 INFO  com.framework.base.BaseTest - Page Loaded Successfully. Title: Your Store
+2026-01-02 03:12:21,755 INFO  com.framework.base.BaseTest - === Test Setup Completed ===
+2026-01-02 03:12:21,866 INFO  com.framework.pages.HomePage - Clicking My Account
+2026-01-02 03:12:22,173 INFO  com.framework.pages.HomePage - Clicking Login
+2026-01-02 03:12:22,544 INFO  com.framework.pages.LoginPage - Entering email
+2026-01-02 03:12:22,789 INFO  com.framework.pages.LoginPage - Entering password
+2026-01-02 03:12:22,970 INFO  com.framework.pages.LoginPage - Clicking Login button
+2026-01-02 03:12:23,146 INFO  com.framework.pages.SearchPage - Entering product name: HP LP3065
+2026-01-02 03:12:24,747 INFO  com.framework.pages.SearchPage - Clicking main Search button
+2026-01-02 03:12:25,578 INFO  com.framework.pages.SearchPage - Selecting product category: Laptops & Notebooks
+2026-01-02 03:12:25,911 INFO  com.framework.pages.SearchPage - Clicking 'Search in product descriptions' checkbox
+2026-01-02 03:12:26,112 INFO  com.framework.pages.SearchPage - Clicking Inner Search button
+2026-01-02 03:12:26,435 INFO  com.framework.pages.SearchPage - Fetching product name from search result
+2026-01-02 03:12:26,471 INFO  TEST-LIFECYCLE - ===== TEST PASSED: TC004_SearchProductTest (4.72 sec) =====
+2026-01-02 03:12:26,472 INFO  com.framework.base.BaseTest - Closing WebDriver...
+2026-01-02 03:12:26,650 INFO  com.framework.base.BaseTest - === Test Setup Started ===
+2026-01-02 03:12:26,651 INFO  com.framework.base.BaseTest - Execution Environment : local
+2026-01-02 03:12:26,651 INFO  com.framework.base.BaseTest - Browser              : chrome
+2026-01-02 03:12:26,651 INFO  com.framework.base.BaseTest - OS                   : WIN10
+2026-01-02 03:12:28,027 INFO  com.framework.driver.DriverFactory - Registering WebDriver | Browser: chrome | Thread: 1
+2026-01-02 03:12:28,027 INFO  com.framework.driver.DriverManager - Thread: 1 | Browser: chrome
+2026-01-02 03:12:28,027 INFO  com.framework.base.BaseTest - Navigating to URL: https://tutorialsninja.com/demo/
+2026-01-02 03:12:28,027 INFO  com.framework.base.BaseTest - Navigating to URL with pageLoadTimeout 30 seconds
+2026-01-02 03:12:28,032 INFO  com.framework.base.BaseTest - Navigation attempt 1 to https://tutorialsninja.com/demo/
+2026-01-02 03:12:29,000 INFO  com.framework.base.BaseTest - Navigation successful on attempt 1
+2026-01-02 03:12:29,000 INFO  com.framework.base.BaseTest - Waiting for page readiness...
+2026-01-02 03:12:29,048 INFO  com.framework.base.BaseTest - Page ready.
+2026-01-02 03:12:29,072 INFO  com.framework.base.BaseTest - Page Loaded Successfully. Title: Your Store
+2026-01-02 03:12:29,072 INFO  com.framework.base.BaseTest - === Test Setup Completed ===
+2026-01-02 03:12:29,077 INFO  com.framework.pages.HomePage - Clicking My Account
+2026-01-02 03:12:29,394 INFO  com.framework.pages.HomePage - Clicking Login
+2026-01-02 03:12:29,766 INFO  com.framework.pages.LoginPage - Entering email
+2026-01-02 03:12:29,992 INFO  com.framework.pages.LoginPage - Entering password
+2026-01-02 03:12:30,163 INFO  com.framework.pages.LoginPage - Clicking Login button
+2026-01-02 03:12:30,303 INFO  com.framework.pages.SearchPage - Entering product name: HP LP3065
+2026-01-02 03:12:31,125 INFO  com.framework.pages.SearchPage - Clicking main Search button
+2026-01-02 03:12:31,483 INFO  com.framework.pages.SearchPage - Selecting product category: Laptops & Notebooks
+2026-01-02 03:12:31,707 INFO  com.framework.pages.SearchPage - Clicking 'Search in product descriptions' checkbox
+2026-01-02 03:12:31,841 INFO  com.framework.pages.SearchPage - Clicking Inner Search button
+2026-01-02 03:12:32,150 INFO  com.framework.pages.SearchPage - Clicking on product image/link
+2026-01-02 03:12:32,734 INFO  com.framework.pages.ProductDetailsPage - Fetching product name
+2026-01-02 03:12:32,766 INFO  com.framework.pages.ProductDetailsPage - Fetching brand name
+2026-01-02 03:12:32,795 INFO  com.framework.pages.ProductDetailsPage - Fetching product code
+2026-01-02 03:12:32,820 INFO  com.framework.pages.ProductDetailsPage - Fetching reward points
+2026-01-02 03:12:32,844 INFO  com.framework.pages.ProductDetailsPage - Fetching availability
+2026-01-02 03:12:32,869 INFO  com.framework.pages.ProductDetailsPage - Fetching product price
+2026-01-02 03:12:32,892 INFO  com.framework.pages.ProductDetailsPage - Selecting delivery date: January 2012 18
+2026-01-02 03:12:34,616 INFO  com.framework.pages.ProductDetailsPage - Clicking Add to Cart
+2026-01-02 03:12:34,742 INFO  TEST-LIFECYCLE - ===== TEST PASSED: TC005_ProductDetailsTest (5.67 sec) =====
+2026-01-02 03:12:34,744 INFO  com.framework.base.BaseTest - Closing WebDriver...
+2026-01-02 03:12:34,932 INFO  com.framework.base.BaseTest - === Test Setup Started ===
+2026-01-02 03:12:34,933 INFO  com.framework.base.BaseTest - Execution Environment : local
+2026-01-02 03:12:34,933 INFO  com.framework.base.BaseTest - Browser              : chrome
+2026-01-02 03:12:34,933 INFO  com.framework.base.BaseTest - OS                   : WIN10
+2026-01-02 03:12:36,348 INFO  com.framework.driver.DriverFactory - Registering WebDriver | Browser: chrome | Thread: 1
+2026-01-02 03:12:36,348 INFO  com.framework.driver.DriverManager - Thread: 1 | Browser: chrome
+2026-01-02 03:12:36,348 INFO  com.framework.base.BaseTest - Navigating to URL: https://tutorialsninja.com/demo/
+2026-01-02 03:12:36,349 INFO  com.framework.base.BaseTest - Navigating to URL with pageLoadTimeout 30 seconds
+2026-01-02 03:12:36,355 INFO  com.framework.base.BaseTest - Navigation attempt 1 to https://tutorialsninja.com/demo/
+2026-01-02 03:12:37,500 INFO  com.framework.base.BaseTest - Navigation successful on attempt 1
+2026-01-02 03:12:37,500 INFO  com.framework.base.BaseTest - Waiting for page readiness...
+2026-01-02 03:12:37,514 INFO  com.framework.base.BaseTest - Page ready.
+2026-01-02 03:12:37,524 INFO  com.framework.base.BaseTest - Page Loaded Successfully. Title: Your Store
+2026-01-02 03:12:37,526 INFO  com.framework.base.BaseTest - === Test Setup Completed ===
+2026-01-02 03:12:37,529 INFO  com.framework.pages.HomePage - Clicking My Account
+2026-01-02 03:12:37,729 INFO  com.framework.pages.HomePage - Clicking Login
+2026-01-02 03:12:38,084 INFO  com.framework.pages.LoginPage - Entering email
+2026-01-02 03:12:38,307 INFO  com.framework.pages.LoginPage - Entering password
+2026-01-02 03:12:38,476 INFO  com.framework.pages.LoginPage - Clicking Login button
+2026-01-02 03:12:38,621 INFO  com.framework.pages.SearchPage - Entering product name: HP LP3065
+2026-01-02 03:12:39,915 INFO  com.framework.pages.SearchPage - Clicking main Search button
+2026-01-02 03:12:40,287 INFO  com.framework.pages.SearchPage - Selecting product category: Laptops & Notebooks
+2026-01-02 03:12:40,540 INFO  com.framework.pages.SearchPage - Clicking 'Search in product descriptions' checkbox
+2026-01-02 03:12:40,701 INFO  com.framework.pages.SearchPage - Clicking Inner Search button
+2026-01-02 03:12:41,011 INFO  com.framework.pages.SearchPage - Clicking on product image/link
+2026-01-02 03:12:41,651 INFO  com.framework.pages.ProductDetailsPage - Fetching product name
+2026-01-02 03:12:41,682 INFO  com.framework.pages.ProductDetailsPage - Fetching brand name
+2026-01-02 03:12:41,705 INFO  com.framework.pages.ProductDetailsPage - Fetching product code
+2026-01-02 03:12:41,729 INFO  com.framework.pages.ProductDetailsPage - Fetching reward points
+2026-01-02 03:12:41,753 INFO  com.framework.pages.ProductDetailsPage - Fetching availability
+2026-01-02 03:12:41,779 INFO  com.framework.pages.ProductDetailsPage - Fetching product price
+2026-01-02 03:12:41,802 INFO  com.framework.pages.ProductDetailsPage - Selecting delivery date: January 2012 18
+2026-01-02 03:12:43,486 INFO  com.framework.pages.ProductDetailsPage - Clicking Add to Cart
+2026-01-02 03:12:43,619 INFO  com.framework.pages.CartPage - Clicking Cart header
+2026-01-02 03:12:58,690 WARN  com.framework.utils.helpers.InteractionHelper - Standard click failed, attempting JS click
+org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: [[ChromeDriver: chrome on windows (dbba274b25dae65d45606ee98050dacd)] -> xpath: //span[contains(text(),'Shopping Cart')]] (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: '4.38.0', revision: '6b412e825c*'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '21.0.9'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 143.0.7499.170, chrome: {chromedriverVersion: 143.0.7499.169 (164b20aab62..., userDataDir: C:\Users\Gowtham\AppData\Lo...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61449}, goog:processID: 22452, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61449/devtoo..., se:cdpVersion: 143.0.7499.170, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: dbba274b25dae65d45606ee98050dacd
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at com.framework.utils.helpers.InteractionHelper.safeClick(InteractionHelper.java:95)
+	at com.framework.pages.BasePage.click(BasePage.java:42)
+	at com.framework.pages.CartPage.clickOnCartHeader(CartPage.java:83)
+	at com.framework.tests.TC006_CartPageTest.verifyCartFunctionality(TC006_CartPageTest.java:58)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.testng.TestRunner.privateRun(TestRunner.java:741)
+	at org.testng.TestRunner.run(TestRunner.java:616)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+	at org.testng.TestNG.runSuites(TestNG.java:1112)
+	at org.testng.TestNG.run(TestNG.java:1079)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
+	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-01-02 03:12:58,934 INFO  TEST-LIFECYCLE - ===== TEST PASSED: TC006_CartPageTest (21.41 sec) =====
+2026-01-02 03:12:58,935 INFO  com.framework.base.BaseTest - Closing WebDriver...
+2026-01-02 03:12:59,730 INFO  TEST-LIFECYCLE - ===== TEST SUITE FINISHED =====
