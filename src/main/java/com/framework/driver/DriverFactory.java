@@ -15,6 +15,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import com.framework.constants.TimeoutConstants;
+
 public final class DriverFactory {
 
 	private static final Logger logger = LogManager.getLogger(DriverFactory.class);
@@ -128,6 +130,7 @@ public final class DriverFactory {
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		
 	}
 
 	/**

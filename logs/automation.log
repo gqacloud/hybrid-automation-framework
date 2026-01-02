@@ -2003,3 +2003,147 @@ Session ID: 4f8d90bacae33578a6f886598ab73027
 2026-01-02 05:06:13,639 INFO  com.framework.base.BaseTest - Navigation attempt 1
 2026-01-02 05:06:28,016 INFO  com.framework.base.BaseTest - Navigation successful
 2026-01-02 05:06:28,016 INFO  com.framework.base.BaseTest - Waiting for page readiness...
+2026-01-02 06:52:32,414 INFO  TEST-LIFECYCLE - ===== TEST SUITE STARTED =====
+2026-01-02 06:52:32,470 INFO  com.framework.base.BaseTest - ===== Test Setup Started =====
+2026-01-02 06:52:32,474 INFO  com.framework.base.BaseTest - Execution Environment : local
+2026-01-02 06:52:32,474 INFO  com.framework.base.BaseTest - Browser              : chrome
+2026-01-02 06:52:32,474 INFO  com.framework.base.BaseTest - OS                   : WIN10
+2026-01-02 06:52:37,423 INFO  com.framework.driver.DriverFactory - Registering WebDriver | Browser: chrome | Thread: 1
+2026-01-02 06:52:37,424 INFO  com.framework.driver.DriverManager - Thread: 1 | Browser: chrome
+2026-01-02 06:52:37,438 INFO  com.framework.base.BaseTest - Navigating to URL: https://tutorialsninja.com/demo/
+2026-01-02 06:52:37,439 INFO  com.framework.base.BaseTest - Navigation attempt 1
+2026-01-02 06:52:37,933 INFO  com.framework.base.BaseTest - Navigation successful
+2026-01-02 06:52:37,935 INFO  com.framework.base.BaseTest - Waiting for page readiness...
+2026-01-02 06:52:39,078 INFO  com.framework.base.BaseTest - Page is ready.
+2026-01-02 06:52:39,091 INFO  com.framework.base.BaseTest - Page Loaded Successfully. Title: Your Store
+2026-01-02 06:52:39,091 INFO  com.framework.base.BaseTest - ===== Test Setup Completed =====
+2026-01-02 06:52:39,167 INFO  com.framework.pages.HomePage - Clicking My Account
+2026-01-02 06:52:39,473 INFO  com.framework.pages.HomePage - Clicking Register
+2026-01-02 06:52:40,121 INFO  com.framework.pages.RegisterAccount - Entering First Name: EXFXANL
+2026-01-02 06:52:40,360 INFO  com.framework.pages.RegisterAccount - Entering Last Name: NVWGMCU
+2026-01-02 06:52:40,567 INFO  com.framework.pages.RegisterAccount - Entering Email: o5RllW0vz@gmail.com
+2026-01-02 06:52:40,764 INFO  com.framework.pages.RegisterAccount - Entering Phone Number: 7637241526
+2026-01-02 06:52:40,964 INFO  com.framework.pages.RegisterAccount - Entering Password
+2026-01-02 06:52:41,218 INFO  com.framework.pages.RegisterAccount - Entering Confirm Password
+2026-01-02 06:52:41,397 INFO  com.framework.pages.RegisterAccount - Accepting Privacy Policy
+2026-01-02 06:52:41,552 INFO  com.framework.pages.RegisterAccount - Clicking Continue button
+2026-01-02 06:52:41,708 INFO  com.framework.pages.RegisterAccount - Fetching confirmation message
+2026-01-02 06:52:42,773 INFO  TEST-LIFECYCLE - ===== TEST PASSED: TC001_RegisterAccountTest (3.66 sec) =====
+2026-01-02 06:52:42,779 INFO  com.framework.base.BaseTest - Closing WebDriver...
+2026-01-02 06:52:43,138 INFO  com.framework.base.BaseTest - ===== Test Setup Started =====
+2026-01-02 06:52:43,138 INFO  com.framework.base.BaseTest - Execution Environment : local
+2026-01-02 06:52:43,138 INFO  com.framework.base.BaseTest - Browser              : chrome
+2026-01-02 06:52:43,138 INFO  com.framework.base.BaseTest - OS                   : WIN10
+2026-01-02 06:52:44,588 INFO  com.framework.driver.DriverFactory - Registering WebDriver | Browser: chrome | Thread: 1
+2026-01-02 06:52:44,589 INFO  com.framework.driver.DriverManager - Thread: 1 | Browser: chrome
+2026-01-02 06:52:44,603 INFO  com.framework.base.BaseTest - Navigating to URL: https://tutorialsninja.com/demo/
+2026-01-02 06:52:44,603 INFO  com.framework.base.BaseTest - Navigation attempt 1
+2026-01-02 06:52:45,563 INFO  com.framework.base.BaseTest - Navigation successful
+2026-01-02 06:52:45,563 INFO  com.framework.base.BaseTest - Waiting for page readiness...
+2026-01-02 06:52:45,579 INFO  com.framework.base.BaseTest - Page is ready.
+2026-01-02 06:52:45,594 INFO  com.framework.base.BaseTest - Page Loaded Successfully. Title: Your Store
+2026-01-02 06:52:45,594 INFO  com.framework.base.BaseTest - ===== Test Setup Completed =====
+2026-01-02 06:52:45,597 INFO  com.framework.pages.HomePage - Clicking My Account
+2026-01-02 06:52:45,840 INFO  com.framework.pages.HomePage - Clicking Login
+2026-01-02 06:52:46,313 INFO  com.framework.pages.LoginPage - Entering email
+2026-01-02 06:52:46,545 INFO  com.framework.pages.LoginPage - Entering password
+2026-01-02 06:52:46,728 INFO  com.framework.pages.LoginPage - Clicking Login button
+2026-01-02 06:52:46,884 INFO  com.framework.pages.MyAccountPage - Validating the presence of 'My Account' message.
+2026-01-02 06:52:47,660 INFO  TEST-LIFECYCLE - ===== TEST PASSED: TC002_LoginTest (2.07 sec) =====
+2026-01-02 06:52:47,661 INFO  com.framework.base.BaseTest - Closing WebDriver...
+2026-01-02 06:52:47,848 INFO  com.framework.base.BaseTest - ===== Test Setup Started =====
+2026-01-02 06:52:47,849 INFO  com.framework.base.BaseTest - Execution Environment : local
+2026-01-02 06:52:47,849 INFO  com.framework.base.BaseTest - Browser              : chrome
+2026-01-02 06:52:47,849 INFO  com.framework.base.BaseTest - OS                   : WIN10
+2026-01-02 06:52:49,399 INFO  com.framework.driver.DriverFactory - Registering WebDriver | Browser: chrome | Thread: 1
+2026-01-02 06:52:49,400 INFO  com.framework.driver.DriverManager - Thread: 1 | Browser: chrome
+2026-01-02 06:52:49,416 INFO  com.framework.base.BaseTest - Navigating to URL: https://tutorialsninja.com/demo/
+2026-01-02 06:52:49,416 INFO  com.framework.base.BaseTest - Navigation attempt 1
+2026-01-02 06:52:50,428 INFO  com.framework.base.BaseTest - Navigation successful
+2026-01-02 06:52:50,428 INFO  com.framework.base.BaseTest - Waiting for page readiness...
+2026-01-02 06:52:50,443 INFO  com.framework.base.BaseTest - Page is ready.
+2026-01-02 06:52:50,461 INFO  com.framework.base.BaseTest - Page Loaded Successfully. Title: Your Store
+2026-01-02 06:52:50,461 INFO  com.framework.base.BaseTest - ===== Test Setup Completed =====
+2026-01-02 06:52:50,570 INFO  com.framework.pages.HomePage - Clicking My Account
+2026-01-02 06:52:50,887 INFO  com.framework.pages.HomePage - Clicking Login
+2026-01-02 06:52:51,394 INFO  com.framework.pages.LoginPage - Entering email
+2026-01-02 06:52:51,617 INFO  com.framework.pages.LoginPage - Entering password
+2026-01-02 06:52:51,798 INFO  com.framework.pages.LoginPage - Clicking Login button
+2026-01-02 06:52:52,614 INFO  com.framework.pages.SearchPage - Entering product name: HP LP3065
+2026-01-02 06:52:52,788 INFO  com.framework.pages.SearchPage - Clicking main Search button
+2026-01-02 06:52:53,162 INFO  com.framework.pages.SearchPage - Selecting product category: Laptops & Notebooks
+2026-01-02 06:52:53,441 INFO  com.framework.pages.SearchPage - Clicking 'Search in product descriptions' checkbox
+2026-01-02 06:52:53,588 INFO  com.framework.pages.SearchPage - Clicking Inner Search button
+2026-01-02 06:52:53,913 INFO  com.framework.pages.SearchPage - Fetching product name from search result
+2026-01-02 06:52:53,953 INFO  TEST-LIFECYCLE - ===== TEST PASSED: TC004_SearchProductTest (3.49 sec) =====
+2026-01-02 06:52:53,954 INFO  com.framework.base.BaseTest - Closing WebDriver...
+2026-01-02 06:52:54,190 INFO  com.framework.base.BaseTest - ===== Test Setup Started =====
+2026-01-02 06:52:54,191 INFO  com.framework.base.BaseTest - Execution Environment : local
+2026-01-02 06:52:54,191 INFO  com.framework.base.BaseTest - Browser              : chrome
+2026-01-02 06:52:54,191 INFO  com.framework.base.BaseTest - OS                   : WIN10
+2026-01-02 06:52:55,592 INFO  com.framework.driver.DriverFactory - Registering WebDriver | Browser: chrome | Thread: 1
+2026-01-02 06:52:55,593 INFO  com.framework.driver.DriverManager - Thread: 1 | Browser: chrome
+2026-01-02 06:52:55,606 INFO  com.framework.base.BaseTest - Navigating to URL: https://tutorialsninja.com/demo/
+2026-01-02 06:52:55,606 INFO  com.framework.base.BaseTest - Navigation attempt 1
+2026-01-02 06:52:56,465 INFO  com.framework.base.BaseTest - Navigation successful
+2026-01-02 06:52:56,465 INFO  com.framework.base.BaseTest - Waiting for page readiness...
+2026-01-02 06:52:56,480 INFO  com.framework.base.BaseTest - Page is ready.
+2026-01-02 06:52:56,491 INFO  com.framework.base.BaseTest - Page Loaded Successfully. Title: Your Store
+2026-01-02 06:52:56,491 INFO  com.framework.base.BaseTest - ===== Test Setup Completed =====
+2026-01-02 06:52:56,496 INFO  com.framework.pages.HomePage - Clicking My Account
+2026-01-02 06:52:56,885 INFO  com.framework.pages.HomePage - Clicking Login
+2026-01-02 06:52:57,303 INFO  com.framework.pages.LoginPage - Entering email
+2026-01-02 06:52:57,537 INFO  com.framework.pages.LoginPage - Entering password
+2026-01-02 06:52:57,707 INFO  com.framework.pages.LoginPage - Clicking Login button
+2026-01-02 06:52:57,890 INFO  com.framework.pages.SearchPage - Entering product name: HP LP3065
+2026-01-02 06:52:58,722 INFO  com.framework.pages.SearchPage - Clicking main Search button
+2026-01-02 06:52:59,104 INFO  com.framework.pages.SearchPage - Selecting product category: Laptops & Notebooks
+2026-01-02 06:52:59,336 INFO  com.framework.pages.SearchPage - Clicking 'Search in product descriptions' checkbox
+2026-01-02 06:52:59,476 INFO  com.framework.pages.SearchPage - Clicking Inner Search button
+2026-01-02 06:52:59,811 INFO  com.framework.pages.SearchPage - Clicking on product image/link
+2026-01-02 06:53:00,429 INFO  com.framework.pages.ProductDetailsPage - Fetching product name
+2026-01-02 06:53:00,462 INFO  com.framework.pages.ProductDetailsPage - Fetching brand name
+2026-01-02 06:53:00,485 INFO  com.framework.pages.ProductDetailsPage - Fetching product code
+2026-01-02 06:53:00,511 INFO  com.framework.pages.ProductDetailsPage - Fetching reward points
+2026-01-02 06:53:00,533 INFO  com.framework.pages.ProductDetailsPage - Fetching availability
+2026-01-02 06:53:00,556 INFO  com.framework.pages.ProductDetailsPage - Fetching product price
+2026-01-02 06:53:00,582 INFO  com.framework.pages.ProductDetailsPage - Selecting delivery date: January 2012 18
+2026-01-02 06:53:02,257 INFO  com.framework.pages.ProductDetailsPage - Clicking Add to Cart
+2026-01-02 06:53:02,390 INFO  TEST-LIFECYCLE - ===== TEST PASSED: TC005_ProductDetailsTest (5.90 sec) =====
+2026-01-02 06:53:02,397 INFO  com.framework.base.BaseTest - Closing WebDriver...
+2026-01-02 06:53:02,633 INFO  com.framework.base.BaseTest - ===== Test Setup Started =====
+2026-01-02 06:53:02,634 INFO  com.framework.base.BaseTest - Execution Environment : local
+2026-01-02 06:53:02,634 INFO  com.framework.base.BaseTest - Browser              : chrome
+2026-01-02 06:53:02,634 INFO  com.framework.base.BaseTest - OS                   : WIN10
+2026-01-02 06:53:04,146 INFO  com.framework.driver.DriverFactory - Registering WebDriver | Browser: chrome | Thread: 1
+2026-01-02 06:53:04,146 INFO  com.framework.driver.DriverManager - Thread: 1 | Browser: chrome
+2026-01-02 06:53:04,173 INFO  com.framework.base.BaseTest - Navigating to URL: https://tutorialsninja.com/demo/
+2026-01-02 06:53:04,173 INFO  com.framework.base.BaseTest - Navigation attempt 1
+2026-01-02 06:53:05,010 INFO  com.framework.base.BaseTest - Navigation successful
+2026-01-02 06:53:05,011 INFO  com.framework.base.BaseTest - Waiting for page readiness...
+2026-01-02 06:53:05,027 INFO  com.framework.base.BaseTest - Page is ready.
+2026-01-02 06:53:05,041 INFO  com.framework.base.BaseTest - Page Loaded Successfully. Title: Your Store
+2026-01-02 06:53:05,042 INFO  com.framework.base.BaseTest - ===== Test Setup Completed =====
+2026-01-02 06:53:05,051 INFO  com.framework.pages.HomePage - Clicking My Account
+2026-01-02 06:53:05,329 INFO  com.framework.pages.HomePage - Clicking Login
+2026-01-02 06:53:05,717 INFO  com.framework.pages.LoginPage - Entering email
+2026-01-02 06:53:05,950 INFO  com.framework.pages.LoginPage - Entering password
+2026-01-02 06:53:06,119 INFO  com.framework.pages.LoginPage - Clicking Login button
+2026-01-02 06:53:06,266 INFO  com.framework.pages.SearchPage - Entering product name: HP LP3065
+2026-01-02 06:53:07,161 INFO  com.framework.pages.SearchPage - Clicking main Search button
+2026-01-02 06:53:07,525 INFO  com.framework.pages.SearchPage - Selecting product category: Laptops & Notebooks
+2026-01-02 06:53:07,763 INFO  com.framework.pages.SearchPage - Clicking 'Search in product descriptions' checkbox
+2026-01-02 06:53:07,930 INFO  com.framework.pages.SearchPage - Clicking Inner Search button
+2026-01-02 06:53:08,246 INFO  com.framework.pages.SearchPage - Clicking on product image/link
+2026-01-02 06:53:08,819 INFO  com.framework.pages.ProductDetailsPage - Fetching product name
+2026-01-02 06:53:08,854 INFO  com.framework.pages.ProductDetailsPage - Fetching brand name
+2026-01-02 06:53:08,880 INFO  com.framework.pages.ProductDetailsPage - Fetching product code
+2026-01-02 06:53:08,905 INFO  com.framework.pages.ProductDetailsPage - Fetching reward points
+2026-01-02 06:53:08,928 INFO  com.framework.pages.ProductDetailsPage - Fetching availability
+2026-01-02 06:53:08,949 INFO  com.framework.pages.ProductDetailsPage - Fetching product price
+2026-01-02 06:53:08,971 INFO  com.framework.pages.ProductDetailsPage - Selecting delivery date: January 2012 18
+2026-01-02 06:53:10,705 INFO  com.framework.pages.ProductDetailsPage - Clicking Add to Cart
+2026-01-02 06:53:10,862 INFO  com.framework.pages.CartPage - Clicking Cart header
+2026-01-02 06:53:11,263 INFO  TEST-LIFECYCLE - ===== TEST PASSED: TC006_CartPageTest (6.22 sec) =====
+2026-01-02 06:53:11,264 INFO  com.framework.base.BaseTest - Closing WebDriver...
+2026-01-02 06:53:12,103 INFO  TEST-LIFECYCLE - ===== TEST SUITE FINISHED =====

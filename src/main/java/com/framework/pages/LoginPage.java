@@ -67,6 +67,7 @@ public class LoginPage extends BasePage {
             logger.warn("Warning message not displayed");
             return "";
         }
+        
     }
 
     public boolean isLoginErrorDisplayed() {
