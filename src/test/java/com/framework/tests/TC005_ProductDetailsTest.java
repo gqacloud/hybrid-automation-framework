@@ -17,7 +17,7 @@ public class TC005_ProductDetailsTest extends BaseTest {
     public void verifyProductDetails() {
 
         // Load test data
-        ProductData data = JsonDataReader.loadJson(jsonPath, ProductData.class);
+        ProductData data = JsonDataReader.loadJson(JSON_PATH, ProductData.class);
 
         // Navigate & Login
         HomePage home = new HomePage();

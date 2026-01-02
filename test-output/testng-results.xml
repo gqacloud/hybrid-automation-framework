@@ -2,7 +2,7 @@
 <testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-12-16T04:09:03 EST" name="Suite" finished-at="2025-12-16T04:11:09 EST" duration-ms="125771">
+  <suite started-at="2026-01-02T04:29:06 EST" name="Suite" finished-at="2026-01-02T04:30:07 EST" duration-ms="61009">
     <groups>
       <group name="Functional">
         <method signature="TC004_SearchProductTest.searchProduct()[pri:0, instance:com.framework.tests.TC004_SearchProductTest@34a875b3]" name="searchProduct" class="com.framework.tests.TC004_SearchProductTest"/>
@@ -21,9 +21,9 @@
         <method signature="TC002_LoginTest.verifyLogin()[pri:0, instance:com.framework.tests.TC002_LoginTest@db57326]" name="verifyLogin" class="com.framework.tests.TC002_LoginTest"/>
       </group> <!-- Regression -->
     </groups>
-    <test started-at="2025-12-16T04:09:03 EST" name="Test" finished-at="2025-12-16T04:11:09 EST" duration-ms="125771">
+    <test started-at="2026-01-02T04:29:06 EST" name="Test" finished-at="2026-01-02T04:30:07 EST" duration-ms="61009">
       <class name="com.framework.tests.TC005_ProductDetailsTest">
-        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC005_ProductDetailsTest@4748a0f9]" started-at="2025-12-16T04:10:13 EST" name="setup" finished-at="2025-12-16T04:10:17 EST" duration-ms="3390" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC005_ProductDetailsTest@4748a0f9]" started-at="2026-01-02T04:29:37 EST" name="setup" finished-at="2026-01-02T04:29:41 EST" duration-ms="4258" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -39,17 +39,17 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyProductDetails()[pri:0, instance:com.framework.tests.TC005_ProductDetailsTest@4748a0f9]" started-at="2025-12-16T04:10:17 EST" name="verifyProductDetails" finished-at="2025-12-16T04:10:25 EST" duration-ms="8778" status="PASS">
+        <test-method signature="verifyProductDetails()[pri:0, instance:com.framework.tests.TC005_ProductDetailsTest@4748a0f9]" started-at="2026-01-02T04:29:41 EST" name="verifyProductDetails" finished-at="2026-01-02T04:29:51 EST" duration-ms="9652" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyProductDetails -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC005_ProductDetailsTest@4748a0f9]" started-at="2025-12-16T04:10:25 EST" name="teardown" finished-at="2025-12-16T04:10:26 EST" duration-ms="640" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC005_ProductDetailsTest@4748a0f9]" started-at="2026-01-02T04:29:51 EST" name="teardown" finished-at="2026-01-02T04:29:51 EST" duration-ms="708" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
       </class> <!-- com.framework.tests.TC005_ProductDetailsTest -->
       <class name="com.framework.tests.TC004_SearchProductTest">
-        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC004_SearchProductTest@34a875b3]" started-at="2025-12-16T04:10:02 EST" name="setup" finished-at="2025-12-16T04:10:07 EST" duration-ms="5316" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC004_SearchProductTest@34a875b3]" started-at="2026-01-02T04:29:28 EST" name="setup" finished-at="2026-01-02T04:29:32 EST" duration-ms="3693" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -65,17 +65,17 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="searchProduct()[pri:0, instance:com.framework.tests.TC004_SearchProductTest@34a875b3]" started-at="2025-12-16T04:10:07 EST" name="searchProduct" finished-at="2025-12-16T04:10:13 EST" duration-ms="5953" status="PASS">
+        <test-method signature="searchProduct()[pri:0, instance:com.framework.tests.TC004_SearchProductTest@34a875b3]" started-at="2026-01-02T04:29:32 EST" name="searchProduct" finished-at="2026-01-02T04:29:36 EST" duration-ms="4609" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- searchProduct -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC004_SearchProductTest@34a875b3]" started-at="2025-12-16T04:10:13 EST" name="teardown" finished-at="2025-12-16T04:10:13 EST" duration-ms="414" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC004_SearchProductTest@34a875b3]" started-at="2026-01-02T04:29:36 EST" name="teardown" finished-at="2026-01-02T04:29:37 EST" duration-ms="537" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
       </class> <!-- com.framework.tests.TC004_SearchProductTest -->
       <class name="com.framework.tests.TC001_RegisterAccountTest">
-        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@525575]" started-at="2025-12-16T04:09:03 EST" name="setup" finished-at="2025-12-16T04:09:35 EST" duration-ms="32310" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@525575]" started-at="2026-01-02T04:29:07 EST" name="setup" finished-at="2026-01-02T04:29:17 EST" duration-ms="9872" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -91,17 +91,17 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyAccountRegistration()[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@525575]" started-at="2025-12-16T04:09:35 EST" name="verifyAccountRegistration" finished-at="2025-12-16T04:09:43 EST" duration-ms="7043" status="PASS">
+        <test-method signature="verifyAccountRegistration()[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@525575]" started-at="2026-01-02T04:29:17 EST" name="verifyAccountRegistration" finished-at="2026-01-02T04:29:21 EST" duration-ms="4248" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAccountRegistration -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@525575]" started-at="2025-12-16T04:09:43 EST" name="teardown" finished-at="2025-12-16T04:09:43 EST" duration-ms="334" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@525575]" started-at="2026-01-02T04:29:21 EST" name="teardown" finished-at="2026-01-02T04:29:22 EST" duration-ms="499" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
       </class> <!-- com.framework.tests.TC001_RegisterAccountTest -->
       <class name="com.framework.tests.TC006_CartPageTest">
-        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC006_CartPageTest@4b14918a]" started-at="2025-12-16T04:10:26 EST" name="setup" finished-at="2025-12-16T04:10:31 EST" duration-ms="4732" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC006_CartPageTest@4b14918a]" started-at="2026-01-02T04:29:51 EST" name="setup" finished-at="2026-01-02T04:29:56 EST" duration-ms="4097" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -117,17 +117,17 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyCartFunctionality()[pri:0, instance:com.framework.tests.TC006_CartPageTest@4b14918a]" started-at="2025-12-16T04:10:31 EST" name="verifyCartFunctionality" finished-at="2025-12-16T04:11:07 EST" duration-ms="36522" status="PASS">
+        <test-method signature="verifyCartFunctionality()[pri:0, instance:com.framework.tests.TC006_CartPageTest@4b14918a]" started-at="2026-01-02T04:29:56 EST" name="verifyCartFunctionality" finished-at="2026-01-02T04:30:06 EST" duration-ms="10945" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyCartFunctionality -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC006_CartPageTest@4b14918a]" started-at="2025-12-16T04:11:07 EST" name="teardown" finished-at="2025-12-16T04:11:09 EST" duration-ms="1234" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC006_CartPageTest@4b14918a]" started-at="2026-01-02T04:30:06 EST" name="teardown" finished-at="2026-01-02T04:30:07 EST" duration-ms="949" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
       </class> <!-- com.framework.tests.TC006_CartPageTest -->
       <class name="com.framework.tests.TC002_LoginTest">
-        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC002_LoginTest@db57326]" started-at="2025-12-16T04:09:43 EST" name="setup" finished-at="2025-12-16T04:09:55 EST" duration-ms="12142" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC002_LoginTest@db57326]" started-at="2026-01-02T04:29:22 EST" name="setup" finished-at="2026-01-02T04:29:25 EST" duration-ms="2865" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -143,11 +143,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyLogin()[pri:0, instance:com.framework.tests.TC002_LoginTest@db57326]" started-at="2025-12-16T04:09:55 EST" name="verifyLogin" finished-at="2025-12-16T04:10:00 EST" duration-ms="4953" status="PASS">
+        <test-method signature="verifyLogin()[pri:0, instance:com.framework.tests.TC002_LoginTest@db57326]" started-at="2026-01-02T04:29:25 EST" name="verifyLogin" finished-at="2026-01-02T04:29:27 EST" duration-ms="2359" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLogin -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC002_LoginTest@db57326]" started-at="2025-12-16T04:10:00 EST" name="teardown" finished-at="2025-12-16T04:10:02 EST" duration-ms="1582" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC002_LoginTest@db57326]" started-at="2026-01-02T04:29:27 EST" name="teardown" finished-at="2026-01-02T04:29:28 EST" duration-ms="1061" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->

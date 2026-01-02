@@ -16,7 +16,7 @@ public class TC004_SearchProductTest extends BaseTest {
     public void searchProduct() {
 
         // Load product data from JSON
-        ProductData searchData = JsonDataReader.loadJson(jsonPath, ProductData.class);
+        ProductData searchData = JsonDataReader.loadJson(JSON_PATH, ProductData.class);
 
         // Navigate and login
         HomePage homePage = new HomePage();

@@ -13,6 +13,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
@@ -20,149 +21,161 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+import com.framework.constants.TimeoutConstants;
 import com.framework.driver.DriverFactory;
 import com.framework.driver.DriverManager;
 
 public class BaseTest {
 
-	protected static final Logger logger = LogManager.getLogger(BaseTest.class);
+    protected static final Logger logger = LogManager.getLogger(BaseTest.class);
 
-	public Properties prop;
+    protected Properties prop;
 
-	public static final String userDir = System.getProperty("user.dir");
-	public static final String excelPath = userDir + "/testData/testdata/Users.xlsx";
-	public static final String jsonPath = userDir + "/src/test/resources/testdata/ProductData.json";
-	public static final String propertyfilePath = userDir + "/src/main/resources/config.properties";
+    public static final String USER_DIR = System.getProperty("user.dir");
+    public static final String EXCEL_PATH = USER_DIR + "/testData/testdata/Users.xlsx";
+    public static final String JSON_PATH  = USER_DIR + "/src/test/resources/testdata/ProductData.json";
+    public static final String CONFIG_PATH = USER_DIR + "/src/main/resources/config.properties";
 
-	@BeforeClass(groups = { "Sanity", "Regression", "Master", "Functional" })
-	@Parameters({ "os", "browser" })
-	public void setup(@Optional("mac") String os, @Optional("chrome") String browserName) throws IOException {
+    // ===============================================================
+    // SETUP
+    // ===============================================================
+    @BeforeClass(groups = { "Sanity", "Regression", "Master", "Functional" })
+    @Parameters({ "os", "browser" })
+    public void setup(
+            @Optional("mac") String os,
+            @Optional("chrome") String browserName) throws IOException {
 
-		logger.info("=== Test Setup Started ===");
+        logger.info("===== Test Setup Started =====");
 
-		prop = new Properties();
-		prop.load(new FileReader(propertyfilePath));
+        // Load config
+        prop = new Properties();
+        prop.load(new FileReader(CONFIG_PATH));
 
-		String exeEnv = prop.getProperty("exe_env").trim();
-		String appUrl = prop.getProperty("url").trim();
-		String gridUrl = prop.getProperty("grid_url").trim();
+        String exeEnv = prop.getProperty("exe_env").trim();
+        String appUrl = prop.getProperty("url").trim();
+        String gridUrl = prop.getProperty("grid_url").trim();
 
-		boolean headless = Boolean.parseBoolean(prop.getProperty("headless").trim());
-		boolean incognito = Boolean.parseBoolean(prop.getProperty("incognito").trim());
+        boolean headless = Boolean.parseBoolean(prop.getProperty("headless", "false"));
+        boolean incognito = Boolean.parseBoolean(prop.getProperty("incognito", "false"));
 
-		logger.info("Execution Environment : {}", exeEnv);
-		logger.info("Browser              : {}", browserName);
-		logger.info("OS                   : {}", os);
+        logger.info("Execution Environment : {}", exeEnv);
+        logger.info("Browser              : {}", browserName);
+        logger.info("OS                   : {}", os);
 
-		// Initialize WebDriver
-		if (exeEnv.equalsIgnoreCase("local")) {
-			DriverFactory.initLocalDriver(browserName, headless, incognito);
-		} else if (exeEnv.equalsIgnoreCase("remote")) {
-			DriverFactory.initRemoteDriver(os, browserName, gridUrl);
-		} else {
-			throw new IllegalArgumentException("Invalid exe_env value (Use: local / remote)");
-		}
+        // Initialize driver
+        if (exeEnv.equalsIgnoreCase("local")) {
+            DriverFactory.initLocalDriver(browserName, headless, incognito);
+        } else if (exeEnv.equalsIgnoreCase("remote")) {
+            DriverFactory.initRemoteDriver(os, browserName, gridUrl);
+        } else {
+            throw new IllegalArgumentException("Invalid exe_env value (Use: local / remote)");
+        }
 
-		WebDriver driver = DriverManager.getDriver();
+        WebDriver driver = DriverManager.getDriver();
 
-		logger.info("Navigating to URL: {}", appUrl);
-		safeNavigate(driver, appUrl, 30); // ✅ increased for stability
+        // Apply timeouts
+        driver.manage().timeouts().pageLoadTimeout(TimeoutConstants.PAGE_LOAD_TIMEOUT);
+        driver.manage().timeouts().scriptTimeout(TimeoutConstants.SCRIPT_TIMEOUT);
+        driver.manage().timeouts().implicitlyWait(TimeoutConstants.IMPLICIT_WAIT);
 
-		waitForPageLoad(driver);
+        // Navigate safely
+        safeNavigate(driver, appUrl);
+        waitForPageLoad(driver);
 
-		String title = driver.getTitle();
-		if (title == null || title.isBlank()) {
-			logger.error("Page title is empty — application may not have loaded correctly.");
-			throw new RuntimeException("Page did not load correctly.");
-		}
+        String title = driver.getTitle();
+        if (title == null || title.isBlank()) {
+            throw new RuntimeException("Page did not load correctly — title is empty.");
+        }
 
-		logger.info("Page Loaded Successfully. Title: {}", title);
-		logger.info("=== Test Setup Completed ===");
-	}
+        logger.info("Page Loaded Successfully. Title: {}", title);
+        logger.info("===== Test Setup Completed =====");
+    }
 
-	@AfterClass(groups = { "Sanity", "Regression", "Master", "Functional" })
-	public void teardown() {
-		logger.info("Closing WebDriver...");
-		try {
-			DriverManager.cleanUp();
-		} catch (Exception e) {
-			logger.error("Error while closing WebDriver: {}", e.getMessage());
-		}
-	}
+    // ===============================================================
+    // TEARDOWN
+    // ===============================================================
+    @AfterClass(groups = { "Sanity", "Regression", "Master", "Functional" })
+    public void teardown() {
+        logger.info("Closing WebDriver...");
+        try {
+            DriverManager.cleanUp();
+        } catch (Exception e) {
+            logger.error("Error while closing WebDriver: {}", e.getMessage());
+        }
+    }
 
-	// ===============================================================
-	// ✅ FIXED: SAFE NAVIGATION (NO THREADS)
-	// ===============================================================
-	private void safeNavigate(WebDriver driver, String url, int timeoutSec) {
+    // ===============================================================
+    // SAFE NAVIGATION WITH RETRY
+    // ===============================================================
+    private void safeNavigate(WebDriver driver, String url) {
 
-		logger.info("Navigating to URL with pageLoadTimeout {} seconds", timeoutSec);
+        logger.info("Navigating to URL: {}", url);
 
-		driver.manage().timeouts().pageLoadTimeout(java.time.Duration.ofSeconds(timeoutSec));
+        int attempts = 0;
 
-		int attempts = 0;
+        while (attempts < TimeoutConstants.NAVIGATION_RETRY_COUNT) {
+            try {
+                attempts++;
+                logger.info("Navigation attempt {}", attempts);
 
-		while (attempts < 2) {
-			try {
-				attempts++;
-				logger.info("Navigation attempt {} to {}", attempts, url);
+                driver.get(url);
+                logger.info("Navigation successful");
+                return;
 
-				driver.get(url);
+            } catch (TimeoutException e) {
+                logger.warn("Page load timeout on attempt {}", attempts);
 
-				logger.info("Navigation successful on attempt {}", attempts);
-				return;
+                if (attempts >= TimeoutConstants.NAVIGATION_RETRY_COUNT) {
+                    logger.error("Navigation failed after retries: {}", url);
+                    throw e;
+                }
 
-			} catch (org.openqa.selenium.TimeoutException e) {
+                logger.info("Retrying navigation...");
+            }
+        }
+    }
 
-				logger.warn("Page load timeout on attempt {} ({} seconds)", attempts, timeoutSec);
+    // ===============================================================
+    // PAGE LOAD WAIT
+    // ===============================================================
+    private void waitForPageLoad(WebDriver driver) {
 
-				if (attempts >= 2) {
-					logger.error("Navigation failed after retry: {}", url);
-					throw e;
-				}
+        logger.info("Waiting for page readiness...");
 
-				logger.info("Retrying navigation once...");
-			}
-		}
-	}
+        new WebDriverWait(driver, TimeoutConstants.EXPLICIT_WAIT)
+                .until(webDriver ->
+                        ((JavascriptExecutor) webDriver)
+                                .executeScript("return document.readyState")
+                                .toString()
+                                .matches("complete|interactive")
+                );
 
-	// ===============================================================
-	// ✅ FIXED: STABLE PAGE LOAD WAIT
-	// ===============================================================
-	private void waitForPageLoad(WebDriver driver) {
+        logger.info("Page is ready.");
+    }
 
-		logger.info("Waiting for page readiness...");
+    // ===============================================================
+    // SCREENSHOT UTILITY
+    // ===============================================================
+    public static String captureScreen(String testName) {
 
-		new WebDriverWait(driver, java.time.Duration.ofSeconds(15)).until(webDriver -> ((JavascriptExecutor) webDriver)
-				.executeScript("return document.readyState").toString().matches("complete|interactive"));
+        WebDriver driver = DriverManager.getDriver();
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
 
-		logger.info("Page ready.");
-	}
+        File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
-	// ===============================================================
-	// SCREENSHOT
-	// ===============================================================
-	public static String captureScreen(String testName) {
+        String screenshotDir = USER_DIR + "/reports/screenshots/";
+        new File(screenshotDir).mkdirs();
 
-		logger.info("Capturing screenshot for test: {}", testName);
+        String fileName = testName + "_" + timeStamp + ".png";
+        String fullPath = screenshotDir + fileName;
 
-		WebDriver driver = DriverManager.getDriver();
+        try {
+            FileUtils.copyFile(srcFile, new File(fullPath));
+            logger.info("Screenshot captured at: {}", fullPath);
+        } catch (Exception e) {
+            logger.error("Screenshot failed: {}", e.getMessage());
+        }
 
-		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-
-		String screenshotDir = userDir + "/reports/screenshots/";
-		new File(screenshotDir).mkdirs();
-
-		String fileName = testName + "_" + timeStamp + ".png";
-		String fullPath = screenshotDir + fileName;
-
-		try {
-			FileUtils.copyFile(srcFile, new File(fullPath));
-			logger.info("Screenshot captured at: {}", fullPath);
-		} catch (Exception e) {
-			logger.error("Screenshot failed: {}", e.getMessage());
-		}
-
-		return "screenshots/" + fileName;
-	}
+        return "screenshots/" + fileName;
+    }
 }

@@ -33,7 +33,7 @@ public class TC00_PurchaseProductTest extends BaseTest {
 
         // Load product data
         ProductData searchData =
-                JsonDataReader.loadJson(jsonPath, ProductData.class);
+                JsonDataReader.loadJson(JSON_PATH, ProductData.class);
 
         // Search product
         searchPage.enterProductToSearch(searchData.getProductName());

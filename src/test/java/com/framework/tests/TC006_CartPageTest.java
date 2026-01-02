@@ -18,7 +18,7 @@ public class TC006_CartPageTest extends BaseTest {
     public void verifyCartFunctionality() {
 
         // Load product data
-        ProductData searchData = JsonDataReader.loadJson(jsonPath, ProductData.class);
+        ProductData searchData = JsonDataReader.loadJson(JSON_PATH, ProductData.class);
 
         // Login
         HomePage homePage = new HomePage();
