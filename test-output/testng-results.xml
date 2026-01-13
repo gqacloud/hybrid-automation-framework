@@ -1,153 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-01-02T04:29:06 EST" name="Suite" finished-at="2026-01-02T04:30:07 EST" duration-ms="61009">
+  <suite started-at="2026-01-13T09:56:13 EST" name="Suite" finished-at="2026-01-13T09:56:28 EST" duration-ms="14744">
     <groups>
-      <group name="Functional">
-        <method signature="TC004_SearchProductTest.searchProduct()[pri:0, instance:com.framework.tests.TC004_SearchProductTest@34a875b3]" name="searchProduct" class="com.framework.tests.TC004_SearchProductTest"/>
-        <method signature="TC005_ProductDetailsTest.verifyProductDetails()[pri:0, instance:com.framework.tests.TC005_ProductDetailsTest@4748a0f9]" name="verifyProductDetails" class="com.framework.tests.TC005_ProductDetailsTest"/>
-        <method signature="TC006_CartPageTest.verifyCartFunctionality()[pri:0, instance:com.framework.tests.TC006_CartPageTest@4b14918a]" name="verifyCartFunctionality" class="com.framework.tests.TC006_CartPageTest"/>
-      </group> <!-- Functional -->
       <group name="Master">
-        <method signature="TC001_RegisterAccountTest.verifyAccountRegistration()[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@525575]" name="verifyAccountRegistration" class="com.framework.tests.TC001_RegisterAccountTest"/>
-        <method signature="TC002_LoginTest.verifyLogin()[pri:0, instance:com.framework.tests.TC002_LoginTest@db57326]" name="verifyLogin" class="com.framework.tests.TC002_LoginTest"/>
+        <method signature="TC001_RegisterAccountTest.verifyAccountRegistration()[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@59b38691]" name="verifyAccountRegistration" class="com.framework.tests.TC001_RegisterAccountTest"/>
+        <method signature="TC002_LoginTest.verifyLogin()[pri:0, instance:com.framework.tests.TC002_LoginTest@17aad511]" name="verifyLogin" class="com.framework.tests.TC002_LoginTest"/>
       </group> <!-- Master -->
       <group name="Sanity">
-        <method signature="TC002_LoginTest.verifyLogin()[pri:0, instance:com.framework.tests.TC002_LoginTest@db57326]" name="verifyLogin" class="com.framework.tests.TC002_LoginTest"/>
+        <method signature="TC002_LoginTest.verifyLogin()[pri:0, instance:com.framework.tests.TC002_LoginTest@17aad511]" name="verifyLogin" class="com.framework.tests.TC002_LoginTest"/>
       </group> <!-- Sanity -->
       <group name="Regression">
-        <method signature="TC001_RegisterAccountTest.verifyAccountRegistration()[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@525575]" name="verifyAccountRegistration" class="com.framework.tests.TC001_RegisterAccountTest"/>
-        <method signature="TC002_LoginTest.verifyLogin()[pri:0, instance:com.framework.tests.TC002_LoginTest@db57326]" name="verifyLogin" class="com.framework.tests.TC002_LoginTest"/>
+        <method signature="TC001_RegisterAccountTest.verifyAccountRegistration()[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@59b38691]" name="verifyAccountRegistration" class="com.framework.tests.TC001_RegisterAccountTest"/>
+        <method signature="TC002_LoginTest.verifyLogin()[pri:0, instance:com.framework.tests.TC002_LoginTest@17aad511]" name="verifyLogin" class="com.framework.tests.TC002_LoginTest"/>
       </group> <!-- Regression -->
     </groups>
-    <test started-at="2026-01-02T04:29:06 EST" name="Test" finished-at="2026-01-02T04:30:07 EST" duration-ms="61009">
-      <class name="com.framework.tests.TC005_ProductDetailsTest">
-        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC005_ProductDetailsTest@4748a0f9]" started-at="2026-01-02T04:29:37 EST" name="setup" finished-at="2026-01-02T04:29:41 EST" duration-ms="4258" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[WIN10]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="verifyProductDetails()[pri:0, instance:com.framework.tests.TC005_ProductDetailsTest@4748a0f9]" started-at="2026-01-02T04:29:41 EST" name="verifyProductDetails" finished-at="2026-01-02T04:29:51 EST" duration-ms="9652" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyProductDetails -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC005_ProductDetailsTest@4748a0f9]" started-at="2026-01-02T04:29:51 EST" name="teardown" finished-at="2026-01-02T04:29:51 EST" duration-ms="708" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-      </class> <!-- com.framework.tests.TC005_ProductDetailsTest -->
-      <class name="com.framework.tests.TC004_SearchProductTest">
-        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC004_SearchProductTest@34a875b3]" started-at="2026-01-02T04:29:28 EST" name="setup" finished-at="2026-01-02T04:29:32 EST" duration-ms="3693" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[WIN10]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="searchProduct()[pri:0, instance:com.framework.tests.TC004_SearchProductTest@34a875b3]" started-at="2026-01-02T04:29:32 EST" name="searchProduct" finished-at="2026-01-02T04:29:36 EST" duration-ms="4609" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- searchProduct -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC004_SearchProductTest@34a875b3]" started-at="2026-01-02T04:29:36 EST" name="teardown" finished-at="2026-01-02T04:29:37 EST" duration-ms="537" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-      </class> <!-- com.framework.tests.TC004_SearchProductTest -->
+    <test started-at="2026-01-13T09:56:13 EST" name="Test" finished-at="2026-01-13T09:56:28 EST" duration-ms="14744">
       <class name="com.framework.tests.TC001_RegisterAccountTest">
-        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@525575]" started-at="2026-01-02T04:29:07 EST" name="setup" finished-at="2026-01-02T04:29:17 EST" duration-ms="9872" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@59b38691]" started-at="2026-01-13T09:56:14 EST" name="setup" finished-at="2026-01-13T09:56:18 EST" duration-ms="4445" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[WIN10]]>
+                <![CDATA[Windows]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[chrome]]>
+                <![CDATA[edge]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyAccountRegistration()[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@525575]" started-at="2026-01-02T04:29:17 EST" name="verifyAccountRegistration" finished-at="2026-01-02T04:29:21 EST" duration-ms="4248" status="PASS">
+        <test-method is-config="true" signature="beforeEachTest(java.lang.reflect.Method)[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@59b38691]" started-at="2026-01-13T09:56:18 EST" name="beforeEachTest" finished-at="2026-01-13T09:56:18 EST" duration-ms="8" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.framework.tests.TC001_RegisterAccountTest.verifyAccountRegistration()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeEachTest -->
+        <test-method signature="verifyAccountRegistration()[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@59b38691]" started-at="2026-01-13T09:56:18 EST" name="verifyAccountRegistration" finished-at="2026-01-13T09:56:22 EST" duration-ms="3842" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyAccountRegistration -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@525575]" started-at="2026-01-02T04:29:21 EST" name="teardown" finished-at="2026-01-02T04:29:22 EST" duration-ms="499" status="PASS">
+        <test-method is-config="true" signature="afterEachTest(org.testng.ITestResult)[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@59b38691]" started-at="2026-01-13T09:56:22 EST" name="afterEachTest" finished-at="2026-01-13T09:56:22 EST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyAccountRegistration status=SUCCESS method=TC001_RegisterAccountTest.verifyAccountRegistration()[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@59b38691] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachTest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC001_RegisterAccountTest@59b38691]" started-at="2026-01-13T09:56:22 EST" name="teardown" finished-at="2026-01-13T09:56:22 EST" duration-ms="352" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
       </class> <!-- com.framework.tests.TC001_RegisterAccountTest -->
-      <class name="com.framework.tests.TC006_CartPageTest">
-        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC006_CartPageTest@4b14918a]" started-at="2026-01-02T04:29:51 EST" name="setup" finished-at="2026-01-02T04:29:56 EST" duration-ms="4097" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[WIN10]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[chrome]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="verifyCartFunctionality()[pri:0, instance:com.framework.tests.TC006_CartPageTest@4b14918a]" started-at="2026-01-02T04:29:56 EST" name="verifyCartFunctionality" finished-at="2026-01-02T04:30:06 EST" duration-ms="10945" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyCartFunctionality -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC006_CartPageTest@4b14918a]" started-at="2026-01-02T04:30:06 EST" name="teardown" finished-at="2026-01-02T04:30:07 EST" duration-ms="949" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-      </class> <!-- com.framework.tests.TC006_CartPageTest -->
       <class name="com.framework.tests.TC002_LoginTest">
-        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC002_LoginTest@db57326]" started-at="2026-01-02T04:29:22 EST" name="setup" finished-at="2026-01-02T04:29:25 EST" duration-ms="2865" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:com.framework.tests.TC002_LoginTest@17aad511]" started-at="2026-01-13T09:56:22 EST" name="setup" finished-at="2026-01-13T09:56:25 EST" duration-ms="2958" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[WIN10]]>
+                <![CDATA[Windows]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[chrome]]>
+                <![CDATA[edge]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyLogin()[pri:0, instance:com.framework.tests.TC002_LoginTest@db57326]" started-at="2026-01-02T04:29:25 EST" name="verifyLogin" finished-at="2026-01-02T04:29:27 EST" duration-ms="2359" status="PASS">
+        <test-method is-config="true" signature="beforeEachTest(java.lang.reflect.Method)[pri:0, instance:com.framework.tests.TC002_LoginTest@17aad511]" started-at="2026-01-13T09:56:25 EST" name="beforeEachTest" finished-at="2026-01-13T09:56:25 EST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.framework.tests.TC002_LoginTest.verifyLogin() throws java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeEachTest -->
+        <test-method signature="verifyLogin()[pri:0, instance:com.framework.tests.TC002_LoginTest@17aad511]" started-at="2026-01-13T09:56:25 EST" name="verifyLogin" finished-at="2026-01-13T09:56:28 EST" duration-ms="2360" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLogin -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC002_LoginTest@db57326]" started-at="2026-01-02T04:29:27 EST" name="teardown" finished-at="2026-01-02T04:29:28 EST" duration-ms="1061" status="PASS">
+        <test-method is-config="true" signature="afterEachTest(org.testng.ITestResult)[pri:0, instance:com.framework.tests.TC002_LoginTest@17aad511]" started-at="2026-01-13T09:56:28 EST" name="afterEachTest" finished-at="2026-01-13T09:56:28 EST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyLogin status=SUCCESS method=TC002_LoginTest.verifyLogin()[pri:0, instance:com.framework.tests.TC002_LoginTest@17aad511] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterEachTest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.framework.tests.TC002_LoginTest@17aad511]" started-at="2026-01-13T09:56:28 EST" name="teardown" finished-at="2026-01-13T09:56:28 EST" duration-ms="368" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->

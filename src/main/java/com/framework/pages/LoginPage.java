@@ -62,7 +62,7 @@ public class LoginPage extends BasePage {
 
     public String getWarningMessage() {
         try {
-            return getText(warningMessage);
+            return getText(warningMessage, "Invalid Login Error");
         } catch (Exception e) {
             logger.warn("Warning message not displayed");
             return "";

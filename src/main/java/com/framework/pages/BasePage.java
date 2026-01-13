@@ -2,6 +2,7 @@ package com.framework.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -10,74 +11,73 @@ import com.framework.driver.DriverManager;
 import com.framework.utils.helpers.InteractionHelper;
 
 /**
- * BasePage
- * --------
- * Centralized page-level actions.
- * All Page Objects should extend this class.
+ * BasePage -------- Centralized page-level actions. All Page Objects should
+ * extend this class.
  */
 public class BasePage {
 
-    protected WebDriver driver;
-    protected InteractionHelper action;
-    protected final Logger logger = LogManager.getLogger(getClass());
+	protected WebDriver driver;
+	protected InteractionHelper action;
+	protected final Logger logger = LogManager.getLogger(getClass());
 
-    /**
-     * BasePage constructor
-     * - Gets driver from DriverManager
-     * - Initializes PageFactory
-     * - Initializes InteractionHelper
-     */
-    public BasePage() {
-        this.driver = DriverManager.getDriver();
-        PageFactory.initElements(driver, this);
-        this.action = new InteractionHelper(driver);
-    }
+	/**
+	 * BasePage constructor - Gets driver from DriverManager - Initializes
+	 * PageFactory - Initializes InteractionHelper
+	 */
+	public BasePage() {
+		this.driver = DriverManager.getDriver();
+		PageFactory.initElements(driver, this);
+		this.action = new InteractionHelper(driver);
+	}
 
-    // =========================
-    // CENTRALIZED ACTIONS (OPTION 1)
-    // =========================
+	// =========================
+	// CENTRALIZED ACTIONS
+	// =========================
 
-    protected void click(WebElement element) {
-        
-        action.safeClick(element);
-    }
+	protected void click(WebElement element) {
+		action.safeClick(element);
+	}
 
-    protected void type(WebElement element, String text) {
-        
-        action.safeSendKeys(element, text);
-    }
+	protected void type(WebElement element, String text) {
+		action.safeSendKeys(element, text);
+	}
 
-    protected void clear(WebElement element) {
-       
-        action.safeClear(element);
-    }
+	protected void clear(WebElement element) {
+		action.safeClear(element);
+	}
 
-    protected String getText(WebElement element) {
-        
-        return element.getText().trim();
-    }
+	// =========================
+	// TEXT HELPERS
+	// =========================
+	protected String getText(WebElement element) {
+	    return action.getText(element);
+	}
 
-    // =========================
-    // VALIDATION HELPERS
-    // =========================
+	protected String getText(WebElement element, String elementName) {
+	    return action.getText(element, elementName);
+	}
 
-    protected boolean isDisplayed(WebElement element) {
-        try {
-            return element.isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
-    }
-    
-    // =========================
-    // PAGE INFO
-    // =========================
+	// =========================
+	// VALIDATION HELPERS
+	// =========================
 
-    public String getPageTitle() {
-        return driver.getTitle();
-    }
+	protected boolean isDisplayed(WebElement element) {
+	    try {
+	        return element.isDisplayed();
+	    } catch (Exception e) {
+	        return false;
+	    }
+	}
 
-    public String getCurrentUrl() {
-        return driver.getCurrentUrl();
-    }
+	// =========================
+	// PAGE INFO
+	// =========================
+
+	public String getPageTitle() {
+		return driver.getTitle();
+	}
+
+	public String getCurrentUrl() {
+		return driver.getCurrentUrl();
+	}
 }

@@ -5,30 +5,23 @@
     <listener class-name="com.framework.utils.reports.ExtentReportListener"/>
   </listeners>
   <test thread-count="5" name="Test(failed)">
-    <parameter name="os" value="WIN10"/>
-    <parameter name="browser" value="chrome"/>
+    <parameter name="os" value="Windows"/>
+    <parameter name="browser" value="edge"/>
+    <groups>
+      <run>
+        <include name="Master"/>
+      </run>
+    </groups>
     <classes>
       <class name="com.framework.tests.TC001_RegisterAccountTest">
         <methods>
           <include name="verifyAccountRegistration"/>
           <include name="teardown"/>
+          <include name="beforeEachTest"/>
+          <include name="afterEachTest"/>
           <include name="setup"/>
         </methods>
       </class> <!-- com.framework.tests.TC001_RegisterAccountTest -->
-      <class name="com.framework.tests.TC005_ProductDetailsTest">
-        <methods>
-          <include name="verifyProductDetails"/>
-          <include name="teardown"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- com.framework.tests.TC005_ProductDetailsTest -->
-      <class name="com.framework.tests.TC006_CartPageTest">
-        <methods>
-          <include name="teardown"/>
-          <include name="verifyCartFunctionality"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- com.framework.tests.TC006_CartPageTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
