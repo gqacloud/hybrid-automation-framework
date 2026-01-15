@@ -21,8 +21,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
@@ -42,23 +44,37 @@ public class BaseTest {
 	public static final String CONFIG_PATH = USER_DIR + "/src/main/resources/config.properties";
 
 	// ===============================================================
-	// TEST-LEVEL LOG CONTEXT (SCENARIO AWARE)
+	// SUITE LEVEL
+	// ===============================================================
+	@BeforeSuite(alwaysRun = true)
+	public void beforeSuite() {
+		ThreadContext.put("testName", "SUITE");
+		logger.info("===== TEST SUITE STARTED =====");
+	}
+
+	@AfterSuite(alwaysRun = true)
+	public void afterSuite() {
+		logger.info("===== TEST SUITE FINISHED =====");
+		ThreadContext.clearAll();
+	}
+
+	// ===============================================================
+	// TEST METHOD LEVEL (MDC AWARE)
 	// ===============================================================
 	@BeforeMethod(alwaysRun = true)
 	public void beforeEachTest(Method method) {
 
-		ThreadContext.put("testName", method.getDeclaringClass().getSimpleName() + "." + method.getName());
+	    ThreadContext.put(
+	        "testName",
+	        method.getDeclaringClass().getSimpleName() + "." + method.getName()
+	    );
 
-		ThreadContext.put("threadId", String.valueOf(Thread.currentThread().getId()));
-
-		logger.info("===== TEST STARTED: {}.{} =====", method.getDeclaringClass().getSimpleName(), method.getName());
+	    logger.info("===== TEST STARTED =====");
 	}
 
 	@AfterMethod(alwaysRun = true)
-	public void afterEachTest(ITestResult result) {
-
-		// PASS / FAIL / SKIP handled by ExtentReportListener
-		ThreadContext.clearAll();
+	public void afterEachTest() {
+	    ThreadContext.remove("testName");
 	}
 
 	// ===============================================================
@@ -67,6 +83,8 @@ public class BaseTest {
 	@BeforeClass(alwaysRun = true)
 	@Parameters({ "os", "browser" })
 	public void setup(@Optional("WIN10") String os, @Optional("chrome") String browserName) throws IOException {
+
+		ThreadContext.put("testName", "SETUP");
 
 		logger.info("===== TEST SETUP STARTED =====");
 
@@ -115,6 +133,9 @@ public class BaseTest {
 	// ===============================================================
 	@AfterClass(alwaysRun = true)
 	public void teardown() {
+
+		ThreadContext.put("testName", "TEARDOWN");
+
 		logger.info("Closing WebDriver...");
 		try {
 			DriverManager.cleanUp();

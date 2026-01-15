@@ -26,7 +26,7 @@
         <parameter name="browser" value="chrome"/>
 
         <classes>
-            <class name="com.framework.tests.register.RegisterTests"/>
+            <class name="com.framework.tests.registration.RegistrationTests"/>
             <class name="com.framework.tests.login.LoginTests"/>
             <class name="com.framework.tests.search.SearchTests"/>
             <class name="com.framework.tests.product.ProductDetailsTests"/>
