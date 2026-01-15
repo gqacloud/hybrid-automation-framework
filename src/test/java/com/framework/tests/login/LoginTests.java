@@ -26,6 +26,7 @@ public class LoginTests extends BaseTest {
 
 		MyAccountPage accountPage = new MyAccountPage();
 		Assert.assertTrue(accountPage.isMyAccountMsgDisplayed(), "Valid login failed");
+		accountPage.clickOnLogout();
 	}
 
 	// ===============================

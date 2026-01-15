@@ -13,8 +13,9 @@
     <!-- ================= GROUP CONTROL ================= -->
     <groups>
         <run>
+        	<include name="Login"></include>
            <!--  <include name="Sanity"/>-->
-            <include name="Regression"/> 
+        <!--    <include name="Regression"/> --> 
             <!-- <exclude name="E2E"/> -->
         </run>
     </groups>
