@@ -22,8 +22,8 @@ dependency-reduced-pom.xml
 ## TestNG / Automation Reports
 ###############################
 test-output/
-reports/*.html
-reports/**/*.html
+reports/
+!src/main/java/**/reports/**
 output/
 logs/
 log/
