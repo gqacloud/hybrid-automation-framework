@@ -45,6 +45,12 @@ public class SearchPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='image']//a")
     private WebElement productLinkImage;
+    
+    @FindBy(css = "div#content p")
+    private WebElement noProductMessage;
+
+    @FindBy(xpath = "//div[@class='product-layout']")
+    private java.util.List<WebElement> searchResults;
 
     // ===================================
     // SEARCH ACTIONS
@@ -74,6 +80,29 @@ public class SearchPage extends BasePage {
     public void clickOnInnerSearch() {
         logger.info("Clicking Inner Search button");
         click(innerSearchButton);
+    }
+    
+    public boolean isNoProductFoundDisplayed() {
+        try {
+            logger.info("Checking if 'No product found' message is displayed");
+            return noProductMessage.isDisplayed();
+        } catch (Exception e) {
+            logger.warn("No product found message is NOT displayed");
+            return false;
+        }
+    }
+
+    public boolean isSearchResultDisplayed() {
+        logger.info("Checking if search results are displayed");
+        boolean isDisplayed = searchResults != null && !searchResults.isEmpty();
+
+        if (isDisplayed) {
+            logger.info("Search results are displayed. Count: {}", searchResults.size());
+        } else {
+            logger.warn("Search results are NOT displayed");
+        }
+
+        return isDisplayed;
     }
 
     // ===================================

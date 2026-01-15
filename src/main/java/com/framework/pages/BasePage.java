@@ -25,9 +25,17 @@ public class BasePage {
 	 * PageFactory - Initializes InteractionHelper
 	 */
 	public BasePage() {
-		this.driver = DriverManager.getDriver();
-		PageFactory.initElements(driver, this);
-		this.action = new InteractionHelper(driver);
+	    this.driver = DriverManager.getDriver();
+
+	    if (this.driver == null) {
+	        throw new IllegalStateException(
+	            "WebDriver is NULL. @BeforeClass setup did not run. " +
+	            "Do not use groups on setup/teardown."
+	        );
+	    }
+
+	    PageFactory.initElements(driver, this);
+	    this.action = new InteractionHelper(driver);
 	}
 
 	// =========================

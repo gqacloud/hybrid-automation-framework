@@ -53,6 +53,15 @@ public class RegisterAccount extends BasePage {
 
     @FindBy(xpath="//div[@id='content']/h1")
     private WebElement confirmationMsg;
+    
+    @FindBy(css = "div.alert.alert-danger")
+    private WebElement policyWarningMessage;
+    
+    @FindBy(xpath = "//div[contains(@class,'text-danger')]")
+    private List<WebElement> fieldLevelWarnings;
+    
+    @FindBy(css = "div.alert.alert-danger")
+    private WebElement commonWarningMessage;
 
     // -------------------- Action Methods --------------------
 
@@ -111,6 +120,34 @@ public class RegisterAccount extends BasePage {
 
     public String getConfirmationMsg() {
         return getText(confirmationMsg);
+    }
+    
+    public boolean isPolicyWarningDisplayed() {
+        try {
+            logger.info("Checking policy warning message");
+            return commonWarningMessage.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
+    public boolean isDuplicateEmailWarningDisplayed() {
+        try {
+            logger.info("Checking duplicate email warning message");
+            return commonWarningMessage.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
+    public boolean isPasswordMismatchWarningDisplayed() {
+        logger.info("Checking password mismatch warning");
+        return !fieldLevelWarnings.isEmpty();
+    }
+
+    public boolean isMandatoryFieldWarningDisplayed() {
+        logger.info("Checking mandatory field warnings");
+        return !fieldLevelWarnings.isEmpty();
     }
 
     // -------------------- Business Flow (Optional but Recommended) --------------------

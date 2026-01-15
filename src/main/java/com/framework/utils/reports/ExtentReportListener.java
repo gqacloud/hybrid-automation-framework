@@ -2,6 +2,7 @@ package com.framework.utils.reports;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 
 import org.apache.logging.log4j.LogManager;
@@ -21,14 +22,20 @@ import com.framework.driver.DriverManager;
 
 public class ExtentReportListener implements ITestListener {
 
+    // ===============================================================
+    // LOGGER (Lifecycle only)
+    // ===============================================================
     private static final Logger logger =
             LogManager.getLogger("TEST-LIFECYCLE");
 
+    // ===============================================================
+    // EXTENT OBJECTS
+    // ===============================================================
     private ExtentReports extent;
     private ExtentSparkReporter sparkReporter;
-    private static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
-    private String reportName;
+    // Thread-safe ExtentTest (mandatory for parallel runs)
+    private static final ThreadLocal<ExtentTest> test = new ThreadLocal<>();
 
     private static ExtentTest getTest() {
         return test.get();
@@ -43,18 +50,27 @@ public class ExtentReportListener implements ITestListener {
         new File("./reports/").mkdirs();
 
         String timeStamp =
-                new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
-        reportName = "Test-Report-" + timeStamp + ".html";
+                new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss")
+                        .format(new Date());
 
-        sparkReporter = new ExtentSparkReporter("./reports/" + reportName);
-        sparkReporter.config().setDocumentTitle("Automation Report");
+        String reportName = "Test-Report-" + timeStamp + ".html";
+
+        sparkReporter =
+                new ExtentSparkReporter("./reports/" + reportName);
+
+        sparkReporter.config().setDocumentTitle("Automation Test Report");
         sparkReporter.config().setTheme(Theme.STANDARD);
 
         String env = System.getProperty("env", "QA");
+
         sparkReporter.config().setReportName(
-                "Functional Test Execution <span style='padding:3px 8px;"
-              + "font-size:12px; border-radius:12px; background:#27ae60;"
-              + "color:white; margin-left:8px;'>" + env + "</span>"
+                "Automation Execution"
+                        + " <span style='padding:3px 8px;"
+                        + "font-size:12px;border-radius:12px;"
+                        + "background:#27ae60;color:white;"
+                        + "margin-left:8px;'>"
+                        + env
+                        + "</span>"
         );
 
         extent = new ExtentReports();
@@ -69,26 +85,45 @@ public class ExtentReportListener implements ITestListener {
     }
 
     // ===============================================================
-    // TEST START
+    // TEST START (SCENARIO LEVEL)
     // ===============================================================
     @Override
     public void onTestStart(ITestResult result) {
 
         result.setAttribute("startTime", System.currentTimeMillis());
 
-        String testName =result.getTestClass().getRealClass().getSimpleName();
+        // -----------------------------------------------------------
+        // SCENARIO NAME (CLASS + METHOD [+ DATA])
+        // -----------------------------------------------------------
+        String testName =
+                result.getTestClass()
+                        .getRealClass()
+                        .getSimpleName()
+                        + "." + result.getMethod().getMethodName();
+
+        if (result.getParameters() != null
+                && result.getParameters().length > 0) {
+            testName += " " + Arrays.toString(result.getParameters());
+        }
 
         ExtentTest extentTest = extent.createTest(testName);
+
+        // Assign TestNG groups as categories
         extentTest.assignCategory(result.getMethod().getGroups());
+
         test.set(extentTest);
 
+        // -----------------------------------------------------------
+        // DEVICE / EXECUTION INFO
+        // -----------------------------------------------------------
         String browser = DriverManager.getBrowserName();
         String version = DriverManager.getBrowserVersion();
 
         extentTest.assignDevice(browser + " " + version);
 
         extentTest.info(
-                "<b>" + browser + " " + version + "</b>" + getModeBadges()
+                "<b>" + browser + " " + version + "</b>"
+                        + getModeBadges()
         );
     }
 
@@ -111,7 +146,9 @@ public class ExtentReportListener implements ITestListener {
 
         try {
             String screenshotPath =
-                    BaseTest.captureScreen(result.getMethod().getMethodName());
+                    BaseTest.captureScreen(
+                            result.getMethod().getMethodName()
+                    );
 
             getTest().fail(
                     "Screenshot on Failure",
@@ -119,8 +156,9 @@ public class ExtentReportListener implements ITestListener {
                             .createScreenCaptureFromPath(screenshotPath)
                             .build()
             );
+
         } catch (Exception e) {
-            logger.error("Screenshot attach failed", e);
+            logger.error("Screenshot attachment failed", e);
         }
 
         attachExecutionLog();
@@ -156,21 +194,34 @@ public class ExtentReportListener implements ITestListener {
                         - (long) result.getAttribute("startTime");
 
         double seconds = duration / 1000.0;
-        String testName = result.getMethod().getMethodName();
+        String methodName = result.getMethod().getMethodName();
 
         if (status == Status.PASS) {
-            logger.info("===== TEST PASSED: {} ({} sec) =====",
-                    testName, String.format("%.2f", seconds));
+            logger.info(
+                    "===== TEST PASSED: {} ({} sec) =====",
+                    methodName,
+                    String.format("%.2f", seconds)
+            );
         } else if (status == Status.SKIP) {
-            logger.warn("===== TEST SKIPPED: {} ({} sec) =====",
-                    testName, String.format("%.2f", seconds));
+            logger.warn(
+                    "===== TEST SKIPPED: {} ({} sec) =====",
+                    methodName,
+                    String.format("%.2f", seconds)
+            );
         } else {
-            logger.error("===== TEST FAILED: {} ({} sec) =====",
-                    testName, String.format("%.2f", seconds), error);
+            logger.error(
+                    "===== TEST FAILED: {} ({} sec) =====",
+                    methodName,
+                    String.format("%.2f", seconds),
+                    error
+            );
         }
 
-        getTest().log(status,
-                testName + " " + status.toString().toLowerCase());
+        getTest().log(
+                status,
+                methodName + " "
+                        + status.toString().toLowerCase()
+        );
     }
 
     // ===============================================================
@@ -183,8 +234,11 @@ public class ExtentReportListener implements ITestListener {
             return;
         }
 
-        String logPath = System.getProperty("user.dir")
-                + "/logs/" + runId + "/automation.log";
+        String logPath =
+                System.getProperty("user.dir")
+                        + "/logs/"
+                        + runId
+                        + "/automation.log";
 
         File logFile = new File(logPath);
 
@@ -200,22 +254,28 @@ public class ExtentReportListener implements ITestListener {
     }
 
     // ===============================================================
-    // BADGES
+    // EXECUTION BADGES
     // ===============================================================
     private String getModeBadges() {
 
         StringBuilder badge = new StringBuilder();
 
         if (DriverManager.isHeadless()) {
-            badge.append("<span style='background:#2c3e50;color:white;"
-                    + "padding:3px 8px;border-radius:10px;"
-                    + "font-size:11px;margin-left:8px;'>HEADLESS</span>");
+            badge.append(
+                    "<span style='background:#2c3e50;"
+                            + "color:white;padding:3px 8px;"
+                            + "border-radius:10px;font-size:11px;"
+                            + "margin-left:8px;'>HEADLESS</span>"
+            );
         }
 
         if (DriverManager.isIncognito()) {
-            badge.append("<span style='background:#8e44ad;color:white;"
-                    + "padding:3px 8px;border-radius:10px;"
-                    + "font-size:11px;margin-left:5px;'>INCOGNITO</span>");
+            badge.append(
+                    "<span style='background:#8e44ad;"
+                            + "color:white;padding:3px 8px;"
+                            + "border-radius:10px;font-size:11px;"
+                            + "margin-left:5px;'>INCOGNITO</span>"
+            );
         }
 
         return badge.toString();

@@ -6,14 +6,19 @@
     <!-- ========================================================= -->
     <Properties>
 
-        <!-- Base log folder (per run) -->
+        <!-- Base log folder (isolated per run) -->
         <Property name="basePath">
             logs/${sys:runId:-default-run}
         </Property>
 
-        <!-- Unified one-line log pattern -->
+        <!-- Unified, scenario-aware log pattern -->
         <Property name="logPattern">
-            %d{yyyy-MM-dd HH:mm:ss.SSS} [TEST:%-25X{testName}] [THREAD:%-3X{threadId}] %-5level %-40logger{36} - %msg%n
+            %d{yyyy-MM-dd HH:mm:ss.SSS}
+            [TEST:%-45X{testName}]
+            [THREAD:%-5X{threadId}]
+            %-5level
+            %-40logger{36}
+            - %msg%n
         </Property>
 
     </Properties>
@@ -23,15 +28,18 @@
     <!-- ========================================================= -->
     <Appenders>
 
-        <!-- Rolling File Appender -->
-        <RollingFile name="FileLogger"
-                     fileName="${basePath}/automation.log"
-                     filePattern="${basePath}/automation-%d{yyyy-MM-dd}-%i.log">
+        <!-- ================= ROLLING FILE APPENDER ================= -->
+        <RollingFile
+                name="FileLogger"
+                fileName="${basePath}/automation.log"
+                filePattern="${basePath}/automation-%d{yyyy-MM-dd}-%i.log">
 
             <PatternLayout pattern="${logPattern}" />
 
             <Policies>
+                <!-- Daily rollover -->
                 <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+                <!-- Size-based rollover -->
                 <SizeBasedTriggeringPolicy size="5MB" />
             </Policies>
 
@@ -45,38 +53,80 @@
     <!-- ========================================================= -->
     <Loggers>
 
-        <!-- Root Logger -->
+        <!-- ================= ROOT LOGGER ================= -->
         <Root level="INFO">
             <AppenderRef ref="FileLogger" />
         </Root>
 
-        <!-- Test Lifecycle Logs -->
-        <Logger name="TEST-LIFECYCLE" level="INFO" additivity="false">
+        <!-- ================= TEST LIFECYCLE ================= -->
+        <!-- BaseTest / listeners / execution flow -->
+        <Logger
+                name="TEST-LIFECYCLE"
+                level="INFO"
+                additivity="false">
             <AppenderRef ref="FileLogger" />
         </Logger>
 
-        <!-- Base / Framework Logs -->
-        <Logger name="com.framework.base" level="INFO" additivity="false">
+        <!-- ================= BASE / FRAMEWORK ================= -->
+        <Logger
+                name="com.framework.base"
+                level="INFO"
+                additivity="false">
             <AppenderRef ref="FileLogger" />
         </Logger>
 
-        <!-- Page Objects -->
-        <Logger name="com.framework.pages" level="INFO" additivity="false">
+        <!-- ================= PAGE OBJECTS ================= -->
+        <Logger
+                name="com.framework.pages"
+                level="INFO"
+                additivity="false">
             <AppenderRef ref="FileLogger" />
         </Logger>
 
-        <!-- Utils / Helpers -->
-        <Logger name="com.framework.utils" level="WARN" additivity="false">
+        <!-- ================= COMPONENTS (TABLE, ETC.) ================= -->
+        <Logger
+                name="com.framework.components"
+                level="INFO"
+                additivity="false">
             <AppenderRef ref="FileLogger" />
         </Logger>
 
-        <!-- Driver / Infrastructure -->
-        <Logger name="com.framework.driver" level="INFO" additivity="false">
+        <!-- ================= UTILS / HELPERS ================= -->
+        <Logger
+                name="com.framework.utils"
+                level="WARN"
+                additivity="false">
             <AppenderRef ref="FileLogger" />
         </Logger>
 
-        <!-- Reduce Selenium Noise -->
-        <Logger name="org.openqa.selenium" level="WARN" additivity="false">
+        <!-- ================= DRIVER / INFRA ================= -->
+        <Logger
+                name="com.framework.driver"
+                level="INFO"
+                additivity="false">
+            <AppenderRef ref="FileLogger" />
+        </Logger>
+
+        <!-- ================= EXTENT REPORT LISTENER ================= -->
+        <Logger
+                name="com.framework.reports"
+                level="INFO"
+                additivity="false">
+            <AppenderRef ref="FileLogger" />
+        </Logger>
+
+        <!-- ================= REDUCE SELENIUM NOISE ================= -->
+        <Logger
+                name="org.openqa.selenium"
+                level="WARN"
+                additivity="false">
+            <AppenderRef ref="FileLogger" />
+        </Logger>
+
+        <Logger
+                name="org.apache.http"
+                level="WARN"
+                additivity="false">
             <AppenderRef ref="FileLogger" />
         </Logger>
 

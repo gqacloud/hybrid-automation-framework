@@ -1,5 +1,7 @@
 package com.framework.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
@@ -16,7 +18,7 @@ public class CheckoutPage extends BasePage {
     // ❌ No waits / ExpectedConditions
     // ❌ No direct click/sendKeys
     // ✅ BasePage constructor is used automatically
-
+	 private static final Logger logger = LogManager.getLogger(CheckoutPage.class);
     // -------------------- Web Elements --------------------
 
     @FindBy(id = "input-payment-firstname")
@@ -97,5 +99,10 @@ public class CheckoutPage extends BasePage {
         enterZipCode(zip);
         selectCountry(country);
         selectZone(zone);
+    }
+    
+    public boolean isCheckoutPageDisplayed() {
+        logger.info("Checking if Checkout page is displayed");
+        return getCurrentUrl().contains("checkout");
     }
 }
