@@ -12,19 +12,19 @@ import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.ThreadContext;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
@@ -44,40 +44,50 @@ public class BaseTest {
 	public static final String CONFIG_PATH = USER_DIR + "/src/main/resources/config.properties";
 
 	// ===============================================================
-	// TEST-LEVEL LOG CONTEXT (MDC)
+	// SUITE LEVEL
+	// ===============================================================
+	@BeforeSuite(alwaysRun = true)
+	public void beforeSuite() {
+		ThreadContext.put("testName", "SUITE");
+		logger.info("===== TEST SUITE STARTED =====");
+	}
+
+	@AfterSuite(alwaysRun = true)
+	public void afterSuite() {
+		logger.info("===== TEST SUITE FINISHED =====");
+		ThreadContext.clearAll();
+	}
+
+	// ===============================================================
+	// TEST METHOD LEVEL (MDC AWARE)
 	// ===============================================================
 	@BeforeMethod(alwaysRun = true)
 	public void beforeEachTest(Method method) {
 
-		ThreadContext.put("testName", method.getDeclaringClass().getSimpleName());
+	    ThreadContext.put(
+	        "testName",
+	        method.getDeclaringClass().getSimpleName() + "." + method.getName()
+	    );
 
-		ThreadContext.put("threadId", String.valueOf(Thread.currentThread().getId()));
-
-		logger.info("===== TEST STARTED: {} =====", method.getDeclaringClass().getSimpleName());
+	    logger.info("===== TEST STARTED =====");
 	}
 
 	@AfterMethod(alwaysRun = true)
-	public void afterEachTest(ITestResult result) {
-
-	    // Do NOT log PASS / FAIL / SKIP here
-	    // Test lifecycle is handled by ExtentReportListener
-
-	    logger.info("Closing WebDriver...");
-
-	    ThreadContext.clearAll();
+	public void afterEachTest() {
+	    ThreadContext.remove("testName");
 	}
-
 
 	// ===============================================================
 	// SETUP
 	// ===============================================================
-	@BeforeClass(groups = { "Sanity", "Regression", "Master", "Functional" })
+	@BeforeClass(alwaysRun = true)
 	@Parameters({ "os", "browser" })
 	public void setup(@Optional("WIN10") String os, @Optional("chrome") String browserName) throws IOException {
 
-		logger.info("===== Test Setup Started =====");
+		ThreadContext.put("testName", "SETUP");
 
-		// Load config
+		logger.info("===== TEST SETUP STARTED =====");
+
 		prop = new Properties();
 		prop.load(new FileReader(CONFIG_PATH));
 
@@ -92,23 +102,20 @@ public class BaseTest {
 		logger.info("Browser              : {}", browserName);
 		logger.info("OS                   : {}", os);
 
-		// Initialize driver
 		if (exeEnv.equalsIgnoreCase("local")) {
 			DriverFactory.initLocalDriver(browserName, headless, incognito);
 		} else if (exeEnv.equalsIgnoreCase("remote")) {
 			DriverFactory.initRemoteDriver(os, browserName, gridUrl);
 		} else {
-			throw new IllegalArgumentException("Invalid exe_env value (Use: local / remote)");
+			throw new IllegalArgumentException("Invalid exe_env (Use: local / remote)");
 		}
 
 		WebDriver driver = DriverManager.getDriver();
 
-		// Apply timeouts
 		driver.manage().timeouts().pageLoadTimeout(TimeoutConstants.PAGE_LOAD_TIMEOUT);
 		driver.manage().timeouts().scriptTimeout(TimeoutConstants.SCRIPT_TIMEOUT);
 		driver.manage().timeouts().implicitlyWait(TimeoutConstants.IMPLICIT_WAIT);
 
-		// Navigate safely
 		safeNavigate(driver, appUrl);
 		waitForPageLoad(driver);
 
@@ -118,14 +125,17 @@ public class BaseTest {
 		}
 
 		logger.info("Page Loaded Successfully. Title: {}", title);
-		logger.info("===== Test Setup Completed =====");
+		logger.info("===== TEST SETUP COMPLETED =====");
 	}
 
 	// ===============================================================
 	// TEARDOWN
 	// ===============================================================
-	@AfterClass(groups = { "Sanity", "Regression", "Master", "Functional" })
+	@AfterClass(alwaysRun = true)
 	public void teardown() {
+
+		ThreadContext.put("testName", "TEARDOWN");
+
 		logger.info("Closing WebDriver...");
 		try {
 			DriverManager.cleanUp();
@@ -135,7 +145,7 @@ public class BaseTest {
 	}
 
 	// ===============================================================
-	// SAFE NAVIGATION WITH RETRY
+	// SAFE NAVIGATION
 	// ===============================================================
 	private void safeNavigate(WebDriver driver, String url) {
 
@@ -146,21 +156,13 @@ public class BaseTest {
 		while (attempts < TimeoutConstants.NAVIGATION_RETRY_COUNT) {
 			try {
 				attempts++;
-				logger.info("Navigation attempt {}", attempts);
-
 				driver.get(url);
-				logger.info("Navigation successful");
 				return;
-
 			} catch (TimeoutException e) {
-				logger.warn("Page load timeout on attempt {}", attempts);
-
+				logger.warn("Page load timeout (attempt {})", attempts);
 				if (attempts >= TimeoutConstants.NAVIGATION_RETRY_COUNT) {
-					logger.error("Navigation failed after retries: {}", url);
 					throw e;
 				}
-
-				logger.info("Retrying navigation...");
 			}
 		}
 	}
@@ -170,17 +172,8 @@ public class BaseTest {
 	// ===============================================================
 	private void waitForPageLoad(WebDriver driver) {
 
-		logger.info("Waiting for page readiness...");
-
 		new WebDriverWait(driver, TimeoutConstants.EXPLICIT_WAIT).until(webDriver -> ((JavascriptExecutor) webDriver)
 				.executeScript("return document.readyState").toString().matches("complete|interactive"));
-
-		logger.info("Page is ready.");
-	}
-
-	public String getText(By locator) {
-		return new WebDriverWait(DriverManager.getDriver(), TimeoutConstants.EXPLICIT_WAIT)
-				.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
 	}
 
 	// ===============================================================
@@ -201,9 +194,8 @@ public class BaseTest {
 
 		try {
 			FileUtils.copyFile(srcFile, new File(fullPath));
-			logger.info("Screenshot captured for test [{}] at: {}", testName, fullPath);
 		} catch (Exception e) {
-			logger.error("Screenshot failed:", e);
+			logger.error("Screenshot failed", e);
 		}
 
 		return "screenshots/" + fileName;

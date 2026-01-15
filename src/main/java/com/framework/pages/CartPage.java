@@ -110,4 +110,47 @@ public class CartPage extends BasePage {
         logger.info("Clicking Checkout button");
         click(checkoutButton);
     }
+    
+    public boolean isProductPresentInCart(String productName) {
+        logger.info("Checking if product [{}] is present in cart", productName);
+
+        TableComponent table = getCartTable();
+        int rowCount = table.getRowCount();
+
+        for (int row = 1; row <= rowCount; row++) {
+            String nameInCart = table.getCellValue(row, 2); // column 2 = Product Name
+            if (nameInCart.equalsIgnoreCase(productName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public String getProductQuantity(String productName) {
+        logger.info("Fetching quantity for product [{}]", productName);
+
+        TableComponent table = getCartTable();
+        int rowCount = table.getRowCount();
+
+        for (int row = 1; row <= rowCount; row++) {
+            if (table.getCellValue(row, 2).equalsIgnoreCase(productName)) {
+                return table.getCellValue(row, 4); // column 4 = Quantity
+            }
+        }
+        throw new RuntimeException("Product not found in cart: " + productName);
+    }
+    
+    public String getProductTotalPrice(String productName) {
+        logger.info("Fetching total price for product [{}]", productName);
+
+        TableComponent table = getCartTable();
+        int rowCount = table.getRowCount();
+
+        for (int row = 1; row <= rowCount; row++) {
+            if (table.getCellValue(row, 2).equalsIgnoreCase(productName)) {
+                return table.getCellValue(row, 6); // column 6 = Total
+            }
+        }
+        throw new RuntimeException("Product not found in cart: " + productName);
+    }
 }

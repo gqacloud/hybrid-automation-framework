@@ -64,6 +64,9 @@ public class ProductDetailsPage extends BasePage {
 
     @FindBy(xpath = "//div[@class='datepicker-days']//td[@class='day']")
     private List<WebElement> dayCells;
+    
+    @FindBy(css = "div.alert.alert-success")
+    private WebElement addToCartSuccessMessage;
 
     // ---------------- GETTERS ---------------- //
 
@@ -115,6 +118,16 @@ public class ProductDetailsPage extends BasePage {
         openDatePicker();
         navigateToMonthYear(month, year);
         selectDay(day);
+    }
+    
+    public boolean isAddToCartSuccessMessageDisplayed() {
+        try {
+            logger.info("Checking if Add to Cart success message is displayed");
+            return addToCartSuccessMessage.isDisplayed();
+        } catch (Exception e) {
+            logger.warn("Add to Cart success message is NOT displayed");
+            return false;
+        }
     }
 
     // ---------------- PRIVATE HELPERS ---------------- //
