@@ -13,7 +13,7 @@ public class RegistrationTests extends BaseTest {
     // ======================================================
     // SCENARIO 1: Valid Account Registration (Positive)
     // ======================================================
-    @Test(groups = { "Regression", "Registration", "Master" })
+    @Test(groups = { "Regression", "Registration", "Master","CoreFlow" })
     public void validAccountRegistrationScenario() {
 
         HomePage homePage = new HomePage();
@@ -51,7 +51,7 @@ public class RegistrationTests extends BaseTest {
     // ======================================================
     // SCENARIO 2: Registration Without Accepting Policy
     // ======================================================
-    @Test(groups = { "Regression", "Registration" })
+    @Test(groups = { "Regression", "Registration","CoreFlow" })
     public void registrationWithoutAcceptingPolicyScenario() {
 
         HomePage homePage = new HomePage();
@@ -88,7 +88,7 @@ public class RegistrationTests extends BaseTest {
     // ======================================================
     // SCENARIO 3: Registration With Existing Email
     // ======================================================
-    @Test(groups = { "Regression", "Registration" })
+    @Test(groups = { "Regression", "Registration","CoreFlow" })
     public void registrationWithExistingEmailScenario() {
 
         HomePage homePage = new HomePage();
@@ -125,7 +125,7 @@ public class RegistrationTests extends BaseTest {
     // ======================================================
     // SCENARIO 4: Registration With Mismatched Passwords
     // ======================================================
-    @Test(groups = { "Regression", "Registration" })
+    @Test(groups = { "Regression", "Registration","CoreFlow" })
     public void registrationWithMismatchedPasswordsScenario() {
 
         HomePage homePage = new HomePage();
@@ -161,7 +161,7 @@ public class RegistrationTests extends BaseTest {
     // ======================================================
     // SCENARIO 5: Registration With Empty Mandatory Fields
     // ======================================================
-    @Test(groups = { "Regression", "Registration" })
+    @Test(groups = { "Regression", "Registration","CoreFlow" })
     public void registrationWithoutMandatoryFieldsScenario() {
 
         HomePage homePage = new HomePage();

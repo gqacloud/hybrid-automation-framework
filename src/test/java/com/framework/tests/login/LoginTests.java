@@ -14,7 +14,7 @@ public class LoginTests extends BaseTest {
 	// POSITIVE SCENARIOS
 	// ===============================
 
-	@Test(groups = { "Sanity", "Regression", "Login" })
+	@Test(groups = { "Sanity", "Regression", "Login", "CoreFlow" })
 	public void validLoginTest() {
 
 		HomePage homePage = new HomePage();
@@ -33,7 +33,7 @@ public class LoginTests extends BaseTest {
 	// NEGATIVE SCENARIOS
 	// ===============================
 
-	@Test(groups = { "Regression", "Login" })
+	@Test(groups = { "Regression", "Login", "CoreFlow" })
 	public void invalidLoginTest() {
 
 		HomePage homePage = new HomePage();
@@ -46,7 +46,7 @@ public class LoginTests extends BaseTest {
 		Assert.assertTrue(loginPage.isLoginErrorDisplayed(), "Error message not shown for invalid login");
 	}
 
-	@Test(groups = { "Regression", "Login" })
+	@Test(groups = { "Regression", "Login","CoreFlow" })
 	public void emptyCredentialsLoginTest() {
 
 		HomePage homePage = new HomePage();

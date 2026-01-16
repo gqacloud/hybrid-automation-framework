@@ -19,10 +19,8 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
@@ -59,35 +57,18 @@ public class BaseTest {
 	}
 
 	// ===============================================================
-	// TEST METHOD LEVEL (MDC AWARE)
+	// TEST METHOD LEVEL (MDC + DRIVER INIT)
 	// ===============================================================
 	@BeforeMethod(alwaysRun = true)
-	public void beforeEachTest(Method method) {
-
-	    ThreadContext.put(
-	        "testName",
-	        method.getDeclaringClass().getSimpleName() + "." + method.getName()
-	    );
-
-	    logger.info("===== TEST STARTED =====");
-	}
-
-	@AfterMethod(alwaysRun = true)
-	public void afterEachTest() {
-	    ThreadContext.remove("testName");
-	}
-
-	// ===============================================================
-	// SETUP
-	// ===============================================================
-	@BeforeClass(alwaysRun = true)
 	@Parameters({ "os", "browser" })
-	public void setup(@Optional("WIN10") String os, @Optional("chrome") String browserName) throws IOException {
+	public void beforeEachTest(Method method, @Optional("WIN10") String os, @Optional("chrome") String browserName)
+			throws IOException {
 
-		ThreadContext.put("testName", "SETUP");
+		ThreadContext.put("testName", method.getDeclaringClass().getSimpleName() + "." + method.getName());
 
-		logger.info("===== TEST SETUP STARTED =====");
+		logger.info("===== TEST STARTED =====");
 
+		// Load config once per test (safe + isolated)
 		prop = new Properties();
 		prop.load(new FileReader(CONFIG_PATH));
 
@@ -102,6 +83,7 @@ public class BaseTest {
 		logger.info("Browser              : {}", browserName);
 		logger.info("OS                   : {}", os);
 
+		// 🔥 ENTERPRISE FIX: NEW DRIVER PER TEST METHOD
 		if (exeEnv.equalsIgnoreCase("local")) {
 			DriverFactory.initLocalDriver(browserName, headless, incognito);
 		} else if (exeEnv.equalsIgnoreCase("remote")) {
@@ -125,23 +107,45 @@ public class BaseTest {
 		}
 
 		logger.info("Page Loaded Successfully. Title: {}", title);
-		logger.info("===== TEST SETUP COMPLETED =====");
 	}
 
-	// ===============================================================
-	// TEARDOWN
-	// ===============================================================
-	@AfterClass(alwaysRun = true)
-	public void teardown() {
+	@AfterMethod(alwaysRun = true)
+	public void afterEachTest(ITestResult result) {
 
-		ThreadContext.put("testName", "TEARDOWN");
+		String testName = result.getMethod().getMethodName();
 
-		logger.info("Closing WebDriver...");
+		switch (result.getStatus()) {
+
+		case ITestResult.SUCCESS:
+			logger.info("===== TEST PASSED  : {} =====", testName);
+			break;
+
+		case ITestResult.FAILURE:
+			logger.error("===== TEST FAILED  : {} =====", testName);
+			logger.error("Failure Reason:", result.getThrowable());
+
+			// Optional: Screenshot on failure
+			captureScreen(testName);
+			break;
+
+		case ITestResult.SKIP:
+			logger.warn("===== TEST SKIPPED : {} =====", testName);
+			if (result.getThrowable() != null) {
+				logger.warn("Skip Reason:", result.getThrowable());
+			}
+			break;
+
+		default:
+			logger.warn("===== TEST STATUS UNKNOWN : {} =====", testName);
+		}
+
 		try {
 			DriverManager.cleanUp();
 		} catch (Exception e) {
 			logger.error("Error while closing WebDriver:", e);
 		}
+
+		ThreadContext.remove("testName");
 	}
 
 	// ===============================================================
@@ -172,7 +176,7 @@ public class BaseTest {
 	// ===============================================================
 	private void waitForPageLoad(WebDriver driver) {
 
-		new WebDriverWait(driver, TimeoutConstants.EXPLICIT_WAIT).until(webDriver -> ((JavascriptExecutor) webDriver)
+		new WebDriverWait(driver, TimeoutConstants.EXPLICIT_WAIT).until(d -> ((JavascriptExecutor) d)
 				.executeScript("return document.readyState").toString().matches("complete|interactive"));
 	}
 

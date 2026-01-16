@@ -31,7 +31,7 @@ public class SearchTests extends BaseTest {
     // ======================================================
     // SCENARIO 1: Search Product with Valid Data (POSITIVE)
     // ======================================================
-    @Test(groups = { "Functional", "Regression", "Search" })
+    @Test(groups = { "Functional", "Regression", "Search","CoreFlow" })
     public void searchProductWithValidDataScenario() {
 
         ProductData searchData =
@@ -56,7 +56,7 @@ public class SearchTests extends BaseTest {
     // ======================================================
     // SCENARIO 2: Search with Invalid Product (NEGATIVE)
     // ======================================================
-    @Test(groups = { "Regression", "Search" })
+    @Test(groups = { "Regression", "Search","CoreFlow" })
     public void searchWithInvalidProductScenario() {
 
         ProductData searchData =
@@ -80,7 +80,7 @@ public class SearchTests extends BaseTest {
     // ======================================================
     // SCENARIO 3: Search with Empty Product Name (NEGATIVE)
     // ======================================================
-    @Test(groups = { "Regression", "Search" })
+    @Test(groups = { "Regression", "Search","CoreFlow"})
     public void searchWithEmptyProductScenario() {
 
         loginToApplication();
@@ -101,7 +101,7 @@ public class SearchTests extends BaseTest {
     // ======================================================
     // SCENARIO 4: Search with Category Only (EDGE CASE)
     // ======================================================
-    @Test(groups = { "Regression", "Search" })
+    @Test(groups = { "Regression", "Search","CoreFlow" })
     public void searchWithCategoryOnlyScenario() {
 
         ProductData searchData =

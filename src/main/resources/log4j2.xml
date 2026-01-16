@@ -3,9 +3,9 @@
 
     <!-- ================= PROPERTIES ================= -->
     <Properties>
-       <Property name="LOG_PATTERN">
+        <Property name="LOG_PATTERN">
 %d{yyyy-MM-dd HH:mm:ss} | %-5level | Thread-%tid | %replace{%X{testName}}{^$}{SUITE} | %c{1} | %msg%n
-</Property>
+        </Property>
 
         <Property name="LOG_DIR">logs</Property>
         <Property name="LOG_FILE">${LOG_DIR}/automation.log</Property>
@@ -14,12 +14,7 @@
     <!-- ================= APPENDERS ================= -->
     <Appenders>
 
-        <!-- Console Appender -->
-        <Console name="ConsoleAppender" target="SYSTEM_OUT">
-            <PatternLayout pattern="${LOG_PATTERN}"/>
-        </Console>
-
-        <!-- Rolling File Appender -->
+        <!-- Rolling File Appender ONLY -->
         <RollingFile name="FileAppender"
                      fileName="${LOG_FILE}"
                      filePattern="${LOG_DIR}/automation-%d{yyyy-MM-dd}.log.gz">
@@ -38,20 +33,18 @@
     <!-- ================= LOGGERS ================= -->
     <Loggers>
 
-        <!-- Reduce Selenium Noise -->
+        <!-- Reduce Selenium / Driver Noise -->
         <Logger name="org.openqa.selenium" level="WARN"/>
         <Logger name="org.apache.http" level="WARN"/>
         <Logger name="io.github.bonigarcia" level="WARN"/>
 
         <!-- Framework Logs -->
         <Logger name="com.framework" level="INFO" additivity="false">
-            <AppenderRef ref="ConsoleAppender"/>
             <AppenderRef ref="FileAppender"/>
         </Logger>
 
         <!-- Root Logger -->
         <Root level="INFO">
-            <AppenderRef ref="ConsoleAppender"/>
             <AppenderRef ref="FileAppender"/>
         </Root>
 
