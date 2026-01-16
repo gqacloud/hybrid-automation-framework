@@ -7,38 +7,48 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 public final class DriverManager {
 
-    private static final Logger logger = LogManager.getLogger(DriverManager.class);
+    private static final Logger logger =
+            LogManager.getLogger(DriverManager.class);
 
     private static final ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
     private static final ThreadLocal<String> tlBrowser = new ThreadLocal<>();
 
-    // ===== ADDED FOR BADGES =====
+    // ===== EXECUTION MODE =====
     private static final ThreadLocal<Boolean> tlHeadless = new ThreadLocal<>();
     private static final ThreadLocal<Boolean> tlIncognito = new ThreadLocal<>();
-    // ============================
 
-    private DriverManager() {
-    }
+    private DriverManager() {}
 
+    // ===============================================================
+    // DRIVER
+    // ===============================================================
     public static WebDriver getDriver() {
         WebDriver driver = tlDriver.get();
         if (driver == null) {
-            throw new IllegalStateException("WebDriver is not initialized for this thread.");
+            throw new IllegalStateException(
+                    "WebDriver is not initialized for this thread.");
         }
         return driver;
     }
 
     public static void setDriver(WebDriver driver, String browserName) {
-        logger.info("Thread: {} | Browser: {}",
-                Thread.currentThread().getId(),
-                browserName);
-
         tlDriver.set(driver);
         tlBrowser.set(browserName);
+
+        logger.info(
+                "Thread: {} | Browser: {} | Headless: {} | Incognito: {}",
+                Thread.currentThread().getId(),
+                browserName,
+                isHeadless(),
+                isIncognito()
+        );
     }
 
+    // ===============================================================
+    // BROWSER INFO (DO NOT USE CAPABILITIES FOR NAME)
+    // ===============================================================
     public static String getBrowserName() {
-        return tlBrowser.get();
+        return tlBrowser.get() != null ? tlBrowser.get() : "Unknown";
     }
 
     public static String getBrowserVersion() {
@@ -51,29 +61,36 @@ public final class DriverManager {
         }
     }
 
-    // ===== BADGE SUPPORT =====
+    // ===============================================================
+    // EXECUTION MODE
+    // ===============================================================
     public static void setRunMode(boolean headless, boolean incognito) {
         tlHeadless.set(headless);
         tlIncognito.set(incognito);
     }
 
     public static boolean isHeadless() {
-        return Boolean.TRUE.equals(tlHeadless.get());
+        return tlHeadless.get() != null && tlHeadless.get();
     }
 
     public static boolean isIncognito() {
-        return Boolean.TRUE.equals(tlIncognito.get());
+        return tlIncognito.get() != null && tlIncognito.get();
     }
-    // =========================
 
+    // ===============================================================
+    // CLEANUP
+    // ===============================================================
     public static void cleanUp() {
-        WebDriver driver = tlDriver.get();
-        if (driver != null) {
-            driver.quit();
+        try {
+            WebDriver driver = tlDriver.get();
+            if (driver != null) {
+                driver.quit();
+            }
+        } finally {
+            tlDriver.remove();
+            tlBrowser.remove();
+            tlHeadless.remove();
+            tlIncognito.remove();
         }
-        tlDriver.remove();
-        tlBrowser.remove();
-        tlHeadless.remove();
-        tlIncognito.remove();
     }
 }

@@ -33,7 +33,7 @@ public class ProductDetailsTests extends BaseTest {
     // SCENARIO 1: Verify Product Details (POSITIVE)
     // ======================================================
     @Test(groups = { "Functional", "Regression", "Product" ,"CoreFlow"})
-    public void verifyProductDetailsScenario() {
+    public void shouldDisplayCorrectProductDetails() {
 
         // -------------------- Test Data --------------------
         ProductData data =
@@ -72,7 +72,7 @@ public class ProductDetailsTests extends BaseTest {
     // SCENARIO 2: Add Product to Cart from Details Page
     // ======================================================
     @Test(groups = { "Regression", "Product","CoreFlow" })
-    public void addProductToCartFromProductDetailsScenario() {
+    public void shouldAddProductToCartFromProductDetailsPage() {
 
         // -------------------- Test Data --------------------
         ProductData data =

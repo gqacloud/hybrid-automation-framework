@@ -15,7 +15,7 @@ public class LoginTests extends BaseTest {
 	// ===============================
 
 	@Test(groups = { "Sanity", "Regression", "Login", "CoreFlow" })
-	public void validLoginTest() {
+	public void shouldLoginSuccessfullyWithValidCredentials() {
 
 		HomePage homePage = new HomePage();
 		homePage.clickOnMyAccount();
@@ -34,7 +34,7 @@ public class LoginTests extends BaseTest {
 	// ===============================
 
 	@Test(groups = { "Regression", "Login", "CoreFlow" })
-	public void invalidLoginTest() {
+	public void shouldNotLoginWhenInvalidCredentialsProvided() {
 
 		HomePage homePage = new HomePage();
 		homePage.clickOnMyAccount();
@@ -47,7 +47,7 @@ public class LoginTests extends BaseTest {
 	}
 
 	@Test(groups = { "Regression", "Login","CoreFlow" })
-	public void emptyCredentialsLoginTest() {
+	public void shouldNotLoginWhenCredentialsAreEmpty() {
 
 		HomePage homePage = new HomePage();
 		homePage.clickOnMyAccount();
@@ -61,7 +61,7 @@ public class LoginTests extends BaseTest {
 
 	@Test(dataProvider = "LoginData", dataProviderClass = com.framework.utils.data.DataProviders.class, groups = {
 			"Login", "DataDriven", "Regression", "Master" })
-	public void loginWithMultipleCredentialsScenario(String email, String password, String expectedResult) {
+	public void shouldLoginBasedOnProvidedCredentials(String email, String password, String expectedResult) {
 
 		HomePage homePage = new HomePage();
 		homePage.clickOnMyAccount();

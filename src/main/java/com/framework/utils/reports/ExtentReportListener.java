@@ -4,280 +4,161 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.TimeZone;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
+import org.testng.*;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.*;
+import com.aventstack.extentreports.reporter.*;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.framework.base.BaseTest;
 import com.framework.driver.DriverManager;
 
 public class ExtentReportListener implements ITestListener {
 
-    // ===============================================================
-    // LOGGER (Lifecycle only)
-    // ===============================================================
     private static final Logger logger =
             LogManager.getLogger("TEST-LIFECYCLE");
 
-    // ===============================================================
-    // EXTENT OBJECTS
-    // ===============================================================
     private ExtentReports extent;
-    private ExtentSparkReporter sparkReporter;
+    private ExtentSparkReporter spark;
 
-    // Thread-safe ExtentTest (mandatory for parallel runs)
-    private static final ThreadLocal<ExtentTest> test = new ThreadLocal<>();
+    private static final ThreadLocal<ExtentTest> test =
+            new ThreadLocal<>();
 
-    private static ExtentTest getTest() {
+    private ExtentTest getTest() {
         return test.get();
     }
 
-    // ===============================================================
-    // SUITE START
-    // ===============================================================
     @Override
     public void onStart(ITestContext context) {
 
+        TimeZone.setDefault(TimeZone.getTimeZone("America/New_York"));
         new File("./reports/").mkdirs();
 
-        String timeStamp =
+        String time =
                 new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss")
                         .format(new Date());
 
-        String reportName = "Test-Report-" + timeStamp + ".html";
+        spark = new ExtentSparkReporter(
+                "./reports/Test-Report-" + time + ".html");
 
-        sparkReporter =
-                new ExtentSparkReporter("./reports/" + reportName);
-
-        sparkReporter.config().setDocumentTitle("Automation Test Report");
-        sparkReporter.config().setTheme(Theme.STANDARD);
-
-        String env = System.getProperty("env", "QA");
-
-        sparkReporter.config().setReportName(
-                "Automation Execution"
-                        + " <span style='padding:3px 8px;"
-                        + "font-size:12px;border-radius:12px;"
-                        + "background:#27ae60;color:white;"
-                        + "margin-left:8px;'>"
-                        + env
-                        + "</span>"
-        );
+        spark.config().setTheme(Theme.STANDARD);
+        spark.config().setDocumentTitle("Automation Report");
+        spark.config().setTimeStampFormat(
+                "MMM dd, yyyy hh:mm:ss a z");
 
         extent = new ExtentReports();
-        extent.attachReporter(sparkReporter);
+        extent.attachReporter(spark);
 
-        extent.setSystemInfo("User", System.getProperty("user.name"));
         extent.setSystemInfo("OS", System.getProperty("os.name"));
         extent.setSystemInfo("Java", System.getProperty("java.version"));
-        extent.setSystemInfo("Environment", env);
+        String qaName =
+                System.getProperty(
+                        "qa.name",
+                        System.getProperty("user.name")
+                );
 
-        logger.info("===== TEST SUITE STARTED =====");
+        extent.setSystemInfo("QA Engineer", qaName);
     }
 
-    // ===============================================================
-    // TEST START (SCENARIO LEVEL)
-    // ===============================================================
     @Override
     public void onTestStart(ITestResult result) {
 
-        result.setAttribute("startTime", System.currentTimeMillis());
+        result.setAttribute("startTime",
+                System.currentTimeMillis());
 
-        // -----------------------------------------------------------
-        // SCENARIO NAME (CLASS + METHOD [+ DATA])
-        // -----------------------------------------------------------
-        String testName =
-                result.getTestClass()
-                        .getRealClass()
-                        .getSimpleName()
+        String name =
+                result.getTestClass().getRealClass().getSimpleName()
                         + "." + result.getMethod().getMethodName();
 
-        if (result.getParameters() != null
-                && result.getParameters().length > 0) {
-            testName += " " + Arrays.toString(result.getParameters());
+        if (result.getParameters().length > 0) {
+            name += Arrays.toString(result.getParameters());
         }
 
-        ExtentTest extentTest = extent.createTest(testName);
+        ExtentTest et = extent.createTest(name);
+        et.assignCategory(result.getMethod().getGroups());
 
-        // Assign TestNG groups as categories
-        extentTest.assignCategory(result.getMethod().getGroups());
+        test.set(et);
 
-        test.set(extentTest);
-
-        // -----------------------------------------------------------
-        // DEVICE / EXECUTION INFO
-        // -----------------------------------------------------------
         String browser = DriverManager.getBrowserName();
         String version = DriverManager.getBrowserVersion();
 
-        extentTest.assignDevice(browser + " " + version);
-
-        extentTest.info(
-                "<b>" + browser + " " + version + "</b>"
-                        + getModeBadges()
-        );
+        et.assignDevice(browser + " " + version);
+        et.info("<b>" + browser + " " + version + "</b>"
+                + getBadges());
     }
 
-    // ===============================================================
-    // TEST SUCCESS
-    // ===============================================================
     @Override
     public void onTestSuccess(ITestResult result) {
-        logCompletion(result, Status.PASS, null);
-        attachExecutionLog();
+        logResult(result, Status.PASS, null);
     }
 
-    // ===============================================================
-    // TEST FAILURE
-    // ===============================================================
     @Override
     public void onTestFailure(ITestResult result) {
+        logResult(result, Status.FAIL, result.getThrowable());
 
-        logCompletion(result, Status.FAIL, result.getThrowable());
+        String path =
+                BaseTest.captureScreen(
+                        result.getMethod().getMethodName());
 
-        try {
-            String screenshotPath =
-                    BaseTest.captureScreen(
-                            result.getMethod().getMethodName()
-                    );
-
-            getTest().fail(
-                    "Screenshot on Failure",
-                    MediaEntityBuilder
-                            .createScreenCaptureFromPath(screenshotPath)
-                            .build()
-            );
-
-        } catch (Exception e) {
-            logger.error("Screenshot attachment failed", e);
-        }
-
-        attachExecutionLog();
+        getTest().fail("Screenshot",
+                MediaEntityBuilder
+                        .createScreenCaptureFromPath(path)
+                        .build());
     }
 
-    // ===============================================================
-    // TEST SKIPPED
-    // ===============================================================
     @Override
     public void onTestSkipped(ITestResult result) {
-        logCompletion(result, Status.SKIP, result.getThrowable());
-        attachExecutionLog();
+        logResult(result, Status.SKIP, result.getThrowable());
     }
 
-    // ===============================================================
-    // SUITE FINISH
-    // ===============================================================
     @Override
     public void onFinish(ITestContext context) {
         extent.flush();
-        logger.info("===== TEST SUITE FINISHED =====");
+        test.remove();
     }
 
-    // ===============================================================
-    // COMMON COMPLETION LOGIC
-    // ===============================================================
-    private void logCompletion(ITestResult result,
-                               Status status,
-                               Throwable error) {
+    private void logResult(
+            ITestResult result,
+            Status status,
+            Throwable error) {
 
         long duration =
                 System.currentTimeMillis()
                         - (long) result.getAttribute("startTime");
 
-        double seconds = duration / 1000.0;
-        String methodName = result.getMethod().getMethodName();
-
-        if (status == Status.PASS) {
-            logger.info(
-                    "===== TEST PASSED: {} ({} sec) =====",
-                    methodName,
-                    String.format("%.2f", seconds)
-            );
-        } else if (status == Status.SKIP) {
-            logger.warn(
-                    "===== TEST SKIPPED: {} ({} sec) =====",
-                    methodName,
-                    String.format("%.2f", seconds)
-            );
-        } else {
-            logger.error(
-                    "===== TEST FAILED: {} ({} sec) =====",
-                    methodName,
-                    String.format("%.2f", seconds),
-                    error
-            );
-        }
-
         getTest().log(
                 status,
-                methodName + " "
-                        + status.toString().toLowerCase()
-        );
-    }
+                result.getMethod().getMethodName()
+                        + " " + status.toString().toLowerCase()
+                        + " (" + duration / 1000.0 + " sec)");
 
-    // ===============================================================
-    // ATTACH EXECUTION LOG FILE
-    // ===============================================================
-    private void attachExecutionLog() {
-
-        String runId = System.getProperty("runId");
-        if (runId == null) {
-            return;
-        }
-
-        String logPath =
-                System.getProperty("user.dir")
-                        + "/logs/"
-                        + runId
-                        + "/automation.log";
-
-        File logFile = new File(logPath);
-
-        if (logFile.exists()) {
-            getTest().info(
-                    "Execution Log: <a href='file:///"
-                            + logFile.getAbsolutePath()
-                            + "' target='_blank'>automation.log</a>"
-            );
-        } else {
-            logger.warn("Log file not found: {}", logPath);
+        if (error != null) {
+            getTest().log(status, error);
         }
     }
 
-    // ===============================================================
-    // EXECUTION BADGES
-    // ===============================================================
-    private String getModeBadges() {
+    private String getBadges() {
 
-        StringBuilder badge = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
         if (DriverManager.isHeadless()) {
-            badge.append(
+            sb.append(
                     "<span style='background:#2c3e50;"
                             + "color:white;padding:3px 8px;"
-                            + "border-radius:10px;font-size:11px;"
-                            + "margin-left:8px;'>HEADLESS</span>"
-            );
+                            + "border-radius:10px;"
+                            + "margin-left:8px;'>HEADLESS</span>");
         }
 
         if (DriverManager.isIncognito()) {
-            badge.append(
+            sb.append(
                     "<span style='background:#8e44ad;"
                             + "color:white;padding:3px 8px;"
-                            + "border-radius:10px;font-size:11px;"
-                            + "margin-left:5px;'>INCOGNITO</span>"
-            );
+                            + "border-radius:10px;"
+                            + "margin-left:5px;'>INCOGNITO</span>");
         }
-
-        return badge.toString();
+        return sb.toString();
     }
 }

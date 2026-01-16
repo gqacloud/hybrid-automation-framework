@@ -13,7 +13,7 @@
     <!-- ================= GROUP CONTROL ================= -->
     <groups>
         <run>
-        	
+        	<include name="Regression"/>
            <!--  <include name="Sanity"/>-->
        <!--  <include name="Regression"/> -->
             <!-- <exclude name="E2E"/> -->
@@ -25,7 +25,7 @@
 
         <!-- Environment Parameters -->
         <parameter name="os" value="Windows"/>
-        <parameter name="browser" value="edge"/>
+        <parameter name="browser" value="chrome"/>
 
         <!-- ================= FEATURE PACKAGES ================= -->
         <packages>

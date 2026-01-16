@@ -32,7 +32,7 @@ public class SearchTests extends BaseTest {
     // SCENARIO 1: Search Product with Valid Data (POSITIVE)
     // ======================================================
     @Test(groups = { "Functional", "Regression", "Search","CoreFlow" })
-    public void searchProductWithValidDataScenario() {
+    public void shouldReturnResultsWhenSearchingWithValidProduct() {
 
         ProductData searchData =
                 JsonDataReader.loadJson(JSON_PATH, ProductData.class);
@@ -57,7 +57,7 @@ public class SearchTests extends BaseTest {
     // SCENARIO 2: Search with Invalid Product (NEGATIVE)
     // ======================================================
     @Test(groups = { "Regression", "Search","CoreFlow" })
-    public void searchWithInvalidProductScenario() {
+    public void shouldShowNoResultsWhenSearchingWithInvalidProduct() {
 
         ProductData searchData =
                 JsonDataReader.loadJson(JSON_PATH, ProductData.class);
@@ -81,7 +81,7 @@ public class SearchTests extends BaseTest {
     // SCENARIO 3: Search with Empty Product Name (NEGATIVE)
     // ======================================================
     @Test(groups = { "Regression", "Search","CoreFlow"})
-    public void searchWithEmptyProductScenario() {
+    public void shouldShowValidationMessageWhenSearchKeywordIsEmpty() {
 
         loginToApplication();
 
@@ -102,7 +102,7 @@ public class SearchTests extends BaseTest {
     // SCENARIO 4: Search with Category Only (EDGE CASE)
     // ======================================================
     @Test(groups = { "Regression", "Search","CoreFlow" })
-    public void searchWithCategoryOnlyScenario() {
+    public void shouldNotPerformSearchWhenSearchKeywordIsEmpty() {
 
         ProductData searchData =
                 JsonDataReader.loadJson(JSON_PATH, ProductData.class);

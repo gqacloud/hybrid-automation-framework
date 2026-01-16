@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Properties;
+import java.util.TimeZone;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -34,8 +35,11 @@ public class BaseTest {
 
 	protected static final Logger logger = LogManager.getLogger(BaseTest.class);
 
-	protected Properties prop;
+	protected static Properties prop;
 
+	// ===============================================================
+	// PATH CONSTANTS (NOT REMOVED)
+	// ===============================================================
 	public static final String USER_DIR = System.getProperty("user.dir");
 	public static final String EXCEL_PATH = USER_DIR + "/testData/testdata/Users.xlsx";
 	public static final String JSON_PATH = USER_DIR + "/src/test/resources/testdata/ProductData.json";
@@ -46,6 +50,9 @@ public class BaseTest {
 	// ===============================================================
 	@BeforeSuite(alwaysRun = true)
 	public void beforeSuite() {
+		// 🔥 FORCE EST FOR REPORTS + LOGS
+		TimeZone.setDefault(TimeZone.getTimeZone("America/New_York"));
+
 		ThreadContext.put("testName", "SUITE");
 		logger.info("===== TEST SUITE STARTED =====");
 	}
@@ -57,24 +64,34 @@ public class BaseTest {
 	}
 
 	// ===============================================================
-	// TEST METHOD LEVEL (MDC + DRIVER INIT)
+	// TEST METHOD LEVEL
 	// ===============================================================
 	@BeforeMethod(alwaysRun = true)
 	@Parameters({ "os", "browser" })
 	public void beforeEachTest(Method method, @Optional("WIN10") String os, @Optional("chrome") String browserName)
 			throws IOException {
 
+		// -----------------------------------------------------------
+		// MDC CONTEXT
+		// -----------------------------------------------------------
 		ThreadContext.put("testName", method.getDeclaringClass().getSimpleName() + "." + method.getName());
+
+		// 🔥 START TIME FOR LOG DURATION
+		ThreadContext.put("startTime", String.valueOf(System.currentTimeMillis()));
 
 		logger.info("===== TEST STARTED =====");
 
-		// Load config once per test (safe + isolated)
-		prop = new Properties();
-		prop.load(new FileReader(CONFIG_PATH));
+		// -----------------------------------------------------------
+		// LOAD CONFIG (ONCE)
+		// -----------------------------------------------------------
+		if (prop == null) {
+			prop = new Properties();
+			prop.load(new FileReader(CONFIG_PATH));
+		}
 
 		String exeEnv = prop.getProperty("exe_env").trim();
 		String appUrl = prop.getProperty("url").trim();
-		String gridUrl = prop.getProperty("grid_url").trim();
+		String gridUrl = prop.getProperty("grid_url", "").trim();
 
 		boolean headless = Boolean.parseBoolean(prop.getProperty("headless", "false"));
 		boolean incognito = Boolean.parseBoolean(prop.getProperty("incognito", "false"));
@@ -82,15 +99,27 @@ public class BaseTest {
 		logger.info("Execution Environment : {}", exeEnv);
 		logger.info("Browser              : {}", browserName);
 		logger.info("OS                   : {}", os);
+		logger.info("Headless             : {}", headless);
+		logger.info("Incognito            : {}", incognito);
 
-		// 🔥 ENTERPRISE FIX: NEW DRIVER PER TEST METHOD
-		if (exeEnv.equalsIgnoreCase("local")) {
+		// -----------------------------------------------------------
+		// DRIVER INITIALIZATION
+		// -----------------------------------------------------------
+		if ("local".equalsIgnoreCase(exeEnv)) {
+
 			DriverFactory.initLocalDriver(browserName, headless, incognito);
-		} else if (exeEnv.equalsIgnoreCase("remote")) {
+
+		} else if ("remote".equalsIgnoreCase(exeEnv)) {
+
 			DriverFactory.initRemoteDriver(os, browserName, gridUrl);
+
 		} else {
 			throw new IllegalArgumentException("Invalid exe_env (Use: local / remote)");
 		}
+
+		// 🔥 LOCK METADATA INTO DRIVER MANAGER
+		DriverManager.setRunMode(headless, incognito);
+		DriverManager.setDriver(DriverManager.getDriver(), browserName);
 
 		WebDriver driver = DriverManager.getDriver();
 
@@ -98,6 +127,9 @@ public class BaseTest {
 		driver.manage().timeouts().scriptTimeout(TimeoutConstants.SCRIPT_TIMEOUT);
 		driver.manage().timeouts().implicitlyWait(TimeoutConstants.IMPLICIT_WAIT);
 
+		// -----------------------------------------------------------
+		// SAFE NAVIGATION
+		// -----------------------------------------------------------
 		safeNavigate(driver, appUrl);
 		waitForPageLoad(driver);
 
@@ -109,30 +141,33 @@ public class BaseTest {
 		logger.info("Page Loaded Successfully. Title: {}", title);
 	}
 
+	// ===============================================================
+	// AFTER METHOD
+	// ===============================================================
 	@AfterMethod(alwaysRun = true)
 	public void afterEachTest(ITestResult result) {
+
+		long start = Long.parseLong(ThreadContext.get("startTime"));
+
+		double duration = (System.currentTimeMillis() - start) / 1000.0;
 
 		String testName = result.getMethod().getMethodName();
 
 		switch (result.getStatus()) {
 
 		case ITestResult.SUCCESS:
-			logger.info("===== TEST PASSED  : {} =====", testName);
+			logger.info("===== TEST PASSED  : {} ({} sec) =====", testName, String.format("%.2f", duration));
 			break;
 
 		case ITestResult.FAILURE:
-			logger.error("===== TEST FAILED  : {} =====", testName);
-			logger.error("Failure Reason:", result.getThrowable());
+			logger.error("===== TEST FAILED  : {} ({} sec) =====", testName, String.format("%.2f", duration),
+					result.getThrowable());
 
-			// Optional: Screenshot on failure
 			captureScreen(testName);
 			break;
 
 		case ITestResult.SKIP:
-			logger.warn("===== TEST SKIPPED : {} =====", testName);
-			if (result.getThrowable() != null) {
-				logger.warn("Skip Reason:", result.getThrowable());
-			}
+			logger.warn("===== TEST SKIPPED : {} ({} sec) =====", testName, String.format("%.2f", duration));
 			break;
 
 		default:
@@ -142,10 +177,10 @@ public class BaseTest {
 		try {
 			DriverManager.cleanUp();
 		} catch (Exception e) {
-			logger.error("Error while closing WebDriver:", e);
+			logger.error("Error while closing WebDriver", e);
 		}
 
-		ThreadContext.remove("testName");
+		ThreadContext.clearAll();
 	}
 
 	// ===============================================================
@@ -186,14 +221,17 @@ public class BaseTest {
 	public static String captureScreen(String testName) {
 
 		WebDriver driver = DriverManager.getDriver();
+
 		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
 
 		File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
 		String screenshotDir = USER_DIR + "/reports/screenshots/";
+
 		new File(screenshotDir).mkdirs();
 
 		String fileName = testName + "_" + timeStamp + ".png";
+
 		String fullPath = screenshotDir + fileName;
 
 		try {

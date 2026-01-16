@@ -14,7 +14,7 @@ public class RegistrationTests extends BaseTest {
     // SCENARIO 1: Valid Account Registration (Positive)
     // ======================================================
     @Test(groups = { "Regression", "Registration", "Master","CoreFlow" })
-    public void validAccountRegistrationScenario() {
+    public void shouldRegisterAccountSuccessfullyWithValidDetails() {
 
         HomePage homePage = new HomePage();
         RegisterAccount accountPage = new RegisterAccount();
@@ -52,7 +52,7 @@ public class RegistrationTests extends BaseTest {
     // SCENARIO 2: Registration Without Accepting Policy
     // ======================================================
     @Test(groups = { "Regression", "Registration","CoreFlow" })
-    public void registrationWithoutAcceptingPolicyScenario() {
+    public void shouldNotRegisterAccountWhenPolicyIsNotAccepted() {
 
         HomePage homePage = new HomePage();
         RegisterAccount accountPage = new RegisterAccount();
@@ -89,7 +89,7 @@ public class RegistrationTests extends BaseTest {
     // SCENARIO 3: Registration With Existing Email
     // ======================================================
     @Test(groups = { "Regression", "Registration","CoreFlow" })
-    public void registrationWithExistingEmailScenario() {
+    public void shouldNotRegisterAccountWhenEmailAlreadyExists() {
 
         HomePage homePage = new HomePage();
         RegisterAccount accountPage = new RegisterAccount();
@@ -126,7 +126,7 @@ public class RegistrationTests extends BaseTest {
     // SCENARIO 4: Registration With Mismatched Passwords
     // ======================================================
     @Test(groups = { "Regression", "Registration","CoreFlow" })
-    public void registrationWithMismatchedPasswordsScenario() {
+    public void shouldNotRegisterAccountWhenPasswordsDoNotMatch() {
 
         HomePage homePage = new HomePage();
         RegisterAccount accountPage = new RegisterAccount();
@@ -162,7 +162,7 @@ public class RegistrationTests extends BaseTest {
     // SCENARIO 5: Registration With Empty Mandatory Fields
     // ======================================================
     @Test(groups = { "Regression", "Registration","CoreFlow" })
-    public void registrationWithoutMandatoryFieldsScenario() {
+    public void shouldNotRegisterAccountWhenMandatoryFieldsAreMissing() {
 
         HomePage homePage = new HomePage();
         RegisterAccount accountPage = new RegisterAccount();

@@ -19,7 +19,7 @@ public class PurchaseTests extends BaseTest {
     // SCENARIO: End-to-End Purchase Flow
     // ======================================================
     @Test(groups = { "Regression", "Master", "E2E" })
-    public void purchaseProductEndToEndScenario() {
+    public void shouldPurchaseProductSuccessfully() {
 
         // -------------------- Login --------------------
         HomePage homePage = new HomePage();

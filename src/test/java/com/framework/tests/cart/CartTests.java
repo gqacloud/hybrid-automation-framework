@@ -34,7 +34,7 @@ public class CartTests extends BaseTest {
     // ======================================================
     // COMMON FLOW: Add Product to Cart
     // ======================================================
-    private void addProductToCart(ProductData data) {
+    private void shouldAddProductToCartSuccessfully(ProductData data) {
 
         SearchPage search = new SearchPage();
         search.searchProduct(
@@ -57,13 +57,13 @@ public class CartTests extends BaseTest {
     // SCENARIO 1: Verify Product Is Added to Cart
     // ======================================================
     @Test(groups = { "Functional", "Regression", "Cart" })
-    public void verifyProductAddedToCartScenario() {
+    public void shouldDisplayProductInCartAfterAdding() {
 
         ProductData data =
                 JsonDataReader.loadJson(JSON_PATH, ProductData.class);
 
         loginToApplication();
-        addProductToCart(data);
+        shouldAddProductToCartSuccessfully(data);
 
         CartPage cart = new CartPage();
         cart.clickOnCartHeader();
@@ -78,13 +78,13 @@ public class CartTests extends BaseTest {
     // SCENARIO 2: Verify Product Quantity in Cart
     // ======================================================
     @Test(groups = { "Regression", "Cart" })
-    public void verifyProductQuantityInCartScenario() {
+    public void shouldUpdateProductQuantityCorrectlyInCart() {
 
         ProductData data =
                 JsonDataReader.loadJson(JSON_PATH, ProductData.class);
 
         loginToApplication();
-        addProductToCart(data);
+        shouldAddProductToCartSuccessfully(data);
 
         CartPage cart = new CartPage();
         cart.clickOnCartHeader();
@@ -100,13 +100,13 @@ public class CartTests extends BaseTest {
     // SCENARIO 3: Verify Product Total Price in Cart
     // ======================================================
     @Test(groups = { "Regression", "Cart" })
-    public void verifyProductTotalPriceInCartScenario() {
+    public void shouldCalculateCorrectTotalPriceInCart() {
 
         ProductData data =
                 JsonDataReader.loadJson(JSON_PATH, ProductData.class);
 
         loginToApplication();
-        addProductToCart(data);
+        shouldAddProductToCartSuccessfully(data);
 
         CartPage cart = new CartPage();
         cart.clickOnCartHeader();
@@ -121,13 +121,13 @@ public class CartTests extends BaseTest {
     // SCENARIO 4: Verify Cart Is Not Empty After Adding Product
     // ======================================================
     @Test(groups = { "Regression", "Cart" })
-    public void verifyCartIsNotEmptyScenario() {
+    public void shouldNotAllowCartToBeEmptyAfterAddingProduct() {
 
         ProductData data =
                 JsonDataReader.loadJson(JSON_PATH, ProductData.class);
 
         loginToApplication();
-        addProductToCart(data);
+        shouldAddProductToCartSuccessfully(data);
 
         CartPage cart = new CartPage();
         cart.clickOnCartHeader();
@@ -142,13 +142,13 @@ public class CartTests extends BaseTest {
     // SCENARIO 5: Proceed to Checkout from Cart
     // ======================================================
     @Test(groups = { "Regression", "Cart", "Checkout" })
-    public void proceedToCheckoutFromCartScenario() {
+    public void shouldProceedToCheckoutFromCart() {
 
         ProductData data =
                 JsonDataReader.loadJson(JSON_PATH, ProductData.class);
 
         loginToApplication();
-        addProductToCart(data);
+        shouldAddProductToCartSuccessfully(data);
 
         CartPage cart = new CartPage();
         cart.clickOnCartHeader();
