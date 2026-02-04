@@ -13,10 +13,12 @@
     <!-- ================= GROUP CONTROL ================= -->
     <groups>
         <run>
-        	<include name="Regression"/>
-           <!--  <include name="Sanity"/>-->
-       <!--  <include name="Regression"/> -->
+            <!-- Full enterprise regression -->
+            <include name="Regression"/>
+
+            <!-- Optional exclusions -->
             <!-- <exclude name="E2E"/> -->
+            <!-- <exclude name="Negative"/> -->
         </run>
     </groups>
 
@@ -24,30 +26,17 @@
     <test name="Web-UI-Tests">
 
         <!-- Environment Parameters -->
-        <parameter name="os" value="Windows"/>
+        <parameter name="os" value="LINUX"/>
         <parameter name="browser" value="chrome"/>
 
         <!-- ================= FEATURE PACKAGES ================= -->
         <packages>
-
-            <!-- Registration -->
             <package name="com.framework.tests.registration"/>
-
-            <!-- Login -->
             <package name="com.framework.tests.login"/>
-
-            <!-- Search -->
             <package name="com.framework.tests.search"/>
-
-            <!-- Product -->
             <package name="com.framework.tests.product"/>
-
-            <!-- Cart -->
             <package name="com.framework.tests.cart"/>
-
-            <!-- End-to-End Purchase -->
             <package name="com.framework.tests.purchase"/>
-
         </packages>
 
     </test>

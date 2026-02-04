@@ -14,7 +14,7 @@ public class LoginTests extends BaseTest {
 	// POSITIVE SCENARIOS
 	// ===============================
 
-	@Test(groups = { "Sanity", "Regression", "Login", "CoreFlow" })
+	@Test(groups = { "Smoke", "Sanity", "Regression", "Login", "CoreFlow" })
 	public void shouldLoginSuccessfullyWithValidCredentials() {
 
 		HomePage homePage = new HomePage();
@@ -33,7 +33,7 @@ public class LoginTests extends BaseTest {
 	// NEGATIVE SCENARIOS
 	// ===============================
 
-	@Test(groups = { "Regression", "Login", "CoreFlow" })
+	@Test(groups = { "Regression", "Negative", "Login" })
 	public void shouldNotLoginWhenInvalidCredentialsProvided() {
 
 		HomePage homePage = new HomePage();
@@ -46,7 +46,7 @@ public class LoginTests extends BaseTest {
 		Assert.assertTrue(loginPage.isLoginErrorDisplayed(), "Error message not shown for invalid login");
 	}
 
-	@Test(groups = { "Regression", "Login","CoreFlow" })
+	@Test(groups = { "Regression", "Negative", "Login" })
 	public void shouldNotLoginWhenCredentialsAreEmpty() {
 
 		HomePage homePage = new HomePage();
@@ -60,7 +60,7 @@ public class LoginTests extends BaseTest {
 	}
 
 	@Test(dataProvider = "LoginData", dataProviderClass = com.framework.utils.data.DataProviders.class, groups = {
-			"Login", "DataDriven", "Regression", "Master" })
+			"Regression", "Login", "DataDriven", "Negative" })
 	public void shouldLoginBasedOnProvidedCredentials(String email, String password, String expectedResult) {
 
 		HomePage homePage = new HomePage();

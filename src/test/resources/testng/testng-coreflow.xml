@@ -1,16 +1,31 @@
-<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
-<suite name="Core Flow Suite" parallel="tests" thread-count="3">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 
-    <test name="Core Flow Tests">
+<suite name="Core-Flow-Suite"
+       parallel="tests"
+       thread-count="3">
+
+    <!-- ================= LISTENERS ================= -->
+    <listeners>
+        <listener class-name="com.framework.utils.reports.ExtentReportListener"/>
+    </listeners>
+
+    <!-- ================= CORE FLOW TESTS ================= -->
+    <test name="Core-Flow-Tests">
+
+        <!-- Group Control -->
         <groups>
             <run>
                 <include name="CoreFlow"/>
+                <!-- Optional safety -->
+                <!-- <exclude name="Negative"/> -->
             </run>
         </groups>
 
+        <!-- Test Discovery -->
         <packages>
-            <package name="com.framework.tests.*"/>
+            <package name="com.framework.tests"/>
         </packages>
+
     </test>
 
 </suite>
