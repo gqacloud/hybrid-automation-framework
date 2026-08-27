@@ -126,9 +126,15 @@ public class ExtentReportListener implements ITestListener {
             Status status,
             Throwable error) {
 
-        long duration =
-                System.currentTimeMillis()
-                        - (long) result.getAttribute("startTime");
+        Object startTime = result.getAttribute("startTime");
+        long duration = startTime instanceof Number
+                ? System.currentTimeMillis() - ((Number) startTime).longValue()
+                : 0L;
+
+        if (getTest() == null) {
+            logger.warn("No Extent test exists for {}", result.getMethod().getMethodName());
+            return;
+        }
 
         getTest().log(
                 status,
