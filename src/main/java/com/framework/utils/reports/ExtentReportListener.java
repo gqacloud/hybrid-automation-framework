@@ -104,10 +104,14 @@ public class ExtentReportListener implements ITestListener {
                 BaseTest.captureScreen(
                         result.getMethod().getMethodName());
 
-        getTest().fail("Screenshot",
-                MediaEntityBuilder
-                        .createScreenCaptureFromPath(path)
-                        .build());
+        if (getTest() != null && path != null && !path.isBlank()) {
+            getTest().fail("Screenshot",
+                    MediaEntityBuilder
+                            .createScreenCaptureFromPath(path)
+                            .build());
+        } else {
+            logger.warn("Skipping screenshot attachment because no screenshot path was produced");
+        }
     }
 
     @Override

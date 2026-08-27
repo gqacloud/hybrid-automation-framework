@@ -162,8 +162,6 @@ public class BaseTest {
 		case ITestResult.FAILURE:
 			logger.error("===== TEST FAILED  : {} ({} sec) =====", testName, String.format("%.2f", duration),
 					result.getThrowable());
-
-			captureScreen(testName);
 			break;
 
 		case ITestResult.SKIP:
@@ -219,6 +217,11 @@ public class BaseTest {
 	// SCREENSHOT UTILITY
 	// ===============================================================
 	public static String captureScreen(String testName) {
+
+		if (!DriverManager.hasDriver()) {
+			logger.warn("Skipping screenshot because WebDriver is not initialized for this thread");
+			return "";
+		}
 
 		WebDriver driver = DriverManager.getDriver();
 
