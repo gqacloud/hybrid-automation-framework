@@ -129,7 +129,6 @@ public final class DriverFactory {
 	private static void configureDriver(WebDriver driver) {
 		driver.manage().deleteAllCookies();
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		
 	}
 

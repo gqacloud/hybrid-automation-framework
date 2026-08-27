@@ -11,7 +11,7 @@
     <!-- ================= GROUP CONTROL ================= -->
     <groups>
         <run>
-            <include name="Master"/>
+            <include name="Regression"/>
             <!-- <include name="Sanity"/> -->
             <!-- <include name="Regression"/> -->
             <!-- <exclude name="E2E"/> -->
@@ -28,7 +28,7 @@
         <!-- ================= FEATURE CLASSES ================= -->
         <classes>
   
-            <class name="com.framework.tests.register.RegisterTests"/>
+            <class name="com.framework.tests.registration.RegistrationTests"/>
             <class name="com.framework.tests.login.LoginTests"/>
             <class name="com.framework.tests.search.SearchTests"/>
             <class name="com.framework.tests.product.ProductDetailsTests"/>

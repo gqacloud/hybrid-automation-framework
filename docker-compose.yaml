@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   selenium-hub:
-    image: selenium/hub:4.40.0
+    image: selenium/hub:4.47.0
     container_name: selenium-hub
     ports:
       - "4444:4444"
@@ -10,7 +10,7 @@ services:
       - selenium-grid
 
   chrome:
-    image: selenium/node-chrome:4.40.0
+    image: selenium/node-chrome:4.47.0
     depends_on:
       - selenium-hub
     shm_size: "2gb"
@@ -22,7 +22,7 @@ services:
       - selenium-grid
 
   edge:
-    image: selenium/node-edge:4.40.0
+    image: selenium/node-edge:4.47.0
     depends_on:
       - selenium-hub
     shm_size: "2gb"
@@ -34,7 +34,7 @@ services:
       - selenium-grid
 
   firefox:
-    image: selenium/node-firefox:4.40.0
+    image: selenium/node-firefox:4.47.0
     depends_on:
       - selenium-hub
     shm_size: "2gb"

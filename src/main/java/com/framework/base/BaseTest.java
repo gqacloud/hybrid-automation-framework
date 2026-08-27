@@ -41,7 +41,7 @@ public class BaseTest {
 	// PATH CONSTANTS (NOT REMOVED)
 	// ===============================================================
 	public static final String USER_DIR = System.getProperty("user.dir");
-	public static final String EXCEL_PATH = USER_DIR + "/testData/testdata/Users.xlsx";
+	public static final String EXCEL_PATH = USER_DIR + "/src/test/resources/testdata/Users.xlsx";
 	public static final String JSON_PATH = USER_DIR + "/src/test/resources/testdata/ProductData.json";
 	public static final String CONFIG_PATH = USER_DIR + "/src/main/resources/config.properties";
 

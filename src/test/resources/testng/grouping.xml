@@ -14,7 +14,7 @@
     <groups>
         <run>
             <!-- Full enterprise regression -->
-            <include name="Regression"/>
+            <include name="Smoke"/>
 
             <!-- Optional exclusions -->
             <!-- <exclude name="E2E"/> -->
@@ -26,7 +26,7 @@
     <test name="Web-UI-Tests">
 
         <!-- Environment Parameters -->
-        <parameter name="os" value="LINUX"/>
+        <parameter name="os" value="WINDOWS"/>
         <parameter name="browser" value="chrome"/>
 
         <!-- ================= FEATURE PACKAGES ================= -->
