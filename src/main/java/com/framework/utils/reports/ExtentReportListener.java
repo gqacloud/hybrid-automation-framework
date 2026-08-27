@@ -93,6 +93,7 @@ public class ExtentReportListener implements ITestListener {
     @Override
     public void onTestSuccess(ITestResult result) {
         logResult(result, Status.PASS, null);
+        test.remove();
     }
 
     @Override
